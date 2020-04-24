@@ -14,7 +14,7 @@ git clone https://github.com/israelwerther/IsraelEstoque.git.
 cd IsraelEstoque.
 virtualenv --python=python3 venv.
 source venv/bin/activate.
-pip isntall -r requirements.txt.
+pip install -r requirements.txt.
 python contrib/env_gen.py    (cria arquivo .env aleatoriamento toda vez que roda o comando). 
 python manage.py migrate.
 ```
