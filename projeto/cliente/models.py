@@ -17,6 +17,12 @@ class Cliente(models.Model):
     email           = models.EmailField("Email", max_length=50, blank=True, null=True)   
     cpf             = models.OneToOneField(CPF, on_delete=models.PROTECT, blank=True, null=True)   
     num_telefone    = models.CharField("Telefone",max_length=20, blank=True, null=True) 
+    
+    class Meta:
+        ordering = ('nome',) #confirme se é a organização e apague o coment
 
-    # def __str__(self):
-    #     return self.nome
+    def __str__(self):
+        return self.nome
+    
+    def get_absolute_url(self):
+        return reverse_lazy('cliente:cliente_detail', kwargs={'pk': self.pk})

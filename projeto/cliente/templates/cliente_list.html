@@ -11,26 +11,27 @@
         <table class="table striped">
             <thead>
                 <tr>
-                    <th>Nome</th>
-                    <th>Endereço</th>
+                    <th>Nome</th>                    
                     <th>RG</th>
                     <th>Data de Nascimento</th>
-                    <th>Anotações</th>
-                    <th>Email</th>
+                    <th>Anotações</th>                    
                     <th>CPF</th>
                     <th>Telefone</th>                    
                 </tr>
             </thead>
             <tbody>
-                {% for object in object_list  %}                  
-                    <td>{{ object.nome }}</td>
-                    <td>{{ object.endereco }}</td>
+                {% for object in object_list  %}   
+                <tr>
+                    <td> 
+                        <a href="{{ object.get_absolute_url}}">{{object.nome}}</a> <!--SUbstitui a forma comentada na linha abaixo comentada-->
+                        <!-- <a href="{% url 'cliente:cliente_detail' object.pk %}">{{object.nome}}</a> -->
+                    </td>                                        
                     <td>{{ object.rg }}</td>
                     <td>{{ object.data_nasc }}</td>
-                    <td>{{ object.anotacoes }}</td>
-                    <td>{{ object.email }}</td>
+                    <td>{{ object.anotacoes }}</td>                    
                     <td>{{ object.cpf }}</td>
-                    <td>{{ object.num_telefone }}</td>                
+                    <td>{{ object.num_telefone }}</td>    
+                </tr>
                 {% endfor %}
             </tbody>
         </table>

@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<a href="{% url 'cliente:cliente_list' %}">Voltar</a>
+<h1>{{ object }}
+    <span class="pull-right">
+        <a href="">
+            <button type="button" class="btn btn-success">
+                <span class="fa fa-pencil">Editar</span>
+            </button>
+        </a>
+    </span>
+</h1>
+
+<div class="col-sm-6">
+    <table class="table table-user-information">
+        <tbody>
+            <tr>
+                <th class="text-right">Nome</th>
+                <td>{{ object.nome }}</td>
+            </tr>
+            <tr>
+                <th class="text-right">Endereco</th>
+                <td>{{ object.endereco }}</td>
+            </tr>
+            <tr>
+                <th class="text-right">RG</th>
+                <td>{{ object.rg }}</td>
+            </tr>
+            <tr>
+                <th class="text-right">Data de nascimento</th>
+                <td>{{ object.data_nasc }}</td>
+            </tr>
+            <tr>
+                <th class="text-right">Anotacoes</th>
+                <td>{{ object.anotacoes }}</td>
+            </tr>
+            <tr>
+                <th class="text-right">E-mail</th>
+                <td>{{ object.email }}</td>
+            </tr>
+            <tr>
+                <th class="text-right">CPF</th>
+                <td>{{ object.cpf }}</td>
+            </tr>
+            <tr>
+                <th class="text-right">Telefone</th>
+                <td>{{ object.num_telefone }}</td>
+            </tr>
+            
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+{% endblock content %}
