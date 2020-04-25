@@ -1,5 +1,7 @@
 from django.shortcuts import render
+from django.views.generic import CreateView
 from .models import Cliente
+from .forms import ClienteForm
 
 
 def cliente_list(request):
@@ -16,6 +18,16 @@ def cliente_detail(request, pk):
     return render(request, template_name, context)
 
 
-def cliente_add(request):
+# def cliente_add(request):
+#     template_name='cliente_form.html'
+#     return render(request, template_name)
+
+
+class ClienteCreate(CreateView):
+    model=Cliente
     template_name='cliente_form.html'
-    return render(request, template_name)
+    form_class=ClienteForm
+    
+    
+    
+    
