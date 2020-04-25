@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="class page-header">
+    <h2><i class="fa fa-user"></i>Lista de Clientes</h2>
+
+    
+    {% if object_list %}
+    
+        <table class="table striped">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Endereço</th>
+                    <th>RG</th>
+                    <th>Data de Nascimento</th>
+                    <th>Anotações</th>
+                    <th>Email</th>
+                    <th>CPF</th>
+                    <th>Telefone</th>                    
+                </tr>
+            </thead>
+            <tbody>
+                {% for object in object_list  %}                  
+                    <td>{{ object.nome }}</td>
+                    <td>{{ object.endereco }}</td>
+                    <td>{{ object.rg }}</td>
+                    <td>{{ object.data_nasc }}</td>
+                    <td>{{ object.anotacoes }}</td>
+                    <td>{{ object.email }}</td>
+                    <td>{{ object.cpf }}</td>
+                    <td>{{ object.num_telefone }}</td>                
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="alert alert-warning">Sem Clientes cadastrados</p>
+    {% endif %}
+
+</div>
+
+{% endblock content %}
+

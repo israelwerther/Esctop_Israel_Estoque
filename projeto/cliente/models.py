@@ -1,5 +1,5 @@
 from django.db import models
-from django.utils.translation import gettext_lazy as _ 
+from django.urls import reverse_lazy
 
 class CPF(models.Model):
     cpf             = models.CharField("CPF", max_length=11, blank=True, null=True)
@@ -8,7 +8,7 @@ class CPF(models.Model):
     def __str__(self):
         return self.cpf
 
-class Pessoa(models.Model):
+class Cliente(models.Model):
     nome            = models.CharField("Nome", max_length=100)
     endereco        = models.CharField("Endereço", max_length=200, blank=True, null=True)
     rg              = models.CharField("RG",max_length=20, blank=True, null=True)

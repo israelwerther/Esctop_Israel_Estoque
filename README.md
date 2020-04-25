@@ -11,7 +11,7 @@ Repositório de suporte e aprendizado para outro projeto
 
 ```
 git clone https://github.com/israelwerther/IsraelEstoque.git.
-cd IsraelEstoque.
+cd Esctop_Israel_Estoque.
 virtualenv --python=python3 venv.
 source venv/bin/activate.
 pip install -r requirements.txt.
