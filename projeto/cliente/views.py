@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Cliente
 
+
 def cliente_list(request):
     template_name='cliente_list.html'
     objects=Cliente.objects.all()
@@ -13,3 +14,8 @@ def cliente_detail(request, pk):
     obj=Cliente.objects.get(pk=pk)
     context={'object': obj}
     return render(request, template_name, context)
+
+
+def cliente_add(request):
+    template_name='cliente_form.html'
+    return render(request, template_name)
