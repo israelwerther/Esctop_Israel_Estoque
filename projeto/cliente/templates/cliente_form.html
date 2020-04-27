@@ -15,14 +15,13 @@
 
 <form method="POST" novalidate>
     {% csrf_token %}
-    {% for field in form.visible_fields %}
+    <!-- {% for field in form.visible_fields %}
         <div class="form-group{% if field.erros %} has-error {% endif %}">
             <label for="{{ field.id_for_label }}">
                 {% if field.field.required %}
                     <span class="required">{{ field.label }} </span>
                 {% else %}
                     {{ field.label }}
-
                 {% endif %}
             </label>
             {% render_field field class="form-control" %}
@@ -30,12 +29,72 @@
                 <span class="text-muted">{{ error }}</span>              
             {% endfor %}
         </div>  
-    {% endfor %}
+    {% endfor %} -->
+
+    <div class="row">
+        <div class="col-sm-4">                    
+            <div class="form-group" >
+                <label for="">{{form.nome.label}}</label>
+                {% render_field form.nome class="form-control" %}
+            </div>
+        </div>
+        <div class="col-sm-8"> 
+            <div class="form-group">
+                <label for="">{{form.endereco.label}}</label>
+                {% render_field form.endereco class="form-control" %}                       
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label for="">{{form.num_telefone.label}}</label>
+                {% render_field form.num_telefone class="form-control" %}
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label for="">{{form.cpf.label}}</label>
+                {% render_field form.cpf class="form-control" %}                       
+            </div>     
+        </div>
+
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label for="">{{form.rg.label}}</label>
+                {% render_field form.rg class="form-control" %}
+            </div>  
+        </div>
+
+        {% if pessoa %}
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label for="">{{form.data_nasc.label}}</label>
+                    {% render_field form.data_nasc class="form-control"  %}                        
+                </div>  
+            </div>
+        {% else %}
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="">{{form.data_nasc.label}}</label>
+                    {% render_field form.data_nasc class="form-control" type="date" %}
+                </div>  
+            </div>
+        {% endif %}        
+
+    </div>
+    
+    <div class="form-group">
+        <label for="">{{form.anotacoes.label}}</label>
+        {% render_field form.anotacoes class="form-control" %}
+    </div> 
+
+   
+
     <button type="submit" class="btn btn-success">Cadastrar</button>
 
-
 </form>
-    
-
   
 {% endblock content %}
