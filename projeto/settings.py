@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'projeto.produto',
     'projeto.estoque',
     'projeto.cliente',
+    'projeto.emprestimo',
 ]
 
 MIDDLEWARE = [
