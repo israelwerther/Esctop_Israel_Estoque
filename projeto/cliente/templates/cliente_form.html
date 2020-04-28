@@ -70,11 +70,11 @@
             </div>  
         </div>
 
-        {% if form.visible_fields %}
+        {% if object.pk %}
             <div class="col-sm-2">
                 <div class="form-group">
                     <label for="">{{form.data_nasc.label}}</label>
-                    {% render_field form.data_nasc class="form-control"  %}                        
+                    {% render_field form.data_nasc class="form-control" %}                        
                 </div>  
             </div>
         {% else %}
