@@ -14,9 +14,7 @@
 {% block content %}
 
 <form method="POST" novalidate>
-
     {% csrf_token %}
-
     <!-- {% for field in form.visible_fields %}
         <div class="form-group{% if field.erros %} has-error {% endif %}">
             <label for="{{ field.id_for_label }}">

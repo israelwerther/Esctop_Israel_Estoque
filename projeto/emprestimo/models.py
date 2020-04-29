@@ -4,11 +4,9 @@ from django.urls import reverse_lazy
 from projeto.core.models import TimeStampedModel
 from projeto.cliente.models import Cliente
 
-
 MOVIMENTO = (
     ('r', 'realizar'),
-    ('p', 'pagar'),    
-)
+    ('p', 'pagar'),    )
 
 
 class Emprestimo(TimeStampedModel):
