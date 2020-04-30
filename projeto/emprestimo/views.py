@@ -1,8 +1,10 @@
 from django.forms import inlineformset_factory
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, resolve_url
-from .models import Emprestimo, EmprestimoItens
-from .forms import EmprestimoForm, EmprestimoItensForm
+from .models import Emprestimo
+from .forms import EmprestimoForm
+
+from django.views.generic import CreateView
 
 
 def emprestimo_entrada_list(request):
@@ -19,32 +21,38 @@ def emprestimo_entrada_detail(request, pk):
     return render(request, tamplate_name, context)
 
 
-def emprestimo_entrada_add(request):
-    tamplate_name = 'emprestimo_entrada_form.html'    
-    emprestimo_form = Emprestimo()
-    item_emprestimo_formset = inlineformset_factory(
-        Emprestimo,
-        EmprestimoItens,
-        form = EmprestimoItensForm,
-        extra = 0,
-        min_num = 1,
-        validate_min = True,
-    )
-    if request.method == 'POST':
-        form = EmprestimoForm(request.POST, instance=emprestimo_form, prefix='main')
-        formset = item_emprestimo_formset(
-            request.POST,
-            instance = emprestimo_form, 
-            prefix = 'emprestimo'
-        )
-        if form.is_valid() and formset.is_valid():
-            form = form.save()
-            formset.save()
-            url = 'emprestimo:emprestimo_entrada_detail'
-            return HttpResponseRedirect(resolve_url(url, form.pk))         
-    else: #case ele esteja vazio
-        form = EmprestimoForm(instance=emprestimo_form, prefix='main')
-        formset = item_emprestimo_formset(instance=emprestimo_form, prefix='emprestimo')           
-    context = {'form': form, 'formset': formset}
-    return render(request, tamplate_name, context)
+class EmprestimoCreate(CreateView):
+    model=Emprestimo
+    template_name='emprestimo_entrada_form.html'
+    form_class=EmprestimoForm
+
+
+# def emprestimo_entrada_add(request):
+#     tamplate_name = 'emprestimo_entrada_form.html'    
+#     emprestimo_form = Emprestimo()
+#     item_emprestimo_formset = inlineformset_factory(
+#         Emprestimo,
+#         EmprestimoItens,
+#         form = EmprestimoItensForm,
+#         extra = 0,
+#         min_num = 1,
+#         validate_min = True,
+#     )
+#     if request.method == 'POST':
+#         form = EmprestimoForm(request.POST, instance=emprestimo_form, prefix='main')
+#         formset = item_emprestimo_formset(
+#             request.POST,
+#             instance = emprestimo_form, 
+#             prefix = 'emprestimo'
+#         )
+#         if form.is_valid() and formset.is_valid():
+#             form = form.save()
+#             formset.save()
+#             url = 'emprestimo:emprestimo_entrada_detail'
+#             return HttpResponseRedirect(resolve_url(url, form.pk))         
+#     else: #case ele esteja vazio
+#         form = EmprestimoForm(instance=emprestimo_form, prefix='main')
+#         formset = item_emprestimo_formset(instance=emprestimo_form, prefix='emprestimo')           
+#     context = {'form': form, 'formset': formset}
+#     return render(request, tamplate_name, context)
 

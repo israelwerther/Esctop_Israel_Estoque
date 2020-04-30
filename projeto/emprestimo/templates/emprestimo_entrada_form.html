@@ -48,10 +48,9 @@
                     <legend style="border-bottom: 1px solid #a12b2b;"> Emprestimos </legend>
                     <div id="emprestimo" class="form-inline">
                         {% for item_emprestimo_form in formset %}
-                        <div id="item-{{ forloop.counter0 }}" class="form-group">
-                            {{ item_emprestimo_form|bootstrap }}
-                        </div>
-                          
+                            <div id="item-{{ forloop.counter0 }}" class="form-group">
+                                {{ item_emprestimo_form|bootstrap }}
+                            </div>                          
                         {% endfor %}
                     </div>
                 </div>
@@ -80,12 +79,13 @@
     </div>
 </div>
 
+
 {% endblock content %}
 
 {% block js %}
 
 <script>
-    $(document).ready(function(){
+    /*$(document).ready(function(){
         $('#add-item').click(function(ev){            
             ev.preventDefault();
             var count = $('#emprestimo').children().length;
@@ -93,14 +93,31 @@
             var compiledTmpl = tmplMarkup.replace(/__prefix__/g, count);
             $('div#emprestimo').append(compiledTmpl);
         });
-    });
+    });*/
 </script>
 
-<script type="text/html" id="item-emprestimo">
+<!-- <script type="text/html" id="item-emprestimo">
     <div id="item-__prefix__" class="form-group" style="margin-top: 10px;">
         {{ formset.empty_form|bootstrap }}
     </div>
-</script>
+</script> -->
   
 {% endblock js %}
 
+<!-- <div class="row">
+    <div class="col-sm-4">  
+        <div class="form-group">
+            <label for="valor_emprestado" >Valor Emprestimo</label >
+            <input type="number" class="form-control" id="valor_emprestado" name="valor_emprestado" >    
+        </div>
+    </div>
+</div> -->
+
+<!-- <div class="row">
+    <div class="col-sm-4">  
+        <div class="form-group">
+            <label for="id_emprestimo-0-valor_emprestado" >Valor Emprestimo</label >
+            <input type="number" class="form-control" id="id_emprestimo-0-valor_emprestado" name="emprestimo-0-valor_emprestado" >    
+        </div>
+    </div>
+</div> -->

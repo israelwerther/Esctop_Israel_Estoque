@@ -1,5 +1,5 @@
 from django import forms
-from .models import Emprestimo, EmprestimoItens
+from .models import Emprestimo
 
 class EmprestimoForm(forms.ModelForm):    
     class Meta:
@@ -7,9 +7,6 @@ class EmprestimoForm(forms.ModelForm):
         fields = '__all__'
         
         
-class EmprestimoItensForm(forms.ModelForm):    
-    class Meta:
-        model = EmprestimoItens
-        fields = '__all__'
+
         
         
