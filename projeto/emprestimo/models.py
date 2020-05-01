@@ -1,5 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.urls import reverse_lazy
+# from projeto.core.models import TimeStampedModel
 from projeto.cliente.models import Cliente
 
 class Emprestimo(models.Model):
@@ -14,4 +16,4 @@ class Emprestimo(models.Model):
         ordering=('funcionario',)
         
     def __str__(self):
-        return self.emprestimo
+        return str(self.num_doc)

@@ -4,6 +4,7 @@ from .models import Cliente
 from .forms import ClienteForm
 
 
+
 def cliente_list(request):
     template_name='cliente_list.html'
     objects=Cliente.objects.all()

@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="class page-header">
+    <h2>Lista de Emprestimos
+        <span class="pull-right">
+            <a href="">
+                <button type="button" class="btn btn-primary">
+                    <span class="fa fa-plus"></span>Adicionar
+                </button>
+            </a>
+        </span>
+    </h2>
+    
+    {% if object_list %}
+    
+        <table class="table table-striped">
+            <thead class="thead">
+                <tr>
+                    <th>funcionario</th>                    
+                    <th>num_doc</th>                    
+                    <th>cliente</th>                    
+                    <th>valor_emprestado</th>                    
+                    <th>qtd_parcelas</th>                    
+                    <th>valor_prestacao</th>                    
+                          
+                </tr>
+            </thead>
+            <tbody>
+                {% for object in object_list  %}   
+                <tr>
+                    <td> 
+                        <a href="{{ object.get_absolute_url}}">{{object.funcionario}}</a> 
+                    </td> 
+                    <td>{{ object.num_doc }}</td>
+                    <td>{{ object.cliente }}</td>
+                    <td>{{ object.valor_emprestado }}</td>
+                    <td>{{ object.qtd_parcelas }}</td>
+                    <td>{{ object.valor_prestacao }}</td>
+                   
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="alert alert-warning">Sem Emprestimos cadastrados</p>
+    {% endif %}
+
+</div>
+
+{% endblock content %}
