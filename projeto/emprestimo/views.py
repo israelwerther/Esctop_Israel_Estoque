@@ -11,3 +11,16 @@ def emprestimo_list(request):
     context={'object_list': objects}
     return render(request, template_name, context)
 
+
+def emprestimo_detail(request, pk):
+    template_name='emprestimo_detail.html'
+    obj=Emprestimo.objects.get(pk=pk)
+    context={'object': obj}
+    return render(request, template_name, context)
+
+
+class EmprestimoCreate(CreateView):
+    model=Emprestimo
+    template_name='emprestimo_form.html'
+    form_class=EmprestimoForm
+

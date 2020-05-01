@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% load widget_tweaks %}
+
+{% block css %}
+    <style>
+        label.required:after{
+            content: "*";
+            color: red;
+        }
+    </style>
+{% endblock css %}
+
+{% block content %}
+
+<form method="POST" novalidate>
+
+    {% csrf_token %}
+
+    <div class="row">
+        <div class="col-sm-3">                    
+            <div class="form-group" >                
+                <label for="" class="required" >{{form.funcionario.label}} </label>                
+                {% render_field form.funcionario class="form-control" %}
+            </div>
+        </div>
+        <div class="col-sm-3"> 
+            <div class="form-group">
+                <label for="">{{form.num_doc.label}}</label>
+                {% render_field form.num_doc class="form-control" %}                       
+            </div>
+        </div>
+        <div class="col-sm-3"> 
+            <div class="form-group">
+                <label for="">{{form.cliente.label}}</label>
+                {% render_field form.cliente class="form-control" %}                       
+            </div>
+        </div>
+        <div class="col-sm-3"> 
+            <div class="form-group">
+                <label for="">{{form.valor_emprestado.label}}</label>
+                {% render_field form.valor_emprestado class="form-control" %}                       
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">                    
+            <div class="form-group" >                
+                <label for="" class="required" >{{form.qtd_parcelas.label}} </label>                
+                {% render_field form.qtd_parcelas class="form-control" %}
+            </div>
+        </div>
+        <div class="col-sm-3"> 
+            <div class="form-group">
+                <label for="">{{form.valor_prestacao.label}}</label>
+                {% render_field form.valor_prestacao class="form-control" %}                       
+            </div>
+        </div>       
+    </div>
+
+    <button type="submit" class="btn btn-success">Cadastrar</button>
+
+</form>
+  
+{% endblock content %}

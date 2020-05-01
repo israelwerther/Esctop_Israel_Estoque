@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<a href="{% url 'emprestimo:emprestimo_list' %}">Voltar</a>
+<h1>{{ object.funcionario }}
+    <span class="pull-right">
+        <a href="">
+            <button type="button" class="btn btn-success">
+                <span class="fa fa-pencil">Editar</span>
+            </button>
+        </a>
+    </span>
+</h1>
+
+<div class="col-sm-6">
+    <table class="table table-user-information">
+        <tbody>
+            <tr>
+                <th class="text-right">funcionario</th>
+                <td>{{ object.funcionario }}</td>
+            </tr>
+            <tr>
+                <th class="text-right">Nº Documento</th>
+                <td>{{ object.num_doc }}</td>
+            </tr>
+            <tr>
+                <th class="text-right">Cliente</th>
+                <td>{{ object.cliente }}</td>
+            </tr>
+            <tr>
+                <th class="text-right">Valor</th>
+                <td>{{ object.valor_emprestado }}</td>
+            </tr>
+            <tr>
+                <th class="text-right">Parcelas</th>
+                <td>{{ object.qtd_parcelas }}</td>
+            </tr>
+            <tr>
+                <th class="text-right">Prestacao</th>
+                <td>{{ object.valor_prestacao }}</td>
+            </tr>
+            
+            
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+{% endblock content %}
