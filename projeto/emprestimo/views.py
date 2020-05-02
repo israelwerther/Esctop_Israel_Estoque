@@ -12,6 +12,18 @@ def emprestimo_list(request):
     return render(request, template_name, context)
 
 
+class EmprestimoImpress(UpdateView):
+    model=Emprestimo
+    template_name='emprestimo_impress.html'
+    form_class=EmprestimoForm
+
+# def emprestimo_impress(request, pk):    
+#     template_name='emprestimo_impress.html'  
+#     obj=Emprestimo.objects.get(pk=pk)
+#     context={'object': obj}
+#     return render(request, template_name, context)
+
+
 def emprestimo_detail(request, pk):
     template_name='emprestimo_detail.html'
     obj=Emprestimo.objects.get(pk=pk)
@@ -30,6 +42,7 @@ class EmprestimoUpdate(UpdateView):
     template_name='emprestimo_form.html'
     form_class=EmprestimoForm
     
-    
+
+
 
 

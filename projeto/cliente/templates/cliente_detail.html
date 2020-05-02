@@ -9,7 +9,8 @@
 <span class="pull-right">
     <a href="{% url 'cliente:cliente_list' %}" class="btn btn-primary">Voltar</a>
     <a href="{% url 'cliente:cliente_delete' object.pk %}" class="btn btn-danger">Deletar</a>
-</span>    
+    <a href="{% url 'cliente:cliente_edit' object.pk %}" class="btn btn-success">Editar</a>    
+</span>  
 
 <div class="col-sm-6">
     <table class="table table-user-information">
