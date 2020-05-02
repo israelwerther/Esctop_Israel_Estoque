@@ -3,9 +3,9 @@
 {% block content %}
 
 <a href="{% url 'emprestimo:emprestimo_list' %}">Voltar</a>
-<h1>{{ object.funcionario }}
+<h1>Detalhes do Emprestimo de {{ object.cliente }}
     <span class="pull-right">
-        <a href="">
+        <a href="{% url 'emprestimo:emprestimo_edit' object.pk %}">
             <button type="button" class="btn btn-success">
                 <span class="fa fa-pencil">Editar</span>
             </button>
@@ -41,14 +41,8 @@
                 <td>{{ object.valor_prestacao }}</td>
             </tr>
             
-            
         </tbody>
     </table>
 </div>
-
-
-
-
-
 
 {% endblock content %}

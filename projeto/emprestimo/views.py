@@ -23,4 +23,10 @@ class EmprestimoCreate(CreateView):
     model=Emprestimo
     template_name='emprestimo_form.html'
     form_class=EmprestimoForm
+    
+
+class EmprestimoUpdate(UpdateView):
+    model=Emprestimo
+    template_name='emprestimo_form.html'
+    form_class=EmprestimoForm
 

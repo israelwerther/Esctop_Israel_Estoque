@@ -13,10 +13,22 @@
 
 {% block content %}
 
-<form method="POST" novalidate>
+
+<!-- <form method="POST" novalidate> -->
+    
+    {% if emprestimo %}
+
+        <h1>Editar {{emprestimo.cliente}}</h1>
+        <form action="{% url 'emprestimo:emprestimo_edit' emprestimo.id %}" method="POST" novalidate>
+
+    {% else %}    
+
+        <h1>Cadastrar um Novo Empréstimo</h1>
+        <form action="{% url 'emprestimo:emprestimo_add' %}" method="POST" novalidate>
+
+    {% endif %}
 
     {% csrf_token %}
-
     <div class="row">
         <div class="col-sm-3">                    
             <div class="form-group" >                
@@ -59,7 +71,8 @@
     </div>
 
     <button type="submit" class="btn btn-success">Cadastrar</button>
+   
 
-</form>
+    </form>
   
 {% endblock content %}

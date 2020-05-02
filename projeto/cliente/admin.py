@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Cliente
+from .models import Cliente, CPF
 
 @admin.register(Cliente)
 class ClienteAdmin(admin.ModelAdmin):
@@ -15,3 +15,9 @@ class ClienteAdmin(admin.ModelAdmin):
     )
     search_fields=('nome',)
     list_filter=('rg',)
+    
+@admin.register(CPF)
+class CPFAdmin(admin.ModelAdmin):
+    list_display=(        
+        'cpf',         
+    )
