@@ -29,4 +29,7 @@ class EmprestimoUpdate(UpdateView):
     model=Emprestimo
     template_name='emprestimo_form.html'
     form_class=EmprestimoForm
+    
+    
+
 
