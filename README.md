@@ -10,7 +10,7 @@ Repositório de suporte e aprendizado para outro projeto
 * Rode as migrações.
 
 ```
-git clone https://github.com/israelwerther/IsraelEstoque.git.
+git clone https://github.com/israelwerther/Esctop_Israel_Estoque.git.
 cd Esctop_Israel_Estoque.
 virtualenv --python=python3 venv.
 source venv/bin/activate.
