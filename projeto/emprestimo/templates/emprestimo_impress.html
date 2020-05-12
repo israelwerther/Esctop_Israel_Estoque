@@ -1,4 +1,7 @@
+<!DOCTYPE html>
 <html charset="UTF-8">
+
+{% load widget_tweaks %}
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -136,8 +139,8 @@
         </script>    
 </head>
 
-<body>
-    <br/>
+
+<!-- <br/>
     <div class="headerBtn" id="headerBtn">
         <div style="text-align:right;">
             <button class="no-print btnDefault print" onclick="window.print()">
@@ -150,31 +153,60 @@
             </button>            
         </div>
     </div>
-    <br/>
+    <br/> -->
 
-  
 <!-- <h1>Impressão do Emprestimo de {{ object.cliente }}</h1> -->
-<!-- <input type="button" class="btn btn-success" value="Imprimir" onclick="imprimir()"><br><br> -->
+<!-- <input type="button" class="btn btn-success" value="Imprimir" onclick="imprimir()"><br><br> -->	
 
+
+<!-- -------------------------------------------------------------------------------------------------- -->
+
+Date2: {% render_field form.data_emprestimo class="form-control" id="data_emprestimo" %}<br>
+<button onclick="aumentar()">Try it</button>
+
+<script>
+function aumentar(){
+	window.document.getElementById("data_emprestimo")+timedelta(days=30);
+}
+</script>
+<br>
+
+<!-- -------------------------------------------------------------------------------------------------- -->
+
+Date1: <input type="date" id="myDate" value="2014-05-05"><br>
+<button onclick="myFunction2()">Try it</button>
+<script>
+function myFunction2() {
+  window.document.getElementById("myDate").stepUp(5);
+}
+</script>
+<br>
+
+<!-- -------------------------------------------------------------------------------------------------- -->
+
+<!-- <div class="col-sm-3"> 
+	<div class="form-group">
+		<label >{{form.data_emprestimo.label}}</label>
+        {% render_field form.data_emprestimo class="form-control" id="data_emprestimo" %}                       
+	</div>
+</div>
+
+<br>
+
+<div>
+	<h2>Estética \/\/\/\/\/\/\/\/\/\/\/</h2>
+	{{form.data_emprestimo.label}}<br>
+
+	{{object.data_emprestimo}}<br>
+	<h2>Estética /\/\/\/\/\/\/\/\/\/\/\</h2>
+	
+</div> -->
 
 <input type="button" class="btn btn-warning" value="Gerar Boleto" onclick="imprimir()"><br><br>
 <div class="document">
 	<div id = "carne" class="col-sm-6"></div>
 </div>
 	<br>
-
-	{{form.data_emprestimo.label}}<br>
-
-	{{object.data_emprestimo}}<br>
-
-	document.{{object.data_emprestimo}}.stepUp(30);<br>
-
-	
-
-	
-
-
-
 	<script>
 		
 		function imprimir(){
