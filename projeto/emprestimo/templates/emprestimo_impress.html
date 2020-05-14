@@ -160,40 +160,23 @@
 
 
 <!-- -------------------------------------------------------------------------------------------------- -->
+	{{form.data_emprestimo}}<br>
+	{% render_field form.valor_prestacao class="form-control" %}<br>
+	{{object.data_emprestimo }}<br>
+	Date2: {% render_field form.data_emprestimo type="text" id="data_emprestimo" type="date" %}<br><br>
+	<button onclick="aumentar()">Try it</button>
 
-Date2: {% render_field form.data_emprestimo class="form-control" id="data_emprestimo" %}<br>
-<button onclick="aumentar()">Try it</button>
-
-<script>
-function aumentar(){
-	window.document.getElementById("data_emprestimo")+timedelta(days=30);
-}
-</script>
-<br>
-
-<!-- -------------------------------------------------------------------------------------------------- -->
-
-Date1: <input type="date" id="myDate" value="2014-05-05"><br>
-<button onclick="myFunction2()">Try it</button>
-<script>
-function myFunction2() {
-  window.document.getElementById("myDate").stepUp(5);
-}
-</script>
-<br>
+	<script>
+	function aumentar(){
+		window.document.getElementById("data_emprestimo").stepUp(30);
+	}
+	</script>
+	<br>
+	
 
 <!-- -------------------------------------------------------------------------------------------------- -->
 
-<!-- <div class="col-sm-3"> 
-	<div class="form-group">
-		<label >{{form.data_emprestimo.label}}</label>
-        {% render_field form.data_emprestimo class="form-control" id="data_emprestimo" %}                       
-	</div>
-</div>
-
-<br>
-
-<div>
+<!-- <div>
 	<h2>Estética \/\/\/\/\/\/\/\/\/\/\/</h2>
 	{{form.data_emprestimo.label}}<br>
 
@@ -230,7 +213,7 @@ function myFunction2() {
 								<span class="title">Data de Vencimento</span>
 								<br/>
 								<br/>
-								<p class="content right text" style="font-weight:bold;">{{object.data_emprestimo}}.stepUp(5)</p>
+								<p class="content right text" style="font-weight:bold;">{{object.data_emprestimo.month}}/{{object.data_emprestimo.day}}</p>
 							</td>
 						</tr>
 						<tr>

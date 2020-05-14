@@ -4,7 +4,7 @@ from .models import Emprestimo
 @admin.register(Emprestimo)
 class EmprestimoAdmin(admin.ModelAdmin):
     list_display=(        
-        'funcionario',        
+        'data_emprestimo',        
     )
-    search_fields=('nome',)
+    search_fields=('num_doc',)
     # list_filter=('rg',)

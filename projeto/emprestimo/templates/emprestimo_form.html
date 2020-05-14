@@ -69,7 +69,7 @@
             </div>
         </div>       
         
-        {% if object.pk %}
+        {% if object.pk %} <!-- if object.data_emprestimo é isso que ele quer dizer -->
             <!-- <div class="col-sm-3">
                 <div class="form-group">
                     <label for="data_emprestimo">Data do emprestimo sem widget</label>
@@ -79,17 +79,25 @@
             <div class="col-sm-3"> 
                 <div class="form-group">
                     <label for="">{{form.data_emprestimo.label}}</label>
-                    {% render_field form.data_emprestimo class="form-control" %}                       
+                    {% render_field form.data_emprestimo type="date"  %}                       
                 </div>
             </div>       
         {% else %}
-            <div class="col-sm-3">
+            <!-- <div class="col-sm-3">
                 <div class="form-group">
                     <label for="">{{form.data_emprestimo.label}}</label>
-                    {% render_field form.data_emprestimo class="form-control" %}
+                    {% render_field form.data_emprestimo class="form-control"  %}
+                    
+                </div>  
+            </div>             -->
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label for="">{{form.data_emprestimo.label}}</label>   
+                    {% render_field form.data_emprestimo type="date" %}                  
+                    <!-- <input type="text" class="vDateField"  placeholder="oi"> -->
                 </div>  
             </div>            
-        {% endif %}         
+        {% endif %} 
         
     </div>
 
