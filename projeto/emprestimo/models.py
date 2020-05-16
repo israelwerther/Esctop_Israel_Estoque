@@ -4,14 +4,13 @@ from django.urls import reverse_lazy
 from projeto.core.models import TimeStampedModel
 from projeto.cliente.models import Cliente
 
-
 from datetime import datetime, date, timedelta
 
 #analize se é possivel modificar o tamanho das inputs de uma {{ form.as_p }} apenas no model
 class Emprestimo(models.Model):
+    cliente          = models.ForeignKey(Cliente, on_delete=models.CASCADE, null=True, blank=True)
     funcionario      = models.ForeignKey(User, on_delete=models.CASCADE)
     num_doc          = models.PositiveIntegerField('Nº Documento', null=True, blank=True)    
-    cliente          = models.ForeignKey(Cliente, on_delete=models.CASCADE, null=True, blank=True)
     valor_emprestado = models.DecimalField("Valor Emprestado", max_digits=10, decimal_places=2, null=True, blank=True)
     qtd_parcelas     = models.PositiveIntegerField('Qtd Parcelas', null=True, blank=True)
     valor_prestacao  = models.DecimalField("Valor da prestação", max_digits=10, decimal_places=2, null=True, blank=True)
