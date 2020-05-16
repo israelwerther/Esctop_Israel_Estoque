@@ -42,10 +42,16 @@
                 {% render_field form.num_doc class="form-control" %}                       
             </div>
         </div>
-        <div class="col-sm-3"> 
+        <!-- <div class="col-sm-3">
+            <div class="form-group">
+                <label for="object.cliente">Cliente</label>
+                <input class="form-control" id="cliente" name="cliente" type="select"> 
+            </div>  
+        </div> -->
+        <div class="col-sm-3">
             <div class="form-group">
                 <label for="">{{form.cliente.label}}</label>
-                {% render_field form.cliente class="form-control" type="text" %}                       
+                {% render_field form.cliente type="text" class="form-control" %}                       
             </div>
         </div>
         <div class="col-sm-3"> 

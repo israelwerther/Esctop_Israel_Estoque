@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, resolve_url
 from django.views.generic import CreateView, UpdateView
 from .models import Emprestimo
 from .forms import EmprestimoForm

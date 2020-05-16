@@ -6,8 +6,10 @@ from projeto.produto.models import Produto
 
 MOVIMENTO = (
     ('e', 'entrada'),
-    ('s', 'saida'),    
+    ('s', 'saida'),  
 )
+
+
 
 class Estoque(TimeStampedModel):
     funcionario = models.ForeignKey(User, on_delete=models.CASCADE)
