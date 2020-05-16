@@ -4,8 +4,8 @@ from django.urls import reverse_lazy
 from projeto.core.models import TimeStampedModel
 from projeto.cliente.models import Cliente
 
-from datetime import datetime, date, timedelta
 
+from datetime import datetime, date, timedelta
 
 #analize se é possivel modificar o tamanho das inputs de uma {{ form.as_p }} apenas no model
 class Emprestimo(models.Model):
