@@ -36,7 +36,7 @@
                     <td>{{ object.cliente }}</td>
                     <td>{{ object.valor_emprestado }}</td>
                     <td>{{ object.qtd_parcelas }}</td>  
-                    <td>{{ object.data_emprestimo }}</td>  
+                    <td>{{ object.data_emprestimo|date:"d/m/Y" }}</td>  
                 </tr>
                 {% endfor %}
             </tbody>
