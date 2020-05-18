@@ -9,11 +9,18 @@
             color: red;
         }
     </style>
+
+    <style>
+        label.error:after{
+            content: " Campo já existente";
+            color: rgb(0, 255, 55);
+        }
+    </style>
 {% endblock css %}
 
 {% block content %}
 
-<form method="POST" novalidate>
+<form method="POST">
 
     {% csrf_token %}
 
@@ -33,10 +40,12 @@
         </div>  
     {% endfor %} -->
 
+    <!-- https://www.schoolofnet.com/forum/topico/como-enviar-a-mensagem-de-sucesso-ou-erro-para-o-formulario-8495 -->
+    
     <div class="row">
         <div class="col-sm-4">                    
             <div class="form-group" >                
-                <label for="" class="required" >{{form.nome.label}} </label>                
+                <label for="" class="required" >{{form.nome.label}} </label>        
                 {% render_field form.nome class="form-control" %}
             </div>
         </div>
@@ -47,7 +56,7 @@
             </div>
         </div>
     </div>
-    
+    <!-- <div class="alerta error">Oh não! Isso foi em forma de pera.</div> -->
     <div class="row">
         <div class="col-sm-4">
             <div class="form-group">
@@ -56,9 +65,11 @@
             </div>
         </div>
 
-        <div class="col-sm-4">
+        <!-- class="errorlist"><li>This field is required.</li></ul><select id="user" name="user" required -->
+
+        <div class="col-sm-4" >
             <div class="form-group">
-                <label for="">{{form.cpf.label}}</label>
+                <label for="" class="required" >{{form.cpf.label}}</label>
                 {% render_field form.cpf class="form-control" %}                       
             </div>     
         </div>

@@ -8,6 +8,8 @@ from django.urls import reverse_lazy
 #     def __str__(self):
 #         return self.cpf
 
+#para campo required
+#https://stackoverflow.com/questions/1134667/django-required-field-in-model-form/1429646
 class Cliente(models.Model):
     nome            = models.CharField("Nome", max_length=100)
     endereco        = models.CharField("Endereço", max_length=200, blank=True, null=True)
@@ -15,7 +17,7 @@ class Cliente(models.Model):
     data_nasc       = models.DateField("Data de Nascimento",max_length=20, blank=True, null=True)    
     anotacoes       = models.TextField("Anotações",max_length=100, blank=True, null=True)
     email           = models.EmailField("Email", max_length=50, blank=True, null=True)
-    cpf             = models.CharField("CPF", max_length=20, blank=True, null=True, unique=True)   
+    cpf             = models.CharField("CPF", max_length=20, unique=True)   
     num_telefone    = models.CharField("Telefone",max_length=20, blank=True, null=True) 
     
     class Meta:

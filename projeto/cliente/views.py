@@ -20,13 +20,28 @@ def cliente_detail(request, pk):
     return render(request, template_name, context)
 
 
-# def cliente_add(request):
+# def ClienteCreate(request):
 #     template_name='cliente_form.html'
-#     return render(request, template_name)
+    
+#     if request.method == 'POST':
+#         form = ClienteForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#     else:
+#         form = ClienteForm()
+#     context = {
+#         'form': form
+#     }
+    
+#     return render(request, template_name, context)
 
 
 class ClienteCreate(CreateView):
     model=Cliente
+    
+    # success_url = reverse_lazy('list_exemplo')
+    # success_message = "Exemplo deletado com sucesso!!"   
+    
     template_name='cliente_form.html'
     form_class=ClienteForm
     
