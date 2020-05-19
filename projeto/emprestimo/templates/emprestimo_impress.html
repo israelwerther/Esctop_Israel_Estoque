@@ -164,22 +164,7 @@
     </div>
     <br/> -->
 
-<!-- <h1>Impressão do Emprestimo de {{ object.cliente }}</h1> -->
-<!-- <input type="button" class="btn btn-success" value="Imprimir" onclick="imprimir()"><br><br> -->	
 
-
-<!-- -------------------------------------------------------------------------------------------------- -->
-	<!-- Datemodelo1:{{object.data_emprestimo}}<br>Datemodelo2:{{ object.data_emprestimo|date:"d-m-Y" }}<br> -->
-	<!-- {{form.data_emprestimo}}<br>
-	{% render_field form.data_emprestimo class="form-control" %}<br>
-	{{object.data_emprestimo.day }}<br>
-	{{object.data_emprestimo.month }}<br>
-	{{object.data_emprestimo.year }}<br> -->
-
-	{{object.valor_emprestado}}*2
-	
-	<br>
-<!-- -------------------------------------------------------------------------------------------------- -->
 
 <!-- <div>
 	<h2>Estética \/\/\/\/\/\/\/\/\/\/\/</h2>
@@ -229,9 +214,7 @@
 
 			var valor_da_parcela = parseFloat("{{object.valor_emprestado}}")		
 
-			var valor_multa = parseFloat((valor_da_parcela*0.020))
-
-			valor_multa = valor_multa.toFixed(2)
+			var valor_multa = parseFloat((valor_da_parcela*0.020)).toFixed(2)	
 			
 			var valor_juros_dia = (valor_da_parcela*0.0066).toFixed(2)
 
