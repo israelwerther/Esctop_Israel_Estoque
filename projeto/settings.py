@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'bootstrapform',
     'datetimepicker',
+    
     #Minhas apps
     'projeto.core',
     'projeto.produto',

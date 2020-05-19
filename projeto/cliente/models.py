@@ -11,14 +11,25 @@ from django.urls import reverse_lazy
 #para campo required
 #https://stackoverflow.com/questions/1134667/django-required-field-in-model-form/1429646
 class Cliente(models.Model):
-    nome            = models.CharField("Nome", max_length=100)
-    endereco        = models.CharField("Endereço", max_length=200, blank=True, null=True)
-    rg              = models.CharField("RG",max_length=20, blank=True, null=True)
-    data_nasc       = models.DateField("Data de Nascimento",max_length=20, blank=True, null=True)    
-    anotacoes       = models.TextField("Anotações",max_length=100, blank=True, null=True)
-    email           = models.EmailField("Email", max_length=50, blank=True, null=True)
-    cpf             = models.CharField("CPF", max_length=20, unique=True)   
-    num_telefone    = models.CharField("Telefone",max_length=20, blank=True, null=True)
+    nome              = models.CharField("Nome", max_length=50)
+    cpf               = models.CharField("CPF", max_length=20, unique=True)   
+    rg                = models.CharField("RG",max_length=20, blank=True, null=True)
+    data_nasc         = models.DateField("Data de Nascimento",max_length=20, blank=True, null=True)   
+    nome_da_mae       = models.CharField("Nome da Mãe", max_length=50, blank=True, null=True)
+    nome_do_pai       = models.CharField("Nome da Pai", max_length=50, blank=True, null=True)
+    rua               = models.CharField("Rua", max_length=50, blank=True, null=True)
+    numero_casa       = models.CharField("Nº ", max_length=5, blank=True, null=True)
+    bairro            = models.CharField("Bairro", max_length=50, blank=True, null=True)
+    cidade            = models.CharField("Cidade", max_length=50, blank=True, null=True)
+    cep               = models.CharField("CEP", max_length=100, blank=True, null=True)
+    ponto_referencia  = models.CharField("Ponto de Referencia", max_length=100, blank=True, null=True)
+    contato1          = models.CharField("Contato 1",max_length=11, blank=True, null=True)
+    contato2          = models.CharField("Contato 2",max_length=11, blank=True, null=True)
+    celular1           = models.CharField("celular 1",max_length=11, blank=True, null=True)
+    celular2           = models.CharField("celular 2",max_length=11, blank=True, null=True)
+    sacado            = models.CharField("Sacado",max_length=50, blank=True, null=True)
+    anotacoes         = models.TextField("Anotações",max_length=200, blank=True, null=True)
+    email             = models.EmailField("Email", max_length=50, blank=True, null=True)
     
     class Meta:
         ordering = ('nome',) #confirme se é a organização e apague o coment

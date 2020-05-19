@@ -5,12 +5,12 @@ from .models import Cliente
 class ClienteAdmin(admin.ModelAdmin):
     list_display=(        
         'nome',
-        'endereco',
+        'rua',
         'rg',
         'data_nasc',
         'anotacoes',
         'email',        
-        'num_telefone',        
+        'contato1',        
     )
     search_fields=('nome',)
     list_filter=('rg',)
