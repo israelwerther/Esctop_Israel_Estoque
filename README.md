@@ -14,7 +14,7 @@ git clone https://github.com/israelwerther/Esctop_Israel_Estoque.git.
 cd Esctop_Israel_Estoque.
 virtualenv --python=python3 venv.
 source venv/bin/activate.
-pip install -r requirements.txt.
+pip install -r requirements-dev.txt.
 python contrib/env_gen.py    (cria arquivo .env aleatoriamento toda vez que roda o comando). 
 python manage.py migrate.
 ```
