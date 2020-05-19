@@ -14,100 +14,127 @@
         label.error:after{
             content: " Campo já existente";
             color: rgb(0, 255, 55);
+           
         }
     </style>
 {% endblock css %}
 
 {% block content %}
 
-<form method="POST">
+<style>
+    .f{
+     background-color: rgb(255, 255, 255);
+     width:: 300px;
+     height: 500px;
+     border: solid 1px black;
+    }
+   </style>
 
-    {% csrf_token %}
+   <!-- https://www.schoolofnet.com/forum/topico/como-enviar-a-mensagem-de-sucesso-ou-erro-para-o-formulario-8495 -->
 
-    <!-- {% for field in form.visible_fields %}
-        <div class="form-group{% if field.erros %} has-error {% endif %}">
-            <label for="{{ field.id_for_label }}">
-                {% if field.field.required %}
-                    <span class="required"> {{ field.label }} </span>
+    <div id="all">
+
+        <div class="f" id="tela1">
+            <form method="POST">
+            {% csrf_token %}        
+            <div class="row">
+                <div class="col-sm-4">                    
+                    <div class="form-group" >                
+                        <label for="" class="required" >{{form.nome.label}} </label>        
+                        {% render_field form.nome class="form-control" %}
+                    </div>
+                </div>
+                <div class="col-sm-8"> 
+                    <div class="form-group">
+                        <label for="">{{form.endereco.label}}</label>
+                        {% render_field form.endereco class="form-control" %}                       
+                    </div>
+                </div>
+            </div>    
+        </div>
+
+        <div class="f" id="tela2">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="">{{form.num_telefone.label}}</label>
+                        {% render_field form.num_telefone class="form-control" %}
+                    </div>
+                </div>
+        
+                <!-- class="errorlist"><li>This field is required.</li></ul><select id="user" name="user" required -->
+        
+                <div class="col-sm-4" >
+                    <div class="form-group">
+                        <label for="" class="required" >{{form.cpf.label}}</label>
+                        {% render_field form.cpf class="form-control" %}                       
+                    </div>     
+                </div>
+        
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="">{{form.rg.label}}</label>
+                        {% render_field form.rg class="form-control" %}
+                    </div>  
+                </div>
+        
+                {% if object.pk %}
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label for="">{{form.data_nasc.label}}</label>
+                            {% render_field form.data_nasc class="form-control" %}                        
+                        </div>  
+                    </div>
                 {% else %}
-                    {{ field.label }}
-                {% endif %}
-            </label>
-            {% render_field field class="form-control" %}
-            {% for error in field.errors %}
-                <span class="text-muted">{{ error }}</span>              
-            {% endfor %}
-        </div>  
-    {% endfor %} -->
-
-    <!-- https://www.schoolofnet.com/forum/topico/como-enviar-a-mensagem-de-sucesso-ou-erro-para-o-formulario-8495 -->
-    
-    <div class="row">
-        <div class="col-sm-4">                    
-            <div class="form-group" >                
-                <label for="" class="required" >{{form.nome.label}} </label>        
-                {% render_field form.nome class="form-control" %}
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="">{{form.data_nasc.label}}</label>
+                            {% render_field form.data_nasc class="form-control" type="date" %}
+                        </div>  
+                    </div>
+                {% endif %} 
             </div>
         </div>
-        <div class="col-sm-8"> 
+
+        <div class="f" id="tela3">
             <div class="form-group">
-                <label for="">{{form.endereco.label}}</label>
-                {% render_field form.endereco class="form-control" %}                       
-            </div>
+                <label for="">{{form.anotacoes.label}}</label>
+                {% render_field form.anotacoes class="form-control" %}
+            </div>    
+
+            <button type="submit" class="btn btn-success">Cadastrar</button>
+            </form>
         </div>
     </div>
-    <!-- <div class="alerta error">Oh não! Isso foi em forma de pera.</div> -->
-    <div class="row">
-        <div class="col-sm-4">
-            <div class="form-group">
-                <label for="">{{form.num_telefone.label}}</label>
-                {% render_field form.num_telefone class="form-control" %}
-            </div>
-        </div>
 
-        <!-- class="errorlist"><li>This field is required.</li></ul><select id="user" name="user" required -->
+    <nav id="menu">
+        <button id="tela1">B1</button>
+        <button id="tela2">B2</button>
+        <button id="tela3">B3</button>
+    </nav>
 
-        <div class="col-sm-4" >
-            <div class="form-group">
-                <label for="" class="required" >{{form.cpf.label}}</label>
-                {% render_field form.cpf class="form-control" %}                       
-            </div>     
-        </div>
-
-        <div class="col-sm-4">
-            <div class="form-group">
-                <label for="">{{form.rg.label}}</label>
-                {% render_field form.rg class="form-control" %}
-            </div>  
-        </div>
-
-        {% if object.pk %}
-            <div class="col-sm-2">
-                <div class="form-group">
-                    <label for="">{{form.data_nasc.label}}</label>
-                    {% render_field form.data_nasc class="form-control" %}                        
-                </div>  
-            </div>
-        {% else %}
-            <div class="col-sm-4">
-                <div class="form-group">
-                    <label for="">{{form.data_nasc.label}}</label>
-                    {% render_field form.data_nasc class="form-control" type="date" %}
-                </div>  
-            </div>
-        {% endif %}        
-
-    </div>
+   <script>
     
-    <div class="form-group">
-        <label for="">{{form.anotacoes.label}}</label>
-        {% render_field form.anotacoes class="form-control" %}
-    </div> 
+    function tableshowhide(a,b,c){
+            len = menu.childElementCount;
+            closeall();
+            for(i=0; i<len; i++){
+            menu.children[i].onclick=function(){
+                closeall();
+                all.children[this.id].style.display="block";
+            }
+        }
 
-   
+        function closeall(){
+            for(i=0; i<all.childElementCount;i++){
+                all.children[i].style.display="none";
+            }
+        }
 
-    <button type="submit" class="btn btn-success">Cadastrar</button>
+        menu.children[c].click();
+    }
+    tableshowhide("menu", "all", "tela1");
 
-</form>
-  
+    </script>
 {% endblock content %}
+

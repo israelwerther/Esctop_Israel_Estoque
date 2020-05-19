@@ -18,7 +18,7 @@ class Cliente(models.Model):
     anotacoes       = models.TextField("Anotações",max_length=100, blank=True, null=True)
     email           = models.EmailField("Email", max_length=50, blank=True, null=True)
     cpf             = models.CharField("CPF", max_length=20, unique=True)   
-    num_telefone    = models.CharField("Telefone",max_length=20, blank=True, null=True) 
+    num_telefone    = models.CharField("Telefone",max_length=20, blank=True, null=True)
     
     class Meta:
         ordering = ('nome',) #confirme se é a organização e apague o coment
