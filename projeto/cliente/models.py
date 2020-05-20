@@ -28,7 +28,7 @@ class Cliente(models.Model):
     celular1          = models.CharField("celular 1",max_length=11, blank=True, null=True)
     celular2          = models.CharField("celular 2",max_length=11, blank=True, null=True)
     sacado            = models.CharField("Sacado",max_length=50, blank=True, null=True)
-    anotacoes         = models.TextField("Anotações",max_length=200, blank=True, null=True)
+    anotacoes         = models.TextField("Anotações",max_length=200)
     email             = models.EmailField("Email", max_length=50, blank=True, null=True)
     
     class Meta:
