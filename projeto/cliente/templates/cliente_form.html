@@ -41,16 +41,17 @@
         font-size: 16px;
         margin: 4px 2px;
         cursor: pointer;
-    }
-      
+    }      
     .button1 {border-radius: 8px;}
     .button2 {border-radius: 4px;}
     .button3 {border-radius: 8px;}
     .button4 {border-radius: 12px;}
     .button5 {border-radius: 50%;}
+
+   
 </style>
 
-   <!-- https://www.schoolofnet.com/forum/topico/como-enviar-a-mensagem-de-sucesso-ou-erro-para-o-formulario-8495 -->
+    <!-- https://www.schoolofnet.com/forum/topico/como-enviar-a-mensagem-de-sucesso-ou-erro-para-o-formulario-8495 -->
 
     <div id="all">
         <div class="f" id="tela1">
@@ -69,7 +70,7 @@
                 <div class="col-sm-2">                    
                     <div class="form-group" >                
                         <label for="" class="required" >{{form.cpf.label}} </label>        
-                        {% render_field form.cpf class="form-control cpf-mask" type="text" %}
+                        {% render_field form.cpf class="form-control" %}
                     </div>
                 </div>
                 <div class="col-sm-2">                    
@@ -78,18 +79,25 @@
                         {% render_field form.rg class="form-control" %}
                     </div>
                 </div>
-                <div class="col-sm-3"> 
-                    <div class="form-group">
-                        <label for="">{{form.data_nasc.label}}</label>
-                        {% render_field form.data_nasc class="form-control" type="date"%}                       
+
+                {% if object.pk %}
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label for="">{{form.data_nasc.label}}</label>
+                            {% render_field form.data_nasc class="form-control" %}                        
+                        </div>  
                     </div>
-                </div>
-                <div class="col-sm-2"> 
-                    <div class="form-group">
-                        <label for="">{{form.naturalidade.label}}</label>
-                        {% render_field form.naturalidade class="form-control" type="text"%}                       
+                {% else %}
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="">{{form.data_nasc.label}}</label>
+                            {% render_field form.data_nasc class="form-control" type="date" %}
+                        </div>  
                     </div>
-                </div>
+                {% endif %} 
+
+               
+                
                 <div class="col-sm-5">                    
                     <div class="form-group" >                
                         <label for="" >{{form.nome_da_mae.label}} </label>        
@@ -127,7 +135,7 @@
                 <div class="col-sm-2">                    
                     <div class="form-group" >                
                         <label for="" >{{form.cep.label}} </label>        
-                        {% render_field form.cep class="form-control cep-mask" placeholder="__.___-___" %}
+                        {% render_field form.cep class="form-control" %}
                     </div>
                 </div>
                 <div class="col-sm-4">                    
@@ -145,65 +153,39 @@
                 <div class="col-sm-2">                    
                     <div class="form-group" >                
                         <label for="" >{{form.contato1.label}} </label>        
-                        {% render_field form.contato1 class="form-control phone-mask" placeholder="(__) ____-____" %}
+                        {% render_field form.contato1 class="form-control" %}
                     </div>
                 </div>
                 <div class="col-sm-2">                    
                     <div class="form-group" >                
                         <label for="" >{{form.contato2.label}} </label>        
-                        {% render_field form.contato2 class="form-control phone-mask" placeholder="(__) ____-____" %}
+                        {% render_field form.contato2 class="form-control" %}
                     </div>
                 </div>
                 <div class="col-sm-2">                    
                     <div class="form-group" >                
                         <label for="" >{{form.celular1.label}} </label>        
-                        {% render_field form.celular1 class="form-control cel-phone-mask" placeholder="(__) _____-____" %}
+                        {% render_field form.celular1 class="form-control" %}
                     </div>
                 </div>
                 <div class="col-sm-2">                    
                     <div class="form-group" >                
                         <label for="" >{{form.celular2.label}} </label>        
-                        {% render_field form.celular2 class="form-control cel-phone-mask" placeholder="(__) _____-____" %}
+                        {% render_field form.celular2 class="form-control" %}
                     </div>
                 </div>
             </div> 
         </div>
 
         <div class="f" id="tela2">
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label for="">{{form.num_telefone.label}}</label>
-                        {% render_field form.num_telefone class="form-control" %}
-                    </div>
+            
+            <div class="col-sm-2"> 
+                <div class="form-group">
+                    <label for="">{{form.naturalidade.label}}</label>
+                    {% render_field form.naturalidade class="form-control" %}                       
                 </div>
-        
-                <!-- class="errorlist"><li>This field is required.</li></ul><select id="user" name="user" required -->
-                        
-        
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label for="">{{form.rg.label}}</label>
-                        {% render_field form.rg class="form-control" %}
-                    </div>  
-                </div>
-        
-                {% if object.pk %}
-                    <div class="col-sm-2">
-                        <div class="form-group">
-                            <label for="">{{form.data_nasc.label}}</label>
-                            {% render_field form.data_nasc class="form-control" %}                        
-                        </div>  
-                    </div>
-                {% else %}
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <label for="">{{form.data_nasc.label}}</label>
-                            {% render_field form.data_nasc class="form-control" type="date" %}
-                        </div>  
-                    </div>
-                {% endif %} 
             </div>
+            
         </div>
 
         <div class="f" id="tela3">
@@ -216,6 +198,10 @@
             </form>
         </div>
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
     <br>
     <div class="content">
         <nav id="menu">
