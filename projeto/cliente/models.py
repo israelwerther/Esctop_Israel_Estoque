@@ -13,7 +13,7 @@ from django.urls import reverse_lazy
 class Cliente(models.Model):
     nome              = models.CharField("Nome", max_length=50)
     cpf               = models.CharField("CPF", max_length=20, unique=True)   
-    rg                = models.CharField("RG",max_length=20, blank=True, null=True)
+    rg                = models.CharField("RG",max_length=20)
     data_nasc         = models.DateField("Data de Nascimento",max_length=8, blank=True, null=True)   
     nome_da_mae       = models.CharField("Nome da Mãe", max_length=50, blank=True, null=True)
     nome_do_pai       = models.CharField("Nome da Pai", max_length=50, blank=True, null=True)
