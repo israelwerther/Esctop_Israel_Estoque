@@ -34,7 +34,7 @@
         background-color: rgb(46, 129, 83); 
         border: none;
         color: white;
-        padding: 15px 52px;
+        padding: 10px 52px;
         text-align: center;
         text-decoration: none;
         display: inline-block;
@@ -81,7 +81,13 @@
                 <div class="col-sm-3"> 
                     <div class="form-group">
                         <label for="">{{form.data_nasc.label}}</label>
-                        {% render_field form.data_nasc class="form-control " type="date"%}                       
+                        {% render_field form.data_nasc class="form-control" type="date"%}                       
+                    </div>
+                </div>
+                <div class="col-sm-2"> 
+                    <div class="form-group">
+                        <label for="">{{form.naturalidade.label}}</label>
+                        {% render_field form.naturalidade class="form-control" type="text"%}                       
                     </div>
                 </div>
                 <div class="col-sm-5">                    
@@ -98,7 +104,7 @@
                 </div>
                 
             </div> 
-            <h2>Endereço</h2>
+            <h2>ENDEREÇO</h2>
             <div class="row">
                 <div class="col-sm-5">                    
                     <div class="form-group" >                
@@ -128,6 +134,12 @@
                     <div class="form-group" >                
                         <label for="" >{{form.ponto_referencia.label}} </label>        
                         {% render_field form.ponto_referencia class="form-control" %}
+                    </div>
+                </div>
+                <div class="col-sm-5">                    
+                    <div class="form-group" >                
+                        <label for="" >{{form.sacado.label}} </label>        
+                        {% render_field form.sacado class="form-control" %}
                     </div>
                 </div>
                 <div class="col-sm-2">                    
@@ -204,6 +216,7 @@
             </form>
         </div>
     </div>
+    <br>
     <div class="content">
         <nav id="menu">
             <button class="button button1" id="tela1">Cadastro Pessoal</button>
