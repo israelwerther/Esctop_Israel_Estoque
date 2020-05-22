@@ -208,39 +208,39 @@
             </form>
         </div>
     </div>
-    <div class="content">
+    <div >
         <nav id="menu">
             <button class="button button1" id="tela1">Cadastro Pessoal</button>
             <button class="button button1" id="tela2">Dados do Local de Trabalho </button>
             <button class="button button1" id="tela3">Dados Bancários</button>
         </nav>
-    </div>
-
-
-   <script>
-    
-    function tableshowhide(a,b,c){
-            len = menu.childElementCount;
-            closeall();
-            for(i=0; i<len; i++){
-            menu.children[i].onclick=function(){
+      
+        <script>
+      
+        function tableshowhide(a,b,c){
+                len = menu.childElementCount;
                 closeall();
-                all.children[this.id].style.display="block";
+                for(i=0; i<len; i++){
+                menu.children[i].onclick=function(){
+                    closeall();
+                    all.children[this.id].style.display="block";
+                }
             }
-        }
-
-        function closeall(){
-            for(i=0; i<all.childElementCount;i++){
-                all.children[i].style.display="none";
+      
+            function closeall(){
+                for(i=0; i<all.childElementCount;i++){
+                    all.children[i].style.display="none";
+                }
             }
+      
+            menu.children[c].click();
         }
-
-        menu.children[c].click();
-    }
-    tableshowhide("menu", "all", "tela1");
-
-    </script>
-    <!-- Adicionando Javascript -->
+        tableshowhide("menu", "all", "tela1");
+      
+        </script>
+      </div>
+    
+     <!-- Adicionando Javascript -->
     <script type="text/javascript" >
     
         function limpa_formulário_cep() {
@@ -312,4 +312,7 @@
         };
     
         </script>
-{% endblock content %}
+ {% endblock content %}
+
+ {% block footer %} {% endblock footer %}
+
