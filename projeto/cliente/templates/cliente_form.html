@@ -133,25 +133,25 @@
                 <div class="col-sm-2">                    
                     <div class="form-group" >                
                         <label for="" >{{form.contato1.label}} </label>        
-                        {% render_field form.contato1 class="form-control" %}
+                        {% render_field form.contato1 class="form-control phone-mask"  type="text"%}
                     </div>
                 </div>
                 <div class="col-sm-2">                    
                     <div class="form-group" >                
                         <label for="" >{{form.contato2.label}} </label>        
-                        {% render_field form.contato2 class="form-control" %}
+                        {% render_field form.contato2 class="form-control phone-mask" type="text"%}
                     </div>
                 </div>
                 <div class="col-sm-2">                    
                     <div class="form-group" >                
                         <label for="" >{{form.celular1.label}} </label>        
-                        {% render_field form.celular1 class="form-control" %}
+                        {% render_field form.celular1 class="form-control cel-phone-mask" type="text"%}
                     </div>
                 </div>
                 <div class="col-sm-2">                    
                     <div class="form-group" >                
                         <label for="" >{{form.celular2.label}} </label>        
-                        {% render_field form.celular2 class="form-control" %}
+                        {% render_field form.celular2 class="form-control cel-phone-mask" type="text"%}
                     </div>
                 </div>
             </div>    
@@ -160,13 +160,7 @@
 
         <div class="f" id="tela2">
             <div class="row">
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label for="">{{form.num_telefone.label}}</label>
-                        {% render_field form.num_telefone class="form-control" %}
-                    </div>
-                </div>
-        
+                        
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label for="">{{form.naturalidade.label}}</label>
