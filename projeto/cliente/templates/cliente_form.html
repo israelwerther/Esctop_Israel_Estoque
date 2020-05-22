@@ -4,6 +4,11 @@
 
 {% block css %}
     <style>
+        label {
+            font-weight: bold;
+        }
+    </style>
+    <style>
         label.required:after{
             content: "*";
             color: red;
@@ -34,12 +39,12 @@
         background-color: rgb(46, 129, 83); 
         border: none;
         color: white;
-        padding: 15px 52px;
+        padding: 6px 52px;
         text-align: center;
         text-decoration: none;
         display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
+        font-size: 20px;
+        margin: 34px 0px ;
         cursor: pointer;
     }
       
@@ -113,10 +118,16 @@
                              
                     </div>
                 </div>
-                <div class="col-sm-5">                    
+                <div class="col-sm-4">                    
                     <div class="form-group" >                
                         <label for="" >{{form.rua.label}} </label>        
                         {% render_field form.rua class="form-control" name="rua" type="text" id="rua" size="60" %}
+                    </div>
+                </div>
+                <div class="col-sm-1">                    
+                    <div class="form-group" >                
+                        <label for="" >{{form.numero_casa.label}} </label>        
+                        {% render_field form.numero_casa class="form-control" name="rua" type="text" id="rua" size="60" %}
                     </div>
                 </div>
                 <div class="col-sm-5">                    
@@ -208,6 +219,7 @@
             </form>
         </div>
     </div>
+    
     <div >
         <nav id="menu">
             <button class="button button1" id="tela1">Cadastro Pessoal</button>
