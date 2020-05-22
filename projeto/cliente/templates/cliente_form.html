@@ -34,24 +34,23 @@
         background-color: rgb(46, 129, 83); 
         border: none;
         color: white;
-        padding: 10px 52px;
+        padding: 15px 52px;
         text-align: center;
         text-decoration: none;
         display: inline-block;
         font-size: 16px;
         margin: 4px 2px;
         cursor: pointer;
-    }      
+    }
+      
     .button1 {border-radius: 8px;}
     .button2 {border-radius: 4px;}
     .button3 {border-radius: 8px;}
     .button4 {border-radius: 12px;}
     .button5 {border-radius: 50%;}
-
-   
 </style>
 
-    <!-- https://www.schoolofnet.com/forum/topico/como-enviar-a-mensagem-de-sucesso-ou-erro-para-o-formulario-8495 -->
+   <!-- https://www.schoolofnet.com/forum/topico/como-enviar-a-mensagem-de-sucesso-ou-erro-para-o-formulario-8495 -->
 
     <div id="all">
         <div class="f" id="tela1">
@@ -70,7 +69,7 @@
                 <div class="col-sm-2">                    
                     <div class="form-group" >                
                         <label for="" class="required" >{{form.cpf.label}} </label>        
-                        {% render_field form.cpf class="form-control" %}
+                        {% render_field form.cpf class="form-control cpf-mask" type="text" %}
                     </div>
                 </div>
                 <div class="col-sm-2">                    
@@ -79,32 +78,19 @@
                         {% render_field form.rg class="form-control" %}
                     </div>
                 </div>
-
-                {% if object.pk %}
-                    <div class="col-sm-2">
-                        <div class="form-group">
-                            <label for="">{{form.data_nasc.label}}</label>
-                            {% render_field form.data_nasc class="form-control" %}                        
-                        </div>  
+                <div class="col-sm-3"> 
+                    <div class="form-group">
+                        <label for="">{{form.data_nasc.label}}</label>
+                        {% render_field form.data_nasc class="form-control " type="date"%}                       
                     </div>
-                {% else %}
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <label for="">{{form.data_nasc.label}}</label>
-                            {% render_field form.data_nasc class="form-control" type="date" %}
-                        </div>  
-                    </div>
-                {% endif %} 
-
-               
-                
-                <div class="col-sm-5">                    
+                </div>
+                <div class="col-sm-4">                    
                     <div class="form-group" >                
                         <label for="" >{{form.nome_da_mae.label}} </label>        
                         {% render_field form.nome_da_mae class="form-control" %}
                     </div>
                 </div>
-                <div class="col-sm-5">                    
+                <div class="col-sm-4">                    
                     <div class="form-group" >                
                         <label for="" >{{form.nome_do_pai.label}} </label>        
                         {% render_field form.nome_do_pai class="form-control" %}
@@ -112,27 +98,27 @@
                 </div>
                 
             </div> 
-            <h2>ENDEREÇO</h2>
+            <h2>Endereço</h2>
             <div class="row">
-                <div class="col-sm-5">                    
+                <div class="col-sm-4">                    
                     <div class="form-group" >                
                         <label for="" >{{form.rua.label}} </label>        
                         {% render_field form.rua class="form-control" %}
                     </div>
                 </div>
-                <div class="col-sm-1">                    
+                <div class="col-sm-2">                    
                     <div class="form-group" >                
                         <label for="" >{{form.numero_casa.label}} </label>        
                         {% render_field form.numero_casa class="form-control" %}
                     </div>
                 </div>
-                <div class="col-sm-4">                    
+                <div class="col-sm-3">                    
                     <div class="form-group" >                
                         <label for="" >{{form.bairro.label}} </label>        
                         {% render_field form.bairro class="form-control" %}
                     </div>
                 </div>
-                <div class="col-sm-2">                    
+                <div class="col-sm-3">                    
                     <div class="form-group" >                
                         <label for="" >{{form.cep.label}} </label>        
                         {% render_field form.cep class="form-control" %}
@@ -142,12 +128,6 @@
                     <div class="form-group" >                
                         <label for="" >{{form.ponto_referencia.label}} </label>        
                         {% render_field form.ponto_referencia class="form-control" %}
-                    </div>
-                </div>
-                <div class="col-sm-5">                    
-                    <div class="form-group" >                
-                        <label for="" >{{form.sacado.label}} </label>        
-                        {% render_field form.sacado class="form-control" %}
                     </div>
                 </div>
                 <div class="col-sm-2">                    
@@ -174,18 +154,42 @@
                         {% render_field form.celular2 class="form-control" %}
                     </div>
                 </div>
-            </div> 
+            </div>    
+            
         </div>
 
         <div class="f" id="tela2">
-            
-            <div class="col-sm-2"> 
-                <div class="form-group">
-                    <label for="">{{form.naturalidade.label}}</label>
-                    {% render_field form.naturalidade class="form-control" %}                       
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="">{{form.num_telefone.label}}</label>
+                        {% render_field form.num_telefone class="form-control" %}
+                    </div>
                 </div>
+        
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="">{{form.naturalidade.label}}</label>
+                        {% render_field form.naturalidade class="form-control" %}
+                    </div>  
+                </div>
+        
+                {% if object.pk %}
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label for="">{{form.data_nasc.label}}</label>
+                            {% render_field form.data_nasc class="form-control" %}                        
+                        </div>  
+                    </div>
+                {% else %}
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="">{{form.data_nasc.label}}</label>
+                            {% render_field form.data_nasc class="form-control" type="date" %}
+                        </div>  
+                    </div>
+                {% endif %} 
             </div>
-            
         </div>
 
         <div class="f" id="tela3">
@@ -198,11 +202,6 @@
             </form>
         </div>
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
     <div class="content">
         <nav id="menu">
             <button class="button button1" id="tela1">Cadastro Pessoal</button>
