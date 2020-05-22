@@ -84,6 +84,12 @@
                         {% render_field form.data_nasc class="form-control " type="date"%}                       
                     </div>
                 </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="">{{form.naturalidade.label}}</label>
+                        {% render_field form.naturalidade class="form-control" %}
+                    </div>  
+                </div>
                 <div class="col-sm-4">                    
                     <div class="form-group" >                
                         <label for="" >{{form.nome_da_mae.label}} </label>        
@@ -100,28 +106,41 @@
             </div> 
             <h2>Endereço</h2>
             <div class="row">
-                <div class="col-sm-4">                    
+                <div class="col-sm-2">                    
+                    <div class="form-group" >                
+                        <label for="" >{{form.cep.label}} </label>        
+                        {% render_field form.cep class="form-control" name="cep" type="text" id="cep" value="" size="10" maxlength="9" onblur="pesquisacep(this.value);"%}
+                             
+                    </div>
+                </div>
+                <div class="col-sm-5">                    
                     <div class="form-group" >                
                         <label for="" >{{form.rua.label}} </label>        
-                        {% render_field form.rua class="form-control" %}
+                        {% render_field form.rua class="form-control" name="rua" type="text" id="rua" size="60" %}
+                    </div>
+                </div>
+                <div class="col-sm-5">                    
+                    <div class="form-group" >                
+                        <label for="" >{{form.bairro.label}} </label>        
+                        {% render_field form.bairro class="form-control" name="bairro" type="text" id="bairro" size="40" %}
                     </div>
                 </div>
                 <div class="col-sm-2">                    
                     <div class="form-group" >                
-                        <label for="" >{{form.numero_casa.label}} </label>        
-                        {% render_field form.numero_casa class="form-control" %}
+                        <label for="" >{{form.cidade.label}} </label>        
+                        {% render_field form.cidade class="form-control" name="cidade" type="text" id="cidade" size="40"%}
                     </div>
                 </div>
-                <div class="col-sm-3">                    
+                <div class="col-sm-1">                    
                     <div class="form-group" >                
-                        <label for="" >{{form.bairro.label}} </label>        
-                        {% render_field form.bairro class="form-control" %}
+                        <label for="" >{{form.uf.label}} </label>        
+                        {% render_field form.uf class="form-control" name="uf" type="text" id="uf" size="2"%}
                     </div>
                 </div>
-                <div class="col-sm-3">                    
+                <div class="col-sm-2">                    
                     <div class="form-group" >                
-                        <label for="" >{{form.cep.label}} </label>        
-                        {% render_field form.cep class="form-control" %}
+                        <label for="" >{{form.ibge.label}} </label>        
+                        {% render_field form.ibge class="form-control" name="ibge" type="text" id="ibge" size="8"%}
                     </div>
                 </div>
                 <div class="col-sm-4">                    
@@ -160,13 +179,6 @@
 
         <div class="f" id="tela2">
             <div class="row">
-                        
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label for="">{{form.naturalidade.label}}</label>
-                        {% render_field form.naturalidade class="form-control" %}
-                    </div>  
-                </div>
         
                 {% if object.pk %}
                     <div class="col-sm-2">
@@ -228,4 +240,76 @@
     tableshowhide("menu", "all", "tela1");
 
     </script>
+    <!-- Adicionando Javascript -->
+    <script type="text/javascript" >
+    
+        function limpa_formulário_cep() {
+                //Limpa valores do formulário de cep.
+                document.getElementById('rua').value=("");
+                document.getElementById('bairro').value=("");
+                document.getElementById('cidade').value=("");
+                document.getElementById('uf').value=("");
+                document.getElementById('ibge').value=("");
+        }
+    
+        function meu_callback(conteudo) {
+            if (!("erro" in conteudo)) {
+                //Atualiza os campos com os valores.
+                document.getElementById('rua').value=(conteudo.logradouro);
+                document.getElementById('bairro').value=(conteudo.bairro);
+                document.getElementById('cidade').value=(conteudo.localidade);
+                document.getElementById('uf').value=(conteudo.uf);
+                document.getElementById('ibge').value=(conteudo.ibge);
+            } //end if.
+            else {
+                //CEP não Encontrado.
+                limpa_formulário_cep();
+                alert("CEP não encontrado.");
+            }
+        }
+            
+        function pesquisacep(valor) {
+    
+            //Nova variável "cep" somente com dígitos.
+            var cep = valor.replace(/\D/g, '');
+    
+            //Verifica se campo cep possui valor informado.
+            if (cep != "") {
+    
+                //Expressão regular para validar o CEP.
+                var validacep = /^[0-9]{8}$/;
+    
+                //Valida o formato do CEP.
+                if(validacep.test(cep)) {
+    
+                    //Preenche os campos com "..." enquanto consulta webservice.
+                    document.getElementById('rua').value="...";
+                    document.getElementById('bairro').value="...";
+                    document.getElementById('cidade').value="...";
+                    document.getElementById('uf').value="...";
+                    document.getElementById('ibge').value="...";
+    
+                    //Cria um elemento javascript.
+                    var script = document.createElement('script');
+    
+                    //Sincroniza com o callback.
+                    script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+    
+                    //Insere script no documento e carrega o conteúdo.
+                    document.body.appendChild(script);
+    
+                } //end if.
+                else {
+                    //cep é inválido.
+                    limpa_formulário_cep();
+                    alert("Formato de CEP inválido.");
+                }
+            } //end if.
+            else {
+                //cep sem valor, limpa formulário.
+                limpa_formulário_cep();
+            }
+        };
+    
+        </script>
 {% endblock content %}
