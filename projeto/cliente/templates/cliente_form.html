@@ -31,10 +31,10 @@
     .button3 {border-radius: 8px;}
     .button4 {border-radius: 12px;}
     .button5 {border-radius: 50%;}  
-    
 </style>
 
    <!-- https://www.schoolofnet.com/forum/topico/como-enviar-a-mensagem-de-sucesso-ou-erro-para-o-formulario-8495 -->
+    
 
     <div id="all">
         <div class="f" id="tela1">
@@ -88,13 +88,13 @@
                 </div>
                 
             </div> 
-            <h2>Endereço</h2>
+            <h2>ENDEREÇO</h2>
             <div class="row">
                 <div class="col-sm-2">                    
                     <div class="form-group" >                
                         <label for="" >{{form.cep.label}} </label>        
                         {% render_field form.cep class="form-control" name="cep" type="text" id="cep" value="" size="10" maxlength="9" onblur="pesquisacep(this.value);"%}
-                             
+                                
                     </div>
                 </div>
                 <div class="col-sm-4">                    
@@ -163,8 +163,7 @@
                         {% render_field form.celular2 class="form-control cel-phone-mask" type="text"%}
                     </div>
                 </div>
-            </div>    
-            
+            </div>  
         </div>
 
         <div class="f" id="tela2">
@@ -197,17 +196,16 @@
             <button type="submit" class="btn btn-success">Cadastrar</button>
             </form>
         </div>
+        
     </div>
-
     <!-- NAVBAR DE BOTÕES DE ETAPAS -->
-    <nav class="navbar navbar-expand-md navbar bg fixed-bottom" >        
+    <div>
         <nav id="menu" >
-            <button class="button button1" id="tela1">Cadastro Pessoal</button>
-            <button class="button button1" id="tela2">Dados do Local de Trabalho </button>
-            <button class="button button1" id="tela3">Dados Bancários</button>
+            <button class="tablinks" id="tela1">Cadastro Pessoal</button>
+            <button class="tablinks" id="tela2">Dados do Local de Trabalho </button>
+            <button class="tablinks" id="tela3">Dados Bancários</button>
         </nav>
-    </nav>
-    
+    </div>
     <div >
         <script>
             function tableshowhide(a,b,c){
