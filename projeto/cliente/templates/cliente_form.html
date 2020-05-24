@@ -7,34 +7,34 @@
 {% block content %}
 
 <style>
-    .f{
-     background-color: rgb(255, 255, 255);
-     width:: 300px;
-     height: 500px;
-     /*border: solid 1px black;*/
+    /*.f{
+    background-color: rgb(255, 255, 255);     
+    height : 500px;     
+    border: solid 1px black;
+    }*/
+    nav.menu-nav{
+        background-color: rgb(255, 255, 255);   
+        float: center;  
     }
-    .button {
-        background-color: rgb(46, 129, 83); 
-        border: none;
+    button.tablinks{
+        background-color: rgb(46, 129, 83);        
         color: white;
         padding: 6px 52px;
         text-align: center;
         text-decoration: none;
         display: inline-block;
         font-size: 20px;
-        margin: 34px 0px ;
+        margin: 10px 10px 10px 50px;
         cursor: pointer;
-    }
-      
-    .button1 {border-radius: 8px;}
+    }       
+    /*.button1 {border-radius: 8px;}
     .button2 {border-radius: 4px;}
     .button3 {border-radius: 8px;}
     .button4 {border-radius: 12px;}
-    .button5 {border-radius: 50%;}  
+    .button5 {border-radius: 50%;}  */
 </style>
 
-   <!-- https://www.schoolofnet.com/forum/topico/como-enviar-a-mensagem-de-sucesso-ou-erro-para-o-formulario-8495 -->
-    
+   <!-- https://www.schoolofnet.com/forum/topico/como-enviar-a-mensagem-de-sucesso-ou-erro-para-o-formulario-8495 -->    
 
     <div id="all">
         <div class="f" id="tela1">
@@ -163,7 +163,7 @@
                         {% render_field form.celular2 class="form-control cel-phone-mask" type="text"%}
                     </div>
                 </div>
-            </div>  
+            </div>
         </div>
 
         <div class="f" id="tela2">
@@ -191,26 +191,27 @@
             <div class="form-group">
                 <label for="">{{form.anotacoes.label}}</label>
                 {% render_field form.anotacoes class="form-control" %}
-            </div>    
-
-            <button type="submit" class="btn btn-success">Cadastrar</button>
+            </div>   
+            <div style='float: right;'>
+                <button class="btn btn-success" float="right">Cadastrar</button>
+            </div>
             </form>
         </div>
         
     </div>
     <!-- NAVBAR DE BOTÕES DE ETAPAS -->
     <div>
-        <nav id="menu" >
-            <button class="tablinks" id="tela1">Cadastro Pessoal</button>
-            <button class="tablinks" id="tela2">Dados do Local de Trabalho </button>
-            <button class="tablinks" id="tela3">Dados Bancários</button>
+        <nav id="menu" class="menu-nav" >
+            <button class="tablinks" id="tela1"></button>
+            <button class="tablinks" id="tela2"></button>
+            <button class="tablinks" id="tela3"></button>
         </nav>
     </div>
-    <div >
-       
-    </div>
+    
 
- {% endblock content %}
+   
+
+{% endblock content %}
 
  
 
