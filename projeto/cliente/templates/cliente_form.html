@@ -17,16 +17,19 @@
         float: center;  
     }
     button.tablinks{
-        background-color: rgb(46, 129, 83);        
+        background-color: #4CAF50;        
         color: white;
-        padding: 6px 52px;
+        padding: 6px 42px;
         text-align: center;
         text-decoration: none;
         display: inline-block;
         font-size: 20px;
         margin: 10px 10px 10px 50px;
         cursor: pointer;
-    }       
+    }     
+    h2{
+        background-color: rgb(214, 208, 208);
+    }  
     /*.button1 {border-radius: 8px;}
     .button2 {border-radius: 4px;}
     .button3 {border-radius: 8px;}
@@ -41,7 +44,7 @@
 
             <form method="POST">
             {% csrf_token %}    
-            
+            <br>
             <h2>CADASTRO PESSOAL</h2>
             <div class="row">
                 <div class="col-sm-5">                    
@@ -62,12 +65,23 @@
                         {% render_field form.rg class="form-control" %}
                     </div>
                 </div>
-                <div class="col-sm-3"> 
+
+                {% if object.pk %}
+                <div class="col-sm-3">
                     <div class="form-group">
                         <label for="">{{form.data_nasc.label}}</label>
-                        {% render_field form.data_nasc class="form-control " type="date"%}                       
-                    </div>
+                        {% render_field form.data_nasc class="form-control" %}                        
+                    </div>  
                 </div>
+                {% else %}
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label for="">{{form.data_nasc.label}}</label>
+                            {% render_field form.data_nasc class="form-control" type="date" %}
+                        </div>  
+                    </div>
+                {% endif %}
+
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label for="">{{form.naturalidade.label}}</label>
@@ -115,7 +129,7 @@
                         {% render_field form.bairro class="form-control" name="bairro" type="text" id="bairro" size="40" %}
                     </div>
                 </div>
-                <div class="col-sm-2">                    
+                <div class="col-sm-4">                    
                     <div class="form-group" >                
                         <label for="" >{{form.cidade.label}} </label>        
                         {% render_field form.cidade class="form-control" name="cidade" type="text" id="cidade" size="40"%}
@@ -133,7 +147,7 @@
                         {% render_field form.ibge class="form-control" name="ibge" type="text" id="ibge" size="8"%}
                     </div>
                 </div>
-                <div class="col-sm-4">                    
+                <div class="col-sm-5">                    
                     <div class="form-group" >                
                         <label for="" >{{form.ponto_referencia.label}} </label>        
                         {% render_field form.ponto_referencia class="form-control" %}
@@ -163,28 +177,114 @@
                         {% render_field form.celular2 class="form-control cel-phone-mask" type="text"%}
                     </div>
                 </div>
+                <div class="col-sm-4">                    
+                    <div class="form-group" >                
+                        <label for="" >{{form.email.label}} </label>        
+                        {% render_field form.email class="form-control" %}
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="f" id="tela2">
+        <div class="f" id="tela2" >
+            <br>
+            <h2>DADOS DO LOCAL DE TRABALHO</h2>
             <div class="row">
-        
-                {% if object.pk %}
-                    <div class="col-sm-2">
-                        <div class="form-group">
-                            <label for="">{{form.data_nasc.label}}</label>
-                            {% render_field form.data_nasc class="form-control" %}                        
-                        </div>  
+                <div class="col-sm-5">                    
+                    <div class="form-group" >                
+                        <label for="" >{{form.nome_fantasia.label}} </label>        
+                        {% render_field form.nome_fantasia class="form-control" %}
                     </div>
-                {% else %}
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <label for="">{{form.data_nasc.label}}</label>
-                            {% render_field form.data_nasc class="form-control" type="date" %}
-                        </div>  
+                </div>
+                <div class="col-sm-2">                    
+                    <div class="form-group" >                
+                        <label for="" >{{form.contato1_trabalho.label}} </label>        
+                        {% render_field form.contato1_trabalho class="form-control" %}
                     </div>
-                {% endif %} 
-            </div>
+                </div>
+                <div class="col-sm-2">                    
+                    <div class="form-group" >                
+                        <label for="" >{{form.contato2_trabalho.label}} </label>        
+                        {% render_field form.contato2_trabalho class="form-control" %}
+                    </div>
+                </div>
+                <div class="col-sm-2">                    
+                    <div class="form-group" >                
+                        <label for="" >{{form.celular1_trabalho.label}} </label>        
+                        {% render_field form.celular1_trabalho class="form-control" %}
+                    </div>
+                </div>
+                <div class="col-sm-2">                    
+                    <div class="form-group" >                
+                        <label for="" >{{form.celular2_trabalho.label}} </label>        
+                        {% render_field form.celular2_trabalho class="form-control" %}
+                    </div>
+                </div>
+                <div class="col-sm-2">                    
+                    <div class="form-group" >                
+                        <label for="" >{{form.cep_trabalho.label}} </label>        
+                        {% render_field form.cep_trabalho class="form-control" %}
+                                
+                    </div>
+                </div>
+                <div class="col-sm-4">                    
+                    <div class="form-group" >                
+                        <label for="" >{{form.rua_trabalho.label}} </label>        
+                        {% render_field form.rua_trabalho class="form-control"  %}
+                    </div>
+                </div>               
+                <div class="col-sm-5">                    
+                    <div class="form-group" >                
+                        <label for="" >{{form.bairro_trabalho.label}} </label>        
+                        {% render_field form.bairro_trabalho class="form-control"  %}
+                    </div>
+                </div>
+                <div class="col-sm-4">                    
+                    <div class="form-group" >                
+                        <label for="" >{{form.cidade_trabalho.label}} </label>        
+                        {% render_field form.cidade_trabalho class="form-control" %}
+                    </div>
+                </div>
+                <div class="col-sm-1">                    
+                    <div class="form-group" >                
+                        <label for="" >{{form.uf_trabalho.label}} </label>        
+                        {% render_field form.uf_trabalho class="form-control" %}
+                    </div>
+                </div>
+                <div class="col-sm-1">                    
+                    <div class="form-group" >                
+                        <label for="" >{{form.referencia_trabalho.label}} </label>        
+                        {% render_field form.referencia_trabalho class="form-control" %}
+                    </div>
+                </div>
+            </div>    
+            <h2>DADOS BANCÁRIOS</h2>
+            <div class="row">
+                <div class="col-sm-2">                    
+                    <div class="form-group" >                
+                        <label for="" >{{form.agencia.label}} </label>        
+                        {% render_field form.agencia class="form-control" %}
+                    </div>                    
+                </div>
+                <div class="col-sm-2">                    
+                    <div class="form-group" >                
+                        <label for="" >{{form.conta.label}} </label>        
+                        {% render_field form.conta class="form-control" %}
+                    </div>
+                </div>
+                <div class="col-sm-4">                    
+                    <div class="form-group" >                
+                        <label for="" >{{form.banco.label}} </label>        
+                        {% render_field form.banco class="form-control" %}
+                    </div>
+                </div>
+                <div class="col-sm-5">                    
+                    <div class="form-group" >                
+                        <label for="" >{{form.obs_bancaria.label}} </label>        
+                        {% render_field form.obs_bancaria class="form-control" %}
+                    </div>
+                </div>
+            </div>     
         </div>
 
         <div class="f" id="tela3">
@@ -197,18 +297,16 @@
             </div>
             </form>
         </div>
-        
+        <br> 
     </div>
     <!-- NAVBAR DE BOTÕES DE ETAPAS -->
     <div>
         <nav id="menu" class="menu-nav" >
-            <button class="tablinks" id="tela1"></button>
-            <button class="tablinks" id="tela2"></button>
-            <button class="tablinks" id="tela3"></button>
+            <button class="tablinks" id="tela1">Dados Pessoais</button>
+            <button class="tablinks" id="tela2">Dados do Local de Trabalho</button>
+            <button class="tablinks" id="tela3">Referências e Observações</button>
         </nav>
     </div>
-    
-
    
 
 {% endblock content %}
