@@ -146,9 +146,21 @@
     /*AUTOMATIZA A PESQUISA DE CEP*/
 
     
-    /*OCULTA FORMULÁRIOS NA TELA DE CADASTRO DE CLIENTES*/
-   
-    /*OCULTA FORMULÁRIOS NA TELA DE CADASTRO DE CLIENTES*/ 
+    /*OCULTA FORMULÁRIOS NA TELA DE CADASTRO DE CLIENTES - TABCONTENTS*/
+    function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+    /*OCULTA FORMULÁRIOS NA TELA DE CADASTRO DE CLIENTES - TABCONTENTS*/ 
 
   </script>
     

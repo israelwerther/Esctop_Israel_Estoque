@@ -57,7 +57,7 @@
         to {opacity: 1;}
     }
     
-    </style>
+</style>
 
    <!-- https://www.schoolofnet.com/forum/topico/como-enviar-a-mensagem-de-sucesso-ou-erro-para-o-formulario-8495 -->    
 
@@ -66,7 +66,6 @@
         <button class="tablinks" onclick="openCity(event, 'Paris')">Dados do Local de Trabalho</button>
         <button class="tablinks" onclick="openCity(event, 'Tokyo')">Referências e Observações</button>
     </div>
-
     
     <div id="London" class="tabcontent" >
         <form method="POST">
@@ -329,21 +328,7 @@
     </div>
        
             
-<script>
-    function openCity(evt, cityName) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-        document.getElementById(cityName).style.display = "block";
-        evt.currentTarget.className += " active";
-    }
-</script>
+
 
 {% endblock content %}
 
