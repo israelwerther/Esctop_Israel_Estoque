@@ -68,7 +68,7 @@
     </div>
 
     
-    <div id="London" class="tabcontent">
+    <div id="London" class="tabcontent" >
         <form method="POST">
         {% csrf_token %}    
         <br>
@@ -311,14 +311,15 @@
                 </div>
             </div>
         </div>     
-    </div>     
-    
+    </div>    
 
     <div id="Tokyo" class="tabcontent">
         <div class="row">
-            <div class="form-group">
-                <label for="">{{form.anotacoes.label}}</label>
-                {% render_field form.anotacoes class="form-control" %}
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label for="">{{form.anotacoes.label}}</label>
+                    {% render_field form.anotacoes class="form-control" %}
+                </div>
             </div>   
         </div>
         <div style='float: right;'>
