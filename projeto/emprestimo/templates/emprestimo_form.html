@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% load widget_tweaks %}
 
 {% block content %}
@@ -38,10 +40,15 @@
                 {% render_field form.cliente type="text" class="form-control" %}                       
             </div>
         </div>
+
+
+
+
+
         <div class="col-sm-3"> 
             <div class="form-group">
                 <label for="">{{form.valor_emprestado.label}}</label>
-                {% render_field form.valor_emprestado class="form-control" %}                       
+                {% render_field form.valor_emprestado class="form-control" id="valor_emprestado" %}                       
             </div>
         </div>
     </div>
@@ -49,15 +56,26 @@
         <div class="col-sm-3">                    
             <div class="form-group" >                
                 <label for="" class="required" >{{form.qtd_parcelas.label}} </label>                
-                {% render_field form.qtd_parcelas class="form-control" %}
+                {% render_field form.qtd_parcelas class="form-control" id="qtd_parcelas" onblur="prestacao1()"%}
             </div>
         </div>
+        <!-- <input type="button" value="Calcular parcela" onclick="prestacao1()" > -->
+       
         <div class="col-sm-3"> 
             <div class="form-group">
                 <label for="">{{form.valor_prestacao.label}}</label>
-                {% render_field form.valor_prestacao class="form-control" %}                       
+                {% render_field form.valor_prestacao class="form-control" value="0" id="prestacao"%}                       
             </div>
-        </div>       
+        </div>    
+        
+        <!-- <div id="prestacao" >Resultado</div> -->
+        
+        
+
+
+
+
+        
         
         {% if object.pk %} <!-- if object.data_emprestimo é isso que ele quer dizer -->           
             <div class="col-sm-3"> 
@@ -70,8 +88,7 @@
             <div class="col-sm-3">
                 <div class="form-group">
                     <label for="">{{form.data_emprestimo.label}}</label>   
-                    {% render_field form.data_emprestimo class="form-control" type="date" %}                  
-                    <!-- <input type="text" class="vDateField"  placeholder="oi"> -->
+                    {% render_field form.data_emprestimo class="form-control" type="date" %} 
                 </div>  
             </div>            
         {% endif %} 
@@ -79,9 +96,23 @@
     </div>
 
 
-    <button type="submit" class="btn btn-success">Cadastrar</button>
-   
+    
 
+
+    <button type="submit" class="btn btn-success">Cadastrar</button>  
     </form>
   
+    <script>
+        function prestacao1(){
+            var tn1 = document.getElementById('valor_emprestado')
+            var tn2 = document.getElementById('qtd_parcelas')
+            var prestacao = document.getElementById('prestacao')
+            var n1 = Number(tn1.value)
+            var n2 = Number(tn2.value)
+            var s = n1*n2
+            document.getElementById('prestacao').value = s
+
+
+        }
+    </script>
 {% endblock content %}
