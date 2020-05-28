@@ -43,3 +43,8 @@ python manage.py migrate.
 
 [django-bootstrap-form](https://django-bootstrap-form.readthedocs.io/en/latest/)
 
+
+## PARA ESTUDO 
+[configurações do django admin](https://books.agiliq.com/projects/django-admin-cookbook/en/latest/introduction.html)
+
+

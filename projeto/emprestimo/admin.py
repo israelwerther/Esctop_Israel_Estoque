@@ -7,4 +7,5 @@ class EmprestimoAdmin(admin.ModelAdmin):
         'data_emprestimo',        
     )
     search_fields=('num_doc',)
+    # readonly_fields = ["valor_prestacao", ]
     # list_filter=('rg',)

@@ -15,37 +15,5 @@ class EmprestimoForm(forms.ModelForm):
             'valor_prestacao',
             'data_emprestimo'             
         ]
-        
-        
-# data_emprestimo = DateField(input_formats=settings.DATE_INPUT_FORMATS)
-    # class Meta:
-    #     model = Emprestimo
-    #     fields = '__all__'   
-    # data_emprestimo = DateField(input_formats=['%d-%m-%Y'])       
-        
-    
-# data_emprestimo = forms.DateField()
-# widgetwidgets = {
-#     'data_emprestimo': forms.DateInput(
-#         format=('%d-%m-%Y'), 
-#         attrs={'class':'form-control', 
-#         'placeholder':'Select a date'}),                 
-#     }
-
-
-# class DateForm(forms.Form):
-#     data_emprestimo = forms.DateTimeField(
-#         input_formats=['%d-%m-%Y %H:%M'],
-#         widget=forms.DateTimeInput(attrs={
-#             'class': 'form-control datetimepicker-input',
-#             'data-target': '#datetimepicker1'
-#         })
-#     )
-
-
-# class EmprestimoItensForm(forms.ModelForm):
-#     class Meta:
-#         model = EmprestimoItens
-#         fields = '__all__'
-
-
+        readonly_fields = ["valor_prestacao", ]
+     
