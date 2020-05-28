@@ -43,10 +43,7 @@ class Cliente(models.Model):
     banco                 = models.CharField("Banco",max_length=25, blank=True, null=True)
     obs_bancaria          = models.CharField("Observações",max_length=25, blank=True, null=True)
     
-    
     anotacoes             = models.TextField("Anotações",max_length=200)
-    
-    
     
     class Meta:
         ordering = ('nome',) #confirme se é a organização e apague o coment

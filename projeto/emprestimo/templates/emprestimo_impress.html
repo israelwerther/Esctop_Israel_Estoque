@@ -210,19 +210,15 @@
 
 		//VARIÁVEIS DO EMPRESTIMO
 		var aux_qtd_parccela = {{object.qtd_parcelas}}
-
 		var data_emissao = "{{object.data_emprestimo|date:"d/m/Y"}}"
-
-		var valor_da_parcela = parseFloat("{{object.valor_prestacao}}")		
-
-		var valor_multa = parseFloat((valor_da_parcela*0.020)).toFixed(2)	
-		
+		var valor_da_parcela = parseFloat("{{object.valor_prestacao}}")	
+		var valor_multa = parseFloat((valor_da_parcela*0.020)).toFixed(2)			
 		var valor_juros_dia = (valor_da_parcela*0.0066).toFixed(2)
-
 		var contador_parcela = 0
 		
 		//VARIÁVEIS DO CLIENTE
 		var cliente_nome = "{{object.cliente}}"
+		var cpf = "{{object.cliente.cpf}}"
 
 		for (var i = 0 ; i < {{object.qtd_parcelas}}; i++){
 		contador_meses++
@@ -388,7 +384,7 @@
 					</td>
 					<td width="1px"></td>
 					<td width="39%" colspan="5">
-						<span class="title">Sacado: ${cliente_nome} </span><br>
+						<span class="title">Sacado: ${cliente_nome} - CPF: ${cpf} </span><br>
 						<br/>
 						<span class="text">Endereço:  </span><br>							
 					</td>
@@ -542,7 +538,7 @@
 					</td>
 					<td width="1px"></td>
 					<td width="39%" colspan="5">
-						<span class="title">Sacado: ${cliente_nome} </span><br>
+						<span class="title">Sacado: ${cliente_nome} - CPF: ${cpf} </span><br>
 						<br/>
 						<span class="text">Endereço:  </span><br>							
 					</td>
@@ -554,15 +550,10 @@
 				</tr>
 			</table><br>				
 			`	
-			
 			}
 		}			
 	}
-
-		
 	</script>
-
-	
 </html>
 
 
