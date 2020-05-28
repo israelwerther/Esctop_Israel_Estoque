@@ -183,7 +183,7 @@
 </div> -->
 
 <!-- FUNÇÃO QUE GERA O BOLETO -->
-<input type="button" class="btn btn-warning" value="Gerar Boleto" onclick="imprimir()"> <br>
+<!-- <input type="button" class="btn btn-warning" value="Gerar Boleto" onclick="imprimir()"> <br> -->
 
 <div class="document">
 	<div id = "carne" class="col-sm-6"></div>
@@ -195,7 +195,8 @@
 			//EXEMPLO DE MOMENT
 			//var d = moment().startOf("year") 			
 			
-	function imprimir(){	
+			window.onload = function imprimir(){
+			
 			//VARIÁVEIS DA DATA DO EMPRESTIMO
 			var contador_meses = 0
 			var contador_anos  = 0
