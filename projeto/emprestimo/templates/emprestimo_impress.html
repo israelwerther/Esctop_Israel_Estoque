@@ -84,7 +84,9 @@
             padding: 0px;
             width: 100%;
             margin: 0px;
-            font-size: 12px;
+			font-size: 12px;
+			margin-top: 3px;
+			margin-bottom: 3px;
         }
 
         .sideBorders {
@@ -264,9 +266,9 @@
 				<!--2º linha-->
 				<tr>					
 					<td width="15%">							
-						<span class="title">Vencimento</span>							
+						<span class="title">&nbspVencimento</span>							
 						<br/>						
-						<p class="content right text">${dia}/${mes}/${ano}</p>	
+						<p class="content right text">&nbsp${dia}/${mes}/${ano}&nbsp</p>	
 													
 					</td>
 					<td width="1px" ></td>
@@ -276,18 +278,18 @@
 						<p class="content left text">&nbsp Escritório</span></p>	
 					</td>
 					<td width="45%">
-						<span class="title">Vencimento</span>
+						<span class="title">&nbspVencimento</span>
 						<br/>				
-						<p class="content right text">${dia}/${mes}/${ano}</p>
+						<p class="content right text">&nbsp${dia}/${mes}/${ano}&nbsp</p>
 					
 					</td>
 				</tr>
 				<!--3º linha-->
 				<tr>
 					<td width="15%">
-						<span class="title">Valor do Documento</span>
+						<span class="title">&nbspValor do Documento</span>
 						<br/>
-						<p class="content center">R$ ${"{{object.valor_prestacao}}"}</p>
+						<p class="content right">&nbspR$ ${"{{object.valor_prestacao}}"}&nbsp</p>
 					</td>
 					<td width="1px"></td>
 					<td width="17%" colspan="5">
@@ -296,16 +298,16 @@
 						<p class="content left">&nbsp CREDCOOP</p>
 					</td>
 					<td width="15%">
-						<span class="title">Valor do Documento</span>
+						<span class="title">&nbspValor do Documento</span>
 						<br/>
-						<p class="content center">R$ ${"{{object.valor_prestacao}}"}</p>
+						<p class="content right">&nbspR$ ${"{{object.valor_prestacao}}"}&nbsp</p>
 					</td>
 				</tr>
 				<!--4º linha-->
 				<tr>
-					<td width="15%">							
-						<br/>
-						<p class="content center"><b>PARCELA: ${contador_parcela}/${aux_qtd_parccela}<b></p>
+					<td width="15%">						
+						
+						<p class="content left">&nbsp<b>PARCELA: ${contador_parcela}/${aux_qtd_parccela}<b></p>
 					</td>
 					<td width="1px">
 						<span class="title"></span>
@@ -322,63 +324,59 @@
 						<p class="content center"></p>
 					</td>
 					<td width="30%">
-						<p class="content center"><b>PARCELA: ${contador_parcela}/${aux_qtd_parccela}<b></p>
+						<p class="content left">&nbsp<b>PARCELA: ${contador_parcela}/${aux_qtd_parccela}<b></p>
 					</td>
 				</tr>	
 				<!--5º linha-->			
 				<tr>
 				
 					<td width="15%">
-						<p class="content center">(-) Descontos </p><br>							
+						<p class="content left">&nbsp(-) Descontos </p>							
 					</td>
 					<td width="1px"></td>
 					<td colspan="5" rowspan="4">
 						<span class="titleisrael">&nbsp Instruções<br/>
 						&nbsp MULTA DE R$: ${valor_multa} APÓS: ${dia}/${mes}/${ano}<br/>
 						&nbsp JUROS DE R$: ${valor_juros_dia} AO DIA<br/>
-						&nbsp NÃO RECEBER APÓS 30 DIAS DO VENCIMENTO<br/>
+						
 					
 						</span>				
 					</td>
 					<td width="15%">
-						<p class="content center">(-) Descontos </p><br>							
+						<p class="content left">&nbsp(-) Descontos </p>					
 					</td>
 				</tr>	
 				<!--6º linha-->				
 				<tr>
 					<td width="15%">
-						<p class="content center">(+) Acréscimos </p><br>							
+						<p class="content left">&nbsp(+) Acréscimos </p>						
 					</td>
 					<td width="1px"></td>
 					<td width="15%">
-						<p class="content center">(+) Acréscimos </p><br>							
+						<p class="content left">&nbsp(+) Acréscimos </p>						
 					</td>
 					
 				</tr>
 				<!--7º linha-->
 				<tr>
 					<td width="15%">
-						<p class="content center">(=) Valor Pago </p><br>							
+						<p class="content left">&nbsp(=) Valor Pago </p><br>							
 					</td>
 					<td width="1px"></td>
 					<td width="15%">
-						<p class="content center">(=) Valor Pago </p><br>							
+						<p class="content left">&nbsp(=) Valor Pago </p><br>							
 					</td>
 				</tr>
 				<!--8º linha-->
 				<tr>
 					<td width="15%">
-						<span class="title">Visto do Operador</span>
-						<br>
-						<p class="content center">Pago em ___/___/___ </p>
-						<br>
+						<p class="content left"><b>Visto do Operador</b></p>							
+						<p class="content left">Pago em ___/___/___ </p>						
 					</td>
 					<td width="1px"></td>
 					<td width="15%">
-						<span class="title">Visto do Operador</span>
-						<br>
-						<p class="content center">Pago em ___/___/___ </p>
-						<br>
+						<p class="content left"><b>Visto do Operador</b></p>							
+						<p class="content left">Pago em ___/___/___ </p>
 					</td>
 				</tr>
 				<!--9º linha-->
@@ -422,9 +420,9 @@
 				<!--2º linha-->
 				<tr>					
 					<td width="15%">							
-						<span class="title">Vencimento</span>							
+						<span class="title">&nbspVencimento</span>							
 						<br/>						
-						<p class="content right text">${dia}/${mes}/${ano}</p>	
+						<p class="content right text">&nbsp${dia}/${mes}/${ano}&nbsp</p>	
 													
 					</td>
 					<td width="1px" ></td>
@@ -434,18 +432,18 @@
 						<p class="content left text">&nbsp Escritório</span></p>	
 					</td>
 					<td width="45%">
-						<span class="title">Vencimento</span>
+						<span class="title">&nbspVencimento</span>
 						<br/>				
-						<p class="content right text">${dia}/${mes}/${ano}</p>
+						<p class="content right text">&nbsp${dia}/${mes}/${ano}&nbsp</p>
 					
 					</td>
 				</tr>
 				<!--3º linha-->
 				<tr>
 					<td width="15%">
-						<span class="title">Valor do Documento</span>
+						<span class="title">&nbspValor do Documento</span>
 						<br/>
-						<p class="content center">R$ ${"{{object.valor_prestacao}}"}</p>
+						<p class="content right">&nbspR$ ${"{{object.valor_prestacao}}"}&nbsp</p>
 					</td>
 					<td width="1px"></td>
 					<td width="17%" colspan="5">
@@ -454,16 +452,16 @@
 						<p class="content left">&nbsp CREDCOOP</p>
 					</td>
 					<td width="15%">
-						<span class="title">Valor do Documento</span>
+						<span class="title">&nbspValor do Documento</span>
 						<br/>
-						<p class="content center">R$ ${"{{object.valor_prestacao}}"}</p>
+						<p class="content right">&nbspR$ ${"{{object.valor_prestacao}}"}&nbsp</p>
 					</td>
 				</tr>
 				<!--4º linha-->
 				<tr>
-					<td width="15%">							
-						<br/>
-						<p class="content center"><b>PARCELA: ${contador_parcela}/${aux_qtd_parccela}<b></p>
+					<td width="15%">						
+						
+						<p class="content left">&nbsp<b>PARCELA: ${contador_parcela}/${aux_qtd_parccela}<b></p>
 					</td>
 					<td width="1px">
 						<span class="title"></span>
@@ -480,63 +478,59 @@
 						<p class="content center"></p>
 					</td>
 					<td width="30%">
-						<p class="content center"><b>PARCELA: ${contador_parcela}/${aux_qtd_parccela}<b></p>
+						<p class="content left">&nbsp<b>PARCELA: ${contador_parcela}/${aux_qtd_parccela}<b></p>
 					</td>
 				</tr>	
 				<!--5º linha-->			
 				<tr>
 				
 					<td width="15%">
-						<p class="content center">(-) Descontos </p><br>							
+						<p class="content left">&nbsp(-) Descontos </p>							
 					</td>
 					<td width="1px"></td>
 					<td colspan="5" rowspan="4">
 						<span class="titleisrael">&nbsp Instruções<br/>
 						&nbsp MULTA DE R$: ${valor_multa} APÓS: ${dia}/${mes}/${ano}<br/>
 						&nbsp JUROS DE R$: ${valor_juros_dia} AO DIA<br/>
-						&nbsp NÃO RECEBER APÓS 30 DIAS DO VENCIMENTO<br/>
+						
 					
 						</span>				
 					</td>
 					<td width="15%">
-						<p class="content center">(-) Descontos </p><br>							
+						<p class="content left">&nbsp(-) Descontos </p>					
 					</td>
 				</tr>	
 				<!--6º linha-->				
 				<tr>
 					<td width="15%">
-						<p class="content center">(+) Acréscimos </p><br>							
+						<p class="content left">&nbsp(+) Acréscimos </p>						
 					</td>
 					<td width="1px"></td>
 					<td width="15%">
-						<p class="content center">(+) Acréscimos </p><br>							
+						<p class="content left">&nbsp(+) Acréscimos </p>						
 					</td>
 					
 				</tr>
 				<!--7º linha-->
 				<tr>
 					<td width="15%">
-						<p class="content center">(=) Valor Pago </p><br>							
+						<p class="content left">&nbsp(=) Valor Pago </p><br>							
 					</td>
 					<td width="1px"></td>
 					<td width="15%">
-						<p class="content center">(=) Valor Pago </p><br>							
+						<p class="content left">&nbsp(=) Valor Pago </p><br>							
 					</td>
 				</tr>
 				<!--8º linha-->
 				<tr>
 					<td width="15%">
-						<span class="title">Visto do Operador</span>
-						<br>
-						<p class="content center">Pago em ___/___/___ </p>
-						<br>
+						<p class="content left"><b>Visto do Operador</b></p>							
+						<p class="content left">Pago em ___/___/___ </p>						
 					</td>
 					<td width="1px"></td>
 					<td width="15%">
-						<span class="title">Visto do Operador</span>
-						<br>
-						<p class="content center">Pago em ___/___/___ </p>
-						<br>
+						<p class="content left"><b>Visto do Operador</b></p>							
+						<p class="content left">Pago em ___/___/___ </p>
 					</td>
 				</tr>
 				<!--9º linha-->
@@ -559,10 +553,7 @@
 					</td>
 				</tr>
 			</table><br>				
-			`
-			+ 
-			`.</br>`
-			
+			`	
 			
 			}
 		}			
