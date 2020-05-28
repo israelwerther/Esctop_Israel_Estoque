@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 
-{% load static %}
+para estudar hoje
+https://felipefrizzo.github.io/post/form-inline-cbv/
 
+{% load static %}
 {% load widget_tweaks %}
 
 {% block content %}
@@ -40,15 +42,10 @@
                 {% render_field form.cliente type="text" class="form-control" %}                       
             </div>
         </div>
-
-
-
-
-
         <div class="col-sm-3"> 
             <div class="form-group">
                 <label for="">{{form.valor_emprestado.label}}</label>
-                {% render_field form.valor_emprestado class="form-control" id="valor_emprestado" %}                       
+                {% render_field form.valor_emprestado class="form-control" id="valor_emprestado" onblur="prestacao1()" %}                       
             </div>
         </div>
     </div>
@@ -56,26 +53,15 @@
         <div class="col-sm-3">                    
             <div class="form-group" >                
                 <label for="" class="required" >{{form.qtd_parcelas.label}} </label>                
-                {% render_field form.qtd_parcelas class="form-control" id="qtd_parcelas" onblur="prestacao1()"%}
+                {% render_field form.qtd_parcelas class="form-control" id="qtd_parcelas" value="1" onblur="prestacao1()"%}
             </div>
         </div>
-        <!-- <input type="button" value="Calcular parcela" onclick="prestacao1()" > -->
-       
         <div class="col-sm-3"> 
             <div class="form-group">
                 <label for="">{{form.valor_prestacao.label}}</label>
                 {% render_field form.valor_prestacao|attr:"readonly:True" class="form-control" value="0" id="prestacao" %}                       
             </div>
         </div>    
-        
-        <!-- <div id="prestacao" >Resultado</div> -->
-        
-        
-
-
-
-
-        
         
         {% if object.pk %} <!-- if object.data_emprestimo é isso que ele quer dizer -->           
             <div class="col-sm-3"> 
@@ -92,13 +78,7 @@
                 </div>  
             </div>            
         {% endif %} 
-        
     </div>
-
-
-    
-
-
     <button type="submit" class="btn btn-success">Cadastrar</button>  
     </form>
   
@@ -111,8 +91,6 @@
             var n2 = Number(tn2.value)
             var s = n1*n2
             document.getElementById('prestacao').value = s
-
-
         }
     </script>
 {% endblock content %}
