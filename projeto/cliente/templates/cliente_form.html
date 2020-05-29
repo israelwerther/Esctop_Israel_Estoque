@@ -97,14 +97,14 @@
             <div class="col-sm-3">
                 <div class="form-group">
                     <label for="">{{form.data_nasc.label}}</label>
-                    {% render_field form.data_nasc class="form-control" %}                        
+                    {% render_field form.data_nasc class="form-control date-mask-placeholder" %}                        
                 </div>  
             </div>
             {% else %}
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label for="">{{form.data_nasc.label}}</label>
-                        {% render_field form.data_nasc class="form-control" type="date" %}
+                        {% render_field form.data_nasc class="form-control " type="date" %}
                     </div>  
                 </div>
             {% endif %}
@@ -315,7 +315,7 @@
             </div>
         </div> 
     </div>
-    
+
     <div id="Page4" class="tabcontent">         
         <div class="row">
             <div class="col-sm-12">
