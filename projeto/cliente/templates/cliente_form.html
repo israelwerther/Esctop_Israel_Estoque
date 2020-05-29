@@ -62,12 +62,13 @@
    <!-- https://www.schoolofnet.com/forum/topico/como-enviar-a-mensagem-de-sucesso-ou-erro-para-o-formulario-8495 -->    
 
     <div class="tab">
-        <button class="tablinks" onclick="openCity(event, 'London')">Dados Pessoais</button>
-        <button class="tablinks" onclick="openCity(event, 'Paris')">Dados do Local de Trabalho</button>
-        <button class="tablinks" onclick="openCity(event, 'Tokyo')">Referências e Observações</button>
+        <button class="tablinks" onclick="openCity(event, 'Page1')">Dados Pessoais</button>
+        <button class="tablinks" onclick="openCity(event, 'Page2')">Dados do Local de Trabalho</button>
+        <button class="tablinks" onclick="openCity(event, 'Page3')">Dados Bancários</button>
+        <button class="tablinks" onclick="openCity(event, 'Page4')">Referências e Observações</button>
     </div>
     
-    <div id="London" class="tabcontent" style="display:block">
+    <div id="Page1" class="tabcontent" style="display:block">
         <form method="POST">
         {% csrf_token %}    
         <br>
@@ -212,7 +213,7 @@
         </div>  
     </div>
 
-    <div id="Paris" class="tabcontent">
+    <div id="Page2" class="tabcontent">
         <h2>DADOS DO LOCAL DE TRABALHO</h2>
         <div class="row">
             <div class="col-sm-5">                    
@@ -282,7 +283,10 @@
                     {% render_field form.referencia_trabalho class="form-control" %}
                 </div>
             </div>
-        </div>    
+        </div>   
+    </div>    
+
+    <div id="Page3" class="tabcontent">
         <h2>DADOS BANCÁRIOS</h2>
         <div class="row">
             <div class="col-sm-2">                    
@@ -309,10 +313,10 @@
                     {% render_field form.obs_bancaria class="form-control" %}
                 </div>
             </div>
-        </div>     
-    </div>    
-
-    <div id="Tokyo" class="tabcontent">
+        </div> 
+    </div>
+    
+    <div id="Page4" class="tabcontent">         
         <div class="row">
             <div class="col-sm-12">
                 <div class="form-group">
@@ -324,7 +328,7 @@
         <div style='float: right;'>
             <button class="btn btn-success" float="right">Cadastrar</button>
         </div>
-        </form>
+        </form> 
     </div>
        
             
