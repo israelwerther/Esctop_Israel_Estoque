@@ -12,7 +12,6 @@
         body {
             font-family: "Arial";
         }
-
         @media print {
             .no-print,
             .no-print * {
@@ -51,6 +50,9 @@
         .center {
             text-align: center;
         }
+        .testando {
+			text-align: center;						
+        }
 
         .right {
             text-align: right;
@@ -66,7 +68,7 @@
             left: 0px;
             top: 0px;
             font-size: 12px;
-			font-weight: bold;			
+			font-weight: bold;						
         }
         .titleisrael {
             position: absolute;
@@ -74,19 +76,17 @@
             top: 0px;
             font-size: 11px;
             font-weight: normal;
-        }
-        
+        }        
         .text {
             font-size: 12px;
         }
-
         p.content {
             padding: 0px;
             width: 100%;
             margin: 0px;
 			font-size: 12px;
-			margin-top: 3px;
-			margin-bottom: 3px;
+			margin-top: 2px;
+			margin-bottom: 4px;
         }
 
         .sideBorders {
@@ -250,13 +250,13 @@
 				<!--1º linha-->
 				<tr>
 					<td width="15%" >
-						<p class="content center"><b>CREDCOOP</b></p>							
-						<p class="content center">(84) 4131-3210</p>
+						<p class="content testando"><b>CREDCOOP</b></p>							
+						<p class="content testando">(84) 4131-3210</p>
 					</td>
 					<td width="1px"></td>
 					<td width="39%" colspan="6">
-						<p class="content center"><b>CREDCOOP</b></p>							
-						<p class="content center">(84) 4131-3210</p>						
+						<p class="content testando"><b>CREDCOOP</b></p>							
+						<p class="content testando">(84) 4131-3210</p>						
 					</td>						
 				</tr>
 				<!--2º linha-->
@@ -269,9 +269,8 @@
 					</td>
 					<td width="1px" ></td>
 					<td width="70%" colspan="5">
-						<span class="title">&nbsp Local de Pagamento</span>	
-						<br/>
-						<p class="content left text">&nbsp Escritório</span></p>	
+						<p class="content "><b>&nbsp Local de Pagamento: ESCRITÓRIO</b></p>	
+						
 					</td>
 					<td width="45%">
 						<span class="title">&nbspVencimento</span>
@@ -328,51 +327,56 @@
 				
 					<td width="15%">
 						<p class="content left">&nbsp(-) Descontos </p>							
+						<p class="content left">&nbsp </p>						
 					</td>
 					<td width="1px"></td>
 					<td colspan="5" rowspan="4">
 						<span class="titleisrael">&nbsp Instruções<br/>
 						&nbsp MULTA DE R$: ${valor_multa} APÓS: ${dia}/${mes}/${ano}<br/>
 						&nbsp JUROS DE R$: ${valor_juros_dia} AO DIA<br/>
-						
-					
 						</span>				
 					</td>
 					<td width="15%">
-						<p class="content left">&nbsp(-) Descontos </p>					
+						<p class="content left">&nbsp(-) Descontos </p>
+						<p class="content left">&nbsp </p>					
 					</td>
 				</tr>	
 				<!--6º linha-->				
 				<tr>
 					<td width="15%">
-						<p class="content left">&nbsp(+) Acréscimos </p>						
+						<p class="content left">&nbsp(+) Acréscimos </p>							
+						<p class="content left">&nbsp </p>
 					</td>
 					<td width="1px"></td>
 					<td width="15%">
-						<p class="content left">&nbsp(+) Acréscimos </p>						
+						<p class="content left">&nbsp(+) Acréscimos </p>							
+						<p class="content left">&nbsp </p>						
 					</td>
-					
 				</tr>
 				<!--7º linha-->
 				<tr>
 					<td width="15%">
-						<p class="content left">&nbsp(=) Valor Pago </p><br>							
+						<p class="content left">&nbsp(=) Valor Pago  </p>							
+						<p class="content left">&nbsp </p>													
 					</td>
 					<td width="1px"></td>
 					<td width="15%">
-						<p class="content left">&nbsp(=) Valor Pago </p><br>							
+						<p class="content left">&nbsp(=) Valor Pago  </p>							
+						<p class="content left">&nbsp </p>							
 					</td>
 				</tr>
 				<!--8º linha-->
 				<tr>
 					<td width="15%">
-						<p class="content left"><b>Visto do Operador</b></p>							
-						<p class="content left">Pago em ___/___/___ </p>						
+						<p class="content left"><b>&nbspVisto do Operador</b></p>							
+						<p class="content center">Pago em:</p>						
+						<p class="content left">&nbsp&nbsp&nbsp&nbsp ____/____/____ </p>						
 					</td>
 					<td width="1px"></td>
 					<td width="15%">
-						<p class="content left"><b>Visto do Operador</b></p>							
-						<p class="content left">Pago em ___/___/___ </p>
+						<p class="content left"><b>&nbspVisto do Operador</b></p>							
+						<p class="content center">Pago em:</p>						
+						<p class="content left">&nbsp&nbsp&nbsp&nbsp ____/____/____ </p>
 					</td>
 				</tr>
 				<!--9º linha-->
