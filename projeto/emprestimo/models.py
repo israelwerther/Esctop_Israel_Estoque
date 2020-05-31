@@ -3,10 +3,9 @@ from django.db import models
 from django.urls import reverse_lazy
 from projeto.core.models import TimeStampedModel
 from projeto.cliente.models import Cliente
+from django.utils.translation import gettext_lazy as _ 
 
 import math
-
-#from datetime import datetime, date, timedelta
 
 class Emprestimo(models.Model):
     funcionario      = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -30,6 +29,9 @@ class Emprestimo(models.Model):
         return reverse_lazy('emprestimo:emprestimo_detail', kwargs={'pk': self.pk})  
 
 
+class EmprestimoPagamento(models.Model):
+    emprestimo           = models.ForeignKey(Emprestimo, on_delete=models.PROTECT)
+    valor_pago           = models.DecimalField("Valor Pago", max_digits=10, decimal_places=2, null=True, blank=True)
 
 
     

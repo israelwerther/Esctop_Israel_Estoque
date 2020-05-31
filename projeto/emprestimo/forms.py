@@ -1,7 +1,8 @@
+# from django.forms import ModelForm
 from django import forms
-from .models import Emprestimo #, EmprestimoItens
+from .models import Emprestimo, EmprestimoPagamento 
 from datetime import date
-# from datetimepicker.widgets import DateTimePicker
+
 
 class EmprestimoForm(forms.ModelForm):    
     class Meta:
@@ -17,3 +18,8 @@ class EmprestimoForm(forms.ModelForm):
         ]
         readonly_fields = ["valor_prestacao", ]
      
+
+class EmprestimoPagamentoForm(forms.ModelForm):
+    class Meta:
+        model = EmprestimoPagamento 
+        fields = ["valor_pago",]

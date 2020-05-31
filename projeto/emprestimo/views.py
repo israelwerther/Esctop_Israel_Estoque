@@ -1,7 +1,9 @@
-from django.shortcuts import render, resolve_url
+from django.shortcuts import render, resolve_url, redirect, get_object_or_404
 from django.views.generic import CreateView, UpdateView
-from .models import Emprestimo
-from .forms import EmprestimoForm
+from django.contrib import messages
+from django.http import HttpResponse
+from .models import Emprestimo, EmprestimoPagamento
+from .forms import EmprestimoForm, EmprestimoPagamentoForm
 
 
 
@@ -40,8 +42,34 @@ class EmprestimoCreate(CreateView):
 class EmprestimoUpdate(UpdateView):
     model=Emprestimo
     template_name='emprestimo_form.html'
-    form_class=EmprestimoForm
+    form_class=EmprestimoForm    
+        
+
+
+def emprestimo_pagamento_add(request, pk):
+    emprestimo = get_object_or_404(Emprestimo, pk=pk)
+    form = EmprestimoPagamentoForm()
+    # pagamentos = emprestimo.emprestimo_set.all()
+    context = {'emprestimo': emprestimo, 'form': form}
+    return render(request, 'emprestimo_pagamento_add.html', context)
+
     
+
+def emprestimo_pagamento(request, pk):
+    emprestimo = get_object_or_404(Emprestimo, pk=pk)
+    form = EmprestimoPagamentoForm(request.POST or None)
+    if form.is_valid():
+        emprestimopagamento = form.save(commit=False)
+        emprestimopagamento.emprestimo = emprestimo
+        emprestimopagamento.save()        
+    return redirect('emprestimo:emprestimo_detail', pk)
+    # template_name = 'emprestimo_pagamento.html'  
+    # emprestimo = get_object_or_404(Emprestimo, pk=pk)  
+    # form2 = EmprestimoPagamentoForm()
+    # context = {'object': emprestimo,'form2': form2}    
+    
+    
+    # return render(request, template_name, context)
 
 
 

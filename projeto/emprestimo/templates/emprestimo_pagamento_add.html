@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load bootstrap %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+
+    <h2>Realizando Pagamento para {{ emprestimo }}</h2>
+    <form action="{% url 'emprestimo:emprestimo_pagamento' emprestimo.pk %}" method="post" >
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-sm-4">                    
+                <div class="form-group">
+                    <label for="">{{form.valor_pago.label}}</label>
+                    {% render_field form.valor_pago class="form-control" id="valor_pago" %}
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success">Cadastrar</button>  
+    </form>
+
+    <!-- <script>
+        var valor_pago = window.document.getElementById('valor_pago')
+        window.document.write(valor_pago.innerText)
+    </script> -->
+
+{% endblock content %}
