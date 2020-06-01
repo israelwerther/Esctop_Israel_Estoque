@@ -32,7 +32,7 @@ class Emprestimo(models.Model):
 class EmprestimoPagamento(models.Model):
     emprestimo           = models.ForeignKey(Emprestimo, on_delete=models.PROTECT)
     valor_pago           = models.DecimalField("Valor Pago", max_digits=10, decimal_places=2, null=True, blank=True)
-
+    data_pagamento       = models.DateField("Data do Pagamento", auto_now_add=True, auto_now=False, null=True,blank=True,)
 
     
     

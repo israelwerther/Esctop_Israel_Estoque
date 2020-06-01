@@ -4,11 +4,12 @@ from .models import Emprestimo, EmprestimoPagamento
 @admin.register(Emprestimo)
 class EmprestimoAdmin(admin.ModelAdmin):
     list_display=(        
-        'data_emprestimo',        
+        'num_doc', 'cliente', 'data_emprestimo', 'funcionario', 'valor_emprestado',        
     )
     search_fields=('num_doc',)
     # readonly_fields = ["valor_prestacao", ]
-    # list_filter=('rg',)
+    # list_filter=('rg',)   
+    ordering = ('-num_doc',)
     
 @admin.register(EmprestimoPagamento)
 class EmprestimoPagamentoAdmin(admin.ModelAdmin):

@@ -83,13 +83,16 @@ https://felipefrizzo.github.io/post/form-inline-cbv/ -->
 
     {% if emprestimo %}
 
+   
+        <button type="submit" class="btn btn-success">Salvar Alterações</button>  
+   
         <a href="{% url 'emprestimo:emprestimo_pagamento_add' emprestimo.pk %}" class="btn btn-primary">Pagar</a>        
     
     {% else %}
         <button type="submit" class="btn btn-success">Cadastrar</button>
-    {% endif %}
-    
+        
     </form>
+    {% endif %}
 
   
     <script>
