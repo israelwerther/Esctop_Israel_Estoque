@@ -15,8 +15,14 @@
                     {% render_field form.valor_pago class="form-control" id="valor_pago" %}
                 </div>
             </div>
+            <div class="col-sm-4">                    
+                <div class="form-group">
+                    <label for="">{{form.data_pagamento.label}}</label>
+                    {% render_field form.data_pagamento class="form-control" type="date" %}
+                </div>
+            </div>
         </div>
-        <button type="submit" class="btn btn-success">Cadastrar</button>  
+        <button type="submit" class="btn btn-success">Registra Pagamento</button>  
     </form>
 
     <!-- <script>

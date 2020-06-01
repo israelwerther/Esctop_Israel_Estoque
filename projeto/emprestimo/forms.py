@@ -22,4 +22,4 @@ class EmprestimoForm(forms.ModelForm):
 class EmprestimoPagamentoForm(forms.ModelForm):
     class Meta:
         model = EmprestimoPagamento 
-        fields = ["valor_pago",]
+        fields = ["valor_pago", "data_pagamento", ]

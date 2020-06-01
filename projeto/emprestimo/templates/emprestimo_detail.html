@@ -10,8 +10,7 @@
                 <span class="fa fa-pencil">Editar</span>
             </button>
         </a>
-        <a href="{% url 'emprestimo:emprestimo_impress' object.pk %}" class="btn btn-primary">Imprimir</a>
-        
+        <a href="{% url 'emprestimo:emprestimo_impress' object.pk %}" class="btn btn-primary">Imprimir</a>       
         
     </span>
 </h1>
@@ -47,8 +46,7 @@
                 <th class="text-right">Data do Empréstimo</th>
                 <td type="form-control">{{ object.data_emprestimo }}</td> 
                 <td >{{ object.data_emprestimo.day }}/{{ object.data_emprestimo.month }}/{{ object.data_emprestimo.year }}</td>                
-            </tr>
-            
+            </tr>            
         </tbody>
     </table>
 </div>
