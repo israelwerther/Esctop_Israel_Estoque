@@ -22,7 +22,8 @@
                 </div>
             </div>
         </div>
-        <button type="submit" class="btn btn-success">Registra Pagamento</button>  
+        <button type="submit" class="btn btn-success">Registra Pagamento</button>
+        <a href="{% url 'emprestimo:emprestimo_pagamento_list' emprestimo.pk %}" class="btn btn-primary">Pagamentos Realizados</a>  
     </form>
 
     <!-- <script>

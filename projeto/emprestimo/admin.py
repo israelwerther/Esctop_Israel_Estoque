@@ -14,6 +14,7 @@ class EmprestimoAdmin(admin.ModelAdmin):
 @admin.register(EmprestimoPagamento)
 class EmprestimoPagamentoAdmin(admin.ModelAdmin):
     list_display=(        
-        'valor_pago',        
+        'valor_pago', 'data_pagamento', 'emprestimo',       
     )
+    ordering = ('-data_pagamento',)
     

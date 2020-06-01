@@ -63,14 +63,14 @@ def emprestimo_pagamento(request, pk):
         emprestimopagamento.emprestimo = emprestimo
         emprestimopagamento.save()        
     return redirect('emprestimo:emprestimo_detail', pk)
-    # template_name = 'emprestimo_pagamento.html'  
-    # emprestimo = get_object_or_404(Emprestimo, pk=pk)  
-    # form2 = EmprestimoPagamentoForm()
-    # context = {'object': emprestimo,'form2': form2}    
-    
-    
-    # return render(request, template_name, context)
+   
+   
 
-
+def emprestimo_pagamento_list(request, pk):
+    emprestimo = get_object_or_404(Emprestimo, pk=pk)
+    form = EmprestimoPagamentoForm()
+    emprestimos = emprestimo.emprestimopagamento_set.all()
+    context = {'emprestimo': emprestimo, 'form': form, 'emprestimos': emprestimos } 
+    return render(request, 'emprestimo_pagamento_list.html', context)
 
 
