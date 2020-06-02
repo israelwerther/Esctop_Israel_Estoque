@@ -1,6 +1,10 @@
 from django.db import models
 from django.urls import reverse_lazy
 
+class Avalista(models.Model):
+    avalista                   = models.CharField("Avalista", max_length=50, blank=True, null=True)
+    cpf_avalista               = models.CharField("CPF do Avalista", max_length=20, unique=True) 
+
 #para campo required
 #https://stackoverflow.com/questions/1134667/django-required-field-in-model-form/1429646
 class Cliente(models.Model):
@@ -42,6 +46,8 @@ class Cliente(models.Model):
     conta                 = models.CharField("Conta",max_length=15, blank=True, null=True)
     banco                 = models.CharField("Banco",max_length=25, blank=True, null=True)
     obs_bancaria          = models.CharField("Observações",max_length=25, blank=True, null=True)
+    
+    avalista              = models.ForeignKey(Avalista,on_delete=models.PROTECT, max_length=11, blank=True, null=True)
     
     anotacoes             = models.TextField("Anotações",max_length=200, blank=True, null=True)
     

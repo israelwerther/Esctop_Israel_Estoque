@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+
+{% block content %}
+
+<h2>CADASTRO DE AVALISTA</h2>
+
+    <form method="POST">
+    {% csrf_token %}
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group" >
+                    <label for="" class="required" >{{form.avalista.label}} </label>
+                    {% render_field form.avalista class="form-control"  %}
+                </div>
+            </div>
+            <div class="col-sm-3">                    
+                <div class="form-group" >                
+                    <label for="" class="required" >{{form.cpf_avalista.label}} </label>        
+                    {% render_field form.cpf_avalista class="form-control cpf-mask" type="text" %}
+                </div>
+            </div>  
+        </div>
+        <br>
+        <div style='float: right;'>
+            <button class="btn btn-success" float="right">Cadastrar</button>
+        </div>
+    </form>   
+
+{% endblock content %}
