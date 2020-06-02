@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+    thead{
+        background-color: rgb(165, 165, 165);
+    }
+</style>
+
+<div class="class page-header">   
+    <div class="float-right">
+        <a href="{% url 'cliente:avalista_add' %}">
+            <button type="button" class="button button1">
+                Cadastrar Avalista
+            </button>
+        </a>       
+    </div>
+    <div>
+        <h2>Lista de Clientes</h2>
+    </div>
+    
+    {% if object_list %}
+    
+    <table class="table table-striped table-hover">
+       
+        <thead class="thead">
+                <tr>
+                    <th>Avalista</th>                    
+                    <th>CPF</th>                                                   
+                </tr>
+            </thead>
+            <tbody>
+                {% for object in object_list  %}   
+                <tr>                              
+                    <td>{{ object.avalista }}</td>
+                    <td>{{ object.cpf_avalista }}</td>   
+                </tr>
+                {% endfor %}
+            </tbody>
+      
+    </table>
+    {% else %}
+        <p class="alert alert-warning">Sem Avalistas cadastrados</p>
+    {% endif %}
+
+</div>
+
+{% endblock content %}

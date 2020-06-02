@@ -53,11 +53,19 @@ class ClienteDelete(DeleteView):
     template_name ='cliente_delete.html'    
     success_url = reverse_lazy('cliente:cliente_list')
     
+    
+def avalista_list(request):
+    template_name='avalista_list.html'
+    objects=Avalista.objects.all()
+    context={'object_list': objects}
+    return render(request, template_name, context)
 
 class AvalistaCreate(CreateView):
     model=Avalista 
     template_name = 'avalista_form.html'
     form_class=AvalistaForm
-    success_url = reverse_lazy('cliente:cliente_list')
+    success_url = reverse_lazy('cliente:avalista_list')
+    
+
     
     

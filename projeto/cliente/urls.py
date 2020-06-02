@@ -7,7 +7,9 @@ urlpatterns = [
     path('', v.cliente_list, name='cliente_list'),
     path('<int:pk>/', v.cliente_detail, name='cliente_detail'),
     path('add/', v.ClienteCreate.as_view(), name='cliente_add'),
-    path('avalista_add/', v.AvalistaCreate.as_view(), name='avalista_add'),
     path('<int:pk>/edit/', v.ClienteUpdate.as_view(), name='cliente_edit'),
     path('<int:pk>/delete/', v.ClienteDelete.as_view(), name='cliente_delete'),
+    
+    path('avalista/', v.avalista_list, name='avalista_list'),
+    path('avalista_add/', v.AvalistaCreate.as_view(), name='avalista_add'),
 ]

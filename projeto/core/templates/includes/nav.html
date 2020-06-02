@@ -34,11 +34,15 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
+  
 }
 
 .topnav {
   overflow: hidden;
   background-color: #333;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
 }
 
 .topnav a {
@@ -94,7 +98,7 @@ body {
   <a href="{% url 'core:index' %}" class="active">ESCTOP</a>
   <a href="{% url 'cliente:cliente_list' %}">Clientes</a>
   <a href="{% url 'emprestimo:emprestimo_list' %}">Empréstimos</a>
-  <a href="{% url 'cliente:avalista_add' %}">Avalista</a>
+  <a href="{% url 'cliente:avalista_list' %}">Avalista</a>
   
   
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
