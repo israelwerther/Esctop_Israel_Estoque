@@ -26,95 +26,94 @@
  
     <!-- MEUS CSS -->
   {% block css %}{% endblock css %}
-    <style>
-    .ok{
-        color: green;
-    }
-    .no{
-        color: red;
-    }   
-    label.required:after{
-        content: "*";
-        color: red;
-    }
-    label {
-      font-weight: bold;
-      margin-bottom: 0px;
-    }    
-  
+  <style>
+  .ok{
+      color: green;
+  }
+  .no{
+      color: red;
+  }   
+  label.required:after{
+      content: "*";
+      color: red;
+  }
+  label {
+    font-weight: bold;
+    margin-bottom: 0px;
+  }      
   /*ESTILO DE BOTÕES*/
   thead{
     background-color: rgb(165, 165, 165);
   }
   .button {
-      background-color: #4CAF50; /* Green */
-      border: none;
-      color: white;
-      padding: 2px 12px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 14px;
-      margin: 0px 0px;
-      transition-duration: 0.4s;
-      cursor: pointer;
-    }
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 2px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 0px 0px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  
+  .button1 {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #4CAF50;
+    padding: 12px 12px;
+  }
+  
+  .button1:hover {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .button2 {
+    background-color: rgb(165, 165, 165); 
+    color: black; 
+    border: 2px solid #008CBA;
+  }
+  
+  .button2:hover {
+    background-color: #008CBA;
+    color: white;
+  }
+  
+  .button3 {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #f44336;
+  }
+  
+  .button3:hover {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .button4 {
+    background-color: white;
+    color: black;
+    border: 2px solid #e7e7e7;
+  }
+  
+  .button4:hover {background-color: #e7e7e7;}
+  
+  .button5 {
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+  }
+  
+  .button5:hover {
+    background-color: #555555;
+    color: white;
+  }
+  /*ESTILO DE BOTÕES*/
     
-    .button1 {
-      background-color: white; 
-      color: black; 
-      border: 2px solid #4CAF50;
-      padding: 12px 12px;
-    }
-    
-    .button1:hover {
-      background-color: #4CAF50;
-      color: white;
-    }
-    
-    .button2 {
-      background-color: rgb(165, 165, 165); 
-      color: black; 
-      border: 2px solid #008CBA;
-    }
-    
-    .button2:hover {
-      background-color: #008CBA;
-      color: white;
-    }
-    
-    .button3 {
-      background-color: white; 
-      color: black; 
-      border: 2px solid #f44336;
-    }
-    
-    .button3:hover {
-      background-color: #f44336;
-      color: white;
-    }
-    
-    .button4 {
-      background-color: white;
-      color: black;
-      border: 2px solid #e7e7e7;
-    }
-    
-    .button4:hover {background-color: #e7e7e7;}
-    
-    .button5 {
-      background-color: white;
-      color: black;
-      border: 2px solid #555555;
-    }
-    
-    .button5:hover {
-      background-color: #555555;
-      color: white;
-    }
-    /*ESTILO DE BOTÕES*/
-     
-    </style>
+  </style>
     <!-- MEUS CSS -->  
   </head>
   <body>
@@ -144,87 +143,86 @@
   <script type="text/javascript" >
     /*AUTOMATIZA A PESQUISA DE CEP*/
     function limpa_formulário_cep() {
-            //Limpa valores do formulário de cep.
-            document.getElementById('rua').value=("");
-            document.getElementById('bairro').value=("");
-            document.getElementById('cidade').value=("");
-            document.getElementById('uf').value=("");
-            document.getElementById('ibge').value=("");
+      //Limpa valores do formulário de cep.
+      document.getElementById('rua').value=("");
+      document.getElementById('bairro').value=("");
+      document.getElementById('cidade').value=("");
+      document.getElementById('uf').value=("");
+      document.getElementById('ibge').value=("");
     }
 
     function meu_callback(conteudo) {
-        if (!("erro" in conteudo)) {
-            //Atualiza os campos com os valores.
-            document.getElementById('rua').value=(conteudo.logradouro);
-            document.getElementById('bairro').value=(conteudo.bairro);
-            document.getElementById('cidade').value=(conteudo.localidade);
-            document.getElementById('uf').value=(conteudo.uf);
-            document.getElementById('ibge').value=(conteudo.ibge);
-        } //end if.
-        else {
-            //CEP não Encontrado.
-            limpa_formulário_cep();
-            alert("CEP não encontrado.");
-        }
+      if (!("erro" in conteudo)) {
+        //Atualiza os campos com os valores.
+        document.getElementById('rua').value=(conteudo.logradouro);
+        document.getElementById('bairro').value=(conteudo.bairro);
+        document.getElementById('cidade').value=(conteudo.localidade);
+        document.getElementById('uf').value=(conteudo.uf);
+        document.getElementById('ibge').value=(conteudo.ibge);
+      } //end if.
+      else {
+        //CEP não Encontrado.
+        limpa_formulário_cep();
+        alert("CEP não encontrado.");
+      }
     }
     function pesquisacep(valor) {
+      //Nova variável "cep" somente com dígitos.
+      var cep = valor.replace(/\D/g, '');
 
-        //Nova variável "cep" somente com dígitos.
-        var cep = valor.replace(/\D/g, '');
+      //Verifica se campo cep possui valor informado.
+      if (cep != "") {
 
-        //Verifica se campo cep possui valor informado.
-        if (cep != "") {
+        //Expressão regular para validar o CEP.
+        var validacep = /^[0-9]{8}$/;
 
-            //Expressão regular para validar o CEP.
-            var validacep = /^[0-9]{8}$/;
+        //Valida o formato do CEP.
+        if(validacep.test(cep)) {
+          
+          //Preenche os campos com "..." enquanto consulta webservice.
+          document.getElementById('rua').value="...";
+          document.getElementById('bairro').value="...";
+          document.getElementById('cidade').value="...";
+          document.getElementById('uf').value="...";
+          document.getElementById('ibge').value="...";
 
-            //Valida o formato do CEP.
-            if(validacep.test(cep)) {
+          //Cria um elemento javascript.
+          var script = document.createElement('script');
 
-                //Preenche os campos com "..." enquanto consulta webservice.
-                document.getElementById('rua').value="...";
-                document.getElementById('bairro').value="...";
-                document.getElementById('cidade').value="...";
-                document.getElementById('uf').value="...";
-                document.getElementById('ibge').value="...";
+          //Sincroniza com o callback.
+          script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
 
-                //Cria um elemento javascript.
-                var script = document.createElement('script');
+          //Insere script no documento e carrega o conteúdo.
+          document.body.appendChild(script);
 
-                //Sincroniza com o callback.
-                script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
-
-                //Insere script no documento e carrega o conteúdo.
-                document.body.appendChild(script);
-
-            } //end if.
-            else {
-                //cep é inválido.
-                limpa_formulário_cep();
-                alert("Formato de CEP inválido.");
-            }
         } //end if.
         else {
-            //cep sem valor, limpa formulário.
-            limpa_formulário_cep();
+          //cep é inválido.
+          limpa_formulário_cep();
+          alert("Formato de CEP inválido.");
         }
+      } //end if.
+      else {
+        //cep sem valor, limpa formulário.
+        limpa_formulário_cep();
+      }
     };
     /*AUTOMATIZA A PESQUISA DE CEP*/
 
     
     /*OCULTA FORMULÁRIOS NA TELA DE CADASTRO DE CLIENTES - TABCONTENTS*/
     function openCity(evt, cityName) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-        document.getElementById(cityName).style.display = "block";
-        evt.currentTarget.className += " active";
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " active";
     }
     /*OCULTA FORMULÁRIOS NA TELA DE CADASTRO DE CLIENTES - TABCONTENTS*/ 
 
