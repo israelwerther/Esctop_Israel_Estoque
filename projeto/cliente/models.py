@@ -4,6 +4,9 @@ from django.urls import reverse_lazy
 class Avalista(models.Model):
     avalista                   = models.CharField("Avalista", max_length=50, blank=True, null=True)
     cpf_avalista               = models.CharField("CPF do Avalista", max_length=20, unique=True) 
+        
+    class Meta:
+        ordering = ('avalista',) 
     
     def __str__(self):
         return self.avalista
