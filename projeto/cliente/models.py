@@ -1,3 +1,5 @@
+#para campo required
+#https://stackoverflow.com/questions/1134667/django-required-field-in-model-form/1429646
 from django.db import models
 from django.urls import reverse_lazy
 
@@ -14,8 +16,6 @@ class Avalista(models.Model):
     def get_absolute_url(self):
         return reverse_lazy('cliente:avalista_add', kwargs={'pk': self.pk})
 
-#para campo required
-#https://stackoverflow.com/questions/1134667/django-required-field-in-model-form/1429646
 class Cliente(models.Model):
     nome                  = models.CharField("Nome", max_length=50)
     cpf                   = models.CharField("CPF", max_length=20, unique=True)   
