@@ -9,7 +9,7 @@
 </style>
 
 <div class="class page-header">
-    <h2>Lista de Clientes
+    <!-- <h2>Lista de Clientes
         <span class="pull-right">
             <a href="{% url 'cliente:cliente_add' %}">
                 <button type="button" class="btn btn-primary">
@@ -17,7 +17,17 @@
                 </button>
             </a>
         </span>
-    </h2>
+    </h2> -->
+    <div class="float-right">
+        <a href="{% url 'cliente:cliente_add' %}">
+            <button type="button" class="button button1">
+                Cadastrar Cliente
+            </button>
+        </a>       
+    </div>
+    <div>
+        <h2>Lista de Clientes</h2>
+    </div>
     
     {% if object_list %}
     

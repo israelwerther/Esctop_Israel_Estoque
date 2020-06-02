@@ -3,15 +3,17 @@
 {% block content %}
 
 <div class="class page-header">
-    <h2>Lista de Emprestimos</h2>
-    
-        <!-- <span class="pull-right">
-            <a href="{% url 'emprestimo:emprestimo_add' %}">
-                <button type="button" class="button button2">
-                    <span class="fa fa-plus"></span>Adicionar
-                </button>
-            </a>
-        </span> -->
+
+    <div class="float-right">
+        <a href="{% url 'emprestimo:emprestimo_add' %}">
+            <button type="button" class="button button1">
+                Novo Emprestimo
+            </button>
+        </a>       
+    </div>
+    <div>
+        <h2>Lista de Emprestimos</h2>
+    </div>
     
     {% if object_list %}
         <table class="table table-striped table-hover">
@@ -22,15 +24,7 @@
                     <th>valor_emprestado</th>                    
                     <th>qtd_parcelas</th>  
                     <th>Data do Emprestimo</th>  
-                    <th style="text-align:center">
-                        <span >
-                            <a href="{% url 'emprestimo:emprestimo_add' %}">
-                                <button type="button" class="button button1">
-                                    Novo Emprestimo
-                                </button>
-                            </a>
-                        </span>
-                    </th>                    
+                    <th style="text-align:center"></th>                    
                 </tr>
             </thead>
             <tbody>
