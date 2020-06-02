@@ -5,6 +5,9 @@ class Avalista(models.Model):
     avalista                   = models.CharField("Avalista", max_length=50, blank=True, null=True)
     cpf_avalista               = models.CharField("CPF do Avalista", max_length=20, unique=True) 
     
+    def __str__(self):
+        return self.avalista
+    
     def get_absolute_url(self):
         return reverse_lazy('cliente:avalista_add', kwargs={'pk': self.pk})
 
