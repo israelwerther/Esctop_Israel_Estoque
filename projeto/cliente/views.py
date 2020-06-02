@@ -5,7 +5,6 @@ from .models import Cliente, Avalista
 from .forms import ClienteForm, AvalistaForm
 
 
-
 def cliente_list(request):
     template_name='cliente_list.html'
     objects=Cliente.objects.all()
@@ -45,19 +44,20 @@ class ClienteCreate(CreateView):
 class ClienteUpdate(UpdateView):
     model=Cliente
     template_name='cliente_form.html'
-    form_class=ClienteForm
+    form_class = ClienteForm
     #fazer aqui receber o form dos emprestimos filtrados apenas dele
     
 
 class ClienteDelete(DeleteView):
     model=Cliente
-    template_name='cliente_delete.html'    
+    template_name ='cliente_delete.html'    
     success_url = reverse_lazy('cliente:cliente_list')
     
 
 class AvalistaCreate(CreateView):
     model=Avalista 
-    template_name='avalista_form.html'
+    template_name = 'avalista_form.html'
     form_class=AvalistaForm
+    success_url = reverse_lazy('cliente:cliente_list')
     
     
