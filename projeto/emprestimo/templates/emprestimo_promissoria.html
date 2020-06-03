@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html charset="UTF-8">
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment.min.js"></script>
+
+{% load widget_tweaks %}
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="robots" content="noindex">
+    <style>
+        body {
+            font-family: "Arial";
+		}
+		
+        @media print {
+            .no-print,
+            .no-print * {
+                display: none !important;
+            }
+		}
+		
+        .document {
+            margin: auto auto;
+            width: 216mm;
+            height: 108mm;
+            background-color: #fff;
+        }
+
+        .headerBtn {
+            margin: auto auto;
+            width: 216mm;
+            background-color: #fff;
+            display: none;
+        }
+
+        table {
+            width: 100%;
+            position: relative;
+            border-collapse: collapse;
+        }
+
+        .bankLogo {
+            width: 28%;
+        }
+        .boletoNumber {
+            width: 62%;
+            font-weight: bold;
+        }
+
+        .center {
+            text-align: center;
+        }
+        .testando {
+			text-align: center;						
+        }
+
+        .right {
+            text-align: right;
+            right: 20px;
+        }
+
+        td {
+            position: relative;
+        }
+
+        .title {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            font-size: 12px;
+			font-weight: bold;						
+        }
+        .title2 {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            font-size: 13px;
+            font-weight: normal;
+        }        
+        .text {
+            font-size: 12px;
+		}
+		
+        p.content {
+            padding: 0px;
+            width: 100%;
+            margin: 0px;
+			font-size: 13px;
+			margin-top: 2px;
+			margin-bottom: 4px;
+        }
+
+        .sideBorders {
+            border-left: 1px solid black;
+            border-right: 1px solid black;
+        }
+
+        hr {
+            size: 1;
+            border: 1px dashed;
+        }
+
+        br {
+            content: " ";
+            display: block;
+            margin: 12px 0;
+            line-height: 12px;
+        }
+
+        .print {
+            /* TODO(dbeam): reconcile this with overlay.css' .default-button. */
+            background-color: rgb(77, 144, 254);
+            background-image: linear-gradient(to bottom, rgb(77, 144, 254), rgb(71, 135, 237));
+            border: 1px solid rgb(48, 121, 237);
+            color: #fff;
+            text-shadow: 0 1px rgba(0, 0, 0, 0.1);
+        }
+
+        .btnDefault {
+            font-kerning: none;
+            font-weight: bold;
+        }
+
+        .btnDefault:not(:focus):not(:disabled) {
+            border-color: #808080;
+        }
+
+        button {
+            border: 1px;
+            padding: 5px;
+            line-height: 20px;
+        }
+
+    
+    i[class*=icss-]{position:relative;display:inline-block;font-style:normal;background-color:currentColor;-webkit-box-sizing:border-box;box-sizing:border-box;vertical-align:middle}i[class*=icss-]:after,i[class*=icss-]:before{content:"";border-width:0;position:absolute;-webkit-box-sizing:border-box;box-sizing:border-box}i.icss-print{width:.68em;height:1em;border-style:solid;border-color:currentcolor;border-width:.07em;-webkit-border-radius:.05em;border-radius:.05em;background-color:transparent;margin:0 .17em}i.icss-print:before{width:1em;height:.4em;border-width:.07em .21em 0;border-style:solid;border-color:currentColor currentcolor transparent;-webkit-border-radius:.05em .05em 0 0;border-radius:.05em .05em 0 0;top:.25em;left:50%;-webkit-transform:translateX(-50%);-ms-transform:translateX(-50%);transform:translateX(-50%);background-image:-webkit-gradient(linear,left top,left bottom,color-stop(20%,transparent),color-stop(20%,currentcolor),color-stop(60%,currentcolor),color-stop(60%,transparent));background-image:-webkit-linear-gradient(transparent 20%,currentcolor 20%,currentcolor 60%,transparent 60%);background-image:-o-linear-gradient(transparent 20%,currentcolor 20%,currentcolor 60%,transparent 60%);background-image:linear-gradient(transparent 20%,currentcolor 20%,currentcolor 60%,transparent 60%)}i.icss-print:after{width:.45em;height:.065em;background-color:currentColor;left:50%;-webkit-transform:translateX(-50%);-ms-transform:translateX(-50%);transform:translateX(-50%);top:.6em;-webkit-box-shadow:0 .12em,-.1em -.28em 0 .05em;box-shadow:0 .12em,-.1em -.28em 0 .05em}i.icss-files{width:.75em;height:.95em;background-color:transparent;border:.05em solid transparent;border-width:0 .05em .05em 0;-webkit-box-shadow:inset 0 0 0 .065em,.13em .11em 0 -.05em;box-shadow:inset 0 0 0 .065em,.13em .11em 0 -.05em;-webkit-border-radius:0 .3em 0 0;border-radius:0 .3em 0 0;margin:0 .17em .05em .1em}i.icss-files:before{border-style:solid;border-width:.2em;top:.037em;left:.25em;-webkit-border-radius:.1em;border-radius:.1em;border-color:transparent currentColor transparent transparent;-webkit-transform:rotate(-45deg);-ms-transform:rotate(-45deg);transform:rotate(-45deg)}
+        </style>
+
+        <script type="text/javascript">
+            window.onload = function getUrlParams() {
+                var url_string = window.location.href;
+                var url = new URL(url_string);
+            
+                var fmt = url.searchParams.get("fmt");
+            
+                if(fmt === "html") {
+                    document.getElementById("headerBtn").style.display = "block";
+                } 
+            }
+        </script>    
+</head>
+
+{{ object.avalista}}
+
+
+<div class="document">
+	<div id = "carne" class="col-sm-6"></div>
+</div>
+<!-- ----------------------- -->
+<script>
+		//FAÇA OS TESTES NUMA PAGINA COM BASE.HTML CARREGADO
+		
+	window.onload = function imprimir(){
+		
+		//VARIÁVEIS DA DATA DO EMPRESTIMO
+		var contador_meses = 0
+		var contador_anos  = 0
+		var dataEmprestimo = "{{ object.data_emprestimo}}"		
+		var dia
+		var mes
+		var ano
+		var aux_dia = {{object.data_emprestimo.day}}
+		var aux_mes = {{object.data_emprestimo.month}}
+		var aux_ano = {{object.data_emprestimo.year}}
+
+		//VARIÁVEIS DO EMPRESTIMO
+		var aux_qtd_parccela = {{object.qtd_parcelas}}
+		var data_emissao = "{{object.data_emprestimo|date:"d/m/Y"}}"
+		var valor_da_parcela = parseFloat("{{object.valor_prestacao}}")	
+		var valor_multa = parseFloat((valor_da_parcela*0.020)).toFixed(2)			
+		var valor_juros_dia = (valor_da_parcela*0.0066).toFixed(2)
+		var contador_parcela = 0
+		
+		//VARIÁVEIS DO CLIENTE
+		var cliente_nome = "{{object.cliente}}"
+		var cpf = "{{object.cliente.cpf}}"
+		var rua = "{{object.cliente.rua}}"
+		var bairro = "{{object.cliente.bairro}}"
+		var cidade = "{{object.cliente.cidade}}"
+		var uf = "{{object.cliente.uf}}"
+		var numero_casa = "{{object.cliente.numero_casa}}"
+		var cep = "{{object.cliente.cep}}"
+
+
+		//VARIÁVEIS DO AVALISTA
+		var avalista = "{{object.cliente.avalista.avalista}}"
+		var cpf_avalista = "{{object.cliente.avalista.cpf_avalista}}"
+
+		for (var i = 0 ; i < {{object.qtd_parcelas}}; i++){
+		contador_meses++
+		contador_parcela++
+
+		dia  = aux_dia
+		mes  = aux_mes+contador_meses
+		ano  = aux_ano
+
+		//AJUSTA A DATA QUANDO O MES É FEVEREIRO 
+		if(dia == 30 && mes == 2){
+			dia = 1 
+			mes = 3
+		}
+		
+		//AJUSTA MESES E ANOS 
+		if(mes == 13){
+			contador_meses = 0
+			aux_mes = 1
+			mes = 1	
+			aux_ano++
+			ano++				
+		}	
+
+		
+		carne.innerHTML +=
+		`&nbsp<br>`+
+			`
+			<table cellspacing="0" cellpadding="0" border="1">
+				<!--1º linha-->
+				<tr>
+					<td width="15%" >
+						<p class="content testando"><b>CREDCOOP</b></p>							
+						<p class="content testando">(84) 4131-3210</p>
+					</td>
+					<td width="1px"></td>
+					<td width="39%" colspan="6">
+						<p class="content testando"><b>CREDCOOP</b></p>							
+						<p class="content testando">(84) 4131-3210</p>						
+					</td>						
+				</tr>
+				<!--2º linha-->
+				<tr>					
+					<td width="15%">							
+						<span class="title">&nbspVencimento</span>							
+						<br/>						
+						<p class="content right text">&nbsp${dia}/${mes}/${ano}&nbsp</p>	
+													
+					</td>
+					<td width="1px" ></td>
+					<td width="70%" colspan="5">
+						<p class="content "><b>&nbsp Local de Pagamento: ESCRITÓRIO</b></p>	
+						
+					</td>
+					<td width="45%">
+						<span class="title">&nbspVencimento</span>
+						<br/>				
+						<p class="content right text">&nbsp${dia}/${mes}/${ano}&nbsp</p>
+					
+					</td>
+				</tr>
+				<!--3º linha-->
+				<tr>
+					<td width="15%">
+						<span class="title">&nbspValor do Documento</span>
+						<br/>
+						<p class="content right">&nbspR$ ${"{{object.valor_prestacao}}"}&nbsp</p>
+					</td>
+					<td width="1px"></td>
+					<td width="17%" colspan="5">
+						<span class="title">&nbsp Nome do Cedente</span>
+						<br/>
+						<p class="content left">&nbsp CREDCOOP</p>
+					</td>
+					<td width="15%">
+						<span class="title">&nbspValor do Documento</span>
+						<br/>
+						<p class="content right">&nbspR$ ${"{{object.valor_prestacao}}"}&nbsp</p>
+					</td>
+				</tr>
+				<!--4º linha-->
+				<tr>
+					<td width="15%">
+						<p class="content left">&nbsp<b>PARCELA: ${contador_parcela}/${aux_qtd_parccela}<b></p>
+					</td>
+					<td width="1px">
+						<span class="title"></span>
+						<br/>
+						<p class="content center"></p>
+					</td>
+					<td width="50%" colspan="4">
+						<p class="content left"><b>Data de Emissão:</b></p>							
+						<p class="content left">&nbsp ${data_emissao}</p>						
+					</td>		
+					<td>
+						<span class="title"></span>
+						<br/>
+						<p class="content center"></p>
+					</td>
+					<td width="30%">
+						<p class="content left">&nbsp<b>PARCELA: ${contador_parcela}/${aux_qtd_parccela}<b></p>
+					</td>
+				</tr>	
+				<!--5º linha-->			
+				<tr>
+					<td width="15%">
+						<p class="content left">&nbsp(-) Descontos </p>							
+											
+					</td>
+					<td width="1px"></td>
+					<td colspan="5" rowspan="4">
+						<span class="title2">&nbsp <b>INTRUÇÕES:<br/><br/>
+						&nbsp <b>MULTA DE R$: ${valor_multa} APÓS: ${dia}/${mes}/${ano}<br/>
+						&nbsp JUROS DE R$: ${valor_juros_dia} AO DIA<br/></b>
+						</span>				
+					</td>
+					<td width="15%">
+						<p class="content left">&nbsp(-) Descontos </p>
+					</td>
+				</tr>	
+				<!--6º linha-->				
+				<tr>
+					<td width="15%">
+						<p class="content left">&nbsp(+) Acréscimos </p>
+					</td>
+					<td width="1px"></td>
+					<td width="15%">
+						<p class="content left">&nbsp(+) Acréscimos </p>
+					</td>
+				</tr>
+				<!--7º linha-->
+				<tr>
+					<td width="15%">
+						<p class="content left">&nbsp(=) Valor Pago  </p>
+					</td>
+					<td width="1px"></td>
+					<td width="15%">
+						<p class="content left">&nbsp(=) Valor Pago  </p>	
+					</td>
+				</tr>
+				<!--8º linha-->
+				<tr>
+					<td width="15%">
+						<p class="content left"><b>&nbspVisto do Operador</b></p>							
+						<p class="content center">Pago em:</p>						
+						<p class="content left">&nbsp&nbsp&nbsp&nbsp ____/____/____ </p>						
+					</td>
+					<td width="1px"></td>
+					<td width="15%">
+						<p class="content left"><b>&nbspVisto do Operador</b></p>							
+						<p class="content center">Pago em:</p>						
+						<p class="content left">&nbsp&nbsp&nbsp&nbsp ____/____/____ </p>
+					</td>
+				</tr>
+				<!--9º linha-->
+				<tr>
+					<td width="15%">
+						<span class="title">&nbspOutros Acres.</span>
+						<br/>
+						<span class="text"></span>
+					</td>
+					<td width="1px"></td>
+					<td width="39%" colspan="5">
+						<span class="title">&nbspSacado: ${cliente_nome} - CPF: ${cpf} </span><br>						
+						<p class="text">&nbspEndereço: ${rua} - ${numero_casa} - ${bairro} - ${uf} - ${cep}</p>
+						<p class="text">&nbspAvalista: ${avalista} - &nbspCPF: ${cpf_avalista}</p>
+					</td>
+					<td width="15%">
+						<span class="title">&nbspOutros Acres.</span>
+						<br/>
+						<span class="text"></span>
+					</td>
+				</tr>
+			</table>				
+			`+`&nbsp<br>`
+		}			
+	}
+	</script>
+</html>

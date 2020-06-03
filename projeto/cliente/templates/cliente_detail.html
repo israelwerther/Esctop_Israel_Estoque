@@ -6,11 +6,11 @@
 
 <h1>{{ object }}</h1>
 
-<span class="pull-right">
+<!-- <span class="pull-right">
     <a href="{% url 'cliente:cliente_list' %}" class="btn btn-primary">Voltar</a>
     <a href="{% url 'cliente:cliente_delete' object.pk %}" class="btn btn-danger">Deletar</a>
     <a href="{% url 'cliente:cliente_edit' object.pk %}" class="btn btn-success">Editar</a>    
-</span>  
+</span>   -->
 
 <div class="col-sm-6">
     <table class="table table-user-information">
@@ -52,6 +52,24 @@
     </table>
 </div>
 
+
+<span class="pull-right">
+    <td style="text-align:center"> 
+        <a href="{% url 'cliente:cliente_list' %}">
+            <button class="button button5">Voltar</button>
+        </a> 
+    </td>     
+    <td style="text-align:center"> 
+        <a href="{% url 'cliente:cliente_edit' object.pk %}" >
+            <button class="button button2">Editar</button>
+        </a> 
+    </td> 
+    <td style="text-align:center"> 
+        <a href="{% url 'cliente:cliente_delete' object.pk %}" >
+            <button class="button button3">Deletar</button>
+        </a> 
+    </td> 
+</span>
 
 
 
