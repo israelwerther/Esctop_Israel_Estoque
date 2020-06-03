@@ -108,15 +108,6 @@
             line-height: 12px;
         }
 
-        .print {
-            /* TODO(dbeam): reconcile this with overlay.css' .default-button. */
-            background-color: rgb(77, 144, 254);
-            background-image: linear-gradient(to bottom, rgb(77, 144, 254), rgb(71, 135, 237));
-            border: 1px solid rgb(48, 121, 237);
-            color: #fff;
-            text-shadow: 0 1px rgba(0, 0, 0, 0.1);
-        }
-
         .btnDefault {
             font-kerning: none;
             font-weight: bold;
@@ -131,35 +122,74 @@
             padding: 5px;
             line-height: 20px;
         }
-
-    
-    i[class*=icss-]{position:relative;display:inline-block;font-style:normal;background-color:currentColor;-webkit-box-sizing:border-box;box-sizing:border-box;vertical-align:middle}i[class*=icss-]:after,i[class*=icss-]:before{content:"";border-width:0;position:absolute;-webkit-box-sizing:border-box;box-sizing:border-box}i.icss-print{width:.68em;height:1em;border-style:solid;border-color:currentcolor;border-width:.07em;-webkit-border-radius:.05em;border-radius:.05em;background-color:transparent;margin:0 .17em}i.icss-print:before{width:1em;height:.4em;border-width:.07em .21em 0;border-style:solid;border-color:currentColor currentcolor transparent;-webkit-border-radius:.05em .05em 0 0;border-radius:.05em .05em 0 0;top:.25em;left:50%;-webkit-transform:translateX(-50%);-ms-transform:translateX(-50%);transform:translateX(-50%);background-image:-webkit-gradient(linear,left top,left bottom,color-stop(20%,transparent),color-stop(20%,currentcolor),color-stop(60%,currentcolor),color-stop(60%,transparent));background-image:-webkit-linear-gradient(transparent 20%,currentcolor 20%,currentcolor 60%,transparent 60%);background-image:-o-linear-gradient(transparent 20%,currentcolor 20%,currentcolor 60%,transparent 60%);background-image:linear-gradient(transparent 20%,currentcolor 20%,currentcolor 60%,transparent 60%)}i.icss-print:after{width:.45em;height:.065em;background-color:currentColor;left:50%;-webkit-transform:translateX(-50%);-ms-transform:translateX(-50%);transform:translateX(-50%);top:.6em;-webkit-box-shadow:0 .12em,-.1em -.28em 0 .05em;box-shadow:0 .12em,-.1em -.28em 0 .05em}i.icss-files{width:.75em;height:.95em;background-color:transparent;border:.05em solid transparent;border-width:0 .05em .05em 0;-webkit-box-shadow:inset 0 0 0 .065em,.13em .11em 0 -.05em;box-shadow:inset 0 0 0 .065em,.13em .11em 0 -.05em;-webkit-border-radius:0 .3em 0 0;border-radius:0 .3em 0 0;margin:0 .17em .05em .1em}i.icss-files:before{border-style:solid;border-width:.2em;top:.037em;left:.25em;-webkit-border-radius:.1em;border-radius:.1em;border-color:transparent currentColor transparent transparent;-webkit-transform:rotate(-45deg);-ms-transform:rotate(-45deg);transform:rotate(-45deg)}
-        </style>
-
-        <script type="text/javascript">
-            window.onload = function getUrlParams() {
-                var url_string = window.location.href;
-                var url = new URL(url_string);
+        p.solid {
+            border-style: ridge;
+            border-radius: 35px;
+        }
+        .vl {
+            border-right: 1px solid black;
+            height: 210px;
             
-                var fmt = url.searchParams.get("fmt");
-            
-                if(fmt === "html") {
-                    document.getElementById("headerBtn").style.display = "block";
-                } 
-            }
-        </script>    
+        }
+        p.test1 {
+            writing-mode: vertical-lr; 
+            transform: rotate(180deg);
+            /*transform: scaleY(-1);*/
+            /*float: top;*/
+           
+        }
+        a.test1 {
+            writing-mode: vertical-lr; 
+            transform: rotate(180deg);
+            /*transform: scaleY(-1);*/
+            /*float: top;*/
+           
+        }
+        
+        p.test2 {
+            writing-mode: vertical-rl; 
+        }
+        
+        span.test2 {
+            writing-mode: vertical-rl;
+        }
+
+        .direita{
+            float: right;
+        }
+        
+    </style>
+
 </head>
 
-{{ object.avalista}}
-
-
+<!-- <div class="document">
+    <table cellspacing="0" cellpadding="0" border="1">        
+        <tr>
+            <td width="10%" >
+                <a class="test1">Avalista(s)</a> 					
+                <a class="test1">__________________</a>  
+                <a class="test1">__________________</a>  
+            </td>
+            
+            <td width="85%" colspan="6">
+                &nbsp Nº ${contador_parcela}/${aux_qtd_parccela} &nbsp&nbsp Vencimento:${dataEmprestimo}  <br>							
+                CREDCOOP <br>							
+                CREDCOOP <br>							
+                CREDCOOP <br>							
+                CREDCOOP <br>							
+                CREDCOOP <br>		
+            </td>						
+        </tr>
+        
+       
+    </table>	
+</div> -->
+             
 <div class="document">
 	<div id = "carne" class="col-sm-6"></div>
 </div>
 <!-- ----------------------- -->
 <script>
-		//FAÇA OS TESTES NUMA PAGINA COM BASE.HTML CARREGADO
-		
 	window.onload = function imprimir(){
 		
 		//VARIÁVEIS DA DATA DO EMPRESTIMO
@@ -171,15 +201,30 @@
 		var ano
 		var aux_dia = {{object.data_emprestimo.day}}
 		var aux_mes = {{object.data_emprestimo.month}}
-		var aux_ano = {{object.data_emprestimo.year}}
+        var aux_ano = {{object.data_emprestimo.year}}
+        
 
-		//VARIÁVEIS DO EMPRESTIMO
+        //VARIÁVEIS DO EMPRESTIMO
+        var dinheiro = 0
+        dinheiro = "{{object.valor_prestacao}}"
+
 		var aux_qtd_parccela = {{object.qtd_parcelas}}
 		var data_emissao = "{{object.data_emprestimo|date:"d/m/Y"}}"
-		var valor_da_parcela = parseFloat("{{object.valor_prestacao}}")	
+		var valor_da_parcela = parseFloat("{{object.valor_prestacao|floatformat:2}}")	
 		var valor_multa = parseFloat((valor_da_parcela*0.020)).toFixed(2)			
 		var valor_juros_dia = (valor_da_parcela*0.0066).toFixed(2)
-		var contador_parcela = 0
+        var contador_parcela = 0
+
+        var testinho = "0.36".extenso()
+        
+        var real = parseInt("{{object.valor_prestacao}}")	
+        real = String(real).extenso()
+        
+        var centavos = valor_da_parcela
+       
+        
+        
+        
 		
 		//VARIÁVEIS DO CLIENTE
 		var cliente_nome = "{{object.cliente}}"
@@ -217,12 +262,106 @@
 			mes = 1	
 			aux_ano++
 			ano++				
-		}	
-
+        }
+        
+        if(mes == 1){
+            mes = 'Janeiro'
+        }
+        if(mes == 2){
+            mes = 'Fevereiro'
+        }
+        if(mes == 3){
+            mes = 'Março'
+        }
+        if(mes == 4){
+            mes = 'Abril'
+        }
+        if(mes == 5){
+            mes = 'Maio'
+        }
+        if(mes == 6){
+            mes = 'Junho'
+        }
+        if(mes == 7){
+            mes = 'Julho'
+        }
+        if(mes == 8){
+            mes = 'Agosto'
+        }
+        if(mes == 9){
+            mes = 'Setembro'
+        }
+        if(mes == 10){
+            mes = 'Outubro'
+        }
+        if(mes == 11){
+            mes = 'Novembro'
+        }
+        if(mes == 12){
+            mes = 'Dezembro'
+        }
 		
-		carne.innerHTML +=
-		``
+		carne.innerHTML +=		
+            `<table cellspacing="0" cellpadding="0" border="1">        
+                <tr>
+                    <td width="10%" >
+                        <a class="test1">Avalista(s)</a> 					
+                        <a class="test1">_______________</a>  
+                        <a class="test1">_______________</a>  
+                    </td>   
+                    <td width="85%" colspan="6">
+                        <a></a> <br>
+                        <a>
+                            &nbsp<b>Nº ${contador_parcela}/${aux_qtd_parccela}</b> 
+                        </a>
+                        
+                        <a class="direita">Vencimento:&nbsp${dia} de ${mes} de ${ano}&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+                        <a>&nbsp</a><br> 
+                        <a class="direita"><b>R$: ${"{{object.valor_prestacao}}"} &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b></a><a>&nbsp</a><br>
+                        <a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbspAo(s) &nbsp${dia} de ${mes} de ${ano} pagarei por esta única via de 
+                        <b>NOTA PROMISSÓRIA<br></b>							
+                        <a>&nbsp&nbspa JOSIMERIO DE ABREU SILVA CPF/CNPJ 02938827466 OU À SUA ORDEM A QUANTIA DE ${testinho}</a><br>							
+                        <a>&nbsp&nbsp real DE ${real}</a><br>							
+                        <a>&nbsp&nbsp cent DE ${centavos}</a><br>							
+                        CREDCOOP <br>							
+                        CREDCOOP <br>							
+                        CREDCOOP <br>		
+                        	
+                    </td>						
+                </tr>
+                
+               
+            </table>
+            `
 		}			
-	}
-	</script>
+    }
+    
+    String.prototype.extenso = function(c){
+        var ex = [
+            ["zero", "um", "dois", "três", "quatro", "cinco", "seis", "sete", "oito", "nove", "dez", "onze", "doze", "treze", "quatorze", "quinze", "dezesseis", "dezessete", "dezoito", "dezenove"],
+            ["dez", "vinte", "trinta", "quarenta", "cinqüenta", "sessenta", "setenta", "oitenta", "noventa"],
+            ["cem", "cento", "duzentos", "trezentos", "quatrocentos", "quinhentos", "seiscentos", "setecentos", "oitocentos", "novecentos"],
+            ["mil", "milhão", "bilhão", "trilhão", "quadrilhão", "quintilhão", "sextilhão", "setilhão", "octilhão", "nonilhão", "decilhão", "undecilhão", "dodecilhão", "tredecilhão", "quatrodecilhão", "quindecilhão", "sedecilhão", "septendecilhão", "octencilhão", "nonencilhão"]
+        ];
+        var a, n, v, i, n = this.replace(c ? /[^,\d]/g : /\D/g, "").split(","), e = " e ", $ = "real", d = "centavo", sl;
+        for(var f = n.length - 1, l, j = -1, r = [], s = [], t = ""; ++j <= f; s = []){
+            j && (n[j] = (("." + n[j]) * 1).toFixed(2).slice(2));
+            if(!(a = (v = n[j]).slice((l = v.length) % 3).match(/\d{3}/g), v = l % 3 ? [v.slice(0, l % 3)] : [], v = a ? v.concat(a) : v).length) continue;
+            for(a = -1, l = v.length; ++a < l; t = ""){
+                if(!(i = v[a] * 1)) continue;
+                i % 100 < 20 && (t += ex[0][i % 100]) ||
+                i % 100 + 1 && (t += ex[1][(i % 100 / 10 >> 0) - 1] + (i % 10 ? e + ex[0][i % 10] : ""));
+                s.push((i < 100 ? t : !(i % 100) ? ex[2][i == 100 ? 0 : i / 100 >> 0] : (ex[2][i / 100 >> 0] + e + t)) +
+                ((t = l - a - 2) > -1 ? " " + (i > 1 && t > 0 ? ex[3][t].replace("ão", "ões") : ex[3][t]) : ""));
+            }
+            a = ((sl = s.length) > 1 ? (a = s.pop(), s.join(" ") + e + a) : s.join("") || ((!j && (n[j + 1] * 1 > 0) || r.length) ? "" : ex[0][0]));
+            a && r.push(a + (c ? (" " + (v.join("") * 1 > 1 ? j ? d + "s" : (/0{6,}$/.test(n[0]) ? "de " : "") + $.replace("l", "is") : j ? d : $)) : ""));
+        }
+        return r.join(e);
+    }
+    </script>
+    
+    
 </html>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+
