@@ -1,25 +1,22 @@
 {% extends "base.html" %}
-
-<!-- para estudar hoje
-https://felipefrizzo.github.io/post/form-inline-cbv/ -->
-
 {% load static %}
 {% load widget_tweaks %}
 
+
+<!--  -->
+<!-- ESTUDO COMPLETO DE FORMSET -->
+<!-- https://docs.djangoproject.com/en/3.0/topics/forms/formsets/ -->
+<!--  -->
+
+
 {% block content %}
 
-<!-- <form method="POST" novalidate> -->
-    
     {% if emprestimo %}
-
         <h1>Editar {{emprestimo.cliente}}</h1>
         <form action="{% url 'emprestimo:emprestimo_edit' emprestimo.pk %}" method="POST" novalidate>
-
-    {% else %}    
-
+    {% else %}  
         <h1>Cadastrar um Novo Empréstimo</h1>
         <form action="{% url 'emprestimo:emprestimo_add' %}" method="POST" novalidate>
-
     {% endif %}
     {% csrf_token %}
 

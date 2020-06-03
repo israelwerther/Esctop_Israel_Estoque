@@ -150,24 +150,8 @@
         </script>    
 </head>
 
+{{ object.avalista}}
 
-<!-- <br/>
-    <div class="headerBtn" id="headerBtn">
-        <div style="text-align:right;">
-            <button class="no-print btnDefault print" onclick="window.print()">
-                <i class="icss-print"></i>
-                <span class="align">&nbspImprimir</span>
-            </button>
-            <button class="no-print btnDefault print" onclick="window.location>
-                <i class="icss-files"></i>
-                <span class="align">&nbspGerar PDF</span>
-            </button>            
-        </div>
-    </div>
-    <br/> -->
-
-<!-- FUNÇÃO QUE GERA O BOLETO -->
-<!-- <input type="button" class="btn btn-warning" value="Gerar Boleto" onclick="imprimir()"> <br> -->
 
 <div class="document">
 	<div id = "carne" class="col-sm-6"></div>
@@ -200,6 +184,17 @@
 		//VARIÁVEIS DO CLIENTE
 		var cliente_nome = "{{object.cliente}}"
 		var cpf = "{{object.cliente.cpf}}"
+		var rua = "{{object.cliente.rua}}"
+		var bairro = "{{object.cliente.bairro}}"
+		var cidade = "{{object.cliente.cidade}}"
+		var uf = "{{object.cliente.uf}}"
+		var numero_casa = "{{object.cliente.numero_casa}}"
+		var cep = "{{object.cliente.cep}}"
+
+
+		//VARIÁVEIS DO AVALISTA
+		var avalista = "{{object.cliente.avalista.avalista}}"
+		var cpf_avalista = "{{object.cliente.avalista.cpf_avalista}}"
 
 		for (var i = 0 ; i < {{object.qtd_parcelas}}; i++){
 		contador_meses++
@@ -368,9 +363,10 @@
 					</td>
 					<td width="1px"></td>
 					<td width="39%" colspan="5">
-						<span class="title">&nbspSacado: ${cliente_nome} - CPF: ${cpf} </span><br>
-						<br/>
-						<span class="text">&nbspEndereço:  </span><br>							
+						<span class="title">&nbspSacado: ${cliente_nome} - CPF: ${cpf} </span><br>						
+						<p class="text">&nbspEndereço: ${rua} - ${numero_casa} - ${bairro} - ${uf} - ${cep}</p>
+						<p class="text">&nbspAvalista: ${avalista} - &nbspCPF: ${cpf_avalista}</p>
+												
 					</td>
 					<td width="15%">
 						<span class="title">&nbspOutros Acres.</span>

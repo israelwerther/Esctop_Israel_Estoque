@@ -26,7 +26,11 @@ class Emprestimo(models.Model):
         return str(self.num_doc)
     
     def get_absolute_url(self):
-        return reverse_lazy('emprestimo:emprestimo_detail', kwargs={'pk': self.pk})  
+        return reverse_lazy('emprestimo:emprestimo_detail', kwargs={'pk': self.pk})
+    
+
+# class EmprestimoParcelas(models.Model):
+#     valor_parcela = models.DecimalField("Valor da Parcela", max_digits=10, decimal_places=2, null=True, blank=True)
 
 
 class EmprestimoPagamento(models.Model):
