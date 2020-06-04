@@ -184,12 +184,14 @@
        
     </table>	
 </div> -->
+
              
 <div class="document">
-	<div id = "carne" class="col-sm-6"></div>
+	<div id = "promissoria" class="col-sm-6"></div>
 </div>
 <!-- ----------------------- -->
 <script>
+    
 	window.onload = function imprimir(){
 		
 		//VARIÁVEIS DA DATA DO EMPRESTIMO
@@ -210,18 +212,18 @@
 
 		var aux_qtd_parccela = {{object.qtd_parcelas}}
 		var data_emissao = "{{object.data_emprestimo|date:"d/m/Y"}}"
-		var valor_da_parcela = parseFloat("{{object.valor_prestacao|floatformat:2}}")	
+        var valor_da_parcela = parseFloat("{{object.valor_prestacao|floatformat:2}}".replace(',', '.'))
+        var valor_da_parcela_int = parseInt("{{object.valor_prestacao|floatformat:2}}".replace(',', '.'))
+        
 		var valor_multa = parseFloat((valor_da_parcela*0.020)).toFixed(2)			
 		var valor_juros_dia = (valor_da_parcela*0.0066).toFixed(2)
         var contador_parcela = 0
-
-        var testinho = "0.36".extenso()
         
-        var real = parseInt("{{object.valor_prestacao}}")	
+        var real = parseInt('{{object.valor_prestacao}}')	
         real = String(real).extenso()
         
-        var centavos = valor_da_parcela
-       
+        var centavos = parseFloat((valor_da_parcela-valor_da_parcela_int)).toFixed(2)	
+        centavos = String(centavos).extenso()
         
         
         
@@ -301,13 +303,13 @@
             mes = 'Dezembro'
         }
 		
-		carne.innerHTML +=		
+		promissoria.innerHTML +=		
             `<table cellspacing="0" cellpadding="0" border="1">        
                 <tr>
                     <td width="10%" >
                         <a class="test1">Avalista(s)</a> 					
-                        <a class="test1">_______________</a>  
-                        <a class="test1">_______________</a>  
+                        <a class="test1">________________</a>  
+                        <a class="test1">________________</a>  
                     </td>   
                     <td width="85%" colspan="6">
                         <a></a> <br>
@@ -320,13 +322,12 @@
                         <a class="direita"><b>R$: ${"{{object.valor_prestacao}}"} &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b></a><a>&nbsp</a><br>
                         <a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbspAo(s) &nbsp${dia} de ${mes} de ${ano} pagarei por esta única via de 
                         <b>NOTA PROMISSÓRIA<br></b>							
-                        <a>&nbsp&nbspa JOSIMERIO DE ABREU SILVA CPF/CNPJ 02938827466 OU À SUA ORDEM A QUANTIA <br>&nbsp DE ${real} reais</a><br>							
-                        </a><br>							
-                        <a>&nbsp&nbsp cent DE ${centavos}</a><br>							
-                        CREDCOOP <br>							
-                        CREDCOOP <br>							
-                        CREDCOOP <br>		
-                        	
+                        <a>&nbsp&nbspa JOSIMERIO DE ABREU SILVA CPF/CNPJ 02938827466 OU À SUA ORDEM A QUANTIA <br>&nbsp DE ${real} real(is)
+                        e ${centavos} centavo(s)<br>
+                        <a>&nbsp&nbspPagável em ESCRITÓRIO NATAL/RN</a><br>
+                        ${"{{object.funcionario}}"}
+
+                       
                     </td>						
                 </tr>
                 
