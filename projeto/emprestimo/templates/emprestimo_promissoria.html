@@ -14,10 +14,11 @@
     
     .document {
         margin: auto auto;
-        width: 216mm;
+        width: 236mm;
         height: 108mm;
         background-color: #fff;
     }
+    
 
     p.solid {
         border-style: solid;
@@ -38,11 +39,35 @@
         /*float: top;*/
        
     }
+
+
+
+    /**/
+    p {
+    width: 740px; 
+    border: NONE;
+    }
+    
+    p.a {
+    word-break: normal;
+    }
+    
+    p.b {
+    word-break: keep-all;
+    }
+    
+    p.c {
+    word-break: break-all;
+    }
+    /**/
+
+
     .eit {
         border: 1px solid black;        
         margin-bottom: 10px;  
         background-color: lightblue;
         padding: 5px 0px 0px 0px;
+        
     }
     .ait{               
         margin-top: 10px;
@@ -53,35 +78,40 @@
     .bordinha{
         border: 2px solid black;
         border-radius: 5px;
+        
     }
     .fontmaior{
         font-size: 24px;
     }
+    .fontmaior1{
+        font-size: 24px;
+        padding: right;
+        margin: 50px;  
+    }
     .fontmenor{
         font-size: 15px;
-        padding: 20px;        
+        padding: 20px; 
+        margin: 5px;   
+        
     }
-    
-    
-    
+   
 </style>
 </head>
 <body>
 
     <div class="eit">
-        <a class="test1">oi</a> 
-        <a class="test1">________________________</a>
-        <a class="test1">________________________</a>
-        <a class="ait"> 
-            <b class="fontmaior">Nº</b> <b class="bordinha fontmaior"> &nbsp ${contador_parcela}/${aux_qtd_parccela} &nbsp</b>  
-            <b class="fontmenor"> Vencimento: ${dia} de ${mes} de ${ano} </b> 
-            <b class="fontmaior">
-                R$:
-            </b>
-            <b class="bordinha fontmaior">&nbsp${"1200,00"}&nbsp</b> 
-            <br>
-        
-        </a> 
+            <a class="test1">Avalista(s)</a>
+            <a class="test1">________________________</a>
+            <a class="test1">________________________</a>
+            <a class="ait b"> 
+                <b class="fontmaior">Nº</b> <b class="bordinha fontmaior"> &nbsp ${contador_parcela}/${aux_qtd_parccela} &nbsp</b>  
+                <b class="fontmenor"> Vencimento: ${dia} de ${mes} de ${ano} </b> 
+                <b class="fontmaior1">
+                    R$:<b class="bordinha fontmaior1">&nbsp${dinheiro}&nbsp</b> 
+                </b>           
+                <br><br> 
+                    
+            </a> 
        
         
         <a></a> <br>
@@ -89,7 +119,7 @@
             &nbsp<b >Nº ${contador_parcela}/${aux_qtd_parccela}</b> &nbsp&nbsp&nbsp&nbspVencimento:&nbsp${dia} de ${mes} de ${ano}&nbsp&nbsp&nbsp&nbsp&nbsp
             
             <a class="direita"><b>R$: ${"{{object.valor_prestacao}}"} &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b></a><a>&nbsp</a><br>
-            <a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbspAo(s) &nbsp${dia} de ${mes} de ${ano} pagarei por esta única via de 
+            <a>Ao(s) &nbsp${dia} de ${mes} de ${ano} pagarei por esta única via de 
             <b>NOTA PROMISSÓRIA<br></b>							
             <a>&nbsp&nbspa JOSIMERIO DE ABREU SILVA CPF/CNPJ 02938827466 OU À SUA ORDEM A QUANTIA <br>&nbsp DE ${real} reais
             e ${centavos} centavo(s)<br>
@@ -224,14 +254,21 @@ window.onload = function imprimir(){
     promissoria.innerHTML +=		
         `
         <div class="eit">
-            <a class="test1">oi</a> 
+            <a class="test1">Avalista(s)</a>
             <a class="test1">________________________</a>
             <a class="test1">________________________</a>
-            <a class="ait"> 
+            <a class="ait b"> 
                 <b class="fontmaior">Nº</b> <b class="bordinha fontmaior"> &nbsp ${contador_parcela}/${aux_qtd_parccela} &nbsp</b>  
-                <b class="fontmenor"> Vencimento: ${dia} de ${mes} de ${ano}  </b> 
-                <b class="fontmaior">R$:</b> <b class="bordinha fontmaior">&nbsp${"1200,00"}&nbsp</b> <br>
-                
+                <b class="fontmenor"> Vencimento: ${dia} de ${mes} de ${ano} </b> 
+                <b class="fontmaior1">
+                    R$:<b class="bordinha fontmaior1">&nbsp${dinheiro}&nbsp</b> 
+                </b>           
+                <br><br> 
+                <p class="fontmenor ">                     
+                    Ao(s) <u>  ${dia} de ${mes} de ${ano} </u> pagar______  &nbsp&nbsp por esta única via de <b> NOTA PROMISSÓRIA</b> ${real} 
+                    a JOSIMERIO DE ABREU SILVA &nbsp&nbsp&nbsp CPF/CNPJ 02938827466
+                        
+                </p>        
             </a> 
            
         </div>
