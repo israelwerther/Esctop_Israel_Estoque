@@ -90,50 +90,15 @@
     }
     .fontmenor{
         font-size: 15px;
-        padding: 20px; 
-        margin: 5px;   
+        padding: 10px; 
+        margin: 8px;   
         
     }
    
 </style>
 </head>
 <body>
-
-    <div class="eit">
-            <a class="test1">Avalista(s)</a>
-            <a class="test1">________________________</a>
-            <a class="test1">________________________</a>
-            <a class="ait b"> 
-                <b class="fontmaior">Nº</b> <b class="bordinha fontmaior"> &nbsp ${contador_parcela}/${aux_qtd_parccela} &nbsp</b>  
-                <b class="fontmenor"> Vencimento: ${dia} de ${mes} de ${ano} </b> 
-                <b class="fontmaior1">
-                    R$:<b class="bordinha fontmaior1">&nbsp${dinheiro}&nbsp</b> 
-                </b>           
-                <br><br> 
-                    
-            </a> 
-       
-        
-        <a></a> <br>
-            <a class="border">
-            &nbsp<b >Nº ${contador_parcela}/${aux_qtd_parccela}</b> &nbsp&nbsp&nbsp&nbspVencimento:&nbsp${dia} de ${mes} de ${ano}&nbsp&nbsp&nbsp&nbsp&nbsp
-            
-            <a class="direita"><b>R$: ${"{{object.valor_prestacao}}"} &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b></a><a>&nbsp</a><br>
-            <a>Ao(s) &nbsp${dia} de ${mes} de ${ano} pagarei por esta única via de 
-            <b>NOTA PROMISSÓRIA<br></b>							
-            <a>&nbsp&nbspa JOSIMERIO DE ABREU SILVA CPF/CNPJ 02938827466 OU À SUA ORDEM A QUANTIA <br>&nbsp DE ${real} reais
-            e ${centavos} centavo(s)<br>
-            <a>&nbsp&nbspPagável em ESCRITÓRIO NATAL/RN</a><br>
-            ${"{{object.funcionario}}"}
-    </div>
-
-    <table class="border">
-        <p class="solid" > 
-             está tudo bem <br>
-            
-        </p>
-    </table>
-
+    
     <div class="document">
         <div id = "promissoria" class="col-sm-6">
            
@@ -275,12 +240,27 @@ window.onload = function imprimir(){
                 </p>   
 
                 <p class="fontmenor b" style="text-align:center">                     
-                    ${funcionario}  <br>
-                    EMITENTE
+                    <b>
+                        <u>  
+                            ${"{{object.cliente}}"} 
+                        </u>
+                    </b> 
+                    <br>
+                    EMITENTE<br>
+                    CPF <br>
+                    ${"{{object.cliente.cpf}}"}  
                 </p>
+
                 <p class="fontmenor b" style="text-align:center">                     
-                    ${funcionario}  <br>
-                    EMITENTE
+                    <b>
+                        <u> 
+                            &nbsp&nbsp${"{{object.data_emprestimo}}"}&nbsp&nbsp 
+                        </u>
+                    </b>
+                    <br>
+                    DATA DE EMISSÃO <br>
+                    ___________________________<br>
+                    ASSINATURA DO EMITENTE
                 </p>
                    
                   
