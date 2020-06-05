@@ -54,6 +54,13 @@
         border: 2px solid black;
         border-radius: 5px;
     }
+    .fontmaior{
+        font-size: 24px;
+    }
+    .fontmenor{
+        font-size: 15px;
+        padding: 20px;        
+    }
     
     
     
@@ -65,8 +72,15 @@
         <a class="test1">oi</a> 
         <a class="test1">________________________</a>
         <a class="test1">________________________</a>
-        <a class="ait"> <b>Nº</b> <b class="bordinha"> ${contador_parcela}/${aux_qtd_parccela}</b>  Vencimento: ${dia} de ${mes} de ${ano} R$: ${"1200,00"} <br>
-            
+        <a class="ait"> 
+            <b class="fontmaior">Nº</b> <b class="bordinha fontmaior"> &nbsp ${contador_parcela}/${aux_qtd_parccela} &nbsp</b>  
+            <b class="fontmenor"> Vencimento: ${dia} de ${mes} de ${ano} </b> 
+            <b class="fontmaior">
+                R$:
+            </b>
+            <b class="bordinha fontmaior">&nbsp${"1200,00"}&nbsp</b> 
+            <br>
+        
         </a> 
        
         
@@ -211,11 +225,16 @@ window.onload = function imprimir(){
         `
         <div class="eit">
             <a class="test1">oi</a> 
-        <a class="test1">________________________</a>
-        <a class="test1">________________________</a>
-        <a class="ait"> <b>Nº</b> <b class="bordinha"> ${contador_parcela}/${aux_qtd_parccela}</b>  Vencimento: ${dia} de ${mes} de ${ano} R$: ${"1200,00"} <br>
-            
-        </a> </div>
+            <a class="test1">________________________</a>
+            <a class="test1">________________________</a>
+            <a class="ait"> 
+                <b class="fontmaior">Nº</b> <b class="bordinha fontmaior"> &nbsp ${contador_parcela}/${aux_qtd_parccela} &nbsp</b>  
+                <b class="fontmenor"> Vencimento: ${dia} de ${mes} de ${ano}  </b> 
+                <b class="fontmaior">R$:</b> <b class="bordinha fontmaior">&nbsp${"1200,00"}&nbsp</b> <br>
+                
+            </a> 
+           
+        </div>
     
         `
     }			
