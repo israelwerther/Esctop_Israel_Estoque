@@ -1,368 +1,281 @@
 <!DOCTYPE html>
 <html charset="UTF-8">
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment.min.js"></script>
-
-{% load widget_tweaks %}
-
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="robots" content="noindex">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
     <style>
-        body {
-            font-family: "Arial";
-		}
-		
-        @media print {
-            .no-print,
-            .no-print * {
-                display: none !important;
-            }
-		}
-		
-        .document {
-            margin: auto auto;
-            width: 216mm;
-            height: 108mm;
-            background-color: #fff;
-        }
+    body {
+        font-family: "Arial";
+    }
+    
+    .document {
+        margin: auto auto;
+        width: 216mm;
+        height: 108mm;
+        background-color: #fff;
+    }
 
-        .headerBtn {
-            margin: auto auto;
-            width: 216mm;
-            background-color: #fff;
-            display: none;
-        }
+    p.solid {
+        border-style: solid;
+    }
 
-        table {
-            width: 100%;
-            position: relative;
-            border-collapse: collapse;
-        }
-
-        .bankLogo {
-            width: 28%;
-        }
-        .boletoNumber {
-            width: 62%;
-            font-weight: bold;
-        }
-
-        .center {
-            text-align: center;
-        }
-        .testando {
-			text-align: center;						
-        }
-
-        .right {
-            text-align: right;
-            right: 20px;
-        }
-
-        td {
-            position: relative;
-        }
-
-        .title {
-            position: absolute;
-            left: 0px;
-            top: 0px;
-            font-size: 12px;
-			font-weight: bold;						
-        }
-        .title2 {
-            position: absolute;
-            left: 0px;
-            top: 0px;
-            font-size: 13px;
-            font-weight: normal;
-        }        
-        .text {
-            font-size: 12px;
-		}
-		
-        p.content {
-            padding: 0px;
-            width: 100%;
-            margin: 0px;
-			font-size: 13px;
-			margin-top: 2px;
-			margin-bottom: 4px;
-        }
-
-        .sideBorders {
-            border-left: 1px solid black;
-            border-right: 1px solid black;
-        }
-
-        hr {
-            size: 1;
-            border: 1px dashed;
-        }
-
-        br {
-            content: " ";
-            display: block;
-            margin: 12px 0;
-            line-height: 12px;
-        }
-
-        .btnDefault {
-            font-kerning: none;
-            font-weight: bold;
-        }
-
-        .btnDefault:not(:focus):not(:disabled) {
-            border-color: #808080;
-        }
-
-        button {
-            border: 1px;
-            padding: 5px;
-            line-height: 20px;
-        }
-        p.solid {
-            border-style: ridge;
-            border-radius: 35px;
-        }
-        .vl {
-            border-right: 1px solid black;
-            height: 210px;
-            
-        }
-        p.test1 {
-            writing-mode: vertical-lr; 
-            transform: rotate(180deg);
-            /*transform: scaleY(-1);*/
-            /*float: top;*/
-           
-        }
-        a.test1 {
-            writing-mode: vertical-lr; 
-            transform: rotate(180deg);
-            /*transform: scaleY(-1);*/
-            /*float: top;*/
-           
-        }
-        
-        p.test2 {
-            writing-mode: vertical-rl; 
-        }
-        
-        span.test2 {
-            writing-mode: vertical-rl;
-        }
-
-        .direita{
-            float: right;
-        }
-        
-    </style>
-
-</head>
-
-<!-- <div class="document">
-    <table cellspacing="0" cellpadding="0" border="1">        
-        <tr>
-            <td width="10%" >
-                <a class="test1">Avalista(s)</a> 					
-                <a class="test1">__________________</a>  
-                <a class="test1">__________________</a>  
-            </td>
-            
-            <td width="85%" colspan="6">
-                &nbsp Nº ${contador_parcela}/${aux_qtd_parccela} &nbsp&nbsp Vencimento:${dataEmprestimo}  <br>							
-                CREDCOOP <br>							
-                CREDCOOP <br>							
-                CREDCOOP <br>							
-                CREDCOOP <br>							
-                CREDCOOP <br>		
-            </td>						
-        </tr>
-        
+    p.test1 {
+        writing-mode: vertical-lr; 
+        transform: rotate(180deg);
+        /*transform: scaleY(-1);*/
+        /*float: top;*/
        
-    </table>	
-</div> -->
+    }
 
-             
-<div class="document">
-	<div id = "promissoria" class="col-sm-6"></div>
-</div>
-<!-- ----------------------- -->
+    a.test1 {
+        writing-mode: vertical-lr; 
+        transform: rotate(180deg);
+        /*transform: scaleY(-1);*/
+        /*float: top;*/
+       
+    }
+    .eit {
+        border: 1px solid black;        
+        margin-bottom: 10px;  
+        background-color: lightblue;
+        padding: 5px 0px 0px 0px;
+    }
+    .ait{               
+        margin-top: 10px;
+        margin-left: 10px;
+        position: absolute;
+        
+    }
+    .bordinha{
+        border: 2px solid black;
+        border-radius: 5px;
+    }
+    
+    
+    
+</style>
+</head>
+<body>
+
+    <div class="eit">
+        <a class="test1">oi</a> 
+        <a class="test1">________________________</a>
+        <a class="test1">________________________</a>
+        <a class="ait"> <b>Nº</b> <b class="bordinha"> ${contador_parcela}/${aux_qtd_parccela}</b>  Vencimento: ${dia} de ${mes} de ${ano} R$: ${"1200,00"} <br>
+            
+        </a> 
+       
+        
+        <a></a> <br>
+            <a class="border">
+            &nbsp<b >Nº ${contador_parcela}/${aux_qtd_parccela}</b> &nbsp&nbsp&nbsp&nbspVencimento:&nbsp${dia} de ${mes} de ${ano}&nbsp&nbsp&nbsp&nbsp&nbsp
+            
+            <a class="direita"><b>R$: ${"{{object.valor_prestacao}}"} &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b></a><a>&nbsp</a><br>
+            <a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbspAo(s) &nbsp${dia} de ${mes} de ${ano} pagarei por esta única via de 
+            <b>NOTA PROMISSÓRIA<br></b>							
+            <a>&nbsp&nbspa JOSIMERIO DE ABREU SILVA CPF/CNPJ 02938827466 OU À SUA ORDEM A QUANTIA <br>&nbsp DE ${real} reais
+            e ${centavos} centavo(s)<br>
+            <a>&nbsp&nbspPagável em ESCRITÓRIO NATAL/RN</a><br>
+            ${"{{object.funcionario}}"}
+    </div>
+
+    <table class="border">
+        <p class="solid" > 
+             está tudo bem <br>
+            
+        </p>
+    </table>
+
+    <div class="document">
+        <div id = "promissoria" class="col-sm-6">
+           
+        </div>
+    </div>
+    
 <script>
+
+window.onload = function imprimir(){
     
-	window.onload = function imprimir(){
-		
-		//VARIÁVEIS DA DATA DO EMPRESTIMO
-		var contador_meses = 0
-		var contador_anos  = 0
-		var dataEmprestimo = "{{ object.data_emprestimo}}"		
-		var dia
-		var mes
-		var ano
-		var aux_dia = {{object.data_emprestimo.day}}
-		var aux_mes = {{object.data_emprestimo.month}}
-        var aux_ano = {{object.data_emprestimo.year}}
-        
+    //VARIÁVEIS DA DATA DO EMPRESTIMO
+    var contador_meses = 0
+    var contador_anos  = 0
+    var dataEmprestimo = "{{ object.data_emprestimo}}"		
+    var dia
+    var mes
+    var ano
+    var aux_dia = {{object.data_emprestimo.day}}
+    var aux_mes = {{object.data_emprestimo.month}}
+    var aux_ano = {{object.data_emprestimo.year}}
+    
 
-        //VARIÁVEIS DO EMPRESTIMO
-        var dinheiro = 0
-        dinheiro = "{{object.valor_prestacao}}"
+    //VARIÁVEIS DO EMPRESTIMO
+    var dinheiro = 0
+    dinheiro = "{{object.valor_prestacao}}"
 
-		var aux_qtd_parccela = {{object.qtd_parcelas}}
-		var data_emissao = "{{object.data_emprestimo|date:"d/m/Y"}}"
-        var valor_da_parcela = parseFloat("{{object.valor_prestacao|floatformat:2}}".replace(',', '.'))
-        var valor_da_parcela_int = parseInt("{{object.valor_prestacao|floatformat:2}}".replace(',', '.'))
-        
-		var valor_multa = parseFloat((valor_da_parcela*0.020)).toFixed(2)			
-		var valor_juros_dia = (valor_da_parcela*0.0066).toFixed(2)
-        var contador_parcela = 0
-        
-        var real = parseInt('{{object.valor_prestacao}}')	
-        real = String(real).extenso()
-        
-        var centavos = parseFloat((valor_da_parcela-valor_da_parcela_int)).toFixed(2)	
-        centavos = String(centavos).extenso()
-        
-        
-        
-		
-		//VARIÁVEIS DO CLIENTE
-		var cliente_nome = "{{object.cliente}}"
-		var cpf = "{{object.cliente.cpf}}"
-		var rua = "{{object.cliente.rua}}"
-		var bairro = "{{object.cliente.bairro}}"
-		var cidade = "{{object.cliente.cidade}}"
-		var uf = "{{object.cliente.uf}}"
-		var numero_casa = "{{object.cliente.numero_casa}}"
-		var cep = "{{object.cliente.cep}}"
+    var aux_qtd_parccela = {{object.qtd_parcelas}}
+    var data_emissao = "{{object.data_emprestimo|date:"d/m/Y"}}"
+    var valor_da_parcela = parseFloat("{{object.valor_prestacao|floatformat:2}}".replace(',', '.'))
+    var valor_da_parcela_int = parseInt("{{object.valor_prestacao|floatformat:2}}".replace(',', '.'))
+    
+    var valor_multa = parseFloat((valor_da_parcela*0.020)).toFixed(2)			
+    var valor_juros_dia = (valor_da_parcela*0.0066).toFixed(2)
+    var contador_parcela = 0
+    
+    var real = parseInt('{{object.valor_prestacao}}')	
+    real = String(real).extenso()
+    
+    var centavos = parseFloat((valor_da_parcela-valor_da_parcela_int)).toFixed(2)	
+    centavos = String(centavos).extenso()
+    
+    
+    //VARIÁVEIS DO CLIENTE
+    var cliente_nome = "{{object.cliente}}"
+    var cpf = "{{object.cliente.cpf}}"
+    var rua = "{{object.cliente.rua}}"
+    var bairro = "{{object.cliente.bairro}}"
+    var cidade = "{{object.cliente.cidade}}"
+    var uf = "{{object.cliente.uf}}"
+    var numero_casa = "{{object.cliente.numero_casa}}"
+    var cep = "{{object.cliente.cep}}"
 
 
-		//VARIÁVEIS DO AVALISTA
-		var avalista = "{{object.cliente.avalista.avalista}}"
-		var cpf_avalista = "{{object.cliente.avalista.cpf_avalista}}"
+    //VARIÁVEIS DO AVALISTA
+    var avalista = "{{object.cliente.avalista.avalista}}"
+    var cpf_avalista = "{{object.cliente.avalista.cpf_avalista}}"
 
-		for (var i = 0 ; i < {{object.qtd_parcelas}}; i++){
-		contador_meses++
-		contador_parcela++
+    for (var i = 0 ; i < {{object.qtd_parcelas}}; i++){
+    contador_meses++
+    contador_parcela++
 
-		dia  = aux_dia
-		mes  = aux_mes+contador_meses
-		ano  = aux_ano
+    dia  = aux_dia
+    mes  = aux_mes+contador_meses
+    ano  = aux_ano
 
-		//AJUSTA A DATA QUANDO O MES É FEVEREIRO 
-		if(dia == 30 && mes == 2){
-			dia = 1 
-			mes = 3
-		}
-		
-		//AJUSTA MESES E ANOS 
-		if(mes == 13){
-			contador_meses = 0
-			aux_mes = 1
-			mes = 1	
-			aux_ano++
-			ano++				
-        }
-        
-        if(mes == 1){
-            mes = 'Janeiro'
-        }
-        if(mes == 2){
-            mes = 'Fevereiro'
-        }
-        if(mes == 3){
-            mes = 'Março'
-        }
-        if(mes == 4){
-            mes = 'Abril'
-        }
-        if(mes == 5){
-            mes = 'Maio'
-        }
-        if(mes == 6){
-            mes = 'Junho'
-        }
-        if(mes == 7){
-            mes = 'Julho'
-        }
-        if(mes == 8){
-            mes = 'Agosto'
-        }
-        if(mes == 9){
-            mes = 'Setembro'
-        }
-        if(mes == 10){
-            mes = 'Outubro'
-        }
-        if(mes == 11){
-            mes = 'Novembro'
-        }
-        if(mes == 12){
-            mes = 'Dezembro'
-        }
-		
-		promissoria.innerHTML +=		
-            `<table cellspacing="0" cellpadding="0" border="1">        
-                <tr>
-                    <td width="10%" >
-                        <a class="test1">Avalista(s)</a> 					
-                        <a class="test1">________________</a>  
-                        <a class="test1">________________</a>  
-                    </td>   
-                    <td width="85%" colspan="6">
-                        <a></a> <br>
-                        <a>
-                            &nbsp<b>Nº ${contador_parcela}/${aux_qtd_parccela}</b> 
-                        </a>
-                        
-                        <a class="direita">Vencimento:&nbsp${dia} de ${mes} de ${ano}&nbsp&nbsp&nbsp&nbsp&nbsp</a>
-                        <a>&nbsp</a><br> 
-                        <a class="direita"><b>R$: ${"{{object.valor_prestacao}}"} &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b></a><a>&nbsp</a><br>
-                        <a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbspAo(s) &nbsp${dia} de ${mes} de ${ano} pagarei por esta única via de 
-                        <b>NOTA PROMISSÓRIA<br></b>							
-                        <a>&nbsp&nbspa JOSIMERIO DE ABREU SILVA CPF/CNPJ 02938827466 OU À SUA ORDEM A QUANTIA <br>&nbsp DE ${real} real(is)
-                        e ${centavos} centavo(s)<br>
-                        <a>&nbsp&nbspPagável em ESCRITÓRIO NATAL/RN</a><br>
-                        ${"{{object.funcionario}}"}
-
-                       
-                    </td>						
-                </tr>
-                
-               
-            </table>
-            `
-		}			
+    //AJUSTA A DATA QUANDO O MES É FEVEREIRO 
+    if(dia == 30 && mes == 2){
+        dia = 1 
+        mes = 3
     }
     
-    String.prototype.extenso = function(c){
-        var ex = [
-            ["zero", "um", "dois", "três", "quatro", "cinco", "seis", "sete", "oito", "nove", "dez", "onze", "doze", "treze", "quatorze", "quinze", "dezesseis", "dezessete", "dezoito", "dezenove"],
-            ["dez", "vinte", "trinta", "quarenta", "cinqüenta", "sessenta", "setenta", "oitenta", "noventa"],
-            ["cem", "cento", "duzentos", "trezentos", "quatrocentos", "quinhentos", "seiscentos", "setecentos", "oitocentos", "novecentos"],
-            ["mil", "milhão", "bilhão", "trilhão", "quadrilhão", "quintilhão", "sextilhão", "setilhão", "octilhão", "nonilhão", "decilhão", "undecilhão", "dodecilhão", "tredecilhão", "quatrodecilhão", "quindecilhão", "sedecilhão", "septendecilhão", "octencilhão", "nonencilhão"]
-        ];
-        var a, n, v, i, n = this.replace(c ? /[^,\d]/g : /\D/g, "").split(","), e = " e ", $ = "real", d = "centavo", sl;
-        for(var f = n.length - 1, l, j = -1, r = [], s = [], t = ""; ++j <= f; s = []){
-            j && (n[j] = (("." + n[j]) * 1).toFixed(2).slice(2));
-            if(!(a = (v = n[j]).slice((l = v.length) % 3).match(/\d{3}/g), v = l % 3 ? [v.slice(0, l % 3)] : [], v = a ? v.concat(a) : v).length) continue;
-            for(a = -1, l = v.length; ++a < l; t = ""){
-                if(!(i = v[a] * 1)) continue;
-                i % 100 < 20 && (t += ex[0][i % 100]) ||
-                i % 100 + 1 && (t += ex[1][(i % 100 / 10 >> 0) - 1] + (i % 10 ? e + ex[0][i % 10] : ""));
-                s.push((i < 100 ? t : !(i % 100) ? ex[2][i == 100 ? 0 : i / 100 >> 0] : (ex[2][i / 100 >> 0] + e + t)) +
-                ((t = l - a - 2) > -1 ? " " + (i > 1 && t > 0 ? ex[3][t].replace("ão", "ões") : ex[3][t]) : ""));
-            }
-            a = ((sl = s.length) > 1 ? (a = s.pop(), s.join(" ") + e + a) : s.join("") || ((!j && (n[j + 1] * 1 > 0) || r.length) ? "" : ex[0][0]));
-            a && r.push(a + (c ? (" " + (v.join("") * 1 > 1 ? j ? d + "s" : (/0{6,}$/.test(n[0]) ? "de " : "") + $.replace("l", "is") : j ? d : $)) : ""));
-        }
-        return r.join(e);
+    //AJUSTA MESES E ANOS 
+    if(mes == 13){
+        contador_meses = 0
+        aux_mes = 1
+        mes = 1	
+        aux_ano++
+        ano++				
     }
-    </script>
     
+    if(mes == 1){
+        mes = 'Janeiro'
+    }
+    if(mes == 2){
+        mes = 'Fevereiro'
+    }
+    if(mes == 3){
+        mes = 'Março'
+    }
+    if(mes == 4){
+        mes = 'Abril'
+    }
+    if(mes == 5){
+        mes = 'Maio'
+    }
+    if(mes == 6){
+        mes = 'Junho'
+    }
+    if(mes == 7){
+        mes = 'Julho'
+    }
+    if(mes == 8){
+        mes = 'Agosto'
+    }
+    if(mes == 9){
+        mes = 'Setembro'
+    }
+    if(mes == 10){
+        mes = 'Outubro'
+    }
+    if(mes == 11){
+        mes = 'Novembro'
+    }
+    if(mes == 12){
+        mes = 'Dezembro'
+    }
     
+    promissoria.innerHTML +=		
+        `
+        <div class="eit">
+            <a class="test1">oi</a> 
+        <a class="test1">________________________</a>
+        <a class="test1">________________________</a>
+        <a class="ait"> <b>Nº</b> <b class="bordinha"> ${contador_parcela}/${aux_qtd_parccela}</b>  Vencimento: ${dia} de ${mes} de ${ano} R$: ${"1200,00"} <br>
+            
+        </a> </div>
+    
+        `
+    }			
+}
+
+String.prototype.extenso = function(c){
+    var ex = [
+        ["zero", "um", "dois", "três", "quatro", "cinco", "seis", "sete", "oito", "nove", "dez", "onze", "doze", "treze", "quatorze", "quinze", "dezesseis", "dezessete", "dezoito", "dezenove"],
+        ["dez", "vinte", "trinta", "quarenta", "cinqüenta", "sessenta", "setenta", "oitenta", "noventa"],
+        ["cem", "cento", "duzentos", "trezentos", "quatrocentos", "quinhentos", "seiscentos", "setecentos", "oitocentos", "novecentos"],
+        ["mil", "milhão", "bilhão", "trilhão", "quadrilhão", "quintilhão", "sextilhão", "setilhão", "octilhão", "nonilhão", "decilhão", "undecilhão", "dodecilhão", "tredecilhão", "quatrodecilhão", "quindecilhão", "sedecilhão", "septendecilhão", "octencilhão", "nonencilhão"]
+    ];
+    var a, n, v, i, n = this.replace(c ? /[^,\d]/g : /\D/g, "").split(","), e = " e ", $ = "real", d = "centavo", sl;
+    for(var f = n.length - 1, l, j = -1, r = [], s = [], t = ""; ++j <= f; s = []){
+        j && (n[j] = (("." + n[j]) * 1).toFixed(2).slice(2));
+        if(!(a = (v = n[j]).slice((l = v.length) % 3).match(/\d{3}/g), v = l % 3 ? [v.slice(0, l % 3)] : [], v = a ? v.concat(a) : v).length) continue;
+        for(a = -1, l = v.length; ++a < l; t = ""){
+            if(!(i = v[a] * 1)) continue;
+            i % 100 < 20 && (t += ex[0][i % 100]) ||
+            i % 100 + 1 && (t += ex[1][(i % 100 / 10 >> 0) - 1] + (i % 10 ? e + ex[0][i % 10] : ""));
+            s.push((i < 100 ? t : !(i % 100) ? ex[2][i == 100 ? 0 : i / 100 >> 0] : (ex[2][i / 100 >> 0] + e + t)) +
+            ((t = l - a - 2) > -1 ? " " + (i > 1 && t > 0 ? ex[3][t].replace("ão", "ões") : ex[3][t]) : ""));
+        }
+        a = ((sl = s.length) > 1 ? (a = s.pop(), s.join(" ") + e + a) : s.join("") || ((!j && (n[j + 1] * 1 > 0) || r.length) ? "" : ex[0][0]));
+        a && r.push(a + (c ? (" " + (v.join("") * 1 > 1 ? j ? d + "s" : (/0{6,}$/.test(n[0]) ? "de " : "") + $.replace("l", "is") : j ? d : $)) : ""));
+    }
+    return r.join(e);
+}
+</script>
+</body>
 </html>
-&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
 
+
+
+
+
+<!-- <table cellspacing="0" cellpadding="0" border="1">        
+    <tr>
+        <td width="10%" class="border-right-0">
+            <a class="test1">Avalista(s)</a> 					
+            <a class="test1">________________</a>  
+            <a class="test1">________________</a>  
+        </td>   
+        <td width="85%" colspan="6" >
+            <a></a> <br>
+            <a class="border">
+            &nbsp<b >Nº ${contador_parcela}/${aux_qtd_parccela}</b> &nbsp&nbsp&nbsp&nbspVencimento:&nbsp${dia} de ${mes} de ${ano}&nbsp&nbsp&nbsp&nbsp&nbsp
+            
+            <a class="direita"><b>R$: ${"{{object.valor_prestacao}}"} &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b></a><a>&nbsp</a><br>
+            <a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbspAo(s) &nbsp${dia} de ${mes} de ${ano} pagarei por esta única via de 
+            <b>NOTA PROMISSÓRIA<br></b>							
+            <a>&nbsp&nbspa JOSIMERIO DE ABREU SILVA CPF/CNPJ 02938827466 OU À SUA ORDEM A QUANTIA <br>&nbsp DE ${real} reais
+            e ${centavos} centavo(s)<br>
+            <a>&nbsp&nbspPagável em ESCRITÓRIO NATAL/RN</a><br>
+            ${"{{object.funcionario}}"}
+        </td>					
+    </tr>
+       
+        
+    
+   
+</table>
+<br> -->
