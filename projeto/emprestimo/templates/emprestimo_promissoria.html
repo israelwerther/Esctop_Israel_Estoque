@@ -44,18 +44,18 @@
 
     /**/
     p {
-    width: 740px; 
-    border: NONE;
+        width: 720px; 
+        border: 1px solid black;
+        display: inline-block
     }
-    
     p.a {
-    word-break: normal;
-    }
-    
+        word-break: normal;
+    }    
     p.b {
-    word-break: keep-all;
+        word-break: normal;
+        width: 320px;
+        border: none;
     }
-    
     p.c {
     word-break: break-all;
     }
@@ -66,7 +66,7 @@
         border: 1px solid black;        
         margin-bottom: 10px;  
         background-color: lightblue;
-        padding: 5px 0px 0px 0px;
+        padding: 5px 0px 20px 0px;
         
     }
     .ait{               
@@ -143,6 +143,9 @@
 <script>
 
 window.onload = function imprimir(){
+
+    //VARIÁVEIS DO FUNCIONÁRIO
+    var funcionario = "{{object.funcionario}}"
     
     //VARIÁVEIS DA DATA DO EMPRESTIMO
     var contador_meses = 0
@@ -254,21 +257,33 @@ window.onload = function imprimir(){
     promissoria.innerHTML +=		
         `
         <div class="eit">
+            <a class="test1">&nbsp</a>
             <a class="test1">Avalista(s)</a>
-            <a class="test1">________________________</a>
-            <a class="test1">________________________</a>
-            <a class="ait b"> 
+            <a class="test1">________________________ &nbsp&nbsp&nbsp</a>
+            <a class="test1">________________________ &nbsp&nbsp&nbsp</a>
+            <a class="ait"> 
                 <b class="fontmaior">Nº</b> <b class="bordinha fontmaior"> &nbsp ${contador_parcela}/${aux_qtd_parccela} &nbsp</b>  
                 <b class="fontmenor"> Vencimento: ${dia} de ${mes} de ${ano} </b> 
                 <b class="fontmaior1">
                     R$:<b class="bordinha fontmaior1">&nbsp${dinheiro}&nbsp</b> 
                 </b>           
                 <br><br> 
-                <p class="fontmenor ">                     
-                    Ao(s) <u>  ${dia} de ${mes} de ${ano} </u> pagar______  &nbsp&nbsp por esta única via de <b> NOTA PROMISSÓRIA</b> ${real} 
-                    a JOSIMERIO DE ABREU SILVA &nbsp&nbsp&nbsp CPF/CNPJ 02938827466
-                        
-                </p>        
+                <p class="fontmenor a">                     
+                    &nbsp&nbsp&nbsp&nbspAo(s) <u>  ${dia} de ${mes} de ${ano} </u> pagar______  &nbsp&nbsp por esta única via de <b> NOTA PROMISSÓRIA</b> 
+                    a JOSIMERIO DE ABREU SILVA &nbsp&nbsp&nbsp CPF/CNPJ 02938827466 ou à sua ordem, a quantia de <u> ${real}</u> 
+                    em moeda corrente deste país, pagável em ESCROTÓRIO NATAL/RN    
+                </p>   
+
+                <p class="fontmenor b" style="text-align:center">                     
+                    ${funcionario}  <br>
+                    EMITENTE
+                </p>
+                <p class="fontmenor b" style="text-align:center">                     
+                    ${funcionario}  <br>
+                    EMITENTE
+                </p>
+                   
+                  
             </a> 
            
         </div>
