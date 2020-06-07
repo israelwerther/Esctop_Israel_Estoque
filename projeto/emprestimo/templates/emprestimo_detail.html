@@ -48,25 +48,22 @@
     </td> 
   
     <td style="text-align:center"> 
-        <a href="{% url 'emprestimo:emprestimo_impress' object.pk %}" >
+        <a href="{% url 'emprestimo:emprestimo_impress' object.pk %}">
             <button class="button button2">Carnê</button>
         </a> 
     </td> 
     
     <td style="text-align:center"> 
-        <a href="{% url 'emprestimo:emprestimo_promissoria' object.pk %}" >
+        <a href="{% url 'emprestimo:emprestimo_promissoria' object.pk %}">
             <button class="button button2">Promissória</button>
         </a> 
     </td> 
 
     <td style="text-align:center"> 
-        <a href="#" >
+        <a href="{% url 'emprestimo:emprestimo_contrato' object.pk %}">
             <button class="button button2">Contrato</button>
         </a> 
     </td> 
 </span>
-
-
-
 
 {% endblock content %}

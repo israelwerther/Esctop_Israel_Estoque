@@ -24,6 +24,11 @@ class EmprestimoPromissoria(UpdateView):
     model=Emprestimo
     template_name='emprestimo_promissoria.html'
     form_class=EmprestimoForm
+    
+class EmprestimoContrato(UpdateView):
+    model=Emprestimo
+    template_name='emprestimo_contrato.html'
+    form_class=EmprestimoForm
 
 
 def emprestimo_detail(request, pk):
