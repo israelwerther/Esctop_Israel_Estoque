@@ -3,13 +3,32 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="robots" content="noindex">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    
-    <style>
    
-   
+<style>
+    body {
+        font-family: "Arial";
+    }
+    .document {
+        margin: auto auto;
+        width: 236mm;
+        height: 108mm;
+        background-color: #fff;
+    }
+    h2{
+        text-align: center;
+        padding: 10px;  
+    }
+    .fontmenor{
+        font-size: 17px;
+        padding: 50px; 
+        margin: 28px; 
+        text-align: justify;
+    }
+    /*OMITE O ENDEREÇO DA PAGINA NA HORA DA IMPRESSÃO*/
+    @page{
+        size: auto;   /* auto is the initial value */
+        margin: 0;  /* this affects the margin in the printer settings */
+    }   
 </style>
 </head>
 <body>
@@ -61,6 +80,7 @@ window.onload = function imprimir(){
     
     //VARIÁVEIS DO CLIENTE
     var cliente_nome = "{{object.cliente}}"
+    var cliente_naturalidade = "{{object.cliente.naturalidade}}"
     var cpf = "{{object.cliente.cpf}}"
     var rua = "{{object.cliente.rua}}"
     var bairro = "{{object.cliente.bairro}}"
@@ -135,7 +155,10 @@ window.onload = function imprimir(){
     }
     contraro.innerHTML +=		
         `
-            CONTRATO DE MÚTUO
+            <h2> CONTRATO DE MÚTUO </h2>
+            <p class="fontmenor" >Pelo presente contrato particular de empréstimo de dinheiro,de um lado, Josimério de Abreu Silva, (Brasileiro, Solteiro, RG 1.791.746 SSP RN, CPF 029.388.274-66), 
+            de ora em diante denominado simplesmente por CREDOR, e, de outro lado, ${cliente_nome}
+            (${cliente_naturalidade}, casado, Funcionário Privado, RG 001.964.327 Itep, CPF 063.649.274-59, RN Rua 1º de Janeiro, 121, Quintas, Natal-RN, </p>
          
         `
     }			

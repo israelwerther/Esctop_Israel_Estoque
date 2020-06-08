@@ -14,12 +14,7 @@ class Avalista(models.Model):
         return self.avalista
     
     def get_absolute_url(self):
-        return reverse_lazy('cliente:avalista_add', kwargs={'pk': self.pk})
-    
-ESTADO_CIVIL = (
-    ('solteiro', 'Solteiro'),
-    ('casado', 'Casado'),  
-)
+        return reverse_lazy('cliente:avalista_add', kwargs={'pk': self.pk})  
 
 class Cliente(models.Model):
     nome                  = models.CharField("Nome", max_length=50)
@@ -28,7 +23,7 @@ class Cliente(models.Model):
     data_nasc             = models.DateField("Data de Nascimento",max_length=8, blank=True, null=True)   
     naturalidade          = models.CharField("naturalidade", max_length=15, blank=True, null=True)
     
-    estado_civil          = models.CharField("Estado Civil", max_length=15, blank=True, null=True, choices=ESTADO_CIVIL)
+    estado_civil          = models.CharField("Estado Civil", max_length=15, blank=True, null=True)
     
     nome_da_mae           = models.CharField("Nome da Mãe", max_length=50, blank=True, null=True)
     nome_do_pai           = models.CharField("Nome da Pai", max_length=50, blank=True, null=True)
