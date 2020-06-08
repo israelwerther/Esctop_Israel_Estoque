@@ -20,7 +20,7 @@
     }
     .fontmenor{
         font-size: 17px;
-        padding: 50px; 
+        padding: 5px; 
         margin: 28px; 
         text-align: justify;
     }
@@ -33,8 +33,10 @@
 </head>
 <body>
     
+
+    
     <div class="document">
-        <div id = "contraro" class="col-sm-6">
+        <div id = "contrato" class="col-sm-6">
            
         </div>
     </div>
@@ -56,13 +58,14 @@ window.onload = function imprimir(){
     var aux_dia = {{object.data_emprestimo.day}}
     var aux_mes = {{object.data_emprestimo.month}}
     var aux_ano = {{object.data_emprestimo.year}}
-    
 
     //VARIÁVEIS DO EMPRESTIMO
     var dinheiro = 0
     dinheiro = "{{object.valor_prestacao}}"
+    
+    var qtd_parcelas = parseInt("{{object.qtd_parcelas}}")
+    qtd_parcelas_extenso = String(qtd_parcelas).extenso()
 
-    var aux_qtd_parccela = {{object.qtd_parcelas}}
     var data_emissao = "{{object.data_emprestimo|date:"d/m/Y"}}"
     var valor_da_parcela = parseFloat("{{object.valor_prestacao|floatformat:2}}".replace(',', '.'))
     var valor_da_parcela_int = parseInt("{{object.valor_prestacao|floatformat:2}}".replace(',', '.'))
@@ -77,12 +80,12 @@ window.onload = function imprimir(){
     var centavos = parseFloat((valor_da_parcela-valor_da_parcela_int)).toFixed(2)	
     centavos = String(centavos).extenso()
     
-    
     //VARIÁVEIS DO CLIENTE
     var cliente_nome = "{{object.cliente}}"
     var cpf = "{{object.cliente.cpf}}"    
     var rg = "{{object.cliente.rg}}"    
     var naturalidade = "{{object.cliente.naturalidade}}"
+    var orgao_expedidor = "{{object.cliente.orgao_expedidor}}"
     var estado_civil = "{{object.cliente.estado_civil}}"
     var rua = "{{object.cliente.rua}}"
     var bairro = "{{object.cliente.bairro}}"
@@ -91,12 +94,10 @@ window.onload = function imprimir(){
     var numero_casa = "{{object.cliente.numero_casa}}"
     var cep = "{{object.cliente.cep}}"
 
-
     //VARIÁVEIS DO AVALISTA
     var avalista = "{{object.cliente.avalista.avalista}}"
     var cpf_avalista = "{{object.cliente.avalista.cpf_avalista}}"
-
-    for (var i = 0 ; i < 1; i++){
+    
     contador_meses++
     contador_parcela++
 
@@ -155,21 +156,31 @@ window.onload = function imprimir(){
     if(mes == 12){
         mes = 'Dezembro'
     }
-    contraro.innerHTML +=		
-        `
-            <h2> CONTRATO DE MÚTUO </h2>
-            <p class="fontmenor" >Pelo presente contrato particular de empréstimo de dinheiro,de um lado, Josimério de Abreu Silva, (Brasileiro, Solteiro, RG 1.791.746 SSP RN, CPF 029.388.274-66), 
-            de ora em diante denominado simplesmente por CREDOR, e, de outro lado, ${cliente_nome}
-            (${naturalidade}, ${estado_civil}, Funcionário Privado, RG ${rg} ${orgao_expedidor}, CPF 063.649.274-59, RN Rua 1º de Janeiro, 121, Quintas, Natal-RN, </p>
-         
-        `
-    }			
+    contrato.innerHTML +=		
+    `
+        <h2> CONTRATO DE MÚTUO </h2>
+        <p class="fontmenor" >Pelo presente contrato particular de empréstimo de dinheiro,de um lado, Josimério de Abreu Silva, (Brasileiro, Solteiro, RG 1.791.746 SSP RN, CPF 029.388.274-66), 
+        de ora em diante denominado simplesmente por CREDOR, e, de outro lado, ${cliente_nome}
+        (${naturalidade}, ${estado_civil}, Funcionário Privado, RG ${rg} ${orgao_expedidor}, CPF ${cpf}, 
+        ${rua}, ${numero_casa}, ${bairro}, ${cidade} ${uf} de ora em diante denominado simplesmente DEVEDOR, 
+        têm justo e contratado o seguinte:</p>
+
+        <p class="fontmenor"><b>CLÁUSULA 1ª</b>  - O <b>DEVEDOR</b> e seu(s) fiador(es) se comprometem a pagar ao <b>CREDOR</b> 
+        a título de empréstimo, a quantia acertada de R$ ${"{{object.valor_prestacao}}"} (${real} reais e ${centavos} centavos), 
+        dividida em ${"{{object.qtd_parcelas}}"}(${qtd_parcelas_extenso}) parcelas de iguais valores, já acrescidos de juros remuneratórios, 
+        nos moldes da legislação em vigor (Dec. 22.626/33 c/c art. 591 CC/02), pagas conforme boleto bancário, ou outro meio disponibilizado e 
+        pactuado, mediante as condições seguintes.
+        </p>
+
+        <p class="fontmenor"><b>CLÁUSULA 2ª</b>  - Que a quantia acima emprestada, parcelada, deverá ser adimplida ao CREDOR no dia,
+        </p>
+    `
 }
 
 String.prototype.extenso = function(c){
     var ex = [
         ["zero", "um", "dois", "três", "quatro", "cinco", "seis", "sete", "oito", "nove", "dez", "onze", "doze", "treze", "quatorze", "quinze", "dezesseis", "dezessete", "dezoito", "dezenove"],
-        ["dez", "vinte", "trinta", "quarenta", "cinqüenta", "sessenta", "setenta", "oitenta", "noventa"],
+        ["dez", "vinte", "trinta", "quarenta", "cinquenta", "sessenta", "setenta", "oitenta", "noventa"],
         ["cem", "cento", "duzentos", "trezentos", "quatrocentos", "quinhentos", "seiscentos", "setecentos", "oitocentos", "novecentos"],
         ["mil", "milhão", "bilhão", "trilhão", "quadrilhão", "quintilhão", "sextilhão", "setilhão", "octilhão", "nonilhão", "decilhão", "undecilhão", "dodecilhão", "tredecilhão", "quatrodecilhão", "quindecilhão", "sedecilhão", "septendecilhão", "octencilhão", "nonencilhão"]
     ];

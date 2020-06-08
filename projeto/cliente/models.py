@@ -20,7 +20,7 @@ class Cliente(models.Model):
     nome                  = models.CharField("Nome", max_length=50)
     cpf                   = models.CharField("CPF", max_length=20, unique=True)   
     rg                    = models.CharField("RG",max_length=20, blank=True, null=True)
-    orgao_expedidor       = models.CharField("Orgão Expedidor", max_length=15, blank=True, null=True)
+    orgao_expedidor       = models.CharField("Org Exp", max_length=15, blank=True, null=True)
     data_nasc             = models.DateField("Data de Nascimento",max_length=8, blank=True, null=True)   
     naturalidade          = models.CharField("naturalidade", max_length=15, blank=True, null=True)
     

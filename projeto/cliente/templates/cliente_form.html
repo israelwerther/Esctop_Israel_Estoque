@@ -74,7 +74,7 @@
         <br>
         <h2>CADASTRO PESSOAL</h2>
         <div class="row">
-            <div class="col-sm-5">                    
+            <div class="col-sm-6">                    
                 <div class="form-group" >                
                     <label for="" class="required" >{{form.nome.label}} </label>        
                     {% render_field form.nome class="form-control"  %}
@@ -92,9 +92,15 @@
                     {% render_field form.rg class="form-control" %}
                 </div>
             </div>
+            <div class="col-sm-2">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.orgao_expedidor.label}} </label>        
+                    {% render_field form.orgao_expedidor class="form-control" %}
+                </div>
+            </div>
 
             {% if object.pk %}
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <div class="form-group">
                     <label for="">{{form.data_nasc.label}}</label>
                     {% render_field form.data_nasc class="form-control date-mask-placeholder" %}                        
@@ -121,15 +127,15 @@
                     {% render_field form.naturalidade class="form-control" %}
                 </div>  
             </div>
-            <div class="col-sm-4">                    
+            <div class="col-sm-5">                    
                 <div class="form-group" >                
-                    <label for="" >{{form.nome_da_mae.label}} </label>        
+                    <label for="" >{{form.nome_da_mae.label}}</label>        
                     {% render_field form.nome_da_mae class="form-control" %}
                 </div>
             </div>
-            <div class="col-sm-4">                    
+            <div class="col-sm-5">                    
                 <div class="form-group" >                
-                    <label for="" >{{form.nome_do_pai.label}} </label>        
+                    <label for="" >{{form.nome_do_pai.label}}</label>        
                     {% render_field form.nome_do_pai class="form-control" %}
                 </div>
             </div>
