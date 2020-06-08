@@ -80,8 +80,10 @@ window.onload = function imprimir(){
     
     //VARIÁVEIS DO CLIENTE
     var cliente_nome = "{{object.cliente}}"
-    var cliente_naturalidade = "{{object.cliente.naturalidade}}"
-    var cpf = "{{object.cliente.cpf}}"
+    var cpf = "{{object.cliente.cpf}}"    
+    var rg = "{{object.cliente.rg}}"    
+    var naturalidade = "{{object.cliente.naturalidade}}"
+    var estado_civil = "{{object.cliente.estado_civil}}"
     var rua = "{{object.cliente.rua}}"
     var bairro = "{{object.cliente.bairro}}"
     var cidade = "{{object.cliente.cidade}}"
@@ -158,7 +160,7 @@ window.onload = function imprimir(){
             <h2> CONTRATO DE MÚTUO </h2>
             <p class="fontmenor" >Pelo presente contrato particular de empréstimo de dinheiro,de um lado, Josimério de Abreu Silva, (Brasileiro, Solteiro, RG 1.791.746 SSP RN, CPF 029.388.274-66), 
             de ora em diante denominado simplesmente por CREDOR, e, de outro lado, ${cliente_nome}
-            (${cliente_naturalidade}, casado, Funcionário Privado, RG 001.964.327 Itep, CPF 063.649.274-59, RN Rua 1º de Janeiro, 121, Quintas, Natal-RN, </p>
+            (${naturalidade}, ${estado_civil}, Funcionário Privado, RG ${rg} ${orgao_expedidor}, CPF 063.649.274-59, RN Rua 1º de Janeiro, 121, Quintas, Natal-RN, </p>
          
         `
     }			
