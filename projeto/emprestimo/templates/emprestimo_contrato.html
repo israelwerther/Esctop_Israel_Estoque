@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html charset="UTF-8">
-<head>
+<head>    
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="robots" content="noindex">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
+    <!-- CSS para impressão -->
+    <link rel="stylesheet" type="text/css" href="/print.css" media="print" />
    
 <style>
     body {
+        font-family: "Arial";      
+    }
+    .tabela{
+        border: 1px solid black;        
+        margin-bottom: 10px;  
+        background-color: lightblue;        
         font-family: "Arial";
     }
     .document {
@@ -13,7 +25,8 @@
         width: 236mm;
         height: 108mm;
         background-color: #fff;
-    }
+        padding-bottom: 150px;
+    }   
     h2{
         text-align: center;
         padding: 10px;  
@@ -28,18 +41,39 @@
     @page{
         size: auto;   /* auto is the initial value */
         margin: 0;  /* this affects the margin in the printer settings */
-    }   
+    }  
+    table {
+        text-align: center;
+        width: 80%;
+        position: center;
+        border-collapse: collapse;        
+        margin-left: 90px;
+    } 
+    /*CSS para impressão*/
+    @media print {
+        
+    }
+    
+    body {
+        margin:0;
+        padding:0;
+        line-height: 1.4em;
+    }
+    @page {
+        margin: 0.5cm;
+       
+    }
+    
+    
 </style>
 </head>
 <body>
-    
-
     
     <div class="document">
         <div id = "contrato" class="col-sm-6">
            
         </div>
-    </div>
+    </div>  
     
 <script>
 
@@ -60,6 +94,7 @@ window.onload = function imprimir(){
     var aux_ano = {{object.data_emprestimo.year}}
 
     //VARIÁVEIS DO EMPRESTIMO
+    var aux_qtd_parccela = {{object.qtd_parcelas}}
     var dinheiro = 0
     dinheiro = "{{object.valor_prestacao}}"
     
@@ -97,66 +132,12 @@ window.onload = function imprimir(){
     //VARIÁVEIS DO AVALISTA
     var avalista = "{{object.cliente.avalista.avalista}}"
     var cpf_avalista = "{{object.cliente.avalista.cpf_avalista}}"
-    
-    contador_meses++
-    contador_parcela++
 
     dia  = aux_dia
     mes  = aux_mes+contador_meses
     ano  = aux_ano
-
-    //AJUSTA A DATA QUANDO O MES É FEVEREIRO 
-    if(dia == 30 && mes == 2){
-        dia = 1 
-        mes = 3
-    }
-    
-    //AJUSTA MESES E ANOS 
-    if(mes == 13){
-        contador_meses = 0
-        aux_mes = 1
-        mes = 1	
-        aux_ano++
-        ano++				
-    }
-    
-    if(mes == 1){
-        mes = 'Janeiro'
-    }
-    if(mes == 2){
-        mes = 'Fevereiro'
-    }
-    if(mes == 3){
-        mes = 'Março'
-    }
-    if(mes == 4){
-        mes = 'Abril'
-    }
-    if(mes == 5){
-        mes = 'Maio'
-    }
-    if(mes == 6){
-        mes = 'Junho'
-    }
-    if(mes == 7){
-        mes = 'Julho'
-    }
-    if(mes == 8){
-        mes = 'Agosto'
-    }
-    if(mes == 9){
-        mes = 'Setembro'
-    }
-    if(mes == 10){
-        mes = 'Outubro'
-    }
-    if(mes == 11){
-        mes = 'Novembro'
-    }
-    if(mes == 12){
-        mes = 'Dezembro'
-    }
-    contrato.innerHTML +=		
+   
+    contrato.innerHTML +=
     `
         <h2> CONTRATO DE MÚTUO </h2>
         <p class="fontmenor" >Pelo presente contrato particular de empréstimo de dinheiro,de um lado, Josimério de Abreu Silva, (Brasileiro, Solteiro, RG 1.791.746 SSP RN, CPF 029.388.274-66), 
@@ -165,17 +146,114 @@ window.onload = function imprimir(){
         ${rua}, ${numero_casa}, ${bairro}, ${cidade} ${uf} de ora em diante denominado simplesmente DEVEDOR, 
         têm justo e contratado o seguinte:</p>
 
-        <p class="fontmenor"><b>CLÁUSULA 1ª</b>  - O <b>DEVEDOR</b> e seu(s) fiador(es) se comprometem a pagar ao <b>CREDOR</b> 
+        <p class="fontmenor">
+        <b>CLÁUSULA 1ª</b>  - O <b>DEVEDOR</b> e seu(s) fiador(es) se comprometem a pagar ao <b>CREDOR</b> 
         a título de empréstimo, a quantia acertada de R$ ${"{{object.valor_prestacao}}"} (${real} reais e ${centavos} centavos), 
         dividida em ${"{{object.qtd_parcelas}}"}(${qtd_parcelas_extenso}) parcelas de iguais valores, já acrescidos de juros remuneratórios, 
         nos moldes da legislação em vigor (Dec. 22.626/33 c/c art. 591 CC/02), pagas conforme boleto bancário, ou outro meio disponibilizado e 
         pactuado, mediante as condições seguintes.
         </p>
 
-        <p class="fontmenor"><b>CLÁUSULA 2ª</b>  - Que a quantia acima emprestada, parcelada, deverá ser adimplida ao CREDOR no dia,
+        <p class="fontmenor">
+        <b>CLÁUSULA 2ª</b> - Que a quantia acima emprestada, parcelada, deverá ser adimplida ao CREDOR no dia,
         </p>
     `
+    +
+    `
+    <table cellspacing="0" cellpadding="0" border="1">       
+        <tr>
+            <td width="33%" >
+                <p class="content "><b>PARCELAS</b></p>	
+            </td>
+            <td width="33%">
+                <p class="content "><b>VENCIMENTO</b></p>	
+            </td>
+            <td width="39%" >
+                <p class="content "><b>VALOR</b></p>
+            </td>						
+        </tr>
+    </table>
+    `
+    for(var i=0; i<{{object.qtd_parcelas}}; i++){
+        contador_parcela++
+        mes++
+
+        //AJUSTA A DATA QUANDO O MES É FEVEREIRO 
+        if(dia == 30 && mes == 2){
+            dia = 1 
+            mes = 3
+        }
+        
+        //AJUSTA MESES E ANOS 
+        if(mes == 13){
+            contador_meses = 0
+            aux_mes = 1
+            mes = 1	
+            aux_ano++
+            ano++				
+        }
+    contrato.innerHTML +=
+    `
+    <table cellspacing="0" cellpadding="0" border="1">       
+        <tr>
+            <td width="33%" >
+                <p class="content "><b>${contador_parcela}/${aux_qtd_parccela}</b></p>
+            </td>
+            <td width="33%">
+                <p class="content right text">${dia}/${mes}/${ano}&nbsp</p>
+            </td>
+            <td width="39%" >
+                <p class="content right text">R$ ${"{{object.valor_prestacao}}"}&nbsp</p>
+                
+            </td>						
+        </tr>
+    </table>
+       
+    `
+    }
+    contrato.innerHTML +=
+    `
+    
+        <p class="fontmenor" style="page-break-before: always;">
+            <p class="fontmenor">
+                <b>CLÁUSULA 3ª</b> - Na falta do pagamento do empréstimo na data aprazada, o DEVEDOR pagará uma multa no percentual de 
+                2% mais juros moratório sobre o débito no percentual de 0.66%, por dia, acrescido de correção monetária sobre o montante 
+                apurado, ficando o CREDOR com direito de tomar as medidas judiciais cabíveis, inclusive a penhora judicial e conseguinte 
+                notificação e negativação nos órgãos de proteção creditícios SPC, SERASA, SCPC e afins, conforme art. 43 do estatuto 
+                consumerista.
+            </p>
+            <p class="fontmenor">
+                <b>CLÁUSULA 4ª</b> - O(s) <b>FIADOR(ES)</b> na qualidade de devedor (s) principal e solidário, também presente neste ato e 
+                ao final qualificado e assinado, se compromete a honrar o presente contrato em seu inteiro teor, substituindo o <b>DEVEDOR</b>
+                em todas as obrigações contratuais assumidas, inclusive o pagamento pontual do principal, bem como os demais ônus enxertados 
+                neste contrato, quer decorrentes de acréscimos legais, quer de despesas judiciais se sujeitando aos ditames dos arts. 818 a 826, CC/02.
+            </p>
+            <p class="fontmenor">
+                <b>CLÁUSULA 5ª</b> - Todos os encargos que venham a recair durante o período de inadimplência do <b>DEVEDOR</b>, como gastos judiciais e 
+                honorários, serão de inteira responsabilidade do <b>DEVEDOR</b>, devendo ser acrescidos na dívida originalmente pactuada.
+            </p>
+            <p class="fontmenor">
+                <b>CLÁUSULA 6ª</b> - Fica eleito o foro desta cidade de Natal/RN, para dirimir qualquer dúvida referente a este contrato.
+            </p>
+            <p class="fontmenor">
+                E assim, por estarem plenamente contratados na forma acima e em consonância com a legislação em vigor, assinam o presente contrato em 
+                duas vias de igual teor, na presença de testemunhas que a tudo assistiram e conhecimentos tiveram.
+            </p>
+            <p class="fontmenor">
+               _________________________________________ &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp_________________________________________
+               &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+               &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspCREDOR     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+               &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+               &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+               &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp DEVEDOR
+            </p>
+           
+
+        </p>
+       
+    `
 }
+
 
 String.prototype.extenso = function(c){
     var ex = [
