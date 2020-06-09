@@ -55,6 +55,12 @@
         margin: 0.5cm;
        
     }
+    @media print {
+        p { 
+            page-break-inside: avoid; 
+        }
+    }
+    
     
     
 </style>
@@ -184,6 +190,7 @@ window.onload = function imprimir(){
             aux_ano++
             ano++				
         }
+        
     contrato.innerHTML +=
     `
         <table cellspacing="0" cellpadding="0" border="1">       
@@ -203,57 +210,53 @@ window.onload = function imprimir(){
     }
     contrato.innerHTML +=
     `
-    
-        <p class="fontmenor" style="page-break-before: always;">
-            <p class="fontmenor">
-                <b>CLÁUSULA 3ª</b> - Na falta do pagamento do empréstimo na data aprazada, o DEVEDOR pagará uma multa no percentual de 
-                2% mais juros moratório sobre o débito no percentual de 0.66%, por dia, acrescido de correção monetária sobre o montante 
-                apurado, ficando o CREDOR com direito de tomar as medidas judiciais cabíveis, inclusive a penhora judicial e conseguinte 
-                notificação e negativação nos órgãos de proteção creditícios SPC, SERASA, SCPC e afins, conforme art. 43 do estatuto 
-                consumerista.
-            </p>
-            <p class="fontmenor">
-                <b>CLÁUSULA 4ª</b> - O(s) <b>FIADOR(ES)</b> na qualidade de devedor(es) principal e solidário, também presente neste ato e 
-                ao final qualificado e assinado, se compromete a honrar o presente contrato em seu inteiro teor, substituindo o <b>DEVEDOR</b>
-                em todas as obrigações contratuais assumidas, inclusive o pagamento pontual do principal, bem como os demais ônus enxertados 
-                neste contrato, quer decorrentes de acréscimos legais, quer de despesas judiciais se sujeitando aos ditames dos arts. 818 a 826, CC/02.
-            </p>
-            <p class="fontmenor">
-                <b>CLÁUSULA 5ª</b> - Todos os encargos que venham a recair durante o período de inadimplência do <b>DEVEDOR</b>, como gastos judiciais e 
-                honorários, serão de inteira responsabilidade do <b>DEVEDOR</b>, devendo ser acrescidos na dívida originalmente pactuada.
-            </p>
-            <p class="fontmenor">
-                <b>CLÁUSULA 6ª</b> - Fica eleito o foro desta cidade de Natal/RN, para dirimir qualquer dúvida referente a este contrato.
-            </p>
-            <p class="fontmenor">
-                E assim, por estarem plenamente contratados na forma acima e em consonância com a legislação em vigor, assinam o presente contrato em 
-                duas vias de igual teor, na presença de testemunhas que a tudo assistiram e conhecimentos tiveram.
-            </p>
-            <p class="fontmenor">
-               _________________________________________ &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp_________________________________________
-               &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-               &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspCREDOR     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-               &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-               &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-               &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp DEVEDOR
-            </p>
-            <p class="fontmenor">
-                <b>FIADOR 1:</b> - ${"{{object.cliente.avalista.avalista}}"}
-                (${"{{object.cliente.avalista.estado_civil_avalista}}"}, Funcionário Privado, RG ${"{{object.cliente.avalista.rg_avalista}}"} 
-                ${"{{object.cliente.avalista.orgao_expedidor_avalista}}"}, CPF ${"{{object.cliente.avalista.cpf_avalista}}"}, 
-                ${"{{object.cliente.avalista.rua}}"}, ${"{{object.cliente.avalista.numero_casa}}"}, ${"{{object.cliente.avalista.bairro}}"}, 
-                ${"{{object.cliente.avalista.cidade}}"} ${"{{object.cliente.avalista.uf}}"}
-            </p>
-
-            <p style="text-align:center">
-                ____________________________________________________________<br>
-                ASSINATURA DO FIADOR
-            </p>
-            <p style="text-align:right">
-                Natal, ${dataEmprestimo}              
-            </p>
+        <p class="fontmenor" >
+            <b>CLÁUSULA 3ª</b> - Na falta do pagamento do empréstimo na data aprazada, o DEVEDOR pagará uma multa no percentual de 
+            2% mais juros moratório sobre o débito no percentual de 0.66%, por dia, acrescido de correção monetária sobre o montante 
+            apurado, ficando o CREDOR com direito de tomar as medidas judiciais cabíveis, inclusive a penhora judicial e conseguinte 
+            notificação e negativação nos órgãos de proteção creditícios SPC, SERASA, SCPC e afins, conforme art. 43 do estatuto 
+            consumerista.
         </p>
-       
+        <p class="fontmenor">
+            <b>CLÁUSULA 4ª</b> - O(s) <b>FIADOR(ES)</b> na qualidade de devedor(es) principal e solidário, também presente neste ato e 
+            ao final qualificado e assinado, se compromete a honrar o presente contrato em seu inteiro teor, substituindo o <b>DEVEDOR</b>
+            em todas as obrigações contratuais assumidas, inclusive o pagamento pontual do principal, bem como os demais ônus enxertados 
+            neste contrato, quer decorrentes de acréscimos legais, quer de despesas judiciais se sujeitando aos ditames dos arts. 818 a 826, CC/02.
+        </p>
+        <p class="fontmenor">
+            <b>CLÁUSULA 5ª</b> - Todos os encargos que venham a recair durante o período de inadimplência do <b>DEVEDOR</b>, como gastos judiciais e 
+            honorários, serão de inteira responsabilidade do <b>DEVEDOR</b>, devendo ser acrescidos na dívida originalmente pactuada.
+        </p>
+        <p class="fontmenor">
+            <b>CLÁUSULA 6ª</b> - Fica eleito o foro desta cidade de Natal/RN, para dirimir qualquer dúvida referente a este contrato.
+        </p>
+        <p class="fontmenor">
+            E assim, por estarem plenamente contratados na forma acima e em consonância com a legislação em vigor, assinam o presente contrato em 
+            duas vias de igual teor, na presença de testemunhas que a tudo assistiram e conhecimentos tiveram.
+        </p>
+        <p class="fontmenor">
+            _________________________________________ &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp_________________________________________
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspCREDOR     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp DEVEDOR
+        </p>
+        <p class="fontmenor">
+            <b>FIADOR 1:</b> - ${"{{object.cliente.avalista.avalista}}"}
+            (${"{{object.cliente.avalista.estado_civil_avalista}}"}, Funcionário Privado, RG ${"{{object.cliente.avalista.rg_avalista}}"} 
+            ${"{{object.cliente.avalista.orgao_expedidor_avalista}}"}, CPF ${"{{object.cliente.avalista.cpf_avalista}}"}, 
+            ${"{{object.cliente.avalista.rua}}"}, ${"{{object.cliente.avalista.numero_casa}}"}, ${"{{object.cliente.avalista.bairro}}"}, 
+            ${"{{object.cliente.avalista.cidade}}"} ${"{{object.cliente.avalista.uf}}"}
+        </p>
+
+        <p style="text-align:center">
+            ____________________________________________________________<br>
+            ASSINATURA DO FIADOR
+        </p>
+        <p style="text-align:right">
+            Natal, ${dataEmprestimo}              
+        </p>
     `
 }
 
