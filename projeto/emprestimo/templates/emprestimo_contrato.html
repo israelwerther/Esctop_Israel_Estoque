@@ -28,7 +28,7 @@
     }
     .fontmenor{
         font-size: 17px;
-        padding: 5px; 
+        padding: 0px; 
         margin: 28px; 
         text-align: justify;
     }
@@ -60,8 +60,9 @@
             page-break-inside: avoid; 
         }
     }
-    
-    
+    td {
+        padding: 0px;
+    }
     
 </style>
 </head>
@@ -193,16 +194,16 @@ window.onload = function imprimir(){
         
     contrato.innerHTML +=
     `
-        <table cellspacing="0" cellpadding="0" border="1">       
+        <table cellspacing="0" cellpadding="0" border="1" >       
             <tr>
-                <td width="33%" >
-                    <p><b>${contador_parcela}/${aux_qtd_parccela}</b></p>
+                <td width="33%">
+                    <p>${contador_parcela}/${aux_qtd_parccela}</p>
                 </td>
                 <td width="33%">
-                    <p><b>${dia}/${mes}/${ano}&nbsp</b></p>
+                    <p>${dia}/${mes}/${ano}&nbsp</p>
                 </td>
-                <td width="39%" >
-                    <p><b>R$ ${"{{object.valor_prestacao}}"}&nbsp</b></p>
+                <td width="39%">
+                    <p>R$ ${"{{object.valor_prestacao}}"}&nbsp</p>
                 </td>						
             </tr>
         </table>
@@ -211,7 +212,7 @@ window.onload = function imprimir(){
     contrato.innerHTML +=
     `
         <p class="fontmenor" >
-            <b>CLÁUSULA 3ª</b> - Na falta do pagamento do empréstimo na data aprazada, o DEVEDOR pagará uma multa no percentual de 
+            <b>CLÁUSULA 3ª</b> - Na falta do pagamento do empréstimo na data aprazada, o <b>DEVEDOR</b> pagará uma multa no percentual de 
             2% mais juros moratório sobre o débito no percentual de 0.66%, por dia, acrescido de correção monetária sobre o montante 
             apurado, ficando o CREDOR com direito de tomar as medidas judiciais cabíveis, inclusive a penhora judicial e conseguinte 
             notificação e negativação nos órgãos de proteção creditícios SPC, SERASA, SCPC e afins, conforme art. 43 do estatuto 
