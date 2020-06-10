@@ -7,7 +7,7 @@ from .forms import EmprestimoForm, EmprestimoPagamentoForm
 from django.contrib.auth.decorators import login_required
 
 
-
+@login_required
 def emprestimo_list(request):    
     template_name='emprestimo_list.html'  
     objects=Emprestimo.objects.all()
