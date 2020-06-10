@@ -42,7 +42,7 @@
         <div class="col-sm-3"> 
             <div class="form-group">
                 <label for="">{{form.valor_emprestado.label}}</label>
-                {% render_field form.valor_emprestado class="form-control" id="valor_emprestado" onblur="prestacao1()" %}                       
+                {% render_field form.valor_emprestado class="form-control" id="valor_emprestado" %}                       
             </div>
         </div>
     </div>
@@ -50,13 +50,13 @@
         <div class="col-sm-3">                    
             <div class="form-group" >                
                 <label for="" class="required" >{{form.qtd_parcelas.label}} </label>                
-                {% render_field form.qtd_parcelas class="form-control" id="qtd_parcelas" value="1" onblur="prestacao1()"%}
+                {% render_field form.qtd_parcelas class="form-control" id="qtd_parcelas" value="1"%}
             </div>
         </div>
         <div class="col-sm-3"> 
             <div class="form-group">
                 <label for="">{{form.valor_prestacao.label}}</label>
-                {% render_field form.valor_prestacao|attr:"readonly:True" class="form-control" value="0" id="prestacao" %}                       
+                {% render_field form.valor_prestacao class="form-control" value="0"  %}                       
             </div>
         </div>    
         
@@ -99,3 +99,25 @@
         }
     </script>
 {% endblock content %}
+
+
+    {% comment %} <div class="col-sm-3"> 
+            <div class="form-group">
+                <label for="">{{form.valor_emprestado.label}}</label>
+                {% render_field form.valor_emprestado class="form-control" id="valor_emprestado" onblur="prestacao1()" %}                       
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">                    
+            <div class="form-group" >                
+                <label for="" class="required" >{{form.qtd_parcelas.label}} </label>                
+                {% render_field form.qtd_parcelas class="form-control" id="qtd_parcelas" value="1" onblur="prestacao1()"%}
+            </div>
+        </div>
+        <div class="col-sm-3"> 
+            <div class="form-group">
+                <label for="">{{form.valor_prestacao.label}}</label>
+                {% render_field form.valor_prestacao|attr:"readonly:True" class="form-control" value="0" id="prestacao" %}                       
+            </div>
+        </div>     {% endcomment %}
