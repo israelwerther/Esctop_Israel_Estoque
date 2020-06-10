@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.http import HttpResponse
 from .models import Emprestimo, EmprestimoPagamento
 from .forms import EmprestimoForm, EmprestimoPagamentoForm
+from django.contrib.auth.decorators import login_required
 
 
 
@@ -30,7 +31,7 @@ class EmprestimoContrato(UpdateView):
     template_name='emprestimo_contrato.html'
     form_class=EmprestimoForm
 
-
+@login_required
 def emprestimo_detail(request, pk):
     template_name='emprestimo_detail.html'
     obj=Emprestimo.objects.get(pk=pk)
@@ -49,7 +50,7 @@ class EmprestimoUpdate(UpdateView):
     template_name='emprestimo_form.html'
     form_class=EmprestimoForm  
 
-
+@login_required
 def emprestimo_pagamento_add(request, pk):
     emprestimo = get_object_or_404(Emprestimo, pk=pk)
     form = EmprestimoPagamentoForm()
@@ -58,7 +59,7 @@ def emprestimo_pagamento_add(request, pk):
     return render(request, 'emprestimo_pagamento_add.html', context)
 
     
-
+@login_required
 def emprestimo_pagamento(request, pk):
     emprestimo = get_object_or_404(Emprestimo, pk=pk)
     form = EmprestimoPagamentoForm(request.POST or None)
@@ -69,7 +70,7 @@ def emprestimo_pagamento(request, pk):
     return redirect('emprestimo:emprestimo_detail', pk)
    
    
-
+@login_required
 def emprestimo_pagamento_list(request, pk):
     emprestimo = get_object_or_404(Emprestimo, pk=pk)
     form = EmprestimoPagamentoForm()
