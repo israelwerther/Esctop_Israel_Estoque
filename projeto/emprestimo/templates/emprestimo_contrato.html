@@ -12,7 +12,10 @@
    
 <style>
     body {
-        font-family: "Arial";      
+        font-family: "Arial";   
+
+        counter-reset: section;
+        text-align: justify;   
     }
     
     .document {
@@ -33,16 +36,14 @@
         text-align: justify;
     }
     /*OMITE O ENDEREÇO DA PAGINA NA HORA DA IMPRESSÃO*/
-    @page{
-        size: auto;   /* auto is the initial value */
-        margin: 0;  /* this affects the margin in the printer settings */
-    }  
+    
     table {
         text-align: center;
         width: 80%;
         position: center;
         border-collapse: collapse;        
         margin-left: 90px;
+        
     } 
     /*CSS para impressão*/
     
@@ -51,17 +52,41 @@
         padding:0;
         line-height: 1.4em;
     }
-    @page {
-        margin: 0.5cm;
-       
-    }
+    
     @media print {
         p { 
             page-break-inside: avoid; 
         }
     }
+    
     td {
         padding: 0px;
+    }
+    
+    /* <button class="print">Print</button> */
+
+    @page {
+        size: A4;
+        margin: 5%;
+        padding: 0 0 10%;
+    }
+    @media print {
+        h3 {
+            position: absolute;
+            page-break-before: always;
+            page-break-after: always;
+            bottom: 0;
+            right: 0;
+        }
+        h3::before {
+            position: relative;
+            bottom: -20px;
+            counter-increment: section;
+            content: counter(section);
+        }
+        .print {
+            display: none;
+        }
     }
     
 </style>
@@ -72,7 +97,11 @@
         <div id = "contrato" class="col-sm-6">
            
         </div>
+        
     </div>  
+    <h3 class="first"></h3>
+    <div class="insert"></div>
+
     
 <script>
 
@@ -285,6 +314,22 @@ String.prototype.extenso = function(c){
     }
     return r.join(e);
 }
+
+var bottom = 0;
+$(document).ready(function() {
+  $("p:nth-child(10n)").each(function() {
+    bottom -= 100;
+    botString = bottom.toString();
+    var $counter = $('h3.first').clone().removeClass('first');
+    $counter.css("bottom", botString + "vh");
+    ($counter).insertBefore('.insert');
+  });
+});
+
+$('.print').on('click', function() {
+  window.print();
+  return false;
+});
 </script>
 </body>
 </html>
