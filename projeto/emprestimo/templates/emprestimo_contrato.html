@@ -12,10 +12,10 @@
    
 <style>
     body {
-        font-family: "Arial";   
-
-        counter-reset: section;
-        text-align: justify;   
+        font-family: "Arial"; 
+        margin:0;
+        padding:0;
+        line-height: 1.4em;     
     }
     
     .document {
@@ -30,9 +30,9 @@
         padding: 10px;  
     }
     .fontmenor{
-        font-size: 17px;
-        padding: 0px; 
-        margin: 28px; 
+        font-size: 18px;
+        padding: 5px; 
+        margin: 30px; 
         text-align: justify;
     }
     /*OMITE O ENDEREÇO DA PAGINA NA HORA DA IMPRESSÃO*/
@@ -47,12 +47,6 @@
     } 
     /*CSS para impressão*/
     
-    body {
-        margin:0;
-        padding:0;
-        line-height: 1.4em;
-    }
-    
     @media print {
         p { 
             page-break-inside: avoid; 
@@ -60,34 +54,27 @@
     }
     
     td {
-        padding: 0px;
+        
+        margin: 0px;
+    }
+
+    .desloca1{        
+        margin-top: 700px;
+        margin-left: 850px;
+        position: absolute;
+    }
+    .desloca2{        
+        margin-top: 2000px;
+        margin-left: 850px;
+        position: absolute;
+    }
+    .datacao{
+        margin-right: 40px;
     }
     
     /* <button class="print">Print</button> */
-
-    @page {
-        size: A4;
-        margin: 5%;
-        padding: 0 0 10%;
-    }
-    @media print {
-        h3 {
-            position: absolute;
-            page-break-before: always;
-            page-break-after: always;
-            bottom: 0;
-            right: 0;
-        }
-        h3::before {
-            position: relative;
-            bottom: -20px;
-            counter-increment: section;
-            content: counter(section);
-        }
-        .print {
-            display: none;
-        }
-    }
+    
+    
     
 </style>
 </head>
@@ -97,10 +84,13 @@
         <div id = "contrato" class="col-sm-6">
            
         </div>
-        
     </div>  
-    <h3 class="first"></h3>
-    <div class="insert"></div>
+        <p class="desloca1">
+            1/2 
+        </p>
+        <p class="desloca2">
+            2/2 
+        </p>
 
     
 <script>
@@ -191,13 +181,13 @@ window.onload = function imprimir(){
     <table cellspacing="0" cellpadding="0" border="1">       
         <tr>
             <td width="33%">
-                <p class="content "><b>PARCELAS</b></p>	
+                <b>PARCELAS</b>
             </td>
             <td width="33%">
-                <p class="content "><b>VENCIMENTO</b></p>	
+                <<b>VENCIMENTO</b>
             </td>
             <td width="39%">
-                <p class="content "><b>VALOR</b></p>
+                <b>VALOR</b>
             </td>						
         </tr>
     </table>
@@ -224,16 +214,15 @@ window.onload = function imprimir(){
     contrato.innerHTML +=
     `
         <table cellspacing="0" cellpadding="0" border="1" >       
-            <tr>
+            <tr >
                 <td width="33%">
-                    <p>${contador_parcela}/${aux_qtd_parccela}</p>
+                    ${contador_parcela}/${aux_qtd_parccela}
                 </td>
                 <td width="33%">
-                    <p>${dia}/${mes}/${ano}&nbsp</p>
+                    ${dia}/${mes}/${ano}
                 </td>
                 <td width="39%">
-                    <p>R$ ${"{{object.valor_prestacao}}"}&nbsp</p>
-                </td>						
+                    R$ ${"{{object.valor_prestacao}}"}
             </tr>
         </table>
     `
@@ -265,7 +254,7 @@ window.onload = function imprimir(){
             duas vias de igual teor, na presença de testemunhas que a tudo assistiram e conhecimentos tiveram.
         </p>
         <p class="fontmenor">
-            _________________________________________ &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp_________________________________________
+            ______________________________________ &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp______________________________________
             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspCREDOR     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
@@ -284,9 +273,12 @@ window.onload = function imprimir(){
             ____________________________________________________________<br>
             ASSINATURA DO FIADOR
         </p>
-        <p style="text-align:right">
+        </br>
+        </br>
+        <p style="text-align:right" class="datacao">
             Natal, ${dataEmprestimo}              
         </p>
+        
     `
 }
 
@@ -314,22 +306,6 @@ String.prototype.extenso = function(c){
     }
     return r.join(e);
 }
-
-var bottom = 0;
-$(document).ready(function() {
-  $("p:nth-child(10n)").each(function() {
-    bottom -= 100;
-    botString = bottom.toString();
-    var $counter = $('h3.first').clone().removeClass('first');
-    $counter.css("bottom", botString + "vh");
-    ($counter).insertBefore('.insert');
-  });
-});
-
-$('.print').on('click', function() {
-  window.print();
-  return false;
-});
 </script>
 </body>
 </html>
