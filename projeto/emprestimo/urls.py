@@ -7,12 +7,14 @@ app_name='emprestimo'
 
 urlpatterns = [
     path('', v.emprestimo_list, name='emprestimo_list'),
+    
+    path('add/', login_required(v.EmprestimoCreate.as_view()), name='emprestimo_add'),
+    
     path('<int:pk>/impress/', login_required(v.EmprestimoImpress.as_view()), name='emprestimo_impress'),
     path('<int:pk>/promissoria/', login_required(v.EmprestimoPromissoria.as_view()), name='emprestimo_promissoria'),
     path('<int:pk>/contrato/', login_required(v.EmprestimoContrato.as_view()), name='emprestimo_contrato'),
     path('<int:pk>/', v.emprestimo_detail, name='emprestimo_detail'),
     
-    path('add/', login_required(v.EmprestimoCreate.as_view()), name='emprestimo_add'),
     
     path('<int:pk>/edit/', login_required(v.EmprestimoUpdate.as_view()), name='emprestimo_edit'),  
     path('<int:pk>/pagamento_add/', v.emprestimo_pagamento_add, name='emprestimo_pagamento_add'),
