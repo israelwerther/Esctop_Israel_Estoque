@@ -1,7 +1,7 @@
 from django.shortcuts import render, resolve_url, redirect, get_object_or_404
 from django.views.generic import CreateView, UpdateView
 from django.contrib import messages
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from .models import Emprestimo, EmprestimoPagamento, Cliente
 from .forms import EmprestimoForm, EmprestimoPagamentoForm
 from django.contrib.auth.decorators import login_required
@@ -14,11 +14,16 @@ def emprestimo_list(request):
     context={'object_list': objects}
     return render(request, template_name, context)
 
-
+# (LoginRequiredMixin, CreateView):
 class EmprestimoCreate(CreateView):
     model=Emprestimo
     template_name='emprestimo_form.html'
     form_class=EmprestimoForm
+    
+    def form_valid(self, form_class):
+        obj = form_class.save(commit=False)
+        obj.funcionario = self.request.user
+        return super(EmprestimoCreate, self).form_valid(form_class)
     
     
 class EmprestimoUpdate(UpdateView):
