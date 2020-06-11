@@ -56,9 +56,6 @@ def emprestimo_detail(request, pk):
     return render(request, template_name, context)
 
 
-    
-
-
 @login_required
 def emprestimo_pagamento_add(request, pk):
     emprestimo = get_object_or_404(Emprestimo, pk=pk)

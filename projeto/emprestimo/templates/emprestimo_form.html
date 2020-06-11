@@ -2,12 +2,10 @@
 {% load static %}
 {% load widget_tweaks %}
 
-
 <!--  -->
 <!-- ESTUDO COMPLETO DE FORMSET -->
 <!-- https://docs.djangoproject.com/en/3.0/topics/forms/formsets/ -->
 <!--  -->
-
 
 {% block content %}
 
@@ -20,13 +18,7 @@
     {% endif %}
     {% csrf_token %}
 
-    <div class="row">
-        <!-- <div class="col-sm-3">                    
-            <div class="form-group" >                
-                <label for="">{{form.funcionario.label}} </label>
-                {% render_field form.funcionario class="form-control"  %}
-            </div>
-        </div> -->
+    <div class="row">       
         <div class="col-sm-3"> 
             <div class="form-group">
                 <label for="">{{form.num_doc.label}}</label>
@@ -76,7 +68,6 @@
             </div>            
         {% endif %} 
     </div>
-    
 
     {% if emprestimo %}   
         <button type="submit" class="btn btn-success">Salvar Alterações</button>     
@@ -85,7 +76,6 @@
         <button type="submit" class="btn btn-success">Cadastrar</button>
     </form>
     {% endif %}
-
   
     <script>
         function prestacao1(){
@@ -102,23 +92,23 @@
 {% endblock content %}
 
 
-    {% comment %} <div class="col-sm-3"> 
-            <div class="form-group">
-                <label for="">{{form.valor_emprestado.label}}</label>
-                {% render_field form.valor_emprestado class="form-control" id="valor_emprestado" onblur="prestacao1()" %}                       
-            </div>
+{% comment %} <div class="col-sm-3"> 
+        <div class="form-group">
+            <label for="">{{form.valor_emprestado.label}}</label>
+            {% render_field form.valor_emprestado class="form-control" id="valor_emprestado" onblur="prestacao1()" %}                       
         </div>
     </div>
-    <div class="row">
-        <div class="col-sm-3">                    
-            <div class="form-group" >                
-                <label for="" class="required" >{{form.qtd_parcelas.label}} </label>                
-                {% render_field form.qtd_parcelas class="form-control" id="qtd_parcelas" value="1" onblur="prestacao1()"%}
-            </div>
+</div>
+<div class="row">
+    <div class="col-sm-3">                    
+        <div class="form-group" >                
+            <label for="" class="required" >{{form.qtd_parcelas.label}} </label>                
+            {% render_field form.qtd_parcelas class="form-control" id="qtd_parcelas" value="1" onblur="prestacao1()"%}
         </div>
-        <div class="col-sm-3"> 
-            <div class="form-group">
-                <label for="">{{form.valor_prestacao.label}}</label>
-                {% render_field form.valor_prestacao|attr:"readonly:True" class="form-control" value="0" id="prestacao" %}                       
-            </div>
-        </div>     {% endcomment %}
+    </div>
+    <div class="col-sm-3"> 
+        <div class="form-group">
+            <label for="">{{form.valor_prestacao.label}}</label>
+            {% render_field form.valor_prestacao|attr:"readonly:True" class="form-control" value="0" id="prestacao" %}                       
+        </div>
+    </div>     {% endcomment %}
