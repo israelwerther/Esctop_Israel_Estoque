@@ -8,7 +8,7 @@ from django.utils.translation import gettext_lazy as _
 import math
 
 class Emprestimo(models.Model):
-    funcionario      = models.ForeignKey(User, on_delete=models.CASCADE)
+    funcionario      = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
     cliente          = models.ForeignKey(Cliente, on_delete=models.CASCADE, null=True, blank=True)
     num_doc          = models.PositiveIntegerField('Nº Documento', null=True, blank=True)
     valor_emprestado = models.DecimalField("Valor Emprestado", max_digits=10, decimal_places=2, null=True, blank=True)
