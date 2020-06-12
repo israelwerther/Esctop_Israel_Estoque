@@ -13,24 +13,24 @@
             <button type="button" class="btn btn-info">Editar</button>
         </a> 
     </td> 
-  
-    <td style="text-align:center"> 
-        <a href="{% url 'emprestimo:emprestimo_impress' object.pk %}">
-            <button type="button" class="btn btn-outline-warning">Carnê</button>
-        </a> 
-    </td> 
     
-    <td style="text-align:center"> 
-        <a href="{% url 'emprestimo:emprestimo_promissoria' object.pk %}">
-            <button type="button" class="btn btn-outline-warning">Promissória</button>
-        </a> 
-    </td> 
-
-    <td style="text-align:center"> 
-        <a href="{% url 'emprestimo:emprestimo_contrato' object.pk %}">
-            <button type="button" class="btn btn-outline-warning">Contrato</button>
-        </a> 
-    </td> 
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-warning">
+            <a href="{% url 'emprestimo:emprestimo_impress' object.pk %}" style="text-align:center">
+            </a>Carnê
+        </button>
+    
+        <button type="button" class="btn btn-warning">
+            <a href="{% url 'emprestimo:emprestimo_promissoria' object.pk %}" style="text-align:center">
+            </a>Promissória
+        </button>
+    
+        <button type="button" class="btn btn-warning">
+            <a href="{% url 'emprestimo:emprestimo_contrato' object.pk %}" style="text-align:center">
+            </a>Contrato
+        </button>
+    </div>
+    
 </span>
 
 <a href="{% url 'emprestimo:emprestimo_list' %}">Voltar</a>
