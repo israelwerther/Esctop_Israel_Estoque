@@ -83,7 +83,10 @@
             <div class="col-sm-2">                    
                 <div class="form-group" >                
                     <label for="" class="required" >{{form.cpf.label}} </label>        
-                    {% render_field form.cpf class="form-control cpf-mask" type="text" %}
+                    {% render_field form.cpf class="form-control cpf-mask" type="text"%}
+                    {% if form.errors %}
+                        <li style="color:red;">CPF inválido ou já existe.</li>
+                    {% endif %}
                 </div>
             </div>
             <div class="col-sm-2">                    

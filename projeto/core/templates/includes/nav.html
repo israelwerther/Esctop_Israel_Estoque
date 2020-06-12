@@ -37,6 +37,10 @@ body {
   background-color: #4CAF50;
   color: white;
 }
+.topnav a.disabled {
+  background-color: #333;
+  color: rgb(177, 174, 174);
+}
 
 .topnav .icon {
   display: none;
@@ -63,6 +67,11 @@ body {
     text-align: left;
   }
 }
+
+
+
+
+
 </style>
 </head>
 <body>
@@ -70,8 +79,8 @@ body {
 <div class="topnav" id="myTopnav">
     <a href="{% url 'core:index' %}" class="active" class="nav-link">ESCTOP</a>
     <a href="{% url 'cliente:cliente_list' %}">Clientes</a>
-    <a href="{% url 'emprestimo:emprestimo_list' %}">Empréstimos</a>
     <a href="{% url 'cliente:avalista_list' %}">Avalista</a>
+    <a href="{% url 'emprestimo:emprestimo_list' %}">Empréstimos</a>
 
 	{% if user.is_authenticated %}
     	<a href="{% url 'logout' %}" style='float:right'>Encerrar Sessão</a>
