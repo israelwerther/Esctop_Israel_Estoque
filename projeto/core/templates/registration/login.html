@@ -70,8 +70,12 @@
         background-color: white;
         padding: 20px;
     }
-
-
+    .fontemaior{
+        font-size: 36px;
+        padding: 0;
+        margin-right: auto;       
+    }
+    
 </style>
 </head>
 <body>
@@ -92,9 +96,9 @@
     
     <form method="post" action="{% url 'login' %}">
         {% csrf_token %}       
-            <div class="col-sm-4 center">   
+        <div class="col-sm-4 center">   
+            <a class="fontemaior">CREEDCOOP</a><br>                 
                 <div class="form-group">                
-                    <H2>CREEDCOOP</H2>                 
                     <a>{{ form.username.label_tag }}</a>
                     <a>{{ form.username }}</a>                
                     <a>{{ form.password.label_tag }}</a>

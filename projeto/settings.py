@@ -132,8 +132,6 @@ USE_TZ = False
 #     '%d %B %Y', '%d %B, %Y',            # '25 October 2006', '25 October, 2006'
 # ]
 
-
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
