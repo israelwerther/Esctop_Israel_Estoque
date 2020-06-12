@@ -84,7 +84,8 @@ body {
 
 	{% if user.is_authenticated %}
     	<a href="{% url 'logout' %}" style='float:right'>Encerrar Sessão</a>
-		<a href="" style='float:right' class="nav-link disabled" >Olá, {{user}}</a>
+        <a style='float:right' class="nav-link disabled">/</a>
+        <a href="" style='float:right' class="nav-link disabled" >Olá, {{user.first_name}}</a>
 	{% endif %}
 
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
