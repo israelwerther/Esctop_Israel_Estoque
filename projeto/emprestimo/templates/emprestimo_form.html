@@ -50,8 +50,7 @@
                 <label for="">{{form.valor_prestacao.label}}</label>
                 {% render_field form.valor_prestacao class="form-control" value="0"  %}                       
             </div>
-        </div>    
-        
+        </div>   
         {% if object.pk %} <!-- if object.data_emprestimo é isso que ele quer dizer -->           
             <div class="col-sm-3"> 
                 <div class="form-group">
@@ -73,6 +72,7 @@
         <button type="submit" class="btn btn-success">Salvar Alterações</button>     
         <a href="{% url 'emprestimo:emprestimo_pagamento_add' emprestimo.pk %}" class="btn btn-primary">Realizar pagamento</a> 
     {% else %}
+        <a href="{% url 'emprestimo:emprestimo_list' %}" type="button" class="btn btn-danger">Cancelar</a>        
         <button type="submit" class="btn btn-success">Cadastrar</button>
     </form>
     {% endif %}

@@ -3,21 +3,9 @@
 {% block content %}
 
 <span class="pull-right">
-    <td style="text-align:center"> 
-        <a href="{% url 'cliente:cliente_list' %}">
-            <button type="button" class="btn btn-secondary">Voltar</button>
-        </a> 
-    </td>     
-    <td style="text-align:center"> 
-        <a href="{% url 'cliente:cliente_edit' object.pk %}" >
-            <button type="button" class="btn btn-info">Editar</button>
-        </a> 
-    </td> 
-    <td style="text-align:center"> 
-        <a href="{% url 'cliente:cliente_delete' object.pk %}" >
-            <button type="button" class="btn btn-danger">Deletar</button>
-        </a> 
-    </td> 
+    <a href="{% url 'cliente:cliente_list' %}" type="button" class="btn btn-secondary">Voltar</a>
+    <a href="{% url 'cliente:cliente_edit' object.pk %}" type="button" class="btn btn-info">Editar</a>
+    <a href="{% url 'cliente:cliente_delete' object.pk %}" type="button" class="btn btn-danger">Deletar</a>
 </span>
 
 <h1>{{ object }}</h1>

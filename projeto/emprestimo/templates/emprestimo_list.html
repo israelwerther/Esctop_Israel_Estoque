@@ -5,11 +5,7 @@
 <div class="class page-header">
 
     <div class="float-right">
-        <a href="{% url 'emprestimo:emprestimo_add' %}">
-            <button type="button" class="btn btn-success">
-                Novo Empréstimo
-            </button>
-        </a>       
+        <a href="{% url 'emprestimo:emprestimo_add' %}" type="button" class="btn btn-success">Novo Empréstimo</a>
     </div>
     <div>
         <h2>Lista de Empréstimos</h2>
@@ -37,8 +33,7 @@
                     <td style="text-align:center">{{ object.data_emprestimo|date:"d/m/Y" }}</td>  
                     <td style="text-align:center"> 
                         <a href="{{ object.get_absolute_url}}" ><button class="btn btn-info">Gerenciar</button></a> 
-                    </td> 
-                    
+                    </td>                     
                 </tr>
                 {% endfor %}
             </tbody>
@@ -46,7 +41,6 @@
     {% else %}
         <p class="alert alert-warning">Sem Emprestimos cadastrados</p>
     {% endif %}
-
 </div>
 
 {% endblock content %}
