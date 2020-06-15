@@ -3,18 +3,15 @@
 {% block content %}
 
 <span class="pull-right">
-    <div class="btn-group" >  
-        <a href="{% url 'emprestimo:emprestimo_list' %}" type="button" class="btn btn-secondary">Voltar</a>
-    </div>    
-    <div class="btn-group" >       
-        <a href="{% url 'emprestimo:emprestimo_edit' object.pk %}" type="button" class="btn btn-info">Editar</a>
-    </div>    
+
+    <a href="{% url 'emprestimo:emprestimo_list' %}" type="button" class="btn btn-secondary">Voltar</a>
+    <a href="{% url 'emprestimo:emprestimo_edit' object.pk %}" type="button" class="btn btn-info">Editar</a>
+   
     <div class="btn-group" role="group" >
         <a href="{% url 'emprestimo:emprestimo_impress' object.pk %}" type="button" class="btn btn-warning">Carnê</a>
         <a href="{% url 'emprestimo:emprestimo_promissoria' object.pk %}" type="button" class="btn btn-warning">Promissória</a>
         <a href="{% url 'emprestimo:emprestimo_contrato' object.pk %}" type="button" class="btn btn-warning">Contrato</a>
     </div>
-    
 </span>
 
 <h1>Emprestimo Nº {{ object.num_doc }}</h1>
