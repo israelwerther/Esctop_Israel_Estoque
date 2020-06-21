@@ -29,7 +29,12 @@ class EmprestimoCreate(CreateView):
 class EmprestimoUpdate(UpdateView):
     model=Emprestimo
     template_name='emprestimo_form.html'
-    form_class=EmprestimoForm  
+    form_class=EmprestimoForm
+
+    def form_valid(self, form_class):
+        obj = form_class.save(commit=False)
+        obj.funcionario = self.request.user
+        return super(EmprestimoUpdate, self).form_valid(form_class)
     
 
 class EmprestimoImpress(UpdateView):
