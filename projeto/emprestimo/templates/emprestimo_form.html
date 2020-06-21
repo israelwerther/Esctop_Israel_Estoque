@@ -32,30 +32,30 @@
             </div>
         </div>
         <div class="col-sm-3"> 
-            <div class="form-group">
-                <label for="">{{form.valor_emprestado.label}}</label>
-                {% render_field form.valor_emprestado class="form-control" id="valor_emprestado" %}                       
+                <div class="form-group">
+                    <label for="">{{form.valor_emprestado.label}}</label>
+                    {% render_field form.valor_emprestado class="form-control" id="valor_emprestado"  %}                       
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-3">                    
-            <div class="form-group" >                
-                <label for="" class="required" >{{form.qtd_parcelas.label}} </label>                
-                {% render_field form.qtd_parcelas class="form-control" id="qtd_parcelas" value="1"%}
+        <div class="row">
+            <div class="col-sm-3">                    
+                <div class="form-group" >                
+                    <label for="" class="required" >{{form.qtd_parcelas.label}} </label>                
+                    {% render_field form.qtd_parcelas class="form-control" id="qtd_parcelas" value="1" %}
+                </div>
             </div>
-        </div>
-        <div class="col-sm-3"> 
-            <div class="form-group">
-                <label for="">{{form.valor_prestacao.label}}</label>
-                {% render_field form.valor_prestacao class="form-control" value="0"  %}                       
-            </div>
-        </div>   
+            <div class="col-sm-3"> 
+                <div class="form-group">
+                    <label for="">{{form.valor_prestacao.label}}</label>
+                    {% render_field form.valor_prestacao class="form-control" %}                       
+                </div>
+        </div> 
         {% if object.pk %} <!-- if object.data_emprestimo é isso que ele quer dizer -->           
             <div class="col-sm-3"> 
                 <div class="form-group">
                     <label for="">{{form.data_emprestimo.label}}</label>
-                    {% render_field form.data_emprestimo class="form-control" %}                       
+                    {% render_field form.data_emprestimo class="form-control" id="data_emprestimo" %}                       
                 </div>
             </div>       
         {% else %}            
@@ -76,39 +76,43 @@
         <button type="submit" class="btn btn-success">Cadastrar</button>
     </form>
     {% endif %}
+    
   
-    <script>
+    <!-- <script>
+        function toFixed(num, fixed) {
+            var re = new RegExp('^-?\\d+(?:\.\\d{0,' + (fixed || -1) + '})?');
+            return num.toString().match(re)[0];
+        }
+        
         function prestacao1(){
-            var tn1 = document.getElementById('valor_emprestado')
-            var tn2 = document.getElementById('qtd_parcelas')
+            var valor_emprestado = document.getElementById('valor_emprestado')
+            var qtd_parcelas = document.getElementById('qtd_parcelas')
             var prestacao = document.getElementById('prestacao')
-            var n1 = Number(tn1.value)
-            var n2 = Number(tn2.value)
-            var s = n1*n2
-            document.getElementById('prestacao').value = s
+            
+            var iof_inicial = 0
+            var iof_diario  = 0.0041
+            var qut_dias = 0
+
+
+            
+
+            for (var i = 0 ; i < 2; i++){
+                valor_emprestado = Number(valor_emprestado.value)
+                qtd_parcelas = Number(qtd_parcelas.value)
+    
+                var s = valor_emprestado*qtd_parcelas
+    
+                iof_inicial = ((500*(30*0.0041))/100)
+                iof_inicial = toFixed(iof_inicial, 3)
+            }
+
+            document.getElementById('prestacao').value = iof_inicial
+
+
+
         }
 
-    </script>
+    </script> -->
 {% endblock content %}
 
 
-{% comment %} <div class="col-sm-3"> 
-        <div class="form-group">
-            <label for="">{{form.valor_emprestado.label}}</label>
-            {% render_field form.valor_emprestado class="form-control" id="valor_emprestado" onblur="prestacao1()" %}                       
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-sm-3">                    
-        <div class="form-group" >                
-            <label for="" class="required" >{{form.qtd_parcelas.label}} </label>                
-            {% render_field form.qtd_parcelas class="form-control" id="qtd_parcelas" value="1" onblur="prestacao1()"%}
-        </div>
-    </div>
-    <div class="col-sm-3"> 
-        <div class="form-group">
-            <label for="">{{form.valor_prestacao.label}}</label>
-            {% render_field form.valor_prestacao|attr:"readonly:True" class="form-control" value="0" id="prestacao" %}                       
-        </div>
-    </div>     {% endcomment %}
