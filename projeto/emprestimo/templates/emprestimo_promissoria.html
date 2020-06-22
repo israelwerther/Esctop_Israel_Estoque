@@ -216,8 +216,9 @@ window.onload = function imprimir_promissoria(){
         `
         <div class="body">
             <a class="test1">&nbsp</a>
-            <a class="test1">&nbsp&nbsp&nbsp&nbspAvalista(s)</a>
-            <a class="test1"> ${"{{object.cliente.avalista}}"} CPF:${"{{object.cliente.avalista.cpf_avalista}}"} </a>
+            <a class="test1">Fiador</a>
+            <a class="test1"> CPF:${"{{object.cliente.avalista.cpf_avalista}}"}
+            <br>${"{{object.cliente.avalista}}"} </a>
             <a class="test1">_____________________________ &nbsp&nbsp&nbsp</a>
             <a class="ait"> 
                 <b class = "fontmaior" >&nbspNº</b>                 
@@ -230,15 +231,15 @@ window.onload = function imprimir_promissoria(){
                 </b>           
                 <br><br> 
                 <p class="fontmenor a" align="Justify">                     
-                    &nbsp&nbsp&nbsp&nbsp Ao(s) <u>  ${dia} de ${mes} de ${ano} </u>&nbsp&nbsp pagar______  &nbsp&nbsp por esta única via de <b> NOTA PROMISSÓRIA</b> 
+                    &nbsp&nbsp&nbsp&nbsp Ao(s) <u>  ${dia} de ${mes} de ${ano} </u>&nbsp&nbsp pagarei por esta única via de <b> NOTA PROMISSÓRIA</b> 
                     a JOSIMERIO DE ABREU SILVA &nbsp&nbsp&nbsp CPF/CNPJ 02938827466 ou à sua ordem, a quantia de <u> ${real} reais e ${centavos} centavos</u> 
-                    em moeda corrente deste país, pagável em ESCROTÓRIO NATAL/RN.    
+                    em moeda corrente deste país, pagável em ESCRITÓRIO NATAL/RN.    
                 </p>   
 
                 <p class="fontmenor emitente" style="text-align:center">                     
                     <b>
                         <u>  
-                            ${"{{object.funcionario.first_name}}"} ${"{{object.funcionario.last_name}}"} 
+                            ${"{{object.cliente}}"} 
                         </u>
                     </b> 
                     <br>

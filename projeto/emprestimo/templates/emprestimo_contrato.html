@@ -120,14 +120,14 @@ window.onload = function imprimir(){
     qtd_parcelas_extenso = String(qtd_parcelas).extenso()
 
     var data_emissao = "{{object.data_emprestimo|date:"d/m/Y"}}"
-    var valor_da_parcela = parseFloat("{{object.valor_prestacao|floatformat:2}}".replace(',', '.'))
-    var valor_da_parcela_int = parseInt("{{object.valor_prestacao|floatformat:2}}".replace(',', '.'))
+    var valor_da_parcela = parseFloat("{{object.valor_emprestado|floatformat:2}}".replace(',', '.'))
+    var valor_da_parcela_int = parseInt("{{object.valor_emprestado|floatformat:2}}".replace(',', '.'))
     
     var valor_multa = parseFloat((valor_da_parcela*0.020)).toFixed(2)			
     var valor_juros_dia = (valor_da_parcela*0.0066).toFixed(2)
     var contador_parcela = 0
     
-    var real = parseInt('{{object.valor_prestacao}}')	
+    var real = parseInt('{{object.valor_emprestado}}')	
     real = String(real).extenso()
     
     var centavos = parseFloat((valor_da_parcela-valor_da_parcela_int)).toFixed(2)	
@@ -163,15 +163,13 @@ window.onload = function imprimir(){
         (${naturalidade}, ${estado_civil}, Funcionário Privado, RG ${rg} ${orgao_expedidor}, CPF ${cpf}, 
         ${rua}, ${numero_casa}, ${bairro}, ${cidade} ${uf} de ora em diante denominado simplesmente DEVEDOR, 
         têm justo e contratado o seguinte:</p>
-
         <p class="fontmenor">
         <b>CLÁUSULA 1ª</b>  - O <b>DEVEDOR</b> e seu(s) fiador(es) se comprometem a pagar ao <b>CREDOR</b> 
-        a título de empréstimo, a quantia acertada de R$ ${"{{object.valor_prestacao}}"} (${real} reais e ${centavos} centavos), 
+        a título de empréstimo, a quantia acertada de R$ ${"{{object.valor_emprestado}}"} (${real} reais e ${centavos} centavos), 
         dividida em ${"{{object.qtd_parcelas}}"}(${qtd_parcelas_extenso}) parcelas de iguais valores, já acrescidos de juros remuneratórios, 
         nos moldes da legislação em vigor (Dec. 22.626/33 c/c art. 591 CC/02), pagas conforme boleto bancário, ou outro meio disponibilizado e 
         pactuado, mediante as condições seguintes.
         </p>
-
         <p class="fontmenor">
         <b>CLÁUSULA 2ª</b> - Que a quantia acima emprestada, parcelada, deverá ser adimplida ao <b>CREDOR</b> no dia de acordo com tabela abaixo:
         </p>
@@ -268,7 +266,6 @@ window.onload = function imprimir(){
             ${"{{object.cliente.avalista.rua}}"}, ${"{{object.cliente.avalista.numero_casa}}"}, ${"{{object.cliente.avalista.bairro}}"}, 
             ${"{{object.cliente.avalista.cidade}}"} ${"{{object.cliente.avalista.uf}}"}
         </p>
-
         <p style="text-align:center">
             ____________________________________________________________<br>
             ASSINATURA DO FIADOR
