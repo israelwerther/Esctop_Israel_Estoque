@@ -158,6 +158,11 @@
 </div>
 <!-- ----------------------- -->
 <script>
+	Number.prototype.toFixedDown = function(digits) {
+    var re = new RegExp("(\\d+\\.\\d{" + digits + "})(\\d)"),
+	m = this.toString().match(re);
+	return m ? parseFloat(m[1]) : this.valueOf();
+	};
 		//FAÇA OS TESTES NUMA PAGINA COM BASE.HTML CARREGADO
 		
 	window.onload = function imprimir(){
@@ -176,9 +181,9 @@
 		//VARIÁVEIS DO EMPRESTIMO
 		var aux_qtd_parccela = {{object.qtd_parcelas}}
 		var data_emissao = "{{object.data_emprestimo|date:"d/m/Y"}}"
-		var valor_da_parcela = parseFloat("{{object.valor_prestacao}}")	
-		var valor_multa = parseFloat((valor_da_parcela*0.020)).toFixed(2)			
-		var valor_juros_dia = (valor_da_parcela*0.0066).toFixed(2)
+		var valor_da_parcela = parseFloat("{{object.valor_prestacao|floatformat:2}}".replace(',', '.'))	
+		var valor_multa = parseFloat((valor_da_parcela*0.020)).toFixedDown(2)
+		var valor_juros_dia = (valor_da_parcela*0.0066).toFixedDown(2)
 		var contador_parcela = 0
 		
 		//VARIÁVEIS DO CLIENTE
@@ -370,7 +375,8 @@
 			</table>				
 			`+`&nbsp<br>`
 		}			
-	}
+	}	
+
 	</script>
 </html>
 
