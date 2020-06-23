@@ -4,7 +4,14 @@
 {% block content %}
 
 <style>
-    body {font-family: Arial;}
+    
+    body {
+        font-family: Arial;
+    }
+    label{
+        z-index: -1;
+        position: relative;
+    }
     
     /* Style the tab */
     .tab {
@@ -64,7 +71,7 @@
         <button class="tablinks" onclick="openCity(event, 'Page4')">Referências e Observações</button>
     </div>
     
-    <div id="Page1" class="tabcontent" style="display:block">
+    <div id="Page1" class="tabcontent" style="display:block" >
         <form method="POST">
         {% csrf_token %}    
         <br>
