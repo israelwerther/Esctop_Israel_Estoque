@@ -47,6 +47,13 @@ class EmprestimoPromissoria(UpdateView):
     model=Emprestimo
     template_name='emprestimo_promissoria.html'
     form_class=EmprestimoForm
+
+
+class EmprestimoPromissoriaCNPJ(UpdateView):
+    model=Emprestimo
+    template_name='emprestimo_promissoria_cnpj.html'
+    form_class=EmprestimoForm
+
     
 class EmprestimoContrato(UpdateView):
     model=Emprestimo

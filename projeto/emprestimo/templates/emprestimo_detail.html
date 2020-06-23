@@ -11,10 +11,18 @@
    
     <div class="btn-group" role="group" >
         <a href="{% url 'emprestimo:emprestimo_impress' object.pk %}" type="button" class="btn btn-warning">Carnê</a>
-        <a href="{% url 'emprestimo:emprestimo_promissoria' object.pk %}" type="button" class="btn btn-warning">Promissória</a>       
         <div class="btn-group" role="group">
             <button id="btnGroupDrop1" type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Contratos
+            Promissória
+            </button>
+            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                <a class="dropdown-item" href="{% url 'emprestimo:emprestimo_promissoria' object.pk %}">CPF</a>
+                <a class="dropdown-item" href="{% url 'emprestimo:emprestimo_promissoria_cnpj' object.pk %}">CNPJ</a>
+            </div>
+        </div>
+        <div class="btn-group" role="group">
+            <button id="btnGroupDrop1" type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Contrato
             </button>
             <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                 <a class="dropdown-item" href="{% url 'emprestimo:emprestimo_contrato' object.pk %}">Com Fiador</a>
