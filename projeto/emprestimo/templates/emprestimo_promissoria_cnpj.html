@@ -215,15 +215,11 @@ window.onload = function imprimir_promissoria(){
     promissoria.innerHTML +=		
         `
         <div class="body">
-            
             <a class="test1">&nbsp</a>
-            <a class="test1">&nbsp</a>
-            
-            <a class="test1"> &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp 
-            &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp 
-            &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp 
-            &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp
-            &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </a>
+            <a class="test1">Fiador:</a>
+            <a class="test1"> CPF:${"{{object.cliente.avalista.cpf_avalista}}"}
+            <br>${"{{object.cliente.avalista}}"} </a>
+            <a class="test1">_____________________________ &nbsp&nbsp&nbsp</a>
             <a class="ait"> 
                 <b class = "fontmaior" >&nbspNº</b>                 
                 <b class="bordinha fontmaior">&nbsp&nbsp${contador_parcela}/${aux_qtd_parccela}&nbsp&nbsp</b>  
