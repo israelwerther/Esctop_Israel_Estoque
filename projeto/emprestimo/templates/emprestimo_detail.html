@@ -11,41 +11,11 @@
    
     <div class="btn-group" role="group" >
         <a href="{% url 'emprestimo:emprestimo_impress' object.pk %}" type="button" class="btn btn-warning">Carnê</a>
-        <div class="btn-group" role="group">
-            <button id="btnGroupDrop1" type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Promissória
-            </button>
-            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                <a class="dropdown-item" href="{% url 'emprestimo:emprestimo_promissoria' object.pk %}">CPF</a>
-                <a class="dropdown-item" href="{% url 'emprestimo:emprestimo_promissoria_cnpj' object.pk %}">CNPJ</a>
-            </div>
-        </div>
-        <div class="btn-group" role="group">
-            <button id="btnGroupDrop1" type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Contrato
-            </button>
-            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                <a class="dropdown-item" href="{% url 'emprestimo:emprestimo_contrato' object.pk %}">Com Fiador</a>
-                <a class="dropdown-item" href="{% url 'emprestimo:emprestimo_contrato_sem_fiador' object.pk %}">Sem Fiador</a>
-            </div>
-        </div>
-
+        <a href="{% url 'emprestimo:emprestimo_promissoria' object.pk %}" type="button" class="btn btn-warning">Promissória</a>
+        <a href="{% url 'emprestimo:emprestimo_contrato' object.pk %}" type="button" class="btn btn-warning">Contrato</a>
     </div>
 
-    {% comment %} <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-    <button type="button" class="btn btn-secondary">1</button>
-    <button type="button" class="btn btn-secondary">2</button>
-
-        <div class="btn-group" role="group">
-            <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Contratos
-            </button>
-            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                <a class="dropdown-item" href="#">Dropdown link</a>
-                <a class="dropdown-item" href="#">Dropdown link</a>
-            </div>
-        </div>
-    </div> {% endcomment %}
+    
 </span>
 
 <h1>Emprestimo Nº {{ object.num_doc }}</h1>
