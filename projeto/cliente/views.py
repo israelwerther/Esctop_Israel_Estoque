@@ -33,7 +33,6 @@ def cliente_detail(request, pk):
     
 #     return render(request, template_name, context)
 
-
 class ClienteCreate(CreateView):
     model=Cliente    
     # success_url = reverse_lazy('list_exemplo')
