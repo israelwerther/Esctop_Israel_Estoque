@@ -7,3 +7,8 @@ def index(request):
     return render(request, 'index.html')
 
 
+@login_required
+def cliente_select(request):
+    return render(request, 'cliente_select.html')
+
+

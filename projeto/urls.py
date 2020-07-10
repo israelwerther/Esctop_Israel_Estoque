@@ -22,6 +22,7 @@ urlpatterns = [
     path('emprestimo/', include('projeto.emprestimo.urls')),   
     path('estoque/', include('projeto.estoque.urls')),
     path('cliente/', include('projeto.cliente.urls')),
+    path('cliente_cnpj/', include('projeto.cliente_cnpj.urls')),
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
 ]
