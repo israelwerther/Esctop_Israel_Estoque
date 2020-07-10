@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<span class="pull-right">
+    <a href="{% url 'cliente:cliente_list' %}" type="button" class="btn btn-secondary">Voltar</a>
+    <a href="{% url 'cliente:cliente_edit' object.pk %}" type="button" class="btn btn-info">Editar</a>
+    <a href="{% url 'cliente:cliente_delete' object.pk %}" type="button" class="btn btn-danger">Deletar</a>
+</span>
+
+<h1>{{ object }}</h1>
+
+<div class="col-sm-6">
+    <table class="table table-user-information">
+        <tbody>
+            <tr>
+                <th class="text-right">Nome</th>
+                <td>{{ object.nome_fantasia }}</td>
+            </tr>
+            <tr>
+                <th class="text-right">RG</th>
+                <td>{{ object.fundacao }}</td>
+            </tr>
+            <tr>
+                <th class="text-right">CPF</th>
+                <td>{{ object.forma_constituicao }}</td>
+            </tr>                      
+            <tr>
+                <th class="text-right">Telefone</th>
+                <td>{{ object.inscricao_estadual }}</td>
+            </tr>
+            <tr>
+                <th class="text-right">Telefone</th>
+                <td>{{ object.inscricao_municipal }}</td>
+            </tr>
+            <tr>
+                <th class="text-right">Telefone</th>
+                <td>{{ object.email }}</td>
+            </tr>
+           
+            
+        </tbody>
+    </table>
+</div>
+
+{% endblock content %}

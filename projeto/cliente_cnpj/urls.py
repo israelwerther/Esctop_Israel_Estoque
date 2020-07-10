@@ -5,5 +5,5 @@ from projeto.cliente_cnpj import views as v
 app_name='cliente_cnpj' 
 
 urlpatterns = [
-    # path('', v.cliente_cnpj_list, name='cliente_cnpj_list'),   
+    path('', v.cliente_cnpj_list, name='cliente_cnpj_list'),   
 ]

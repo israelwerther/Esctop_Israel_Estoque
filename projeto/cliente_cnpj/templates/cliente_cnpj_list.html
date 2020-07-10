@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="class page-header">
+    <div class="float-right">
+        <a href="#" type="button" class="btn btn-success">Cadastrar Cliente CNPJ</a>
+    </div>
+        
+    <div>
+        <h2>Lista de Clientes(CNPJ)</h2>
+    </div>    
+    
+    {% if object_list %}
+    
+    <table class="table table-striped table-hover">
+        <thead class="thead">
+            <tr>
+                <th>Nome Fantasia </th>                    
+                <th>Fundação</th>
+                <th>Forma Constituição</th>                                        
+                <th>Inscrição Estadual</th>   
+                <th></th>                                
+            </tr>
+        </thead>
+        <tbody>
+            {% for object in object_list  %}   
+            <tr>
+                <td>{{object.nome_fantasia}}</td>                                        
+                <td>{{ object.fundacao }}</td>
+                <td>{{ object.forma_constituicao }}</td>                                     
+                <td>{{ object.inscricao_estadual }}</td>
+                <td style="text-align:center"> 
+                    <a href="{{ object.get_absolute_url}}" ><button class="btn btn-info">Gerenciar</button></a> 
+                </td>                    
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+    {% else %}
+        <p class="alert alert-warning">Sem Clientes cadastrados</p>
+    {% endif %}
+
+</div>
+
+{% endblock content %}
