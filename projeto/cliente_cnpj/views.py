@@ -16,6 +16,12 @@ def cliente_cnpj_list(request):
 @login_required
 def cliente_cnpj_detail(request, pk):
     template_name='cliente_cnpj_detail.html'
-    obj=Cliente.objects.get(pk=pk)
+    obj=Cliente_cnpj.objects.get(pk=pk)
     context={'object': obj}
     return render(request, template_name, context)
+
+
+class Cliente_CnpjCreate(CreateView):
+    model=Cliente_cnpj
+    template_name='cliente_cnpj_form.html'
+    form_class=Cliente_cnpjForm

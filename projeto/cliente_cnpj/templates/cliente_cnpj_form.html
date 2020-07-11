@@ -1,0 +1,288 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+{% block js %}{% endblock js %}
+{% block content %}
+
+<style>
+    
+    body {font-family: Arial;}
+    
+    /* Style the tab */
+    .tab {
+      overflow: hidden;
+      border: 1px solid #ccc;
+      background-color: #f1f1f1;
+    }
+    
+    /* Style the buttons inside the tab */
+    .tab button {
+      background-color: inherit;
+      float: left;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      transition: 0.3s;
+      font-size: 17px;
+    }
+    
+    /* Change background color of buttons on hover */
+    .tab button:hover {
+      background-color: #ddd;
+    }
+    
+    /* Create an active/current tablink class */
+    .tab button.active {
+      background-color: #ccc;
+    }
+    
+    /* Style the tab content */
+    .tabcontent {
+      display: none;
+      padding: 6px 12px;
+      border: 1px solid #ccc;
+      border-top: none;
+      -webkit-animation: fadeEffect 1s;
+    }
+    /* Fade in tabs */
+    @-webkit-keyframes fadeEffect {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+    
+    @keyframes fadeEffect {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+</style>
+
+   <!-- https://www.schoolofnet.com/forum/topico/como-enviar-a-mensagem-de-sucesso-ou-erro-para-o-formulario-8495 -->    
+
+    <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'Page1')">Dados Pessoais</button>
+        <button class="tablinks" onclick="openCity(event, 'Page2')">Dados do Local de Trabalho</button>
+        <button class="tablinks" onclick="openCity(event, 'Page3')">Dados Bancários</button>
+        <button class="tablinks" onclick="openCity(event, 'Page4')">Referências e Observações</button>
+    </div>
+    
+    <div id="Page1" class="tabcontent" style="display:block">
+        <form method="POST">
+        {% csrf_token %}
+        <br>
+        <h2>CADASTRO EMPRESA</h2>
+        <div class="row" >
+            <div class="col-sm-6">                    
+                <div class="form-group" >                
+                    <label for="" class="required" >{{form.nome_fantasia.label}} </label>        
+                    {% render_field form.nome_fantasia class="form-control" %}
+                </div>
+            </div>            
+        </div>                 
+    
+        <h2>ENDEREÇO</h2>
+        {% comment %} <div class="row">
+            <div class="col-sm-2">                    
+                <div class="form-group" >                
+                    <label for="" class="required">{{form.cep.label}} </label>        
+                    {% render_field form.cep class="form-control" name="cep" type="text" id="cep" value="" size="10" maxlength="9" onblur="pesquisacep(this.value);"%}
+                            
+                </div>
+            </div>
+            <div class="col-sm-4">                    
+                <div class="form-group" >                
+                    <label for="" class="required">{{form.rua.label}} </label>        
+                    {% render_field form.rua class="form-control" name="rua" type="text" id="rua" size="60" %}
+                </div>
+            </div>
+            <div class="col-sm-1">                    
+                <div class="form-group" >                
+                    <label for="" class="required">{{form.numero_casa.label}} </label>        
+                    {% render_field form.numero_casa class="form-control" name="rua" type="text" id="rua" size="60" %}
+                </div>
+            </div>
+            <div class="col-sm-5">                    
+                <div class="form-group" >                
+                    <label for="" class="required">{{form.bairro.label}} </label>        
+                    {% render_field form.bairro class="form-control" name="bairro" type="text" id="bairro" size="40" %}
+                </div>
+            </div>
+            <div class="col-sm-3">                    
+                <div class="form-group" >                
+                    <label for="" class="required">{{form.cidade.label}} </label>        
+                    {% render_field form.cidade class="form-control" name="cidade" type="text" id="cidade" size="40"%}
+                </div>
+            </div>
+            <div class="col-sm-2">                    
+                <div class="form-group" >                
+                    <label for="" class="required">{{form.uf.label}} </label>        
+                    {% render_field form.uf class="form-control" name="uf" type="text" id="uf" size="2"%}
+                </div>
+            </div>            
+            <div class="col-sm-5">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.ponto_referencia.label}} </label>        
+                    {% render_field form.ponto_referencia class="form-control" %}
+                </div>
+            </div>
+            <div class="col-sm-2">                    
+                <div class="form-group" >                
+                    <label for="" class="required">{{form.contato1.label}} </label>        
+                    {% render_field form.contato1 class="form-control phone-mask"  type="text"%}
+                </div>
+            </div>
+            <div class="col-sm-2">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.contato2.label}} </label>        
+                    {% render_field form.contato2 class="form-control phone-mask" type="text"%}
+                </div>
+            </div>
+            <div class="col-sm-2">                    
+                <div class="form-group" >                
+                    <label for="" class="required">{{form.celular1.label}} </label>        
+                    {% render_field form.celular1 class="form-control cel-phone-mask" type="text"%}
+                </div>
+            </div>
+            <div class="col-sm-2">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.celular2.label}} </label>        
+                    {% render_field form.celular2 class="form-control cel-phone-mask" type="text"%}
+                </div>
+            </div>
+            <div class="col-sm-4">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.email.label}} </label>        
+                    {% render_field form.email class="form-control" %}
+                </div>
+            </div>
+        </div>   {% endcomment %}
+    </div>
+
+    <div id="Page2" class="tabcontent">
+        <h2>DADOS DO LOCAL DE TRABALHO</h2>
+        {% comment %} <div class="row">
+            <div class="col-sm-5">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.nome_fantasia.label}} </label>        
+                    {% render_field form.nome_fantasia class="form-control" %}
+                </div>
+            </div>
+            <div class="col-sm-2">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.contato1_trabalho.label}} </label>        
+                    {% render_field form.contato1_trabalho class="form-control" %}
+                </div>
+            </div>
+            <div class="col-sm-2">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.contato2_trabalho.label}} </label>        
+                    {% render_field form.contato2_trabalho class="form-control" %}
+                </div>
+            </div>
+            <div class="col-sm-2">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.celular1_trabalho.label}} </label>        
+                    {% render_field form.celular1_trabalho class="form-control" %}
+                </div>
+            </div>
+            <div class="col-sm-2">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.celular2_trabalho.label}} </label>        
+                    {% render_field form.celular2_trabalho class="form-control" %}
+                </div>
+            </div>
+            <div class="col-sm-2">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.cep_trabalho.label}} </label>        
+                    {% render_field form.cep_trabalho class="form-control" %}
+                            
+                </div>
+            </div>
+            <div class="col-sm-4">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.rua_trabalho.label}} </label>        
+                    {% render_field form.rua_trabalho class="form-control"  %}
+                </div>
+            </div>               
+            <div class="col-sm-5">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.bairro_trabalho.label}} </label>        
+                    {% render_field form.bairro_trabalho class="form-control"  %}
+                </div>
+            </div>
+            <div class="col-sm-4">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.cidade_trabalho.label}} </label>        
+                    {% render_field form.cidade_trabalho class="form-control" %}
+                </div>
+            </div>
+            <div class="col-sm-1">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.uf_trabalho.label}} </label>        
+                    {% render_field form.uf_trabalho class="form-control" %}
+                </div>
+            </div>
+            <div class="col-sm-1">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.referencia_trabalho.label}} </label>        
+                    {% render_field form.referencia_trabalho class="form-control" %}
+                </div>
+            </div>
+        </div>    {% endcomment %}
+    </div>    
+
+    <div id="Page3" class="tabcontent">
+        <h2>DADOS BANCÁRIOS</h2>
+        {% comment %} <div class="row">
+            <div class="col-sm-2">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.agencia.label}} </label>        
+                    {% render_field form.agencia class="form-control" %}
+                </div>                    
+            </div>
+            <div class="col-sm-2">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.conta.label}} </label>        
+                    {% render_field form.conta class="form-control" %}
+                </div>
+            </div>
+            <div class="col-sm-4">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.banco.label}} </label>        
+                    {% render_field form.banco class="form-control" %}
+                </div>
+            </div>
+            <div class="col-sm-5">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.obs_bancaria.label}} </label>        
+                    {% render_field form.obs_bancaria class="form-control" %}
+                </div>
+            </div>
+        </div>  {% endcomment %}
+    </div>
+
+    <div id="Page4" class="tabcontent">         
+        <div class="row">
+            <div class="col-sm-5">                    
+                <div class="form-group" >                
+                    <label for="" class="required" >{{form.nome_fantasia.label}} </label>        
+                    {% render_field form.avalista class="form-control"  %}
+                </div>
+            </div>
+            <br>
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label for="">{{form.anotacoes.label}}</label>
+                    {% render_field form.anotacoes class="form-control" %}
+                </div>
+            </div>   
+        </div>
+        <div style='float: right;'>
+            <button class="btn btn-success" float="right">Cadastrar</button>
+        </div>
+        </form> 
+    </div>
+
+{% endblock content %}
+
+ 
+
