@@ -25,3 +25,15 @@ class Cliente_CnpjCreate(CreateView):
     model=Cliente_cnpj
     template_name='cliente_cnpj_form.html'
     form_class=Cliente_cnpjForm
+
+
+class Cliente_cnpjUpdate(UpdateView):
+    model=Cliente_cnpj
+    template_name='cliente_cnpj_form.html'
+    form_class = Cliente_cnpjForm
+
+
+class Cliente_cnpjDelete(DeleteView):
+    model=Cliente_cnpj
+    template_name ='cliente_cnpj_delete.html'    
+    success_url = reverse_lazy('cliente_cnpj:cliente_cnpj_list')

@@ -4,8 +4,8 @@
 
 <span class="pull-right">
     <a href="{% url 'cliente_cnpj:cliente_cnpj_list' %}" type="button" class="btn btn-secondary">Voltar</a>
-    {% comment %} <a href="{% url 'cliente_cnpj:cliente_cnpj_edit' object.pk %}" type="button" class="btn btn-info">Editar</a>
-    <a href="{% url 'cliente_cnpj:cliente_cnpj_delete' object.pk %}" type="button" class="btn btn-danger">Deletar</a> {% endcomment %}
+    <a href="{% url 'cliente_cnpj:cliente_cnpj_edit' object.pk %}" type="button" class="btn btn-info">Editar</a>
+    <a href="{% url 'cliente_cnpj:cliente_cnpj_delete' object.pk %}" type="button" class="btn btn-danger">Deletar</a>
 </span>
 
 <h1>{{ object }}</h1>
