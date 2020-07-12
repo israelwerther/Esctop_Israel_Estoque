@@ -11,8 +11,8 @@ class Cliente_cnpj(models.Model):
     email                 = models.EmailField("Email", max_length=50, blank=True, null=True)
 
     class Meta:
-        ordering = ('nome_fantasia',) #confirme se é a organização e apague o coment
-
+        ordering = ('nome_fantasia',)
+        
     def __str__(self):
         return self.nome_fantasia
     

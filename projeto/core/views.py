@@ -11,4 +11,3 @@ def index(request):
 def cliente_select(request):
     return render(request, 'cliente_select.html')
 
-

@@ -76,7 +76,38 @@
                     <label for="" class="required" >{{form.nome_fantasia.label}} </label>        
                     {% render_field form.nome_fantasia class="form-control" %}
                 </div>
-            </div>            
+            </div>        
+            <div class="col-sm-6">                    
+                <div class="form-group" >                
+                    <label for="" class="required" >{{form.fundacao.label}} </label>        
+                    {% render_field form.fundacao class="form-control" type="date"%}
+                </div>
+            </div>  
+            <div class="col-sm-6">                    
+                <div class="form-group" >                
+                    <label for="" class="required" >{{form.forma_constituicao.label}} </label>        
+                    {% render_field form.forma_constituicao class="form-control" %}
+                </div>
+            </div>    
+            <div class="col-sm-6">                    
+                <div class="form-group" >                
+                    <label for="" class="required" >{{form.inscricao_estadual.label}} </label>        
+                    {% render_field form.inscricao_estadual class="form-control" %}
+                </div>
+            </div> 
+            <div class="col-sm-6">                    
+                <div class="form-group" >                
+                    <label for="" class="required" >{{form.inscricao_municipal.label}} </label>        
+                    {% render_field form.inscricao_municipal class="form-control" %}
+                </div>
+            </div> 
+            <div class="col-sm-6">                    
+                <div class="form-group" >                
+                    <label for="" class="required" >{{form.email.label}} </label>        
+                    {% render_field form.email class="form-control" %}
+                </div>
+            </div> 
+
         </div>                 
     
         <h2>ENDEREÇO</h2>
