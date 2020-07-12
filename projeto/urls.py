@@ -23,6 +23,7 @@ urlpatterns = [
     path('estoque/', include('projeto.estoque.urls')),
     path('cliente/', include('projeto.cliente.urls')),
     path('cliente_cnpj/', include('projeto.cliente_cnpj.urls')),
+    path('avalista/', include('projeto.avalista.urls')),
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
 ]

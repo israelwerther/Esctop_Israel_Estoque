@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'projeto.estoque',
     'projeto.cliente',
     'projeto.cliente_cnpj',
+    'projeto.avalista',
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,10 @@
+from django.contrib.auth.decorators import login_required
+from django.urls import path
+from projeto.avalista import views as v
+
+app_name='avalista' 
+
+urlpatterns = [      
+    path('avalista/', v.avalista_list, name='avalista_list'),
+    path('avalista_add/', login_required(v.AvalistaCreate.as_view()), name='avalista_add'),
+]
