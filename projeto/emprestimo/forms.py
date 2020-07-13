@@ -11,10 +11,11 @@ class EmprestimoForm(forms.ModelForm):
             'funcionario',
             'num_doc',
             'cliente',
+            'cliente_cnpj',
             'valor_emprestado', 
             'qtd_parcelas',
             'valor_prestacao',
-            'data_emprestimo'             
+            'data_emprestimo'
         ]
         readonly_fields = ["valor_prestacao", ]
      

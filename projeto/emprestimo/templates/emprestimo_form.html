@@ -31,6 +31,12 @@
                 {% render_field form.cliente type="text" class="form-control" %}
             </div>
         </div>
+        <div class="col-sm-3">
+            <div class="form-group">
+                <label for="">{{form.cliente_cnpj.label}}</label>
+                {% render_field form.cliente_cnpj type="text" class="form-control" %}
+            </div>
+        </div>
         <div class="col-sm-3"> 
                 <div class="form-group">
                     <label for="">{{form.valor_emprestado.label}}</label>
