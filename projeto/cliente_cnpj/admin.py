@@ -9,7 +9,14 @@ class Cliente_cnpjAdmin(admin.ModelAdmin):
         'forma_constituicao',
         'inscricao_estadual',
         'inscricao_municipal',
-        'email',   
+        'email', 
+        'cep',  
+        'rua',  
+        'bairro',  
+        'cidade',  
+        'uf',  
+        'numero_casa',  
+        'ponto_referencia',  
     )
     search_fields=('nome_fantasia',)
     list_filter=('email',)

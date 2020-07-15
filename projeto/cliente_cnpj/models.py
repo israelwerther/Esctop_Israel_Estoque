@@ -10,6 +10,14 @@ class Cliente_cnpj(models.Model):
     inscricao_municipal   = models.CharField("Inscrição Municipal", blank=True, null=True,max_length=50)
     email                 = models.EmailField("Email", max_length=50, blank=True, null=True)
 
+    cep                   = models.CharField("CEP", max_length=10, blank=False, null=True)
+    rua                   = models.CharField("Rua", max_length=60, blank=False, null=True)
+    bairro                = models.CharField("Bairro", max_length=40, blank=False, null=True)
+    cidade                = models.CharField("Cidade", max_length=40, blank=False, null=True)
+    uf                    = models.CharField("Estado", max_length=2, blank=False, null=True)   
+    numero_casa           = models.CharField("Nº ", max_length=5, blank=False, null=True)
+    ponto_referencia      = models.CharField("Ponto de Referencia", max_length=100, blank=True, null=True)
+
     class Meta:
         ordering = ('nome_fantasia',)
         
