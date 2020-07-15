@@ -113,8 +113,7 @@
             <div class="col-sm-2">                    
                 <div class="form-group" >                
                     <label for="" class="required">{{form.cep.label}} </label>        
-                    {% render_field form.cep class="form-control" name="cep" type="text" id="cep" value="" size="10" maxlength="9" onblur="pesquisacep(this.value);"%}
-                            
+                    {% render_field form.cep class="form-control" name="cep" type="text" id="cep" value="" size="10" maxlength="9" onblur="pesquisacep(this.value);"%}                            
                 </div>
             </div>
             <div class="col-sm-4">                    
@@ -152,9 +151,10 @@
                     <label for="" >{{form.ponto_referencia.label}} </label>        
                     {% render_field form.ponto_referencia class="form-control" %}
                 </div>
-            </div>
-            
-            {% comment %} <div class="col-sm-2">                    
+            </div>   
+        </div>  
+        <div class="row"> 
+            <div class="col-sm-2">                    
                 <div class="form-group" >                
                     <label for="" class="required">{{form.contato1.label}} </label>        
                     {% render_field form.contato1 class="form-control phone-mask"  type="text"%}
@@ -177,20 +177,13 @@
                     <label for="" >{{form.celular2.label}} </label>        
                     {% render_field form.celular2 class="form-control cel-phone-mask" type="text"%}
                 </div>
-            </div>
-            <div class="col-sm-4">                    
-                <div class="form-group" >                
-                    <label for="" >{{form.email.label}} </label>        
-                    {% render_field form.email class="form-control" %}
-                </div>
-            </div> {% endcomment %}
-        </div>   
+            </div>            
+        </div> 
     </div>
-
     
     <div id="Page2" class="tabcontent">
         <h2>DADOS BANCÁRIOS</h2>
-        {% comment %} <div class="row">
+        <div class="row">
             <div class="col-sm-2">                    
                 <div class="form-group" >                
                     <label for="" >{{form.agencia.label}} </label>        
@@ -215,15 +208,15 @@
                     {% render_field form.obs_bancaria class="form-control" %}
                 </div>
             </div>
-        </div>  {% endcomment %}
+        </div>  
     </div>
 
     <div id="Page3" class="tabcontent">         
         <div class="row">
             <div class="col-sm-5">                    
                 <div class="form-group" >                
-                    <label for="" class="required" >{{form.nome_fantasia.label}} </label>        
-                    {% render_field form.avalista class="form-control"  %}
+                    <label for="" class="required" >{{form.representante.label}} </label>        
+                    {% render_field form.representante class="form-control" %}
                 </div>
             </div>
             <br>
