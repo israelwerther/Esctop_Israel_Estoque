@@ -44,7 +44,9 @@ class Cliente(models.Model):
     obs_bancaria          = models.CharField("Observações",max_length=25, blank=True, null=True)    
     avalista              = models.ForeignKey(Avalista,on_delete=models.PROTECT, max_length=11, blank=True, null=True)    
     anotacoes             = models.TextField("Anotações",max_length=200, blank=True, null=True)
-    
+    cliente_copia         = models.ForeignKey('self', on_delete=models.CASCADE, blank=True, null=True)
+
+
     class Meta:
         ordering = ('nome',) #confirme se é a organização e apague o coment
 
@@ -53,3 +55,4 @@ class Cliente(models.Model):
     
     def get_absolute_url(self):
         return reverse_lazy('cliente:cliente_detail', kwargs={'pk': self.pk})
+

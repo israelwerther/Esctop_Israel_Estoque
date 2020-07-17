@@ -29,8 +29,7 @@ def cliente_detail(request, pk):
 #         form = ClienteForm()
 #     context = {
 #         'form': form
-#     }
-    
+#     }    
 #     return render(request, template_name, context)
 
 class ClienteCreate(CreateView):
