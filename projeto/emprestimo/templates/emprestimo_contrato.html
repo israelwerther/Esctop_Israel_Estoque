@@ -92,7 +92,7 @@
 <script>
 
 window.onload = function imprimir(){
-    
+
     //VARIÁVEIS DA DATA DO EMPRESTIMO
     var contador_meses = 0
     var contador_anos  = 0
@@ -154,7 +154,9 @@ window.onload = function imprimir(){
     
    
     contrato.innerHTML +=
-    `
+    `   
+        "{{object.cliente.avalista.avalista}}"
+
         <h2> CONTRATO DE MÚTUO </h2>
         <p class="fontmenor" >Pelo presente contrato particular de empréstimo de dinheiro,de um lado, Josimério de Abreu Silva, (Brasileiro, Solteiro, RG 1.791.746 SSP RN, CPF 029.388.274-66), 
         de ora em diante denominado simplesmente por CREDOR, e, de outro lado, ${cliente_nome}
@@ -257,11 +259,12 @@ window.onload = function imprimir(){
             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp DEVEDOR
         </p>
         <p class="fontmenor">
-            <b>FIADOR 1:</b> - ${"{{object.cliente.avalista.avalista}}"}
-            (${"{{object.cliente.avalista.estado_civil_avalista}}"}, Funcionário Privado, RG ${"{{object.cliente.avalista.rg_avalista}}"} 
-            ${"{{object.cliente.avalista.orgao_expedidor_avalista}}"}, CPF ${"{{object.cliente.avalista.cpf_avalista}}"}, 
-            ${"{{object.cliente.avalista.rua}}"}, ${"{{object.cliente.avalista.numero_casa}}"}, ${"{{object.cliente.avalista.bairro}}"}, 
-            ${"{{object.cliente.avalista.cidade}}"} ${"{{object.cliente.avalista.uf}}"}
+            <b>FIADOR 1:</b> - ${"{{object.cliente.cliente_copia.nome}}"}
+            (${"{{object.cliente.cliente_copia.estado_civil}}"}, Funcionário Privado, RG ${"{{object.cliente.cliente_copia.rg}}"}
+            ${"{{object.cliente.cliente_copia.orgao_expedidor}}"}, CPF ${"{{object.cliente.cliente_copia.cpf}}"} 
+             
+            ${"{{object.cliente.cliente_copia.rua}}"}, ${"{{object.cliente.cliente_copia.numero_casa}}"}, ${"{{object.cliente.cliente_copia.bairro}}"}, 
+            ${"{{object.cliente.cliente_copia.cidade}}"} ${"{{object.cliente.cliente_copia.uf}}"}
         </p>
         <p style="text-align:center">
             ____________________________________________________________<br>
