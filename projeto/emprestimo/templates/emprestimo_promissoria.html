@@ -138,7 +138,7 @@ window.onload = function imprimir_promissoria(){
     var centavos = parseFloat((valor_da_parcela-valor_da_parcela_int)).toFixed(2)	
     centavos = String(centavos).extenso()
     
-    //VARIÁVEIS DO CLIENTE
+    //VARIÁVEIS DO CLIENTE CPF
     var cliente_nome = "{{object.cliente}}"
     var cpf = "{{object.cliente.cpf}}"
     var rua = "{{object.cliente.rua}}"
@@ -147,6 +147,9 @@ window.onload = function imprimir_promissoria(){
     var uf = "{{object.cliente.uf}}"
     var numero_casa = "{{object.cliente.numero_casa}}"
     var cep = "{{object.cliente.cep}}"
+
+    //VARIÁVEIS DO CLIENTE CNPJ
+    var fundacao = "{{object.cliente_cnpj.fundacao}}"
 
 
     //VARIÁVEIS DO AVALISTA
@@ -214,7 +217,7 @@ window.onload = function imprimir_promissoria(){
     }
     
     if(avalista){
-    promissoria.innerHTML +=		
+    promissoria.innerHTML +=
         `
         <div class="body">
             <a class="test1">&nbsp</a>
@@ -234,7 +237,7 @@ window.onload = function imprimir_promissoria(){
                 <br><br> 
                 <p class="fontmenor a" align="Justify">                     
                     &nbsp&nbsp&nbsp&nbsp Ao(s) <u>  ${dia} de ${mes} de ${ano} </u>&nbsp&nbsp pagarei por esta única via de <b> NOTA PROMISSÓRIA 
-                    a JOSIMERIO DE ABREU SILVA, CPF/CNPJ 029.388.274-66 </b> ou à sua ordem, a quantia de <u> ${real} reais e ${centavos} centavos</u> 
+                    a JOSIMERIO DE ABREU SILVA, CPF 029.388.274-66 </b> ou à sua ordem, a quantia de <u> ${real} reais e ${centavos} centavos</u> 
                     em moeda corrente deste país, pagável em ESCRITÓRIO NATAL/RN.    
                 </p>   
 
@@ -265,14 +268,14 @@ window.onload = function imprimir_promissoria(){
         </div>    
         `
     }
-    else{
+    else if(fundacao){
         promissoria.innerHTML +=
         `
         <div class="body">
             <a class="test1">&nbsp</a>
             <a class="test1">&nbsp</a>
-            <a class="test1"> &nbsp${"{{object.cliente.avalista.cpf_avalista}}"}
-            <br>${"{{object.cliente.avalista}}"} </a>
+            <a class="test1"> &nbsp
+            <br>&nbsp </a>
             <a class="test1">_____________________________ &nbsp&nbsp&nbsp</a>
             <a class="ait"> 
                 <b class = "fontmaior" >&nbspNº</b>                 
@@ -316,6 +319,57 @@ window.onload = function imprimir_promissoria(){
             </a> 
         </div>    
         `
+    }
+    else{
+        promissoria.innerHTML +=
+            `
+            <div class="body">
+                <a class="test1">&nbsp</a>
+                <a class="test1">&nbsp</a>
+                <a class="test1"> &nbsp<br>&nbsp</a>
+                <a class="test1">_____________________________ &nbsp&nbsp&nbsp</a>
+                <a class="ait"> 
+                    <b class = "fontmaior" >&nbspNº</b>                 
+                    <b class="bordinha fontmaior">&nbsp&nbsp${contador_parcela}/${aux_qtd_parccela}&nbsp&nbsp</b>  
+    
+                    <b class="fontmenor"> Vencimento: ${dia} de ${mes} de ${ano} </b> 
+    
+                    <b>
+                        <b class="bordinha fontmaior1">R$&nbsp&nbsp${dinheiro}&nbsp</b> 
+                    </b>           
+                    <br><br> 
+                    <p class="fontmenor a" align="Justify">                     
+                        &nbsp&nbsp&nbsp&nbsp Ao(s) <u>  ${dia} de ${mes} de ${ano} </u>&nbsp&nbsp pagarei por esta única via de <b> NOTA PROMISSÓRIA 
+                        a JOSIMERIO DE ABREU SILVA, CPF 029.388.274-66 </b> ou à sua ordem, a quantia de <u> ${real} reais e ${centavos} centavos</u> 
+                        em moeda corrente deste país, pagável em ESCRITÓRIO NATAL/RN.    
+                    </p>   
+    
+                    <p class="fontmenor emitente" style="text-align:center">                     
+                        <b>
+                            <u>  
+                                ${"{{object.cliente}}"} 
+                            </u>
+                        </b> 
+                        <br>
+                        EMITENTE<br>
+                        CPF <br>
+                        ${"{{object.cliente.cpf}}"}  
+                    </p>
+    
+                    <p class="fontmenor emissao" style="text-align:center">                     
+                        <b>
+                            <u> 
+                                &nbsp&nbsp${"{{object.data_emprestimo}}"}&nbsp&nbsp 
+                            </u>
+                        </b>
+                        <br>
+                        DATA DE EMISSÃO <br>
+                        ___________________________<br>
+                        ASSINATURA DO EMITENTE
+                    </p>               
+                </a> 
+            </div>    
+            `
     }
     }			
 }

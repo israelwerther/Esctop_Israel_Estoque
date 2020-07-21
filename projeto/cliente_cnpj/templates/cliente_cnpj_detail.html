@@ -1,73 +1,7 @@
 {% extends "base.html" %}
-
 {% block content %}
-<style>
-    
-    body {font-family: Arial;}
-    
-    /* Style the tab */
-    .tab {
-      overflow: hidden;
-      border: 1px solid #ccc;
-      background-color: #f1f1f1;
-    }
-    
-    /* Style the buttons inside the tab */
-    .tab button {
-      background-color: inherit;
-      float: left;
-      border: none;
-      outline: none;
-      cursor: pointer;
-      padding: 14px 16px;
-      transition: 0.3s;
-      font-size: 17px;
-    }
-    
-    /* Change background color of buttons on hover */
-    .tab button:hover {
-      background-color: #ddd;
-    }
-    
-    /* Create an active/current tablink class */
-    .tab button.active {
-      background-color: #ccc;
-    }
-    
-    /* Style the tab content */
-    .tabcontent {
-      display: none;
-      padding: 6px 12px;
-      border: 1px solid #ccc;
-      border-top: none;
-      -webkit-animation: fadeEffect 1s;
-    }
-    /* Fade in tabs */
-    @-webkit-keyframes fadeEffect {
-        from {opacity: 0;}
-        to {opacity: 1;}
-    }
-    
-    @keyframes fadeEffect {
-        from {opacity: 0;}
-        to {opacity: 1;}
-    }
-</style>
 
-
-<div class="tab">
-    <button class="tablinks" onclick="openCity(event, 'Page1')">Dados Pessoais</button>        
-    <button class="tablinks" onclick="openCity(event, 'Page2')">Dados Bancários</button>
-    <button class="tablinks" onclick="openCity(event, 'Page3')">Referências e Observações</button>
-</div>
-
-<div id="Page1" class="tabcontent" style="display:block">
-
-<h2>
-    DETALHES EMPRESA <br> 
-    {{ object }}
-</h2>
-
+<h2>DETALHES EMPRESA <br> {{ object }}</h2>
 
 <div class="row">       
     <div class="col-sm-6"> 
@@ -101,104 +35,89 @@
         </div>
     </div>
 </div>
-
-<div>
-    <h2> DETALHES EMPRESA <br> {{ object }} </h2>
-    <div class="row"> 
-        <div class="col-sm-6"> 
-            <div class="form-group">
-                <input type="text" value="{{ object.cep }}" readonly class="form-control">
-            </div>
+<h2> ENDEREÇO </h2>
+<div class="row"> 
+    <div class="col-sm-6"> 
+        <div class="form-group">
+            <input type="text" value="{{ object.cep }}" readonly class="form-control">
         </div>
-        <div class="col-sm-6"> 
-            <div class="form-group">
-                <input type="text" value="{{ object.rua }}" readonly class="form-control">
-            </div>
+    </div>
+    <div class="col-sm-6"> 
+        <div class="form-group">
+            <input type="text" value="{{ object.rua }}" readonly class="form-control">
         </div>
-        <div class="col-sm-6"> 
-            <div class="form-group">
-                <input type="text" value="{{ object.bairro }}" readonly class="form-control">
-            </div>
+    </div>
+    <div class="col-sm-6"> 
+        <div class="form-group">
+            <input type="text" value="{{ object.bairro }}" readonly class="form-control">
         </div>
-        <div class="col-sm-6"> 
-            <div class="form-group">
-                <input type="text" value="{{ object.cidade }}" readonly class="form-control">
-            </div>
+    </div>
+    <div class="col-sm-6"> 
+        <div class="form-group">
+            <input type="text" value="{{ object.cidade }}" readonly class="form-control">
         </div>
-        <div class="col-sm-6"> 
-            <div class="form-group">
-                <input type="text" value="{{ object.uf }}" readonly class="form-control">
-            </div>
+    </div>
+    <div class="col-sm-6"> 
+        <div class="form-group">
+            <input type="text" value="{{ object.uf }}" readonly class="form-control">
         </div>
-        <div class="col-sm-6"> 
-            <div class="form-group">
-                <input type="text" value="{{ object.numero_casa }}" readonly class="form-control">
-            </div>
+    </div>
+    <div class="col-sm-6"> 
+        <div class="form-group">
+            <input type="text" value="{{ object.numero_casa }}" readonly class="form-control">
         </div>
-        <div class="col-sm-6"> 
-            <div class="form-group">
-                <input type="text" value="{{ object.ponto_referencia }}" readonly class="form-control">
-            </div>
+    </div>
+    <div class="col-sm-6"> 
+        <div class="form-group">
+            <input type="text" value="{{ object.ponto_referencia }}" readonly class="form-control">
         </div>
     </div>
 </div>
-    
-   
-
-
-
-<div id="Page2" class="tabcontent">
-    <h2>DADOS BANCÁRIOS</h2>
+<h2> DADOS BANCÁRIOS </h2>
+<div class="row"> 
     <div class="col-sm-6"> 
         <div class="form-group">
-            <input type="text" value="{{ object.nome_fantasia }}" readonly class="form-control">
+            <h5>Agência</h5>
+            <input type="text" value="{{ object.agencia }}" readonly class="form-control">
         </div>
     </div>
     <div class="col-sm-6"> 
         <div class="form-group">
-            <input type="text" value="{{ object.fundacao }}" readonly class="form-control">
+            <input type="text" value="{{ object.conta }}" readonly class="form-control">
         </div>
     </div>
     <div class="col-sm-6"> 
         <div class="form-group">
-            <input type="text" value="{{ object.forma_constituicao }}" readonly class="form-control">
+            <input type="text" value="{{ object.banco }}" readonly class="form-control">
         </div>
     </div>
     <div class="col-sm-6"> 
         <div class="form-group">
-            <input type="text" value="{{ object.inscricao_estadual }}" readonly class="form-control">
+            <input type="text" value="{{ object.obs_bancaria }}" readonly class="form-control">
         </div>
     </div>
     <div class="col-sm-6"> 
         <div class="form-group">
-            <input type="text" value="{{ object.inscricao_municipal }}" readonly class="form-control">
+            <input type="text" value="{{ object.representante }}" readonly class="form-control">
         </div>
     </div>
     <div class="col-sm-6"> 
         <div class="form-group">
-            <input type="text" value="{{ object.email }}" readonly class="form-control">
+            <input type="text" value="{{ object. }}" readonly class="form-control">
+        </div>
+    </div>
+    <div class="col-sm-6"> 
+        <div class="form-group">
+            <input type="text" value="{{ object. }}" readonly class="form-control">
         </div>
     </div>
 </div>
 
-<div id="Page3" class="tabcontent">         
-    <div class="row">
-        <div class="col-sm-5">                    
-            
-        </div>
-        <br>
-        <div class="col-sm-12">
-          
-        </div>   
-    </div>
-</div>
-
-
-    <span class="pull-right">
-        <a href="{% url 'cliente_cnpj:cliente_cnpj_list' %}" type="button" class="btn btn-secondary">Voltar</a>
-        <a href="{% url 'cliente_cnpj:cliente_cnpj_edit' object.pk %}" type="button" class="btn btn-info">Editar</a>
-        <a href="{% url 'cliente_cnpj:cliente_cnpj_delete' object.pk %}" type="button" class="btn btn-danger">Deletar</a>
-    </span>
+<span class="pull-right">
+    <a href="{% url 'cliente_cnpj:cliente_cnpj_list' %}" type="button" class="btn btn-secondary">Voltar</a>
+    <a href="{% url 'cliente_cnpj:cliente_cnpj_edit' object.pk %}" type="button" class="btn btn-info">Editar</a>
+    <a href="{% url 'cliente_cnpj:cliente_cnpj_delete' object.pk %}" type="button" class="btn btn-danger">Deletar</a>
+</span>
 
 
 {% endblock content %}

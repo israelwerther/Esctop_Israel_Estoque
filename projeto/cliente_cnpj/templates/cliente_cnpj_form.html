@@ -106,6 +106,12 @@
                     {% render_field form.email class="form-control" %}
                 </div>
             </div> 
+            <div class="col-sm-6">                    
+                <div class="form-group" >                
+                    <label for="" class="required" >{{form.representante.label}} </label>        
+                    {% render_field form.representante class="form-control" %}
+                </div>
+            </div>
         </div>                 
     
         <h2>ENDEREÇO</h2>
@@ -213,13 +219,6 @@
 
     <div id="Page3" class="tabcontent">         
         <div class="row">
-            <div class="col-sm-5">                    
-                <div class="form-group" >                
-                    <label for="" class="required" >{{form.representante.label}} </label>        
-                    {% render_field form.representante class="form-control" %}
-                </div>
-            </div>
-            <br>
             <div class="col-sm-12">
                 <div class="form-group">
                     <label for="">{{form.anotacoes.label}}</label>

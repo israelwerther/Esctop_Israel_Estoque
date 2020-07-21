@@ -30,6 +30,8 @@ class Cliente_cnpj(models.Model):
 
     representante         = models.ForeignKey(Cliente,on_delete=models.PROTECT, max_length=11, blank=True, null=True)
 
+    anotacoes             = models.TextField("Anotações",max_length=200, blank=True, null=True)
+
     class Meta:
         ordering = ('nome_fantasia',)
         
