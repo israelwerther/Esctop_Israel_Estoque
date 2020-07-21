@@ -10,7 +10,40 @@
 
 <h1>{{ object }}</h1>
 
-<div class="col-sm-6">
+<div class="row">       
+    <div class="col-sm-6"> 
+        <div class="form-group">
+            <input type="text" value="{{ object.nome_fantasia }}" readonly class="form-control">
+        </div>
+    </div>
+    <div class="col-sm-6"> 
+        <div class="form-group">
+            <input type="text" value="{{ object.fundacao }}" readonly class="form-control">
+        </div>
+    </div>
+    <div class="col-sm-6"> 
+        <div class="form-group">
+            <input type="text" value="{{ object.forma_constituicao }}" readonly class="form-control">
+        </div>
+    </div>
+    <div class="col-sm-6"> 
+        <div class="form-group">
+            <input type="text" value="{{ object.inscricao_estadual }}" readonly class="form-control">
+        </div>
+    </div>
+    <div class="col-sm-6"> 
+        <div class="form-group">
+            <input type="text" value="{{ object.inscricao_municipal }}" readonly class="form-control">
+        </div>
+    </div>
+    <div class="col-sm-6"> 
+        <div class="form-group">
+            <input type="text" value="{{ object.email }}" readonly class="form-control">
+        </div>
+    </div>
+</div>
+
+<!-- <div class="col-sm-6">
     <table class="table table-user-information">
         <tbody>
             <tr>
@@ -18,7 +51,7 @@
                 <td>{{ object.nome_fantasia }}</td>
             </tr>
             <tr>
-                <th class="text-right">RG</th>
+                <th class="text-right">Fundação</th>
                 <td>{{ object.fundacao }}</td>
             </tr>
             <tr>
@@ -41,6 +74,6 @@
             
         </tbody>
     </table>
-</div>
+</div> -->
 
 {% endblock content %}
