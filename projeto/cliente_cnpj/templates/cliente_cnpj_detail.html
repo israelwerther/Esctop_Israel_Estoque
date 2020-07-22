@@ -1,12 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
 
+<style>
+    input{
+        z-index: -5;
+    }
+</style>
+
 <h2>DETALHES EMPRESA <br> {{ object }}</h2>
 
 <div class="row">       
     <div class="col-sm-6"> 
         <div class="form-group">
-            <input type="text" value="{{ object.nome_fantasia }}" readonly class="form-control">
+            <input  value="{{ object.nome_fantasia }}" readonly class="form-control">
         </div>
     </div>
     <div class="col-sm-6"> 
