@@ -2,7 +2,6 @@
 #https://stackoverflow.com/questions/1134667/django-required-field-in-model-form/1429646
 from django.db import models
 from django.urls import reverse_lazy
-from projeto.avalista.models import Avalista
 
 class Cliente(models.Model):
     nome                  = models.CharField("Nome", max_length=50)
@@ -41,8 +40,7 @@ class Cliente(models.Model):
     agencia               = models.CharField("Agência",max_length=15, blank=True, null=True)
     conta                 = models.CharField("Conta",max_length=15, blank=True, null=True)
     banco                 = models.CharField("Banco",max_length=25, blank=True, null=True)
-    obs_bancaria          = models.CharField("Observações",max_length=25, blank=True, null=True)    
-    avalista              = models.ForeignKey(Avalista,on_delete=models.PROTECT, max_length=11, blank=True, null=True)    
+    obs_bancaria          = models.CharField("Observações",max_length=25, blank=True, null=True)         
     anotacoes             = models.TextField("Anotações",max_length=200, blank=True, null=True)
     cliente_copia         = models.ForeignKey('self', on_delete=models.CASCADE, blank=True, null=True)
 

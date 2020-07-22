@@ -48,6 +48,7 @@ python manage.py migrate
 [configurações do django admin](https://books.agiliq.com/projects/django-admin-cookbook/en/latest/introduction.html)
 
 ## OBSERVAÇÕES
-* Cliente CNPJ terá boloto ao invés de carnê
+* Cliente CNPJ terá boleto ao invés de carnê
+* Preencher o campo nome fantasia automaticamente
 
 

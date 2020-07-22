@@ -3,6 +3,7 @@ from django.urls import reverse_lazy
 from projeto.cliente.models import Cliente
 
 class Cliente_cnpj(models.Model):
+    razao_social         = models.CharField("Razão Social", max_length=50, blank=True, null=True)
     nome_fantasia         = models.CharField("Nome Fantasia", max_length=50)
     fundacao              = models.DateField("Fundação",max_length=8, blank=True, null=True)  
     forma_constituicao    = models.CharField("Forma Constituição", blank=True, null=True, max_length=50)
