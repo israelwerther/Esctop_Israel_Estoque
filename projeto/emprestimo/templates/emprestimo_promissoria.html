@@ -38,21 +38,57 @@
     p.a {
         word-break: normal;
     }    
-    p.emitente {
+    div.emitente {
         word-break: normal;
-        width: 320px;
+        width: 360px;
         border: none;
         left: 20px;
         top: 165px;
         position: absolute;
+        font-size: 17px;
     }
-    p.emissao {
+    div.emitente1 {
+        word-break: normal;
+        width: 360px;
+        border: none;
+        left: 20px;
+        top: 185px;
+        position: absolute;
+        font-size: 12px;
+    }
+    div.emitente2 {
+        word-break: normal;
+        width: 360px;
+        border: none;
+        left: 20px;
+        top: 205px;
+        position: absolute;
+        font-size: 17px;              
+    }
+    div.emissao {
         word-break: normal;
         width: 320px;
         border: none;
-        left: 360px;
+        left: 380px;
         top: 165px;
-        position: absolute;
+        position: absolute;        
+    }
+    div.emissao1 {
+        word-break: normal;
+        width: 320px;
+        border: none;
+        left: 380px;
+        top: 185px;
+        position: absolute; 
+        font-size: 12px;      
+    }
+    div.emissao2 {
+        word-break: normal;
+        width: 320px;
+        border: none;
+        left: 380px;
+        top: 205px;
+        position: absolute;        
     }
     p.c {
         word-break: break-all;
@@ -150,6 +186,8 @@ window.onload = function imprimir_promissoria(){
 
     //VARIÁVEIS DO CLIENTE CNPJ
     var fundacao = "{{object.cliente_cnpj.fundacao}}"
+    var razao_social = "{{object.cliente_cnpj.razao_social}}"
+    var cnpj = "{{object.cliente_cnpj.cnpj}}"
 
 
     //VARIÁVEIS DO AVALISTA
@@ -216,6 +254,7 @@ window.onload = function imprimir_promissoria(){
         mes = 'Dezembro'
     }
     
+    //PARA CLIENTE COM AVALISTA 
     if(cliente_copia){
     promissoria.innerHTML +=
         `
@@ -241,17 +280,12 @@ window.onload = function imprimir_promissoria(){
                     em moeda corrente deste país, pagável em ESCRITÓRIO NATAL/RN.    
                 </p>   
 
-                <p class="fontmenor emitente" style="text-align:center">                     
-                    <b>
-                        <u>  
-                            ${"{{object.cliente}}"} 
-                        </u>
-                    </b> 
-                    <br>
-                    EMITENTE<br>
+                <div class="fontmenor emitente" style="text-align:center">  
+                    <u> <strong> ${"{{object.cliente}}"} </strong> </u> <br>
+                    EMITENTE <br>
                     CPF <br>
                     ${"{{object.cliente.cpf}}"}  
-                </p>
+                </div>
 
                 <p class="fontmenor emissao" style="text-align:center">                     
                     <b>
@@ -268,6 +302,7 @@ window.onload = function imprimir_promissoria(){
         </div>    
         `
     }
+    //PARA CLIENTE CNPJ
     else if(fundacao){
         promissoria.innerHTML +=
         `
@@ -293,33 +328,32 @@ window.onload = function imprimir_promissoria(){
                     em moeda corrente deste país, pagável em ESCRITÓRIO NATAL/RN.    
                 </p>   
 
-                <p class="fontmenor emitente" style="text-align:center">                     
-                    <b>
-                        <u>  
-                            ${"{{object.cliente}}"} 
-                        </u>
-                    </b> 
-                    <br>
-                    EMITENTE<br>
-                    CPF <br>
-                    ${"{{object.cliente.cpf}}"}  
-                </p>
+                <div class="fontmenor emitente" style="text-align:center">                     
+                    <u> <strong> ${razao_social} </strong> </u> <br>
+                </div>
+                <div class="fontmenor emitente1" style="text-align:center"> 
+                    EMITENTE 
+                </div>   
+                <div class="fontmenor emitente2" style="text-align:center">
+                    <strong>CNPJ:</strong> ${cnpj} 
+                </div> 
 
-                <p class="fontmenor emissao" style="text-align:center">                     
-                    <b>
-                        <u> 
-                            &nbsp&nbsp${"{{object.data_emprestimo}}"}&nbsp&nbsp 
-                        </u>
-                    </b>
-                    <br>
+                <div class="fontmenor emissao" style="text-align:center">      
+                    <u> <strong> &nbsp&nbsp${"{{object.data_emprestimo}}"}&nbsp&nbsp</strong> </u>
+                </div>               
+                <div class="fontmenor emissao1" style="text-align:center">
                     DATA DE EMISSÃO <br>
+                </div> 
+
+                <div class="fontmenor emissao2" style="text-align:center"> 
                     ___________________________<br>
                     ASSINATURA DO EMITENTE
-                </p>               
+                </div>   
             </a> 
         </div>    
         `
     }
+    //PARA CLIENTE SEM AVALISTA
     else{
         promissoria.innerHTML +=
             `
@@ -344,7 +378,7 @@ window.onload = function imprimir_promissoria(){
                         em moeda corrente deste país, pagável em ESCRITÓRIO NATAL/RN.    
                     </p>   
     
-                    <p class="fontmenor emitente" style="text-align:center">                     
+                    <div class="fontmenor emitente" style="text-align:center">                     
                         <b>
                             <u>  
                                 ${"{{object.cliente}}"} 
@@ -354,7 +388,7 @@ window.onload = function imprimir_promissoria(){
                         EMITENTE<br>
                         CPF <br>
                         ${"{{object.cliente.cpf}}"}  
-                    </p>
+                    </div>
     
                     <p class="fontmenor emissao" style="text-align:center">                     
                         <b>

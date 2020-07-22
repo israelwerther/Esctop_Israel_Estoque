@@ -84,6 +84,12 @@
             </div>        
             <div class="col-sm-6">                    
                 <div class="form-group" >                
+                    <label for="" class="required" >{{form.cnpj.label}} </label>        
+                    {% render_field form.cnpj class="form-control" %}
+                </div>
+            </div>  
+            <div class="col-sm-3">                    
+                <div class="form-group" >                
                     <label for="" class="required" >{{form.fundacao.label}} </label>        
                     {% render_field form.fundacao class="form-control" type="date"%}
                 </div>
@@ -237,6 +243,16 @@
         </div>
         </form> 
     </div>
+    
+    <script>
+        var cnpjcpf= $("#cpfcnpj").val().length;
+     
+        if(cnpjcpf < 11){
+            $("#cpfcnpj").mask("999.999.999-99");
+        } else {
+            $("#cpfcnpj").mask("99.999.999/9999-99");
+        } 
+    </script>
 
 {% endblock content %}
 
