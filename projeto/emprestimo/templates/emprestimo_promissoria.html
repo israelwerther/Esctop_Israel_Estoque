@@ -280,24 +280,27 @@ window.onload = function imprimir_promissoria(){
                     em moeda corrente deste país, pagável em ESCRITÓRIO NATAL/RN.    
                 </p>   
 
-                <div class="fontmenor emitente" style="text-align:center">  
+                <div class="fontmenor emitente" style="text-align:center"> 
                     <u> <strong> ${"{{object.cliente}}"} </strong> </u> <br>
-                    EMITENTE <br>
+                </div>
+                <div class="fontmenor emitente1" style="text-align:center"> 
+                    EMITENTE 
+                </div>
+                <div class="fontmenor emitente2" style="text-align:center">
                     CPF <br>
                     ${"{{object.cliente.cpf}}"}  
                 </div>
-
-                <p class="fontmenor emissao" style="text-align:center">                     
-                    <b>
-                        <u> 
-                            &nbsp&nbsp${"{{object.data_emprestimo}}"}&nbsp&nbsp 
-                        </u>
-                    </b>
-                    <br>
-                    DATA DE EMISSÃO <br>
+                <div class="fontmenor emissao" style="text-align:center">                   
+                    <strong><u> ${"{{object.data_emprestimo}}"}</u></strong>
+                </div>               
+                <div class="fontmenor emissao1" style="text-align:center">                   
+                    DATA DE EMISSÃO                     
+                </div>               
+                <div class="fontmenor emissao2" style="text-align:center">                   
                     ___________________________<br>
-                    ASSINATURA DO EMITENTE
-                </p>               
+                    ASSINATURA DO EMITENTE                                       
+                </div>               
+                   
             </a> 
         </div>    
         `
@@ -339,7 +342,7 @@ window.onload = function imprimir_promissoria(){
                 </div> 
 
                 <div class="fontmenor emissao" style="text-align:center">      
-                    <u> <strong> &nbsp&nbsp${"{{object.data_emprestimo}}"}&nbsp&nbsp</strong> </u>
+                    <u> <strong> &nbsp&nbsp${"{{object.data_emprestimo}}"}&nbsp&nbsp </strong> </u>
                 </div>               
                 <div class="fontmenor emissao1" style="text-align:center">
                     DATA DE EMISSÃO <br>
@@ -377,30 +380,27 @@ window.onload = function imprimir_promissoria(){
                         a JOSIMERIO DE ABREU SILVA, CPF 029.388.274-66 </b> ou à sua ordem, a quantia de <u> ${real} reais e ${centavos} centavos</u> 
                         em moeda corrente deste país, pagável em ESCRITÓRIO NATAL/RN.    
                     </p>   
-    
-                    <div class="fontmenor emitente" style="text-align:center">                     
-                        <b>
-                            <u>  
-                                ${"{{object.cliente}}"} 
-                            </u>
-                        </b> 
-                        <br>
-                        EMITENTE<br>
+
+                    <div class="fontmenor emitente" style="text-align:center"> 
+                        <u> <strong> ${"{{object.cliente}}"} </strong> </u> <br>
+                    </div>
+                    <div class="fontmenor emitente1" style="text-align:center"> 
+                        EMITENTE 
+                    </div>
+                    <div class="fontmenor emitente2" style="text-align:center">
                         CPF <br>
                         ${"{{object.cliente.cpf}}"}  
                     </div>
-    
-                    <p class="fontmenor emissao" style="text-align:center">                     
-                        <b>
-                            <u> 
-                                &nbsp&nbsp${"{{object.data_emprestimo}}"}&nbsp&nbsp 
-                            </u>
-                        </b>
-                        <br>
-                        DATA DE EMISSÃO <br>
+                    <div class="fontmenor emissao" style="text-align:center">                   
+                        <strong><u> ${"{{object.data_emprestimo}}"}</u></strong>
+                    </div>               
+                    <div class="fontmenor emissao1" style="text-align:center">                   
+                        DATA DE EMISSÃO                     
+                    </div>               
+                    <div class="fontmenor emissao2" style="text-align:center">                   
                         ___________________________<br>
-                        ASSINATURA DO EMITENTE
-                    </p>               
+                        ASSINATURA DO EMITENTE                                       
+                    </div>               
                 </a> 
             </div>    
             `
