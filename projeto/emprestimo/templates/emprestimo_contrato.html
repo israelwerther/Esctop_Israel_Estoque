@@ -36,14 +36,23 @@
         margin: 30px; 
         text-align: justify;
     }
-    div.contrato{
+    div.contrato1{        
         word-break: normal;
         width: 360px;
         border: none;
         left: 20px;
-        top: 80px;
+        top: 55px;
         position: absolute;
-        font-size: 17px;
+        font-size: 17px;      
+    }    
+    div.credito{        
+        word-break: normal;
+        width: 360px;
+        border: none;
+        left: 620px;
+        top: 55px;
+        position: absolute;
+        font-size: 17px;      
     }    
     div.quadro {
         word-break: normal;   
@@ -352,11 +361,13 @@ window.onload = function imprimir(){
         contrato.innerHTML +=
         `
         <h2>CONTRATO DE MÚTUO FINANCEIRO</h2>
-        <div class="contrato" style="text-align:center"> 
+
+        <div class="contrato1" > 
         <strong> Nº DO CONTRATO </strong> <br>
         17
         </div>
-        <div class="credito" style="text-align:center">
+
+        <div class="credito" >
         <strong> VALOR DO CRÉDITO </strong><br>
         500,00
         </div>
