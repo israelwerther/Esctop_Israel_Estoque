@@ -35,6 +35,31 @@
         margin: 30px; 
         text-align: justify;
     }
+    div.contrato{
+        word-break: normal;
+        width: 360px;
+        border: none;
+        left: 20px;
+        top: 80px;
+        position: absolute;
+        font-size: 17px;
+    }    
+    div.paragrafo {
+        word-break: normal;   
+        left: 0px;       
+        position: relative;
+        font-size: 17px;
+        text-align: justify;
+        padding: 10px; 
+    }
+
+
+
+
+
+
+
+
     /*OMITE O ENDEREÇO DA PAGINA NA HORA DA IMPRESSÃO*/
     
     table {
@@ -148,9 +173,20 @@ window.onload = function imprimir(){
     var cep = "{{object.cliente.cep}}"
 
     //VARIÁVEIS DO CLIENTE CNPJ
-    var fundacao = "{{object.cliente_cnpj.fundacao}}"
-    var razao_social = "{{object.cliente_cnpj.razao_social}}"
-    var cnpj = "{{object.cliente_cnpj.cnpj}}"
+    var fundacao             = "{{object.cliente_cnpj.fundacao}}"
+    var razao_social         = "{{object.cliente_cnpj.razao_social}}"
+    var cnpj                 = "{{object.cliente_cnpj.cnpj}}"
+    var cnpj_rua             = "{{object.cliente_cnpj.rua}}"
+    var cnpj_bairro          = "{{object.cliente_cnpj.bairro}}"
+    var cnpj_cidade          = "{{object.cliente_cnpj.cidade}}"
+    var cnpj_uf              = "{{object.cliente_cnpj.uf}}"
+    var cnpj_numero_casa     = "{{object.cliente_cnpj.numero_casa}}"
+    var cnpj_cep             = "{{object.cliente_cnpj.cep}}"
+    var cnpj_contato1        = "{{object.cliente_cnpj.contato1}}"
+    var cnpj_email           = "{{object.cliente_cnpj.email}}"
+    //VARIÁVEIS DO CLIENTE CNPJ(REPRESENTANTE)
+    var representante        = "{{object.cliente_cnpj.representante.nome}}"
+    var representante_CPF    = "{{object.cliente_cnpj.representante.CPF}}"
 
     //VARIÁVEIS DO AVALISTA
     var cliente_copia = "{{object.cliente.cliente_copia.nome}}"
@@ -285,45 +321,53 @@ window.onload = function imprimir(){
         contrato.innerHTML +=
         `
         <h2>CONTRATO DE MÚTUO FINANCEIRO</h2>
-        Nº DO CONTRATO
-        VALOR DO CRÉDITO
+        <div class="contrato" style="text-align:center"> 
+        <strong> Nº DO CONTRATO </strong> <br>
         17
+        </div>
+        <div class="credito" style="text-align:center">
+        <strong> VALOR DO CRÉDITO </strong><br>
         500,00
+        </div>
 
-        QUADRO 01 - PARTES
+        <h2>QUADRO 01 - PARTES</h2>
+        <div class="paragrafo" >    
+            <strong> I-CONTRATANTE MUTUANTE</strong><br>
+            Nome/Razão Social: ESCTOP - EMPRESA SIMPLES DE CREDITO LTDA 
+            CNPJ: 35.297.061/0001-47 
+            Endereço:   Av. das Fronteiras, 1287, Bairro: Nsa Sra da Apresentação, Cidade: Natal RN- 
+            CEP:  59114-275
+            Telefone: 84994619962
+            E-mail: esctoprn@gmail.com            
+        </div>
 
-        I-CONTRATANTE MUTUANTE
-        Nome/Razão Social: ESCTOP - EMPRESA SIMPLES DE CREDITO LTDA 
-        CNPJ: 35.297.061/0001-47 
-        Endereço:   Av. das Fronteiras, 1287, Bairro: Nsa Sra da Apresentação, Cidade: Natal RN- 
-        CEP:  59114-275
-        Telefone: 84994619962
-        E-mail: esctoprn@gmail.com
+        <div class="paragrafo" > 
+            <strong> II-CONTRATANTE MUTUÁRIA </strong><br>
+            Nome/Razão Social: ${razao_social},
+            CNPJ: ${cnpj},
+            Endereço: ${cnpj_rua}, ${cnpj_bairro}, ${cnpj_cidade}-${cnpj_uf} CEP: ${cnpj_cep},
+            Telefone: ${cnpj_contato1},
+            E-mail: ${cnpj_email} 
+        </div>
 
+        <div class="paragrafo" > 
+            <strong> II.1-REPRESENTANTE MUTUÁRIA </strong><br>
+            Nome: ${representante}
+            CPF:  031.585.554-17
+            RG:  001598953
+            Nacionalidade:  BRASILEIRA
+            Estado Civil:  Solteiro(a)
+            Endereço: RUA PINHEIROS,  CIDADE NOVA, NATAL-RN CEP:59072-510
+        </div>
 
-        II-CONTRATANTE MUTUÁRIA
-        Nome/Razão Social: REGINA MARIA DE FRANCA 03158555417
-        CNPJ: 35.172.780/0001-31
-        Endereço: RUA PINHEIROS,  CIDADE NOVA,  NATAL-RN CEP: 59072-510
-        Telefone: 36053411, 
-        E-mail:  
-
-        II.1-REPRESENTANTE MUTUÁRIA 
-        Nome:  REGINA MARIA DE FRANÇA
-        CPF:  031.585.554-17
-        RG:  001598953
-        Nacionalidade:  BRASILEIRA
-        Estado Civil:  Solteiro(a)
-        Endereço: RUA PINHEIROS,  CIDADE NOVA, NATAL-RN CEP:59072-510
-
-
-        III-DO GARANTIDOR - FIADOR 
-        Nome:  
-        CPF:       RG/órgão Emissor:   
-        Nacionalidade:  
-        Estado Civil:  
-        Endereço:   Bairro:   Cidade: - CEP:   
-        
+        <div class="paragrafo" > 
+            <strong> III-DO GARANTIDOR - FIADOR </strong><br>
+            Nome:  
+            CPF:       RG/órgão Emissor:   
+            Nacionalidade:  
+            Estado Civil:  
+            Endereço:   Bairro:   Cidade: - CEP:   
+        </div>  
 
        
         `
