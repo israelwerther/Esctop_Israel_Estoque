@@ -184,13 +184,15 @@ window.onload = function imprimir(){
     var cnpj_cep             = "{{object.cliente_cnpj.cep}}"
     var cnpj_contato1        = "{{object.cliente_cnpj.contato1}}"
     var cnpj_email           = "{{object.cliente_cnpj.email}}"
+
     //VARIÁVEIS DO CLIENTE CNPJ(REPRESENTANTE)
     var representante        = "{{object.cliente_cnpj.representante.nome}}"
-    var representante_CPF    = "{{object.cliente_cnpj.representante.CPF}}"
+    var representante_cpf    = "{{object.cliente_cnpj.representante.cpf}}"
+    var representante_rg    = "{{object.cliente_cnpj.representante.rg}}"
 
     //VARIÁVEIS DO AVALISTA
-    var cliente_copia = "{{object.cliente.cliente_copia.nome}}"
-    var cpf_cliente_copia = "{{object.cliente.cliente_copia.cpf}}"
+    var cliente_copia        = "{{object.cliente.cliente_copia.nome}}"
+    var cpf_cliente_copia    = "{{object.cliente.cliente_copia.cpf}}"
     
     if(cliente_copia){        
         contrato.innerHTML +=
@@ -352,9 +354,9 @@ window.onload = function imprimir(){
 
         <div class="paragrafo" > 
             <strong> II.1-REPRESENTANTE MUTUÁRIA </strong><br>
-            Nome: ${representante}
-            CPF:  031.585.554-17
-            RG:  001598953
+            Nome: ${representante},
+            CPF:  ${representante_cpf},
+            RG:  ${representante_rg},
             Nacionalidade:  BRASILEIRA
             Estado Civil:  Solteiro(a)
             Endereço: RUA PINHEIROS,  CIDADE NOVA, NATAL-RN CEP:59072-510
