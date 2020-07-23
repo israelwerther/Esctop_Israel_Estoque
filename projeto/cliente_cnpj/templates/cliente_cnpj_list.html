@@ -16,7 +16,7 @@
     <table class="table table-striped table-hover">
         <thead class="thead">
             <tr>
-                <th>Nome Fantasia </th>                    
+                <th>Razão Social</th>                    
                 <th>Fundação</th>
                 <th>Forma Constituição</th>                                        
                 <th>Inscrição Estadual</th>   
@@ -26,7 +26,7 @@
         <tbody>
             {% for object in object_list  %}   
             <tr>
-                <td>{{object.nome_fantasia}}</td>                                        
+                <td>{{object.razao_social}}</td>                                        
                 <td>{{ object.fundacao }}</td>
                 <td>{{ object.forma_constituicao }}</td>                                     
                 <td>{{ object.inscricao_estadual }}</td>
