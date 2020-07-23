@@ -22,8 +22,8 @@ class Cliente_cnpj(models.Model):
 
     contato1              = models.CharField("Contato 1",max_length=15, blank=True, null=True)
     contato2              = models.CharField("Contato 2",max_length=15, blank=True, null=True)
-    celular1              = models.CharField("celular 1",max_length=17, blank=True, null=True)
-    celular2              = models.CharField("celular 2",max_length=17, blank=True, null=True)
+    celular1              = models.CharField("Celular 1",max_length=17, blank=True, null=True)
+    celular2              = models.CharField("Celular 2",max_length=17, blank=True, null=True)
 
     agencia               = models.CharField("Agência",max_length=15, blank=True, null=True)
     conta                 = models.CharField("Conta",max_length=15, blank=True, null=True)

@@ -1,50 +1,71 @@
 {% extends "base.html" %}
 {% block content %}
 
+<style>
+.options{
+    color: aqua;
+}
+</style>
+
+
+<span class="pull-right">
+    <a href="{% url 'cliente_cnpj:cliente_cnpj_list' %}" type="button" class="btn btn-secondary">Voltar</a>
+    <a href="{% url 'cliente_cnpj:cliente_cnpj_edit' object.pk %}" type="button" class="btn btn-info">Editar</a>
+    <a href="{% url 'cliente_cnpj:cliente_cnpj_delete' object.pk %}" type="button" class="btn btn-danger">Deletar</a>
+</span>
 <h2>DETALHES EMPRESA <br> {{ object }}</h2>
 
 <div class="row">       
     <div class="col-sm-6"> 
         <div class="form-group">
+            <label>Razão Social</label>
             <input  value="{{ object.razao_social }}" readonly class="form-control">
         </div>
     </div><div class="col-sm-6"> 
         <div class="form-group">
+            <label>Nome Fantasia</label>
             <input  value="{{ object.nome_fantasia }}" readonly class="form-control">
         </div>
     </div>
     <div class="col-sm-6"> 
         <div class="form-group">
+            <label>CNPJ</label>
             <input type="text" value="{{ object.cnpj }}" readonly class="form-control">
         </div>
     </div>
     <div class="col-sm-6"> 
         <div class="form-group">
+            <label>Fundação</label>
             <input type="text" value="{{ object.fundacao }}" readonly class="form-control">
         </div>
     </div>
     <div class="col-sm-6"> 
         <div class="form-group">
+            <label>Forma Constituição</label>
             <input type="text" value="{{ object.forma_constituicao }}" readonly class="form-control">
         </div>
     </div>
     <div class="col-sm-6"> 
         <div class="form-group">
+            <label>Inscrição Estadual</label>
             <input type="text" value="{{ object.inscricao_estadual }}" readonly class="form-control">
         </div>
     </div>
     <div class="col-sm-6"> 
         <div class="form-group">
+            <label>Inscrição Municipal</label>
             <input type="text" value="{{ object.inscricao_municipal }}" readonly class="form-control">
         </div>
     </div>
     <div class="col-sm-6"> 
         <div class="form-group">
+            <label>Email</label>
             <input type="text" value="{{ object.email }}" readonly class="form-control">
         </div>
     </div>
     <div class="col-sm-6"> 
         <div class="form-group">
+            <label>Representante</label>
             <input type="text" value="{{ object.representante }}" readonly class="form-control">
         </div>
     </div>
@@ -53,36 +74,43 @@
 <div class="row"> 
     <div class="col-sm-6"> 
         <div class="form-group">
+            <label>CEP</label>
             <input type="text" value="{{ object.cep }}" readonly class="form-control">
         </div>
     </div>
     <div class="col-sm-6"> 
         <div class="form-group">
+            <label>Rua</label>
             <input type="text" value="{{ object.rua }}" readonly class="form-control">
         </div>
     </div>
     <div class="col-sm-6"> 
         <div class="form-group">
+            <label>Bairro</label>
             <input type="text" value="{{ object.bairro }}" readonly class="form-control">
         </div>
     </div>
     <div class="col-sm-6"> 
         <div class="form-group">
+            <label>Cidade</label>
             <input type="text" value="{{ object.cidade }}" readonly class="form-control">
         </div>
     </div>
     <div class="col-sm-6"> 
         <div class="form-group">
+            <label>Estado</label>
             <input type="text" value="{{ object.uf }}" readonly class="form-control">
         </div>
     </div>
     <div class="col-sm-6"> 
         <div class="form-group">
+            <label>Nº</label>
             <input type="text" value="{{ object.numero_casa }}" readonly class="form-control">
         </div>
     </div>
     <div class="col-sm-6"> 
         <div class="form-group">
+            <label>Ponto de Referencia</label>
             <input type="text" value="{{ object.ponto_referencia }}" readonly class="form-control">
         </div>
     </div>
@@ -91,47 +119,55 @@
 <div class="row"> 
     <div class="col-sm-6"> 
         <div class="form-group">
-            <h5>Agência</h5>
+            <label>Agência</label>
             <input type="text" value="{{ object.agencia }}" readonly class="form-control">
         </div>
     </div>
     <div class="col-sm-6"> 
         <div class="form-group">
+            <label>conta</label>
             <input type="text" value="{{ object.conta }}" readonly class="form-control">
         </div>
     </div>
     <div class="col-sm-6"> 
         <div class="form-group">
+            <label>banco</label>
             <input type="text" value="{{ object.banco }}" readonly class="form-control">
         </div>
     </div>
     <div class="col-sm-6"> 
         <div class="form-group">
+            <label>obs_bancaria</label>
             <input type="text" value="{{ object.obs_bancaria }}" readonly class="form-control">
         </div>
-    </div>
+    </div>    
     <div class="col-sm-6"> 
         <div class="form-group">
-            <input type="text" value="{{ object.representante }}" readonly class="form-control">
+            <label>Contato 1</label>
+            <input type="text" value="{{ object.contato1 }}" readonly class="form-control">
         </div>
     </div>
     <div class="col-sm-6"> 
         <div class="form-group">
-            <input type="text" value="{{ object. }}" readonly class="form-control">
+            <label>Contato 2</label>
+            <input type="text" value="{{ object.contato2 }}" readonly class="form-control">
         </div>
     </div>
     <div class="col-sm-6"> 
         <div class="form-group">
-            <input type="text" value="{{ object. }}" readonly class="form-control">
+            <label>Celular 1</label>
+            <input type="text" value="{{ object.celular1 }}" readonly class="form-control">
+        </div>
+    </div>
+    <div class="col-sm-6"> 
+        <div class="form-group">
+            <label>Celular 2</label>
+            <input type="text" value="{{ object.celular2 }}" readonly class="form-control">
         </div>
     </div>
 </div>
 
-<span class="pull-right">
-    <a href="{% url 'cliente_cnpj:cliente_cnpj_list' %}" type="button" class="btn btn-secondary">Voltar</a>
-    <a href="{% url 'cliente_cnpj:cliente_cnpj_edit' object.pk %}" type="button" class="btn btn-info">Editar</a>
-    <a href="{% url 'cliente_cnpj:cliente_cnpj_delete' object.pk %}" type="button" class="btn btn-danger">Deletar</a>
-</span>
+
 
 
 {% endblock content %}
