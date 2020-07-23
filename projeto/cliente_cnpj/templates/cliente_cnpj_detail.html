@@ -13,7 +13,7 @@
     <a href="{% url 'cliente_cnpj:cliente_cnpj_edit' object.pk %}" type="button" class="btn btn-info">Editar</a>
     <a href="{% url 'cliente_cnpj:cliente_cnpj_delete' object.pk %}" type="button" class="btn btn-danger">Deletar</a>
 </span>
-<h2>DETALHES EMPRESA <br> {{ object }}</h2>
+<h2>DETALHES(CNPJ) <br> {{ object.razao_social }}</h2>
 
 <div class="row">       
     <div class="col-sm-6"> 
