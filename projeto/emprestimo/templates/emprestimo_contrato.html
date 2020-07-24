@@ -36,23 +36,25 @@
         margin: 30px; 
         text-align: justify;
     }
-    div.contrato1{        
+    div.num_contrato{        
         word-break: normal;
         width: 360px;
         border: none;
-        left: 20px;
-        top: 55px;
+        left: 250px;
+        top: 75px;
         position: absolute;
-        font-size: 17px;      
+        font-size: 17px; 
+        text-align:center;
     }    
     div.credito{        
         word-break: normal;
         width: 360px;
         border: none;
-        left: 620px;
-        top: 55px;
+        left: 650px;
+        top: 75px;
         position: absolute;
-        font-size: 17px;      
+        font-size: 17px;
+        text-align:center;      
     }    
     div.quadro {
         word-break: normal;   
@@ -360,16 +362,16 @@ window.onload = function imprimir(){
     else{
         contrato.innerHTML +=
         `
-        <h2>CONTRATO DE MÚTUO FINANCEIRO</h2>
+        <h2>CONTRATO DE MÚTUO FINANCEIRO</h2><br><br>
 
-        <div class="contrato1" > 
-        <strong> Nº DO CONTRATO </strong> <br>
-        17
+        <div class="num_contrato" > 
+            <strong> Nº DO CONTRATO </strong> <br>
+            17
         </div>
-
+        <br>
         <div class="credito" >
-        <strong> VALOR DO CRÉDITO </strong><br>
-        500,00
+            <strong> VALOR DO CRÉDITO </strong><br>
+            500,00
         </div>
 
         <div class="titulo_quadro">QUADRO 01 - PARTES </div>
