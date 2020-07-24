@@ -55,12 +55,6 @@ class EmprestimoContrato(UpdateView):
     form_class=EmprestimoForm
 
 
-class EmprestimoContratoSemFiador(UpdateView):
-    model=Emprestimo
-    template_name='emprestimo_contrato_sem_fiador.html'
-    form_class=EmprestimoForm
-
-
 @login_required
 def emprestimo_detail(request, pk):
     template_name='emprestimo_detail.html'
