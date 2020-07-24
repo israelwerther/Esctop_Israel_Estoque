@@ -40,7 +40,7 @@
         <div class="col-sm-3"> 
                 <div class="form-group">
                     <label for="">{{form.valor_emprestado.label}}</label>
-                    {% render_field form.valor_emprestado class="form-control" id="valor_emprestado"  %}                       
+                    {% render_field form.valor_emprestado class="form-control" id="valor_emprestado"  onblur="somar()"%}                       
                 </div>
             </div>
         </div>
@@ -48,15 +48,14 @@
             <div class="col-sm-3">                    
                 <div class="form-group" >                
                     <label for="" class="required" >{{form.qtd_parcelas.label}} </label>                
-                    {% render_field form.qtd_parcelas class="form-control" id="qtd_parcelas" value="1" %}
+                    {% render_field form.qtd_parcelas class="form-control" id="qtd_parcelas" onblur="somar()"%}
                 </div>
             </div>
             <div class="col-sm-3" > 
                 <div class="form-group" id="res">
                     <label for="">{{form.valor_prestacao.label}}</label>
                     {% render_field form.valor_prestacao class="form-control" id="prestacao"%}                       
-                </div>
-                <input type="button" value="Somar" onclick="somar()">
+                </div>                
             </div> 
         {% if object.pk %} <!-- if object.data_emprestimo é isso que ele quer dizer -->           
             <div class="col-sm-3"> 
@@ -96,33 +95,33 @@
             var tqtd_parcelas     = document.getElementById('qtd_parcelas')
             var tprestacao        = document.getElementById('prestacao')
 
-            var valor_emprestado = Number(tvalor_emprestado.value)
-            var qtd_parcelas     = Number(tqtd_parcelas.value)
-            var prestacao        = Number(tprestacao.value)
+            var valor_emprestado  = Number(tvalor_emprestado.value)
+            var qtd_parcelas      = Number(tqtd_parcelas.value)
+            var prestacao         = Number(tprestacao.value)
+            var principal         = valor_emprestado/qtd_parcelas
+             
+            var iof_inicial       = 0
+            var iof_diario        = 0.0041            
+            var qtd_dias          = 30
 
-            
-            var iof_inicial = 0
-            var iof_diario  = 0.0041
-            var qut_dias = 0
 
 
             for (var i = 0 ; i < 2; i++){
                 valor_emprestado = Number(valor_emprestado.value)
-                qtd_parcelas = Number(qtd_parcelas.value)
-    
-                var s = valor_emprestado*qtd_parcelas
-    
-                iof_inicial = ((500*(30*0.0041))/100)
+                qtd_parcelas = Number(qtd_parcelas.value)    
+                var s = valor_emprestado*qtd_parcelas    
+                iof_inicial = ((principal*(qtd_dias*iof_diario))/100)
                 iof_inicial = toFixed(iof_inicial, 3)
             }
 
             var s = "ola"
 
             document.getElementById('prestacao').value = iof_inicial
-            res.value = s
+            res.value = iof_inicial
         }
 
     </script> 
 {% endblock content %}
 
 
+    
