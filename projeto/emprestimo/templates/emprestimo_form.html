@@ -51,12 +51,13 @@
                     {% render_field form.qtd_parcelas class="form-control" id="qtd_parcelas" value="1" %}
                 </div>
             </div>
-            <div class="col-sm-3"> 
-                <div class="form-group">
+            <div class="col-sm-3" > 
+                <div class="form-group" id="res">
                     <label for="">{{form.valor_prestacao.label}}</label>
-                    {% render_field form.valor_prestacao class="form-control" %}                       
+                    {% render_field form.valor_prestacao class="form-control" id="prestacao"%}                       
                 </div>
-        </div> 
+                <input type="button" value="Somar" onclick="somar()">
+            </div> 
         {% if object.pk %} <!-- if object.data_emprestimo é isso que ele quer dizer -->           
             <div class="col-sm-3"> 
                 <div class="form-group">
@@ -90,7 +91,7 @@
             return num.toString().match(re)[0];
         }
         
-        function prestacao1(){
+        function somar(){
             var tvalor_emprestado = document.getElementById('valor_emprestado')
             var tqtd_parcelas     = document.getElementById('qtd_parcelas')
             var tprestacao        = document.getElementById('prestacao')
@@ -115,7 +116,10 @@
                 iof_inicial = toFixed(iof_inicial, 3)
             }
 
+            var s = "ola"
+
             document.getElementById('prestacao').value = iof_inicial
+            res.value = s
         }
 
     </script> 
