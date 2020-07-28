@@ -101,8 +101,7 @@
         var qtd_parcelas       = Number(tqtd_parcelas.value)
         var prestacao          = Number(tprestacao.value)
         
-        var principal          = valor_emprestado/qtd_parcelas  
-        //principal = toFixed(principal, 2)
+        var principal          = valor_emprestado/qtd_parcelas         
 
         var mes_do_emprestimo  = Number({{object.data_emprestimo.month}})
 
@@ -110,8 +109,6 @@
         var iof_diario        = 0.0041        
         var qtd_dias          = 0
         var iof_adicional     = 0.0038   
-
-        //var meses = new Array(0, 01, 02, 03, 04, 05, 06 ,07, 08, 09, 10, 11)
 
     //CALCULA O IOF_INICIAL (1º PASSO)
     for (var i = 0 ; i < qtd_parcelas; i++){
@@ -121,7 +118,7 @@
             qtd_dias +=30
         }
         iof_inicial += ((principal*(qtd_dias*0.0041))/100)        
-        iof_inicial = Number(toFixed(iof_inicial, 2)) 
+        iof_inicial = Number(toFixed(iof_inicial, 4)) 
         iof_inicial += principal*iof_adicional
         iof_inicial = Number(toFixed(iof_inicial, 2))
         mes_do_emprestimo++
@@ -131,7 +128,7 @@
         var iof_real = 0
 
         iof_real = (valor_emprestado*iof_inicial)/(valor_emprestado-iof_inicial)
-        iof_real = Number(toFixed(iof_real, 2))    
+        iof_real = Number(toFixed(iof_real, 3))    
 
     //CALCULA O VALOR DA PARCELA(3º PASSO)
         var valor_emprestado   = Number(tvalor_emprestado.value)                
