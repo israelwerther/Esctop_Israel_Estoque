@@ -99,7 +99,7 @@
         var tqtd_parcelas     = document.getElementById('qtd_parcelas')
         var tprestacao        = document.getElementById('prestacao')     
 
-        var valor_emprestado   = Number(tvalor_emprestado.value)
+        var valor_emprestado   = Number(tvalor_emprestado.value)                
         var qtd_parcelas       = Number(tqtd_parcelas.value)
         var prestacao          = Number(tprestacao.value)
         
@@ -136,11 +136,15 @@
         iof_real = Number(toFixed(iof_real, 2))    
 
     //CALCULA O VALOR DA PARCELA(3º PASSO)
-        var cap_iof = 0
-        cap_iof = valor_emprestado+iof_real
-        
+        var valor_emprestado   = Number(tvalor_emprestado.value)                
+        var qtd_parcelas       = Number(tqtd_parcelas.value)
+        var prestacao          = Number(tprestacao.value)
+        var cap_iof = iof_real+valor_emprestado
+        var valor_parcela = 0
+        valor_parcela = (cap_iof*(1+(qtd_parcelas*9.5)/100))/qtd_parcelas
+        valor_parcela = String(toFixed(valor_parcela, 2))  
 
-    document.getElementById('prestacao').value = cap_iof
+    document.getElementById('prestacao').value = valor_parcela
 
     }
 </script>
