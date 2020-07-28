@@ -133,12 +133,14 @@
         var iof_real = 0
 
         iof_real = (valor_emprestado*iof_inicial)/(valor_emprestado-iof_inicial)
-        iof_real = Number(toFixed(iof_real, 2))
+        iof_real = Number(toFixed(iof_real, 2))    
 
-    
-    
+    //CALCULA O VALOR DA PARCELA(3º PASSO)
+        var cap_iof = 0
+        cap_iof = valor_emprestado+iof_real
+        
 
-    document.getElementById('prestacao').value = iof_real
+    document.getElementById('prestacao').value = cap_iof
 
     }
 </script>
