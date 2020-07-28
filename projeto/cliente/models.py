@@ -43,7 +43,7 @@ class Cliente(models.Model):
     banco                 = models.CharField("Banco",max_length=25, blank=True, null=True)
     obs_bancaria          = models.CharField("Observações",max_length=25, blank=True, null=True)         
     anotacoes             = models.TextField("Anotações",max_length=200, blank=True, null=True)
-    cliente_copia         = models.ForeignKey('self', on_delete=models.CASCADE, blank=True, null=True)
+    fiador                = models.ForeignKey('self', on_delete=models.CASCADE, blank=True, null=True)
 
 
     class Meta:
