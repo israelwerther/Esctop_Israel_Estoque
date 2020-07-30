@@ -221,10 +221,10 @@ window.onload = function imprimir(){
     var representante_email         = "{{object.cliente_cnpj.representante.email}}"
 
     //VARIÁVEIS DO AVALISTA
-    var cliente_copia        = "{{object.cliente.cliente_copia.nome}}"
-    var cpf_cliente_copia    = "{{object.cliente.cliente_copia.cpf}}"
+    var fiador        = "{{object.cliente.fiador.nome}}"
+    var cpf_fiador    = "{{object.cliente.fiador.cpf}}"
     
-    if(cliente_copia){        
+    if(fiador){        
         contrato.innerHTML +=
         `   
             <h2> CONTRATO DE MÚTUO </h2>
@@ -329,12 +329,12 @@ window.onload = function imprimir(){
                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp DEVEDOR
             </p>
             <p class="fontmenor">
-                <b>FIADOR 1:</b> - ${"{{object.cliente.cliente_copia.nome}}"}
-                (${"{{object.cliente.cliente_copia.estado_civil}}"}, Funcionário Privado, RG ${"{{object.cliente.cliente_copia.rg}}"}
-                ${"{{object.cliente.cliente_copia.orgao_expedidor}}"}, CPF ${"{{object.cliente.cliente_copia.cpf}}"} 
+                <b>FIADOR 1:</b> - ${"{{object.cliente.fiador.nome}}"}
+                (${"{{object.cliente.fiador.estado_civil}}"}, Funcionário Privado, RG ${"{{object.cliente.fiador.rg}}"}
+                ${"{{object.cliente.fiador.orgao_expedidor}}"}, CPF ${"{{object.cliente.fiador.cpf}}"} 
                 
-                ${"{{object.cliente.cliente_copia.rua}}"}, ${"{{object.cliente.cliente_copia.numero_casa}}"}, ${"{{object.cliente.cliente_copia.bairro}}"}, 
-                ${"{{object.cliente.cliente_copia.cidade}}"} ${"{{object.cliente.cliente_copia.uf}}"}
+                ${"{{object.cliente.fiador.rua}}"}, ${"{{object.cliente.fiador.numero_casa}}"}, ${"{{object.cliente.fiador.bairro}}"}, 
+                ${"{{object.cliente.fiador.cidade}}"} ${"{{object.cliente.fiador.uf}}"}
             </p>
             <p style="text-align:center">
                 ____________________________________________________________<br>

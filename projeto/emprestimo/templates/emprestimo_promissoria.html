@@ -192,8 +192,8 @@ window.onload = function imprimir_promissoria(){
 
 
     //VARIÁVEIS DO AVALISTA
-    var cliente_copia = "{{object.cliente.cliente_copia.nome}}"
-    var cpf_cliente_copia = "{{object.cliente.cliente_copia.cpf}}"
+    var fiador = "{{object.cliente.fiador.nome}}"
+    var cpf_fiador = "{{object.cliente.fiador.cpf}}"
 
     for (var i = 0 ; i < {{object.qtd_parcelas}}; i++){
     contador_meses++
@@ -256,14 +256,14 @@ window.onload = function imprimir_promissoria(){
     }
     
     //PARA CLIENTE COM AVALISTA 
-    if(cliente_copia){
+    if(fiador){
     promissoria.innerHTML +=
         `
         <div class="body">
             <a class="test1">&nbsp</a>
             <a class="test1">Fiador:</a>
-            <a class="test1"> CPF:${cpf_cliente_copia}
-            <br>${cliente_copia} </a>
+            <a class="test1"> CPF:${cpf_fiador}
+            <br>${fiador} </a>
             <a class="test1">_____________________________ &nbsp&nbsp&nbsp</a>
             <a class="ait"> 
                 <b class = "fontmaior" >&nbspNº</b>                 
