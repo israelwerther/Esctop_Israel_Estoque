@@ -126,6 +126,10 @@
     .datacao{
         margin-right: 40px;
     }
+    .maiusculo {
+        text-transform: capitalize;
+    }
+
     
     /* <button class="print">Print</button> */
     
@@ -140,8 +144,67 @@
     </div>  
     
 <script>
+function toFixed(num, fixed) {
+    var re = new RegExp('^-?\\d+(?:\.\\d{0,' + (fixed || -2) + '})?');
+    return num.toString().match(re)[0];
+}
 
-window.onload = function imprimir(){
+window.onload = function imprimir(){  
+    
+        var valor_emprestado   = Number({{object.valor_emprestado}})                
+        var qtd_parcelas       = Number({{object.qtd_parcelas}})
+        var prestacao          = Number({{object.valor_prestacao}})
+        
+        var principal          = valor_emprestado/qtd_parcelas         
+    
+        var mes_do_emprestimo  = Number({{object.data_emprestimo.month}})
+    
+        var iof_inicial       = 0
+        var iof_diario        = 0.0041        
+        var qtd_dias          = 0
+        var iof_adicional     = 0.0038  
+
+        var aux1 = 0
+        var aux2 = 0
+        var aux3 = 0
+        var aux4 = 0
+        var aux5 = 0
+    
+    //CALCULA O IOF_INICIAL (1º PASSO)
+    for (var i = 0 ; i < qtd_parcelas; i++){
+        if(mes_do_emprestimo == 1 || mes_do_emprestimo == 3 || mes_do_emprestimo == 5 || mes_do_emprestimo == 7 || mes_do_emprestimo == 8 || mes_do_emprestimo == 10 || mes_do_emprestimo == 12){
+            qtd_dias += 31
+        }else{
+            qtd_dias +=30
+        }
+        var aux = 0 
+        iof_inicial += ((principal*(qtd_dias*0.0041))/100)
+        aux2 += Number(toFixed((qtd_dias*iof_diario), 2))
+        aux1 = principal*iof_adicional        
+        iof_inicial = Number(toFixed(iof_inicial, 4)) 
+        iof_inicial += principal*iof_adicional
+        
+        aux1 = principal*iof_adicional
+        iof_inicial = Number(toFixed(iof_inicial, 2))
+        mes_do_emprestimo++
+    }    
+    
+    //CALCULA O IOF_REAL (2º PASSO)   
+        var iof_real = 0
+    
+        iof_real = (valor_emprestado*iof_inicial)/(valor_emprestado-iof_inicial)
+        iof_real = Number(toFixed(iof_real, 3))    
+    
+    //CALCULA O VALOR DA PARCELA(3º PASSO)
+        var valor_emprestado   = Number({{object.valor_emprestado}})                
+        var qtd_parcelas       = Number({{object.qtd_parcelas}})
+        var prestacao          = Number({{object.valor_prestacao}})
+        var cap_iof = iof_real+valor_emprestado
+        var valor_parcela = 0
+        valor_parcela = (cap_iof*(1+(qtd_parcelas*9.5)/100))/qtd_parcelas
+        valor_parcela = String(toFixed(valor_parcela, 2))      
+    
+    
 
     //VARIÁVEIS DA DATA DO EMPRESTIMO
     var contador_meses = 0
@@ -341,8 +404,8 @@ window.onload = function imprimir(){
                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp DEVEDOR
             </p>
-            <p class="fontmenor">
-                <b>FIADOR 1:</b> - ${"{{object.cliente.fiador.nome}}"}
+            <p class="fontmenor maiusculo">
+                <strong>FIADOR 1:</strong> - ${"{{object.cliente.fiador.nome}}"}
                 (${"{{object.cliente.fiador.estado_civil}}"}, Funcionário Privado, RG ${"{{object.cliente.fiador.rg}}"}
                 ${"{{object.cliente.fiador.orgao_expedidor}}"}, CPF ${"{{object.cliente.fiador.cpf}}"} 
                 
@@ -511,7 +574,7 @@ window.onload = function imprimir(){
         <div class="paragrafo" >
             <strong> CLÁUSULA1ª. </strong> A integralidade do crédito é composta da seguinte forma: Valor 
             mutuado R$ 503,14, Taxa de Juros a.m (9,50)%, taxa de juros moratório 0,66% ao dia, multa por 
-            atraso: 2%, IOF Adicional ( 1,90), IOF diário (1,24), valor do IOF total: R$ 3,14, Valor total 
+            atraso: 2%, IOF Adicional (${aux1}), IOF diário (${aux2}), valor do IOF total: R$ ${iof_real = Number(toFixed(iof_real, 3))}, Valor total 
             devido: R$ 646,53.
         </div>
         <div class="paragrafo" >
@@ -721,6 +784,64 @@ String.prototype.extenso = function(c){
     }
     return r.join(e);
 }
+
+function toFixed(num, fixed) {
+    var re = new RegExp('^-?\\d+(?:\.\\d{0,' + (fixed || -1) + '})?');
+    return num.toString().match(re)[0];
+}
+    
+function somar(){
+    var tvalor_emprestado = document.getElementById('valor_emprestado')
+    var tqtd_parcelas     = document.getElementById('qtd_parcelas')
+    var tprestacao        = document.getElementById('prestacao')     
+
+    var valor_emprestado   = Number(tvalor_emprestado.value)                
+    var qtd_parcelas       = Number(tqtd_parcelas.value)
+    var prestacao          = Number(tprestacao.value)
+    
+    var principal          = valor_emprestado/qtd_parcelas         
+
+    var mes_do_emprestimo  = Number({{object.data_emprestimo.month}})
+
+    var iof_inicial       = 0
+    var iof_diario        = 0.0041        
+    var qtd_dias          = 0
+    var iof_adicional     = 0.0038   
+
+//CALCULA O IOF_INICIAL (1º PASSO)
+for (var i = 0 ; i < qtd_parcelas; i++){
+    if(mes_do_emprestimo == 1 || mes_do_emprestimo == 3 || mes_do_emprestimo == 5 || mes_do_emprestimo == 7 || mes_do_emprestimo == 8 || mes_do_emprestimo == 10 || mes_do_emprestimo == 12){
+        qtd_dias += 31
+    }else{
+        qtd_dias +=30
+    }
+    var aux = 0 
+    iof_inicial += ((principal*(qtd_dias*0.0041))/100)        
+    iof_inicial = Number(toFixed(iof_inicial, 4)) 
+    iof_inicial += principal*iof_adicional    
+    iof_inicial = Number(toFixed(iof_inicial, 2))
+    mes_do_emprestimo++
+}    
+
+//CALCULA O IOF_REAL (2º PASSO)   
+    var iof_real = 0
+
+    iof_real = (valor_emprestado*iof_inicial)/(valor_emprestado-iof_inicial)
+    iof_real = Number(toFixed(iof_real, 3))    
+
+//CALCULA O VALOR DA PARCELA(3º PASSO)
+    var valor_emprestado   = Number(tvalor_emprestado.value)                
+    var qtd_parcelas       = Number(tqtd_parcelas.value)
+    var prestacao          = Number(tprestacao.value)
+    var cap_iof = iof_real+valor_emprestado
+    var valor_parcela = 0
+    valor_parcela = (cap_iof*(1+(qtd_parcelas*9.5)/100))/qtd_parcelas
+    valor_parcela = String(toFixed(valor_parcela, 2))  
+
+document.getElementById('prestacao').value = valor_parcela
+
+}
+
 </script>
 </body>
 </html>
