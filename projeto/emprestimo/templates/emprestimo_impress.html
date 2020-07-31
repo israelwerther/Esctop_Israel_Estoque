@@ -107,6 +107,12 @@
             margin: 12px 0;
             line-height: 12px;
         }
+        br2 {
+            content: " ";
+            display: block;
+            margin: 6px 0;
+            line-height: 12px;
+        }
 		span.b {
 			display: inline-block;
 			width: 100px;
@@ -142,9 +148,11 @@
 
 		.box {
 			float: left;
-			width: 70px;
+			width: 100px;
 			height: 40px;
-			margin: 1em;
+			margin: 4px;
+			border: 1px solid black;
+
 		}
 		.after-box {
 			clear: left;
@@ -170,7 +178,9 @@
 
 
 <div class="document">
-	<div id = "carne" class="col-sm-6"></div>
+	<div id = "carne" class="col-sm-6">
+	
+	</div>
 </div>
 <!-- ----------------------- -->
 <script>
@@ -220,7 +230,7 @@
 		var meses = new Array("01", "02", "03", "04", "05", "06" ,"07", "08", "09", "10", "11", "12")
 		
 
-		for (var i = 0 ; i < {{object.qtd_parcelas}}; i++){
+		for (var i = 1 ; i <= {{object.qtd_parcelas}}; i++){
 			contador_meses++
 			contador_parcela++
 
@@ -243,13 +253,64 @@
 				ano++				
 			}
 
-		carne.innerHTML +=		
-		`		
-		<div class="box">			
-			${i+1}º&nbspParcela ${dia}/${meses[mes-1]}/${ano}	
-		</div>
-		
-		`
+			if(i<=3){
+			carne.innerHTML +=	
+				`		
+				<div class="box">			
+					${i}º&nbspParcela ${dia}/${meses[mes-1]}/${ano}				
+				</div>		
+				`		
+			}	
+			if(i==3){
+			carne.innerHTML +=
+			`
+				<br2>&nbsp</br2>
+				<br2>&nbsp</br2>
+				<br2>&nbsp</br2>
+				
+			`
+			}
+			if(i>3 && i<7){
+			carne.innerHTML +=	
+			`		
+				<div class="box">			
+					${i}º&nbspParcela ${dia}/${meses[mes-1]}/${ano}				
+				</div>		
+			`	
+			}
+			if(i==6){
+			carne.innerHTML +=
+			`
+				<br2>&nbsp</br2>
+				<br2>&nbsp</br2>
+				<br2>&nbsp</br2>
+			`
+			}
+			if(i>6 && i<10){		
+			carne.innerHTML +=
+			`			
+				<div class="box">			
+					${i}º&nbspParcela ${dia}/${meses[mes-1]}/${ano}				
+				</div>				
+			`
+			}
+			if(i==9){
+			carne.innerHTML +=
+			`
+				<br2>&nbsp</br2>
+				<br2>&nbsp</br2>
+				<br2>&nbsp</br2>
+			`
+			}
+			if(i>9){		
+			carne.innerHTML +=
+			`			
+				<div class="box">			
+					${i}º&nbspParcela ${dia}/${meses[mes-1]}/${ano}				
+				</div>					
+			`
+			}
+			
 		}
 
 		for (var i = 0 ; i < {{object.qtd_parcelas}}; i++){
@@ -275,8 +336,7 @@
 			ano++				
 		}
 			
-		carne.innerHTML +=
-		`&nbsp<br>`+
+		carne.innerHTML +=		
 		`
 		<table cellspacing="0" cellpadding="0" border="1">
 			<!--1º linha-->
@@ -424,8 +484,7 @@
 				</td>
 			</tr>
 		</table>				
-		`+
-		`&nbsp<br>`
+		`
 		}			
 	}	
 
