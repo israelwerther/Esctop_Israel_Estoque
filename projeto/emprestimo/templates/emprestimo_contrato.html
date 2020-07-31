@@ -104,12 +104,22 @@
     }
 
     .desloca1{        
-        margin-top: 700px;
+        margin-top: 1250px;
         margin-left: 850px;
         position: absolute;
     }
     .desloca2{        
-        margin-top: 2000px;
+        margin-top: 2550px;
+        margin-left: 850px;
+        position: absolute;
+    }
+    .desloca3{        
+        margin-top: 3850px;
+        margin-left: 850px;
+        position: absolute;
+    }
+    .desloca4{        
+        margin-top: 5100px;
         margin-left: 850px;
         position: absolute;
     }
@@ -128,12 +138,7 @@
            
         </div>
     </div>  
-        <p class="desloca1">
-            1/2 
-        </p>
-        <p class="desloca2">
-            2/2 
-        </p>    
+    
 <script>
 
 window.onload = function imprimir(){
@@ -224,9 +229,17 @@ window.onload = function imprimir(){
     var fiador        = "{{object.cliente.fiador.nome}}"
     var cpf_fiador    = "{{object.cliente.fiador.cpf}}"
     
-    if(fiador){        
+    if(fiador){         
+        
         contrato.innerHTML +=
         `   
+        <p class="desloca1">
+            1/2 
+        </p>
+        <p class="desloca2">
+            2/2 
+        </p>      
+
             <h2> CONTRATO DE MÚTUO </h2>
             <p class="fontmenor" >Pelo presente contrato particular de empréstimo de dinheiro,de um lado, Josimério de Abreu Silva, (Brasileiro, Solteiro, RG 1.791.746 SSP RN, CPF 029.388.274-66), 
             de ora em diante denominado simplesmente por CREDOR, e, de outro lado, ${cliente_nome}
@@ -352,6 +365,18 @@ window.onload = function imprimir(){
     else{
         contrato.innerHTML +=
         `
+        <p class="desloca1">
+            1/4 
+        </p>
+        <p class="desloca2">
+            2/4 
+        </p>
+        <p class="desloca3">
+            3/4 
+        </p> 
+        <p class="desloca4">
+            4/4 
+        </p>   
         <h2>CONTRATO DE MÚTUO FINANCEIRO</h2><br><br>
 
         <div class="num_contrato" > 
@@ -460,6 +485,7 @@ window.onload = function imprimir(){
         }
         contrato.innerHTML +=
         `
+        <p style="page-break-after:always"></p>
         <h2>QUADRO 03 - GARANTIA(S)</h2>
         <div class="quadro" >    
             (X) NOTAS PROMISSÓRIAS &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  
@@ -534,6 +560,7 @@ window.onload = function imprimir(){
         <div class="paragrafo" >
             <strong> b) </strong>caso a <strong> CONTRATANTE MUTUÁRIA </strong>ajuizar pedido de falência ou recuperação judicial.  
         </div>
+        <p style="page-break-after:always"></p>
         <div class="paragrafo" >
             <strong> DOS ENCARGOS FINANCEIROS </strong>
         </div>
@@ -606,6 +633,7 @@ window.onload = function imprimir(){
             <strong> CONTRATADA MUTUANTE </strong> poderá realizar, a seu critério, 
             cobrança por meio de empresa terceirizada, seja no âmbito de telecobrança ou cobrança especializada.
         </div>
+        <p style="page-break-after:always"></p>
         <div class="paragrafo" >
             <strong> DAS DISPOSIÇÕES GERAIS </strong>
         </div>
