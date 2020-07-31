@@ -240,13 +240,13 @@ window.onload = function imprimir(){
             nos moldes da legislação em vigor (Dec. 22.626/33 c/c art. 591 CC/02), pagas conforme boleto bancário, ou outro meio disponibilizado e 
             pactuado, mediante as condições seguintes.
             </p>
-            <p class="fontmenor">
+            <p class="fontmenor" >
             <b>CLÁUSULA 2ª</b> - Que a quantia acima emprestada, parcelada, deverá ser adimplida ao <b>CREDOR</b> no dia de acordo com tabela abaixo:
             </p>
         `
         +
         `
-        <table cellspacing="0" cellpadding="0" border="1">       
+        <table cellspacing="0" cellpadding="0" border="1" >       
             <tr>
                 <td width="33%">
                     <b>PARCELAS</b>
@@ -258,7 +258,7 @@ window.onload = function imprimir(){
                     <b>VALOR</b>
                 </td>						
             </tr>
-        </table>
+        </table >
         `
         for(var i=0; i<{{object.qtd_parcelas}}; i++){
             contador_parcela++
@@ -296,7 +296,7 @@ window.onload = function imprimir(){
         `
         }
         contrato.innerHTML +=
-        `
+        `   <p style="page-break-after:always"></p>
             <p class="fontmenor" >
                 <b>CLÁUSULA 3ª</b> - Na falta do pagamento do empréstimo na data aprazada, o <b>DEVEDOR</b> pagará uma multa no percentual de 
                 2% mais juros moratório sobre o débito no percentual de 0.66%, por dia, acrescido de correção monetária sobre o montante 
