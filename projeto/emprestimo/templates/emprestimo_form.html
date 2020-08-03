@@ -42,7 +42,7 @@
         <div class="col-sm-3"> 
                 <div class="form-group">
                     <label for="">{{form.valor_emprestado.label}}</label>
-                    {% render_field form.valor_emprestado class="form-control" id="valor_emprestado" onblur="somar()"%}                       
+                    {% render_field form.valor_emprestado class="form-control" id="valor_emprestado" %}                       
                 </div>
             </div>
         </div>
@@ -50,9 +50,24 @@
             <div class="col-sm-3">                    
                 <div class="form-group" >                
                     <label for="" class="required" >{{form.qtd_parcelas.label}} </label>                
-                    {% render_field form.qtd_parcelas class="form-control" id="qtd_parcelas" onblur="somar()"%}
+                    {% render_field form.qtd_parcelas class="form-control" id="qtd_parcelas" %}
                 </div>
             </div>
+            {% if object.pk %}         
+                <div class="col-sm-3"> 
+                    <div class="form-group">
+                        <label for="">{{form.data_emprestimo.label}}</label>
+                        {% render_field form.data_emprestimo class="form-control" id="data_emprestimo" onblur="somar()"%}                       
+                    </div>
+                </div>       
+            {% else %}            
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label for="">{{form.data_emprestimo.label}}</label>   
+                        {% render_field form.data_emprestimo class="form-control" type="date" onblur="somar()"%}                    
+                    </div>                  
+                </div>            
+            {% endif %} 
             <div class="col-sm-3" > 
                 <div class="form-group" id="res">
                     <label for="">{{form.valor_prestacao.label}}</label>
@@ -60,21 +75,6 @@
                                     
                 </div>   
             </div>     
-        {% if object.pk %}         
-            <div class="col-sm-3"> 
-                <div class="form-group">
-                    <label for="">{{form.data_emprestimo.label}}</label>
-                    {% render_field form.data_emprestimo class="form-control" id="data_emprestimo"%}                       
-                </div>
-            </div>       
-        {% else %}            
-            <div class="col-sm-3">
-                <div class="form-group">
-                    <label for="">{{form.data_emprestimo.label}}</label>   
-                    {% render_field form.data_emprestimo class="form-control" type="date"%}                    
-                </div>                  
-            </div>            
-        {% endif %} 
     </div>
 
     {% if emprestimo %}   
