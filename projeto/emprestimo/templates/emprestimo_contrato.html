@@ -177,6 +177,12 @@ window.onload = function imprimir(){
         }else{
             qtd_dias +=30
         }
+        if(mes_do_emprestimo == 13){
+            mes_do_emprestimo = 1
+        }
+
+
+
         var aux = 0 
         iof_inicial += ((principal*(qtd_dias*0.0041))/100)
         aux2 += Number(toFixed((qtd_dias*iof_diario), 2))
@@ -573,8 +579,8 @@ window.onload = function imprimir(){
 
         <div class="paragrafo" >
             <strong> CLÁUSULA1ª. </strong> A integralidade do crédito é composta da seguinte forma: Valor 
-            mutuado R$ ${cap_iof = Number(toFixed(cap_iof, 2))}, Taxa de Juros a.m (9,50)%, taxa de juros moratório 0,66% ao dia, multa por 
-            atraso: 2%, IOF Adicional (${iof_real}), IOF diário (${iof_real}), valor do IOF total: R$ ${iof_real = Number(toFixed(iof_real, 2))}, Valor total 
+            mutuado R$ ${cap_iof = Number(toFixed(cap_iof, 2))}, Taxa de Juros a.m (9.50)%, taxa de juros moratório 0,66% ao dia, multa por 
+            atraso: 2%, IOF Adicional (${aux1}), IOF diário (${iof_real}), valor do IOF total: R$ ${iof_real = Number(toFixed(iof_real, 2))}, Valor total 
             devido: R$ (josemir)).
         </div>
         <div class="paragrafo" >
