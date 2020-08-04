@@ -191,7 +191,7 @@
 			width: 813px;
 			height: 300px;				
 			border: 1px solid black;			
-			position: absolute;
+			position:absolute;
 			text-align: center;
 			border: 1px solid black;
 		}
@@ -390,9 +390,80 @@
 		carne.innerHTML +=		
 		`
 		<p>&nbsp</p>
-		<p>&nbsp</p>		
-		
-		`			
+		<p>&nbsp</p>			
+
+		`	
+		if({{object.qtd_parcelas}}==1){
+			carne.innerHTML +=		
+			`	
+			<p>&nbsp</p>
+			<p>&nbsp</p>
+			<p>&nbsp</p>
+			<p>&nbsp</p>			
+			<p>&nbsp</p>			
+			
+			`	
+		}
+		if({{object.qtd_parcelas}}==2){
+			carne.innerHTML +=		
+			`	
+			<p>&nbsp</p>
+			<p>&nbsp</p>
+			<p>&nbsp</p>			
+			<p>&nbsp</p>			
+			<p>&nbsp</p>			
+			
+			`	
+		}
+		if({{object.qtd_parcelas}}==3){
+			carne.innerHTML +=		
+			`	
+			<p>&nbsp</p>
+			<p>&nbsp</p>			
+			<p>&nbsp</p>			
+			
+			`	
+		}
+		if({{object.qtd_parcelas}}==4){
+			carne.innerHTML +=		
+			`	
+			<p>&nbsp</p>
+			<p>&nbsp</p>			
+			<p>&nbsp</p>			
+			
+			`	
+		}
+		if({{object.qtd_parcelas}}==5){
+			carne.innerHTML +=		
+			`	
+			<p>&nbsp</p>
+			<p>&nbsp</p>			
+			<p>&nbsp</p>			
+			
+			`	
+		}
+		if({{object.qtd_parcelas}}==6){
+			carne.innerHTML +=		
+			`	
+			<p>&nbsp</p>			
+			<p>&nbsp</p>			
+			
+			`	
+		}
+		if({{object.qtd_parcelas}}==7){
+			carne.innerHTML +=		
+			`	
+			<p>&nbsp</p>			
+			<p>&nbsp</p>	
+			`	
+		}
+		if({{object.qtd_parcelas}}==8){
+			carne.innerHTML +=		
+			`	
+			<p>&nbsp</p>			
+			<p>&nbsp</p>
+			`	
+		}		
 		
 		for (var i = 0 ; i < {{object.qtd_parcelas}}; i++){
 			contador_meses++
@@ -416,9 +487,9 @@
 				aux_ano++
 				ano++				
 			}
-					
+			
 			carne.innerHTML +=		
-			`		
+			`	
 			<table cellspacing="0" cellpadding="0" border="1">
 				<!--1º linha-->
 				<tr>
