@@ -50,5 +50,9 @@ python manage.py migrate
 ## OBSERVAÇÕES
 * Cliente CNPJ terá boleto ao invés de carnê
 * Preencher o campo nome fantasia automaticamente
+* forma constituição opcional
+* inscrição estadual tem mascara
+* representante não ser obrigatório
+* inserir digito model em dados bancários e criar máscaras
 
 
