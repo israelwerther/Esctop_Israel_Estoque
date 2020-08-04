@@ -74,17 +74,18 @@
                     {% render_field form.valor_prestacao class="form-control" id="prestacao" %}
                 </div>  
             </div>               
-    </div>
-
-    {% if emprestimo %}   
+        </div>
+        
+        {% if emprestimo %}   
         <button type="submit" class="btn btn-success" >Salvar Alterações</button>     
         <a href="{% url 'emprestimo:emprestimo_pagamento_add' emprestimo.pk %}" class="btn btn-primary">Realizar pagamento </a> 
-    {% else %}
+        <button  onclick="somar()" class="btn btn-info">Calcular Parcela</button>
+        {% else %}
         <a href="{% url 'emprestimo:emprestimo_list' %}" type="button" class="btn btn-danger">Cancelar</a>        
         <button type="submit" class="btn btn-success">Cadastrar</button>
+        <button  onclick="somar()" class="btn btn-info">Calcular Parcela</button>
     </form>
     {% endif %}
-    <button  onclick="somar()" class="btn btn-info">Calcular Parcela</button>
 
 <script>
     function toFixed(num, fixed) {
