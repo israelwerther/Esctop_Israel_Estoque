@@ -75,6 +75,7 @@
                                     
                 </div>   
             </div>     
+            {{object.data_emprestimo.month}}
     </div>
 
     {% if emprestimo %}   
@@ -117,12 +118,16 @@
         }else{
             qtd_dias +=30
         }
+        mes_do_emprestimo+=1
+        if(mes_do_emprestimo == 13){
+            mes_do_emprestimo = 1
+        }
         var aux = 0 
-        iof_inicial += ((principal*(qtd_dias*0.0041))/100)        
+        iof_inicial += ((principal*(qtd_dias*0.0041))/100)
         iof_inicial = Number(toFixed(iof_inicial, 4)) 
         iof_inicial += principal*iof_adicional
         iof_inicial = Number(toFixed(iof_inicial, 2))
-        mes_do_emprestimo++
+        
     }    
 
     //CALCULA O IOF_REAL (2º PASSO)   
