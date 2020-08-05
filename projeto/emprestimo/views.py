@@ -1,10 +1,11 @@
 from django.shortcuts import render, resolve_url, redirect, get_object_or_404
-from django.views.generic import CreateView, UpdateView
+from django.views.generic import CreateView, UpdateView, DeleteView
 from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import Emprestimo, EmprestimoPagamento, Cliente
 from .forms import EmprestimoForm, EmprestimoPagamentoForm
 from django.contrib.auth.decorators import login_required
+from django.urls import reverse_lazy
 
 
 @login_required
@@ -35,7 +36,13 @@ class EmprestimoUpdate(UpdateView):
         obj = form_class.save(commit=False)
         obj.funcionario = self.request.user
         return super(EmprestimoUpdate, self).form_valid(form_class)
+
     
+class EmprestimoDelete(DeleteView):
+    model=Emprestimo
+    template_name ='emprestimo_delete.html'    
+    success_url = reverse_lazy('emprestimo:emprestimo_list')
+
 
 class EmprestimoImpress(UpdateView):
     model=Emprestimo
