@@ -57,7 +57,7 @@
                 <div class="col-sm-3"> 
                     <div class="form-group">
                         <label for="">{{form.data_emprestimo.label}}</label>
-                        {% render_field form.data_emprestimo class="form-control" id="data_emprestimo" onblur="somar()"%}                       
+                        {% render_field form.data_emprestimo class="form-control" id="dataselecionada" onblur="somar()"%}                       
                     </div>
                 </div>       
             {% else %}            
@@ -105,9 +105,7 @@
         var qtd_parcelas       = Number(tqtd_parcelas.value)
         var prestacao          = Number(tprestacao.value)
         
-        var principal          = valor_emprestado/qtd_parcelas         
-
-        var mes_do_emprestimo  = Number({{object.data_emprestimo.month}})
+        var principal          = valor_emprestado/qtd_parcelas    
 
         var iof_inicial        = 0
         var iof_diario         = 0.0041        
