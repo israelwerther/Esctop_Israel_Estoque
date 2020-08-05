@@ -57,47 +57,50 @@
                 <div class="col-sm-3"> 
                     <div class="form-group">
                         <label for="">{{form.data_emprestimo.label}}</label>
-                        {% render_field form.data_emprestimo class="form-control" id="data_emprestimo" %}                       
+                        {% render_field form.data_emprestimo class="form-control" id="data_emprestimo" onblur="somar()"%}                       
                     </div>
                 </div>       
             {% else %}            
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label for="">{{form.data_emprestimo.label}}</label>   
-                        {% render_field form.data_emprestimo class="form-control" type="date" %}                    
+                        {% render_field form.data_emprestimo class="form-control" id="dataselecionada" type="date" onblur="somar()"%}                    
                     </div>                  
                 </div>            
-            {% endif %} 
+            {% endif %}            
             <div class="col-sm-3" > 
                 <div class="form-group" id="res">
                     <label for="">{{form.valor_prestacao.label}}</label>
                     {% render_field form.valor_prestacao class="form-control" id="prestacao" %}
                 </div>  
-            </div>               
-        </div>
+            </div>  
+        </div>           
         
         {% if emprestimo %}   
         <button type="submit" class="btn btn-success" >Salvar Alterações</button>     
         <a href="{% url 'emprestimo:emprestimo_pagamento_add' emprestimo.pk %}" class="btn btn-primary">Realizar pagamento </a> 
-        <button  onclick="somar()" class="btn btn-info">Calcular Parcela</button>
+        
         {% else %}
         <a href="{% url 'emprestimo:emprestimo_list' %}" type="button" class="btn btn-danger">Cancelar</a>        
         <button type="submit" class="btn btn-success">Cadastrar</button>
-        <button  onclick="somar()" class="btn btn-info">Calcular Parcela</button>
     </form>
+    <button  onclick="somar()" class="btn btn-info">Calcular Parcela</button>
     {% endif %}
 
 <script>
+    
     function toFixed(num, fixed) {
         var re = new RegExp('^-?\\d+(?:\.\\d{0,' + (fixed || -1) + '})?');
         return num.toString().match(re)[0];
     }
         
     function somar(){
-        var tvalor_emprestado = document.getElementById('valor_emprestado')
-        var tqtd_parcelas     = document.getElementById('qtd_parcelas')
-        var tprestacao        = document.getElementById('prestacao')
-
+        var tvalor_emprestado  = document.getElementById('valor_emprestado')
+        var tqtd_parcelas      = document.getElementById('qtd_parcelas')
+        var tprestacao         = document.getElementById('prestacao')
+        var mes                = document.getElementById("dataselecionada").value.split("-")[1];
+        var mes_num            = Number(mes)
+        
         var valor_emprestado   = Number(tvalor_emprestado.value)                
         var qtd_parcelas       = Number(tqtd_parcelas.value)
         var prestacao          = Number(tprestacao.value)
@@ -106,21 +109,21 @@
 
         var mes_do_emprestimo  = Number({{object.data_emprestimo.month}})
 
-        var iof_inicial       = 0
-        var iof_diario        = 0.0041        
-        var qtd_dias          = 0
-        var iof_adicional     = 0.0038   
+        var iof_inicial        = 0
+        var iof_diario         = 0.0041        
+        var qtd_dias           = 0
+        var iof_adicional      = 0.0038   
 
     //CALCULA O IOF_INICIAL (1º PASSO)
     for (var i = 0 ; i < qtd_parcelas; i++){
-        if(mes_do_emprestimo == 1 || mes_do_emprestimo == 3 || mes_do_emprestimo == 5 || mes_do_emprestimo == 7 || mes_do_emprestimo == 8 || mes_do_emprestimo == 10 || mes_do_emprestimo == 12){
+        if(mes_num == 1 || mes_num == 3 || mes_num == 5 || mes_num == 7 || mes_num == 8 || mes_num == 10 || mes_num == 12){
             qtd_dias += 31
         }else{
             qtd_dias +=30
         }
-        mes_do_emprestimo+=1
-        if(mes_do_emprestimo == 13){
-            mes_do_emprestimo = 1
+        mes_num+=1
+        if(mes_num == 13){
+            mes_num = 1
         }        
         iof_inicial += ((principal*(qtd_dias*0.0041))/100)
         //iof_inicial = Number(toFixed(iof_inicial, 4)) 
@@ -145,6 +148,7 @@
         valor_parcela = String(toFixed(valor_parcela, 2))  
 
     document.getElementById('prestacao').value = valor_parcela
+  
 
     }
 </script>

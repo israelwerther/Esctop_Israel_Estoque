@@ -16,8 +16,8 @@ class Emprestimo(models.Model):
     valor_emprestado = models.DecimalField("Valor Emprestado", max_digits=10, decimal_places=2, null=True, blank=True)
     qtd_parcelas     = models.PositiveIntegerField('Qtd Parcelas', null=True, blank=True)
     valor_prestacao  = models.DecimalField("Valor da prestação", max_digits=10, decimal_places=2, null=True, blank=True)
-    data_emprestimo  = models.DateField("Data do Empréstimo", auto_now_add=False, auto_now=False, null=True,blank=True,)      
-
+    data_emprestimo  = models.DateField("Data do Empréstimo", auto_now_add=False, auto_now=False, null=True,blank=True)      
+   
     class Meta:
         ordering = ('-data_emprestimo',)
         

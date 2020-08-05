@@ -18,7 +18,7 @@ class EmprestimoForm(forms.ModelForm):
             'data_emprestimo'
         ]
         readonly_fields = ["valor_prestacao", ]
-     
+
 
 class EmprestimoPagamentoForm(forms.ModelForm):
     class Meta:
