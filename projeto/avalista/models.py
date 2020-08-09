@@ -27,7 +27,7 @@ class Avalista(models.Model):
 
 
 class Teste(models.Model):
-    teste                   = models.CharField("Avalista", max_length=50, blank=True, null=True)
+    teste                   = models.CharField("Teste", max_length=50, blank=True, null=True)
     cpf_teste               = models.CharField("CPF do Avalista", max_length=20, unique=True)
     rg_teste                = models.CharField("RG",max_length=20, blank=True, null=True)
 
