@@ -77,7 +77,7 @@ body {
 <div class="topnav" id="myTopnav">
     <a href="{% url 'core:index' %}" class="active" class="nav-link">CREDCOOP</a>
     <a href="{% url 'core:cliente_select' %}">Clientes</a>
-    {% comment %} <a href="{% url 'avalista:avalista_list' %}">Fiador</a> {% endcomment %}
+    <a href="{% url 'avalista:avalista_list' %}">Fiador</a>
     <a href="{% url 'emprestimo:emprestimo_list' %}">Empréstimos</a>
 
 	{% if user.is_authenticated %}
