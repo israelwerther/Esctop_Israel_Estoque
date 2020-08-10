@@ -18,7 +18,33 @@ def avalista_list(request):
 #     form_class=AvalistaForm    
 #     success_url = reverse_lazy('avalista:avalista_list')
 
-def avalista_add(request):
-    form_avalista = AvalistaForm()
-    form_teste = TesteForm()
-    return render(request, 'avalista_form.html', {'form1': form_avalista, 'form2': form_teste})
+
+@login_required
+def avalista_cadastra(request):
+    avalistas = Avalista.objects.all()
+    testes    = Teste.objects.all()
+    form1 = AvalistaForm()
+    form2 = TesteForm()
+    data = {'avalistas': avalistas, 'testes': testes,'form1': form1, 'form2': form2} 
+    return render(request, 'avalista_form.html', data)
+
+
+def avalista_novo(request):
+    form1 = AvalistaForm(request.POST or None)
+    form2 = TesteForm(request.POST or None)
+
+    if form1.is_valid() and form2.is_valid():
+        form1.save()
+        form2.save()
+    return redirect('avalista:avalista_list')
+
+
+# def avalista_add(request):
+#     form_avalista = AvalistaForm()
+#     form_teste = TesteForm()
+#     if request.method == 'POST':
+#         if form_avalista.is_valid():
+#             form_avalista.save()
+#         if form_teste.is_valid():
+#             form_teste.save()
+#     return render(request, 'avalista_form.html', {'form1': form_avalista, 'form2': form_teste})

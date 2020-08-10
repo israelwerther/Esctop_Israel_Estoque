@@ -6,7 +6,8 @@ app_name='avalista'
 
 urlpatterns = [      
     path('avalista/', v.avalista_list, name='avalista_list'),
-    path('add/', v.avalista_add, name='avalista_add'),
+    path('cadastra/', v.avalista_cadastra, name='avalista_cadastra'),
+    path('avalista_novo/', v.avalista_novo, name='avalista_novo'),
     # path('avalista_add/', login_required(v.AvalistaCreate.as_view()), name='avalista_add'),
 
 ]

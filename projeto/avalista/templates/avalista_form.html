@@ -5,36 +5,19 @@
 
 <h2>CADASTRO DE AVALISTA</h2>
 
-    <form method="POST">
-    {% csrf_token %}
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="form-group" >
-                    <label for="" class="required" >{{form1.avalista.label}} </label>
-                    {% render_field form1.avalista class="form-control"  %}
-                </div>
+    <form action="{% url 'avalista:avalista_novo' %}" method="post">
+        {% csrf_token %}
+         <div class="col-sm-4">
+            <div class="form-group">
+                <label for="">{{form1.avalista.label}}</label>
+                {% render_field form1.avalista class="form-control" %}
             </div>
-            <div class="col-sm-4">
-                <div class="form-group" >
-                    <label for="" class="required" >{{form1.cpf_avalista.label}} </label>
-                    {% render_field form1.cpf_avalista class="form-control"  %}
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="form-group" >
-                    <label for="" class="required" >{{form2.teste.label}} </label>
-                    {% render_field form2.teste class="form-control"  %}
-                </div>
-            </div>
-            
-            
-        </div>
-        <br>
-        <div style='float: right;'>
-            <a href="{% url 'avalista:avalista_list' %}" type="button" class="btn btn-secondary">Voltar</a>
-            <button class="btn btn-success" float="right">Cadastrar</button>
-        </div>
-    </form>   
+        </div>   
+        {{ form1.as_p }} 
+        {{ form2.as_p }}            
+        
+        <input type="submit" class="btn btn-info" value="Salvar">
+    </form>
 
 {% endblock content %}
 
