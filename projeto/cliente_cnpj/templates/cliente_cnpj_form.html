@@ -59,9 +59,9 @@
    <!-- https://www.schoolofnet.com/forum/topico/como-enviar-a-mensagem-de-sucesso-ou-erro-para-o-formulario-8495 -->    
 
     <div class="tab">
-        <button class="tablinks" onclick="openCity(event, 'Page1')">Dados Pessoais</button>        
-        <button class="tablinks" onclick="openCity(event, 'Page2')">Dados Bancários</button>
-        <button class="tablinks" onclick="openCity(event, 'Page3')">Referências e Observações</button>
+        <button class="tablinks" onclick="openCity(event, 'Page1')">Empresa</button>        
+        <button class="tablinks" onclick="openCity(event, 'Page2')">Representante</button>
+        <button class="tablinks" onclick="openCity(event, 'Page3')">Fiador</button>
     </div>
     
     <div id="Page1" class="tabcontent" style="display:block">
@@ -195,10 +195,35 @@
                 </div>
             </div>            
         </div> 
+        <div class="row">
+            <div class="col-sm-2">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.agencia.label}} </label>        
+                    {% render_field form.agencia class="form-control" %}
+                </div>                    
+            </div>
+            <div class="col-sm-2">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.conta.label}} </label>        
+                    {% render_field form.conta class="form-control" %}
+                </div>
+            </div>
+            <div class="col-sm-4">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.banco.label}} </label>        
+                    {% render_field form.banco class="form-control" %}
+                </div>
+            </div>
+            <div class="col-sm-5">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.obs_bancaria.label}} </label>        
+                    {% render_field form.obs_bancaria class="form-control" %}
+                </div>
+            </div>
+        </div>  
     </div>
     
-    <div id="Page2" class="tabcontent">
-        <h2>DADOS BANCÁRIOS</h2>
+    <div id="Page2" class="tabcontent">        
         <div class="row">
             <div class="col-sm-2">                    
                 <div class="form-group" >                

@@ -29,10 +29,7 @@ class Cliente_cnpj(models.Model):
     conta                 = models.CharField("Conta",max_length=15, blank=True, null=True)
     banco                 = models.CharField("Banco",max_length=25, blank=True, null=True)
     obs_bancaria          = models.CharField("Observações",max_length=25, blank=True, null=True)    
-
-    representante         = models.ForeignKey(Cliente,on_delete=models.PROTECT, max_length=11, blank=True, null=True)
-
-    anotacoes             = models.TextField("Anotações",max_length=200, blank=True, null=True)
+    
 
     class Meta:
         ordering = ('nome_fantasia',)
