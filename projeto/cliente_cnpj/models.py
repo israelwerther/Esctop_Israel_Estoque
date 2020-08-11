@@ -11,7 +11,6 @@ class Cliente_cnpj(models.Model):
     inscricao_estadual    = models.CharField("Inscrição Estadual",blank=True, null=True, max_length=50)
     inscricao_municipal   = models.CharField("Inscrição Municipal", blank=True, null=True,max_length=50)
     email                 = models.EmailField("Email", max_length=50, blank=True, null=True)
-
     cep                   = models.CharField("CEP", max_length=10, blank=False, null=True)
     rua                   = models.CharField("Rua", max_length=60, blank=False, null=True)
     bairro                = models.CharField("Bairro", max_length=40, blank=False, null=True)
@@ -19,16 +18,29 @@ class Cliente_cnpj(models.Model):
     uf                    = models.CharField("Estado", max_length=2, blank=False, null=True)   
     numero_casa           = models.CharField("Nº ", max_length=5, blank=False, null=True)
     ponto_referencia      = models.CharField("Ponto de Referencia", max_length=100, blank=True, null=True)
-
     contato1              = models.CharField("Contato 1",max_length=15, blank=True, null=True)
     contato2              = models.CharField("Contato 2",max_length=15, blank=True, null=True)
     celular1              = models.CharField("Celular 1",max_length=17, blank=True, null=True)
     celular2              = models.CharField("Celular 2",max_length=17, blank=True, null=True)
-
     agencia               = models.CharField("Agência",max_length=15, blank=True, null=True)
     conta                 = models.CharField("Conta",max_length=15, blank=True, null=True)
     banco                 = models.CharField("Banco",max_length=25, blank=True, null=True)
-    obs_bancaria          = models.CharField("Observações",max_length=25, blank=True, null=True)    
+    obs_bancaria          = models.CharField("Observações",max_length=25, blank=True, null=True)   
+
+    rep_nome              = models.CharField("Nome", max_length=50, blank=True, null=True)
+    rep_cpf               = models.CharField("CPF", max_length=20, unique=True) 
+    rep_rg                = models.CharField("RG",max_length=20, blank=False, null=True)
+    email                 = models.EmailField("Email", max_length=50, blank=True, null=True)
+    rep_contato1          = models.CharField("Contato 1",max_length=15, blank=True, null=True)
+    rep_celular1          = models.CharField("celular 1",max_length=17, blank=True, null=True)
+    rep_celular2          = models.CharField("celular 2",max_length=17, blank=True, null=True)
+    rep_cep               = models.CharField("CEP", max_length=10, blank=False, null=True)
+    rep_rua               = models.CharField("Rua", max_length=60, blank=False, null=True)
+    rep_bairro            = models.CharField("Bairro", max_length=40, blank=False, null=True)
+    rep_cidade            = models.CharField("Cidade", max_length=40, blank=False, null=True)
+    rep_uf                = models.CharField("Estado", max_length=2, blank=False, null=True)   
+    rep_numero_casa       = models.CharField("Nº ", max_length=5, blank=False, null=True)
+    rep_ponto_referencia  = models.CharField("Ponto de Referencia", max_length=100, blank=True, null=True)
     
 
     class Meta:
