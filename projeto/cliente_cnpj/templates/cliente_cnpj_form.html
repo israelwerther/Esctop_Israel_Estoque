@@ -222,9 +222,93 @@
             </div>
         </div>  
     </div>
-    
+    {% comment %} REPRESENTANTE {% endcomment %}
     <div id="Page2" class="tabcontent">        
         <div class="row">
+            <div class="col-sm-6">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.rep_nome.label}} </label>        
+                    {% render_field form.rep_nome class="form-control" %}
+                </div>                    
+            </div>
+            <div class="col-sm-3">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.rep_cpf.label}} </label>        
+                    {% render_field form.rep_cpf class="form-control" %}
+                </div>
+            </div>
+            <div class="col-sm-3">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.rep_rg.label}} </label>        
+                    {% render_field form.rep_rg class="form-control" %}
+                </div>
+            </div>
+            <div class="col-sm-2">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.rep_contato1.label}} </label>        
+                    {% render_field form.rep_contato1 class="form-control" %}
+                </div>
+            </div>
+            <div class="col-sm-2">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.rep_celular1.label}} </label>        
+                    {% render_field form.rep_celular1 class="form-control cel-phone-mask" type="text" %}
+                </div>
+            </div>
+            <div class="col-sm-2">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.rep_celular2.label}} </label>        
+                    {% render_field form.rep_celular2 class="form-control" %}
+                </div>
+            </div>
+            <div class="col-sm-6">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.email.label}} </label>        
+                    {% render_field form.email class="form-control" %}
+                </div>
+            </div>
+            <div class="col-sm-2">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.rep_cep.label}} </label>        
+                    {% render_field form.rep_cep class="form-control" %}
+                </div>
+            </div>
+            <div class="col-sm-4">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.rep_rua.label}} </label>        
+                    {% render_field form.rep_rua class="form-control" %}
+                </div>
+            </div>
+            <div class="col-sm-5">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.rep_bairro.label}} </label>        
+                    {% render_field form.rep_bairro class="form-control" %}
+                </div>
+            </div>
+            <div class="col-sm-3">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.rep_cidade.label}} </label>        
+                    {% render_field form.rep_cidade class="form-control" %}
+                </div>
+            </div>
+            <div class="col-sm-2">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.rep_uf.label}} </label>        
+                    {% render_field form.rep_uf class="form-control" %}
+                </div>
+            </div>
+            <div class="col-sm-5">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.rep_numero_casa.label}} </label>        
+                    {% render_field form.rep_numero_casa class="form-control" %}
+                </div>
+            </div>
+            <div class="col-sm-5">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.rep_ponto_referencia.label}} </label>        
+                    {% render_field form.rep_ponto_referencia class="form-control" %}
+                </div>
+            </div>
             <div class="col-sm-2">                    
                 <div class="form-group" >                
                     <label for="" >{{form.agencia.label}} </label>        
@@ -248,8 +332,8 @@
                     <label for="" >{{form.obs_bancaria.label}} </label>        
                     {% render_field form.obs_bancaria class="form-control" %}
                 </div>
-            </div>
-        </div>  
+            </div>        
+        </div>          
     </div>
 
     <div id="Page3" class="tabcontent">         
@@ -267,7 +351,7 @@
         </form> 
     </div>
     
-    <script>
+    {% comment %} <script>
         var cnpjcpf= $("#cpfcnpj").val().length;
      
         if(cnpjcpf < 11){
@@ -275,7 +359,7 @@
         } else {
             $("#cpfcnpj").mask("99.999.999/9999-99");
         } 
-    </script>
+    </script> {% endcomment %}
 
 {% endblock content %}
 
