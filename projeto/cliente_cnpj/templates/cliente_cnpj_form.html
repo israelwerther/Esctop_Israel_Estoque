@@ -85,7 +85,7 @@
             <div class="col-sm-4">                    
                 <div class="form-group" >                
                     <label for="" class="required" >{{form.cnpj.label}} </label>        
-                    {% render_field form.cnpj class="form-control" %}
+                    {% render_field form.cnpj class="form-control cnpj-mask" %}
                 </div>
             </div>  
             <div class="col-sm-3">                    
@@ -234,7 +234,7 @@
             <div class="col-sm-3">                    
                 <div class="form-group" >                
                     <label for="" >{{form.rep_cpf.label}} </label>        
-                    {% render_field form.rep_cpf class="form-control" %}
+                    {% render_field form.rep_cpf class="form-control cpf-mask" type="text" %}
                 </div>
             </div>
             <div class="col-sm-3">                    
@@ -246,7 +246,7 @@
             <div class="col-sm-2">                    
                 <div class="form-group" >                
                     <label for="" >{{form.rep_contato1.label}} </label>        
-                    {% render_field form.rep_contato1 class="form-control" %}
+                    {% render_field form.rep_contato1 class="form-control cel-phone-mask" type="text" %}
                 </div>
             </div>
             <div class="col-sm-2">                    
@@ -258,7 +258,7 @@
             <div class="col-sm-2">                    
                 <div class="form-group" >                
                     <label for="" >{{form.rep_celular2.label}} </label>        
-                    {% render_field form.rep_celular2 class="form-control" %}
+                    {% render_field form.rep_celular2 class="form-control cel-phone-mask" type="text" %}
                 </div>
             </div>
             <div class="col-sm-6">                    
@@ -273,7 +273,7 @@
                     {% render_field form.rep_cep class="form-control" %}
                 </div>
             </div>
-            <div class="col-sm-4">                    
+            <div class="col-sm-5">                    
                 <div class="form-group" >                
                     <label for="" >{{form.rep_rua.label}} </label>        
                     {% render_field form.rep_rua class="form-control" %}
@@ -297,7 +297,7 @@
                     {% render_field form.rep_uf class="form-control" %}
                 </div>
             </div>
-            <div class="col-sm-5">                    
+            <div class="col-sm-1">                    
                 <div class="form-group" >                
                     <label for="" >{{form.rep_numero_casa.label}} </label>        
                     {% render_field form.rep_numero_casa class="form-control" %}
