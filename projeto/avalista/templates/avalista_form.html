@@ -8,13 +8,8 @@
     <form action="{% url 'avalista:avalista_novo' %}" method="post">
         {% csrf_token %}
          <div class="col-sm-4">
-            <div class="form-group">
-                <label for="">{{form1.avalista.label}}</label>
-                {% render_field form1.avalista class="form-control" %}
-            </div>
+            
         </div>   
-        {{ form1.as_p }} 
-        {{ form2.as_p }}            
         
         <input type="submit" class="btn btn-info" value="Salvar">
     </form>

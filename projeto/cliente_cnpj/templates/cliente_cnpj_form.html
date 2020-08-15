@@ -338,12 +338,114 @@
 
     <div id="Page3" class="tabcontent">         
         <div class="row">
-            <div class="col-sm-12">
-                <div class="form-group">
-                    <label for="">{{form.anotacoes.label}}</label>
-                    {% render_field form.anotacoes class="form-control" %}
+            {% comment %} <div class="col-sm-6">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.fiador_nome.label}} </label>        
+                    {% render_field form.fiador_nome class="form-control" %}
+                </div>                    
+            </div>
+            <div class="col-sm-3">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.fiador_cpf.label}} </label>        
+                    {% render_field form.fiador_cpf class="form-control cpf-mask" type="text" %}
                 </div>
-            </div>   
+            </div>
+            <div class="col-sm-3">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.fiador_rg.label}} </label>        
+                    {% render_field form.fiador_rg class="form-control" %}
+                </div>
+            </div>
+            <div class="col-sm-2">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.fiador_contato1.label}} </label>        
+                    {% render_field form.fiador_contato1 class="form-control phone-mask" type="text" %}
+                </div>
+            </div>
+            <div class="col-sm-2">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.fiador_celular1.label}} </label>        
+                    {% render_field form.fiador_celular1 class="form-control cel-phone-mask" type="text" %}
+                </div>
+            </div>
+            <div class="col-sm-2">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.fiador_celular2.label}} </label>        
+                    {% render_field form.fiador_celular2 class="form-control cel-phone-mask" type="text" %}
+                </div>
+            </div>
+            <div class="col-sm-6">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.email.label}} </label>        
+                    {% render_field form.email class="form-control" %}
+                </div>
+            </div>
+            <div class="col-sm-2">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.fiador_cep.label}} </label>        
+                    {% render_field form.fiador_cep class="form-control" %}
+                </div>
+            </div>
+            <div class="col-sm-5">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.fiador_rua.label}} </label>        
+                    {% render_field form.fiador_rua class="form-control" %}
+                </div>
+            </div>
+            <div class="col-sm-5">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.fiador_bairro.label}} </label>        
+                    {% render_field form.fiador_bairro class="form-control" %}
+                </div>
+            </div>
+            <div class="col-sm-3">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.fiador_cidade.label}} </label>        
+                    {% render_field form.fiador_cidade class="form-control" %}
+                </div>
+            </div>
+            <div class="col-sm-2">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.fiador_uf.label}} </label>        
+                    {% render_field form.fiador_uf class="form-control" %}
+                </div>
+            </div>
+            <div class="col-sm-1">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.fiador_numero_casa.label}} </label>        
+                    {% render_field form.fiador_numero_casa class="form-control" %}
+                </div>
+            </div>
+            <div class="col-sm-5">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.fiador_ponto_referencia.label}} </label>        
+                    {% render_field form.fiador_ponto_referencia class="form-control" %}
+                </div>
+            </div>
+            <div class="col-sm-2">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.agencia.label}} </label>        
+                    {% render_field form.agencia class="form-control" %}
+                </div>                    
+            </div>
+            <div class="col-sm-2">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.conta.label}} </label>        
+                    {% render_field form.conta class="form-control" %}
+                </div>
+            </div>
+            <div class="col-sm-4">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.banco.label}} </label>        
+                    {% render_field form.banco class="form-control" %}
+                </div>
+            </div>
+            <div class="col-sm-5">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.obs_bancaria.label}} </label>        
+                    {% render_field form.obs_bancaria class="form-control" %}
+                </div>
+            </div>         {% endcomment %}
         </div>
         <div style='float: right;'>
             <button class="btn btn-success" float="right">Cadastrar</button>
