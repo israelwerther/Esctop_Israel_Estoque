@@ -3,9 +3,13 @@
 {% block content %}
 
 <div class="class page-header">
-    <div class="float-right">
-        <a href="{% url 'cliente_cnpj:cliente_cnpj_add' %}" type="button" class="btn btn-success">Cadastrar Cliente CNPJ</a>
-    </div>
+    <span class="float-right">
+        <a href="{% url 'cliente_cnpj:cliente_cnpj_add' %}" >
+            <button type="button" class="btn btn-success">
+                <span class="fa fa-plus"></span>Adicionar
+            </button>
+        </a>
+    </span>
         
     <div>
         <h2>Lista de Clientes(CNPJ)</h2>

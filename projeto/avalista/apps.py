@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class AvalistaConfig(AppConfig):
-    name = 'avalista'
+    name = 'fiador_nome'

@@ -4,11 +4,11 @@ from .models import Avalista, Teste
 @admin.register(Avalista)
 class AvalistaAdmin(admin.ModelAdmin):
     list_display=(        
-        'avalista',
-        'cpf_avalista',             
+        'fiador_nome',
+        'fiador_cpf',             
     )
-    search_fields=('cpf_avalista',)
-    list_filter=('avalista',)
+    search_fields=('fiador_nome',)
+    list_filter=('fiador_cpf',)
     
 
 @admin.register(Teste)
