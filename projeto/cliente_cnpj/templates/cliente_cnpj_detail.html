@@ -10,7 +10,7 @@
 
 <span class="pull-right">
     <a href="{% url 'cliente_cnpj:cliente_cnpj_list' %}" type="button" class="btn btn-secondary">Voltar</a>
-    <a href="{% url 'cliente_cnpj:cliente_cnpj_edit' object.pk %}" type="button" class="btn btn-info">Editar</a>
+    <a href="{% url 'cliente_cnpj:cliente_cnpjupdate' object.pk %}" type="button" class="btn btn-info">Editar</a>
     <a href="{% url 'cliente_cnpj:cliente_cnpj_delete' object.pk %}" type="button" class="btn btn-danger">Deletar</a>
 </span>
 <h2>DETALHES(CNPJ) <br> {{ object.razao_social }}</h2>

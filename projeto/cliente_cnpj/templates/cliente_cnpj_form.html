@@ -65,285 +65,297 @@
     </div>
     
     <div id="Page1" class="tabcontent" style="display:block">
-        <form method="POST">
-        {% csrf_token %}
+
+        {% if cliente_cnpj %}
+            <h1>Editar {{cliente_cnpj.razao_social}}</h1>
+            <form action="{% url 'cliente_cnpj:cliente_cnpjupdate' cliente_cnpj.pk %}" method="POST" novalidate>
+        {% else %}
+            <form action="{% url 'cliente_cnpj:cliente_cnpj_add' %}" method="POST">
+        {% endif %}
+        {% csrf_token %}       
         <br>
+
         <h2>CADASTRO EMPRESA</h2>
-        <div class="row" >
+         <div class="row" > 
             <div class="col-sm-6">                    
                 <div class="form-group" >                
-                    <label for="" class="required" >{{form.razao_social.label}} </label>        
-                    {% render_field form.razao_social class="form-control" %}
+                    <label for="" class="required" >{{form1.razao_social.label}} </label>        
+                    {% render_field form1.razao_social class="form-control" %}
                 </div>
-            </div>        
+            </div>    
             <div class="col-sm-6">                    
                 <div class="form-group" >                
-                    <label for="" class="required" >{{form.nome_fantasia.label}} </label>        
-                    {% render_field form.nome_fantasia class="form-control" %}
+                    <label for="" class="required" >{{form1.nome_fantasia.label}} </label>        
+                    {% render_field form1.nome_fantasia class="form-control" %}
                 </div>
             </div>        
+           
             <div class="col-sm-4">                    
                 <div class="form-group" >                
-                    <label for="" class="required" >{{form.cnpj.label}} </label>        
-                    {% render_field form.cnpj class="form-control cnpj-mask" %}
+                    <label for="" class="required" >{{form1.cnpj.label}} </label>        
+                    {% render_field form1.cnpj class="form-control cnpj-mask" %}
                 </div>
             </div>  
             <div class="col-sm-3">                    
                 <div class="form-group" >                
-                    <label for="" class="required" >{{form.fundacao.label}} </label>        
-                    {% render_field form.fundacao class="form-control" type="date"%}
+                    <label for="" class="required" >{{form1.fundacao.label}} </label>        
+                    {% render_field form1.fundacao class="form-control" type="date"%}
                 </div>
             </div>  
             <div class="col-sm-5">                    
                 <div class="form-group" >                
-                    <label for="" class="required" >{{form.forma_constituicao.label}} </label>        
+                    <label for="" class="required" >{{form1.form1a_constituicao.label}} </label>        
                     {% render_field form.forma_constituicao class="form-control" %}
                 </div>
             </div>    
             <div class="col-sm-6">                    
                 <div class="form-group" >                
-                    <label for="" class="required" >{{form.inscricao_estadual.label}} </label>        
-                    {% render_field form.inscricao_estadual class="form-control" %}
+                    <label for="" class="required" >{{form1.inscricao_estadual.label}} </label>        
+                    {% render_field form1.inscricao_estadual class="form-control" %}
                 </div>
             </div> 
             <div class="col-sm-6">                    
                 <div class="form-group" >                
-                    <label for="" class="required" >{{form.inscricao_municipal.label}} </label>        
-                    {% render_field form.inscricao_municipal class="form-control" %}
+                    <label for="" class="required" >{{form1.inscricao_municipal.label}} </label>        
+                    {% render_field form1.inscricao_municipal class="form-control" %}
                 </div>
             </div> 
             <div class="col-sm-6">                    
                 <div class="form-group" >                
-                    <label for="" class="required" >{{form.email.label}} </label>        
-                    {% render_field form.email class="form-control" %}
+                    <label for="" class="required" >{{form1.email.label}} </label>        
+                    {% render_field form1.email class="form-control" %}
                 </div>
             </div> 
             <div class="col-sm-6">                    
                 <div class="form-group" >                
-                    <label for="" class="required" >{{form.representante.label}} </label>        
-                    {% render_field form.representante class="form-control" %}
+                    <label for="" class="required" >{{form1.representante.label}} </label>        
+                    {% render_field form1.representante class="form-control" %}
                 </div>
             </div>
         </div>    
         <div class="row">
             <div class="col-sm-2">                    
                 <div class="form-group" >                
-                    <label for="" class="required">{{form.cep.label}} </label>        
-                    {% render_field form.cep class="form-control" name="cep" type="text" id="cep" value="" size="10" maxlength="9" onblur="pesquisacep(this.value);"%}                            
+                    <label for="" class="required">{{form1.cep.label}} </label>        
+                    {% render_field form1.cep class="form-control" name="cep" type="text" id="cep" value="" size="10" maxlength="9" onblur="pesquisacep(this.value);"%}                            
                 </div>
             </div>
             <div class="col-sm-4">                    
                 <div class="form-group" >                
-                    <label for="" class="required">{{form.rua.label}} </label>        
-                    {% render_field form.rua class="form-control" name="rua" type="text" id="rua" size="60" %}
+                    <label for="" class="required">{{form1.rua.label}} </label>        
+                    {% render_field form1.rua class="form-control" name="rua" type="text" id="rua" size="60" %}
                 </div>
             </div>
             <div class="col-sm-1">                    
                 <div class="form-group" >                
-                    <label for="" class="required">{{form.numero_casa.label}} </label>        
-                    {% render_field form.numero_casa class="form-control" name="rua" type="text" id="rua" size="60" %}
+                    <label for="" class="required">{{form1.numero_casa.label}} </label>        
+                    {% render_field form1.numero_casa class="form-control" name="rua" type="text" id="rua" size="60" %}
                 </div>
             </div>
             <div class="col-sm-5">                    
                 <div class="form-group" >                
-                    <label for="" class="required">{{form.bairro.label}} </label>        
-                    {% render_field form.bairro class="form-control" name="bairro" type="text" id="bairro" size="40" %}
+                    <label for="" class="required">{{form1.bairro.label}} </label>        
+                    {% render_field form1.bairro class="form-control" name="bairro" type="text" id="bairro" size="40" %}
                 </div>
             </div>
             <div class="col-sm-3">                    
                 <div class="form-group" >                
-                    <label for="" class="required">{{form.cidade.label}} </label>        
-                    {% render_field form.cidade class="form-control" name="cidade" type="text" id="cidade" size="40"%}
+                    <label for="" class="required">{{form1.cidade.label}} </label>        
+                    {% render_field form1.cidade class="form-control" name="cidade" type="text" id="cidade" size="40"%}
                 </div>
             </div>
             <div class="col-sm-2">                    
                 <div class="form-group" >                
-                    <label for="" class="required">{{form.uf.label}} </label>        
-                    {% render_field form.uf class="form-control" name="uf" type="text" id="uf" size="2"%}
+                    <label for="" class="required">{{form1.uf.label}} </label>        
+                    {% render_field form1.uf class="form-control" name="uf" type="text" id="uf" size="2"%}
                 </div>
             </div>            
             <div class="col-sm-5">                    
                 <div class="form-group" >                
-                    <label for="" >{{form.ponto_referencia.label}} </label>        
-                    {% render_field form.ponto_referencia class="form-control" %}
+                    <label for="" >{{form1.ponto_referencia.label}} </label>        
+                    {% render_field form1.ponto_referencia class="form-control" %}
                 </div>
             </div>   
         </div>  
         <div class="row"> 
             <div class="col-sm-2">                    
                 <div class="form-group" >                
-                    <label for="" class="required">{{form.contato1.label}} </label>        
-                    {% render_field form.contato1 class="form-control phone-mask"  type="text"%}
+                    <label for="" class="required">{{form1.contato1.label}} </label>        
+                    {% render_field form1.contato1 class="form-control phone-mask"  type="text"%}
                 </div>
             </div>
             <div class="col-sm-2">                    
                 <div class="form-group" >                
-                    <label for="" >{{form.contato2.label}} </label>        
-                    {% render_field form.contato2 class="form-control phone-mask" type="text"%}
+                    <label for="" >{{form1.contato2.label}} </label>        
+                    {% render_field form1.contato2 class="form-control phone-mask" type="text"%}
                 </div>
             </div>
             <div class="col-sm-2">                    
                 <div class="form-group" >                
-                    <label for="" class="required">{{form.celular1.label}} </label>        
-                    {% render_field form.celular1 class="form-control cel-phone-mask" type="text"%}
+                    <label for="" class="required">{{form1.celular1.label}} </label>        
+                    {% render_field form1.celular1 class="form-control cel-phone-mask" type="text"%}
                 </div>
             </div>
             <div class="col-sm-2">                    
                 <div class="form-group" >                
-                    <label for="" >{{form.celular2.label}} </label>        
-                    {% render_field form.celular2 class="form-control cel-phone-mask" type="text"%}
+                    <label for="" >{{form1.celular2.label}} </label>        
+                    {% render_field form1.celular2 class="form-control cel-phone-mask" type="text"%}
                 </div>
             </div>            
         </div> 
         <div class="row">
             <div class="col-sm-2">                    
                 <div class="form-group" >                
-                    <label for="" >{{form.agencia.label}} </label>        
-                    {% render_field form.agencia class="form-control" %}
+                    <label for="" >{{form1.agencia.label}} </label>        
+                    {% render_field form1.agencia class="form-control" %}
                 </div>                    
             </div>
             <div class="col-sm-2">                    
                 <div class="form-group" >                
-                    <label for="" >{{form.conta.label}} </label>        
-                    {% render_field form.conta class="form-control" %}
+                    <label for="" >{{form1.conta.label}} </label>        
+                    {% render_field form1.conta class="form-control" %}
                 </div>
             </div>
             <div class="col-sm-4">                    
                 <div class="form-group" >                
-                    <label for="" >{{form.banco.label}} </label>        
-                    {% render_field form.banco class="form-control" %}
+                    <label for="" >{{form1.banco.label}} </label>        
+                    {% render_field form1.banco class="form-control" %}
                 </div>
             </div>
             <div class="col-sm-5">                    
                 <div class="form-group" >                
-                    <label for="" >{{form.obs_bancaria.label}} </label>        
-                    {% render_field form.obs_bancaria class="form-control" %}
+                    <label for="" >{{form1.obs_bancaria.label}} </label>        
+                    {% render_field form1.obs_bancaria class="form-control" %}
                 </div>
             </div>
         </div>  
-    </div>
+    </div> 
     {% comment %} REPRESENTANTE {% endcomment %}
-    <div id="Page2" class="tabcontent">        
+     <div id="Page2" class="tabcontent">        
         <div class="row">
             <div class="col-sm-6">                    
                 <div class="form-group" >                
-                    <label for="" >{{form.rep_nome.label}} </label>        
-                    {% render_field form.rep_nome class="form-control" %}
+                    <label for="" >{{form1.rep_nome.label}} </label>        
+                    {% render_field form1.rep_nome class="form-control" %}
                 </div>                    
             </div>
             <div class="col-sm-3">                    
                 <div class="form-group" >                
-                    <label for="" >{{form.rep_cpf.label}} </label>        
-                    {% render_field form.rep_cpf class="form-control cpf-mask" type="text" %}
+                    <label for="" >{{form1.rep_cpf.label}} </label>        
+                    {% render_field form1.rep_cpf class="form-control cpf-mask" type="text" %}
                 </div>
             </div>
             <div class="col-sm-3">                    
                 <div class="form-group" >                
-                    <label for="" >{{form.rep_rg.label}} </label>        
-                    {% render_field form.rep_rg class="form-control" %}
+                    <label for="" >{{form1.rep_rg.label}} </label>        
+                    {% render_field form1.rep_rg class="form-control" %}
                 </div>
             </div>
             <div class="col-sm-2">                    
                 <div class="form-group" >                
-                    <label for="" >{{form.rep_contato1.label}} </label>        
-                    {% render_field form.rep_contato1 class="form-control phone-mask" type="text" %}
+                    <label for="" >{{form1.rep_contato1.label}} </label>        
+                    {% render_field form1.rep_contato1 class="form-control phone-mask" type="text" %}
                 </div>
             </div>
             <div class="col-sm-2">                    
                 <div class="form-group" >                
-                    <label for="" >{{form.rep_celular1.label}} </label>        
-                    {% render_field form.rep_celular1 class="form-control cel-phone-mask" type="text" %}
+                    <label for="" >{{form1.rep_celular1.label}} </label>        
+                    {% render_field form1.rep_celular1 class="form-control cel-phone-mask" type="text" %}
                 </div>
             </div>
             <div class="col-sm-2">                    
                 <div class="form-group" >                
-                    <label for="" >{{form.rep_celular2.label}} </label>        
-                    {% render_field form.rep_celular2 class="form-control cel-phone-mask" type="text" %}
+                    <label for="" >{{form1.rep_celular2.label}} </label>        
+                    {% render_field form1.rep_celular2 class="form-control cel-phone-mask" type="text" %}
                 </div>
             </div>
             <div class="col-sm-6">                    
                 <div class="form-group" >                
-                    <label for="" >{{form.email.label}} </label>        
-                    {% render_field form.email class="form-control" %}
+                    <label for="" >{{form1.email.label}} </label>        
+                    {% render_field form1.email class="form-control" %}
                 </div>
             </div>
             <div class="col-sm-2">                    
                 <div class="form-group" >                
-                    <label for="" >{{form.rep_cep.label}} </label>        
-                    {% render_field form.rep_cep class="form-control" %}
+                    <label for="" >{{form1.rep_cep.label}} </label>        
+                    {% render_field form1.rep_cep class="form-control" %}
                 </div>
             </div>
             <div class="col-sm-5">                    
                 <div class="form-group" >                
-                    <label for="" >{{form.rep_rua.label}} </label>        
-                    {% render_field form.rep_rua class="form-control" %}
+                    <label for="" >{{form1.rep_rua.label}} </label>        
+                    {% render_field form1.rep_rua class="form-control" %}
                 </div>
             </div>
             <div class="col-sm-5">                    
                 <div class="form-group" >                
-                    <label for="" >{{form.rep_bairro.label}} </label>        
-                    {% render_field form.rep_bairro class="form-control" %}
+                    <label for="" >{{form1.rep_bairro.label}} </label>        
+                    {% render_field form1.rep_bairro class="form-control" %}
                 </div>
             </div>
             <div class="col-sm-3">                    
                 <div class="form-group" >                
-                    <label for="" >{{form.rep_cidade.label}} </label>        
-                    {% render_field form.rep_cidade class="form-control" %}
+                    <label for="" >{{form1.rep_cidade.label}} </label>        
+                    {% render_field form1.rep_cidade class="form-control" %}
                 </div>
             </div>
             <div class="col-sm-2">                    
                 <div class="form-group" >                
-                    <label for="" >{{form.rep_uf.label}} </label>        
-                    {% render_field form.rep_uf class="form-control" %}
+                    <label for="" >{{form1.rep_uf.label}} </label>        
+                    {% render_field form1.rep_uf class="form-control" %}
                 </div>
             </div>
             <div class="col-sm-1">                    
                 <div class="form-group" >                
-                    <label for="" >{{form.rep_numero_casa.label}} </label>        
-                    {% render_field form.rep_numero_casa class="form-control" %}
+                    <label for="" >{{form1.rep_numero_casa.label}} </label>        
+                    {% render_field form1.rep_numero_casa class="form-control" %}
                 </div>
             </div>
             <div class="col-sm-5">                    
                 <div class="form-group" >                
-                    <label for="" >{{form.rep_ponto_referencia.label}} </label>        
-                    {% render_field form.rep_ponto_referencia class="form-control" %}
+                    <label for="" >{{form1.rep_ponto_referencia.label}} </label>        
+                    {% render_field form1.rep_ponto_referencia class="form-control" %}
                 </div>
             </div>
             <div class="col-sm-2">                    
                 <div class="form-group" >                
-                    <label for="" >{{form.agencia.label}} </label>        
-                    {% render_field form.agencia class="form-control" %}
+                    <label for="" >{{form1.agencia.label}} </label>        
+                    {% render_field form1.agencia class="form-control" %}
                 </div>                    
             </div>
             <div class="col-sm-2">                    
                 <div class="form-group" >                
-                    <label for="" >{{form.conta.label}} </label>        
-                    {% render_field form.conta class="form-control" %}
+                    <label for="" >{{form1.conta.label}} </label>        
+                    {% render_field form1.conta class="form-control" %}
                 </div>
             </div>
             <div class="col-sm-4">                    
                 <div class="form-group" >                
-                    <label for="" >{{form.banco.label}} </label>        
-                    {% render_field form.banco class="form-control" %}
+                    <label for="" >{{form1.banco.label}} </label>        
+                    {% render_field form1.banco class="form-control" %}
                 </div>
             </div>
             <div class="col-sm-5">                    
                 <div class="form-group" >                
-                    <label for="" >{{form.obs_bancaria.label}} </label>        
-                    {% render_field form.obs_bancaria class="form-control" %}
+                    <label for="" >{{form1.obs_bancaria.label}} </label>        
+                    {% render_field form1.obs_bancaria class="form-control" %}
                 </div>
             </div>        
         </div>          
-    </div>
-
-    <div id="Page3" class="tabcontent">         
+    </div> 
+    <div id="Page3" class="tabcontent">  
+         {% if cliente_cnpj %}     
+            <h2>olá</h2>
+        {% else %}     
         <div class="row">
-            {% comment %} <div class="col-sm-6">                    
+            <div class="col-sm-6">                    
                 <div class="form-group" >                
-                    <label for="" >{{form.fiador_nome.label}} </label>        
-                    {% render_field form.fiador_nome class="form-control" %}
+                    <label for="" >{{form2.fiador_nome.label}} </label>        
+                    {% render_field form2.fiador_nome class="form-control" %}
                 </div>                    
             </div>
+        {% endif %} 
+            {% comment %} 
             <div class="col-sm-3">                    
                 <div class="form-group" >                
                     <label for="" >{{form.fiador_cpf.label}} </label>        
@@ -445,7 +457,7 @@
                     <label for="" >{{form.obs_bancaria.label}} </label>        
                     {% render_field form.obs_bancaria class="form-control" %}
                 </div>
-            </div>         {% endcomment %}
+            </div>{% endcomment %}
         </div>
         <div style='float: right;'>
             <button class="btn btn-success" float="right">Cadastrar</button>

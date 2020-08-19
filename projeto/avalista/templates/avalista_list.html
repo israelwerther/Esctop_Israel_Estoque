@@ -23,15 +23,15 @@
        
         <thead class="thead">
                 <tr>
-                    <th>Avalista</th>                    
+                    <th>Fiador</th>                    
                     <th>CPF</th>                                                   
                 </tr>
             </thead>
             <tbody>
                 {% for object in object_list  %}   
                 <tr>                              
-                    <td>{{ object.avalista }}</td>
-                    <td>{{ object.cpf_avalista }}</td>   
+                    <td>{{ object.fiador_nome }}</td>
+                    <td>{{ object.fiador_cpf }}</td>   
                 </tr>
                 {% endfor %}
             </tbody>

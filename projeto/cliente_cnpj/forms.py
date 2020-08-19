@@ -6,3 +6,7 @@ class Cliente_cnpjForm(forms.ModelForm):
     class Meta:
         model = Cliente_cnpj
         fields = '__all__'
+
+
+
+

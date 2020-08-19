@@ -28,7 +28,7 @@ def avalista_cadastra(request):
     data = {'avalistas': avalistas, 'testes': testes,'form1': form1, 'form2': form2} 
     return render(request, 'avalista_form.html', data)
 
-
+@login_required
 def avalista_novo(request):
     form1 = AvalistaForm(request.POST or None)
     form2 = TesteForm(request.POST or None)

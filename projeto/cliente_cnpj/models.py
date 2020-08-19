@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse_lazy
 from projeto.cliente.models import Cliente
+from projeto.avalista.models import Avalista
 
 class Cliente_cnpj(models.Model):
     razao_social          = models.CharField("Razão Social", max_length=50, blank=True, null=True)

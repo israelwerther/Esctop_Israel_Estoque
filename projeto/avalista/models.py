@@ -5,7 +5,7 @@ class Avalista(models.Model):
     fiador_nome                = models.CharField("FiadorNome", max_length=50, blank=True, null=True)
     fiador_cpf                 = models.CharField("FiadorCPF", max_length=20, unique=True, blank=True, null=True) 
     fiador_rg                  = models.CharField("FiadorRG",max_length=20, blank=True, null=True)
-    fiador_email              = models.EmailField("FiadorEmail", max_length=50, blank=True, null=True)
+    fiador_email               = models.EmailField("FiadorEmail", max_length=50, blank=True, null=True)
     fiador_contato1            = models.CharField("FiadorContato 1",max_length=15, blank=True, null=True)
     fiador_celular1            = models.CharField("Fiadorcelular 1",max_length=17, blank=True, null=True)
     fiador_celular2            = models.CharField("Fiadorcelular 2",max_length=17, blank=True, null=True)
@@ -20,12 +20,13 @@ class Avalista(models.Model):
     fiador_conta               = models.CharField("FiadorConta",max_length=15, blank=True, null=True)
     fiador_banco               = models.CharField("FiadorBanco",max_length=25, blank=True, null=True)
     fiador_obs_bancaria        = models.CharField("FiadorObservações",max_length=25, blank=True, null=True) 
+    fiador_copia               = models.ForeignKey('self', on_delete=models.CASCADE, blank=True, null=True)
         
     class Meta:
         ordering = ('fiador_nome',) 
     
-    def __str__(self):
-        return self.fiador_nome
+    # def __str__(self):
+    #     return self
     
     def get_absolute_url(self):
         return reverse_lazy('avalista:avalista_cadastra', kwargs={'pk': self.pk})  
