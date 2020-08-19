@@ -46,6 +46,8 @@ class Cliente_cnpj(models.Model):
     rep_conta             = models.CharField("Conta",max_length=15, blank=True, null=True)
     rep_banco             = models.CharField("Banco",max_length=25, blank=True, null=True)
     rep_obs_bancaria      = models.CharField("Observações",max_length=25, blank=True, null=True)  
+
+    fiador                = models.ForeignKey(Avalista, on_delete=models.CASCADE, blank=True, null=True)
     
 
     class Meta:
