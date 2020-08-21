@@ -355,14 +355,22 @@
         <div class="row">
             <div class="col-sm-6">                    
                 <div class="form-group" >                
-                    <label for="" >{{form2.fiador_nome.label}} </label>        
-                    {% render_field form2.fiador_nome class="form-control" %}
+                    <label for="" >{{form1.aval_razao_social.label}} </label>        
+                    {% render_field form1.aval_razao_social class="form-control" %}
                 </div>                    
             </div>
+        {% endif %} 
+        {% if cliente_cnpj %} 
             <div class="col-sm-6">                    
                 <div class="form-group" >                
                     <label for="" >{{form2.fiador_copia.label}} </label>        
                     {% render_field form2.fiador_copia class="form-control" %}
+                </div>                    
+            </div>
+            <div class="col-sm-6">                    
+                <div class="form-group" >                
+                    <label for="" >{{form2.fiador.label}} </label>        
+                    {% render_field form2.fiador class="form-control" %}
                 </div>                    
             </div>
         {% endif %} 
@@ -469,11 +477,12 @@
                     {% render_field form.obs_bancaria class="form-control" %}
                 </div>
             </div>{% endcomment %}
-        </div>
+        </div>        
         <div style='float: right;'>
             <button class="btn btn-success" float="right">Cadastrar</button>
         </div>
         </form> 
+       
     </div>
     
     {% comment %} <script>

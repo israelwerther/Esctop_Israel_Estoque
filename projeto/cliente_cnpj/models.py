@@ -3,6 +3,12 @@ from django.urls import reverse_lazy
 from projeto.cliente.models import Cliente
 from projeto.avalista.models import Avalista
 
+class Cliente_cnpj_aval(models.Model):
+    aval_razao_social          = models.CharField("ava_Razão Social", max_length=50, blank=True, null=True)
+    aval_nome_fantasia         = models.CharField("ava_Nome Fantasia", max_length=50)
+    aval_cnpj                  = models.CharField("ava_CNPJ", max_length=36, unique=True, blank=True, null=True)
+
+
 class Cliente_cnpj(models.Model):
     razao_social          = models.CharField("Razão Social", max_length=50, blank=True, null=True)
     nome_fantasia         = models.CharField("Nome Fantasia", max_length=50)
@@ -44,17 +50,20 @@ class Cliente_cnpj(models.Model):
     rep_ponto_referencia  = models.CharField("Ponto de Referencia", max_length=100, blank=True, null=True)
     rep_agencia           = models.CharField("Agência",max_length=15, blank=True, null=True)
     rep_conta             = models.CharField("Conta",max_length=15, blank=True, null=True)
-    rep_banco             = models.CharField("Banco",max_length=25, blank=True, null=True)
-    rep_obs_bancaria      = models.CharField("Observações",max_length=25, blank=True, null=True)  
+    rep_banco             = models.CharField("Re-Banco",max_length=25, blank=True, null=True)
+    rep_obs_bancaria      = models.CharField("Observações",max_length=25, blank=True, null=True)
 
-    fiador                = models.ForeignKey(Avalista, on_delete=models.CASCADE, blank=True, null=True)
+    aval                  = models.ForeignKey(Cliente_cnpj_aval, on_delete=models.CASCADE, blank=True, null=True)
     
 
     class Meta:
-        ordering = ('nome_fantasia',)
+        ordering = ('razao_social',)
         
     def __str__(self):
-        return self.nome_fantasia
+        return self.razao_social
     
     def get_absolute_url(self):
         return reverse_lazy('cliente_cnpj:cliente_cnpj_detail', kwargs={'pk': self.pk})
+
+
+# CRIAR UM TEMPLATE PRA RECEBER ESTES DOIS JÁ SALVOS

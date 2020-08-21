@@ -25,8 +25,8 @@ class Avalista(models.Model):
     class Meta:
         ordering = ('fiador_nome',) 
     
-    # def __str__(self):
-    #     return self
+    def __str__(self):
+        return self.fiador_nome
     
     def get_absolute_url(self):
         return reverse_lazy('avalista:avalista_cadastra', kwargs={'pk': self.pk})  
