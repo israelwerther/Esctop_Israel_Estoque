@@ -14,7 +14,7 @@ class Avalista(models.Model):
     fiador_bairro              = models.CharField("FiadorBairro", max_length=40, blank=True, null=True)
     fiador_cidade              = models.CharField("FiadorCidade", max_length=40, blank=True, null=True)
     fiador_uf                  = models.CharField("FiadorEstado", max_length=2, blank=True, null=True)   
-    fiador_numero_casa         = models.CharField("FiadorNº ", max_length=5, blank=True, null=True)
+    fiador_numero_casa         = models.CharField("Nº ", max_length=5, blank=True, null=True)
     fiador_ponto_referencia    = models.CharField("FiadorPonto de Referencia", max_length=100, blank=True, null=True)
     fiador_agencia             = models.CharField("FiadorAgência",max_length=15, blank=True, null=True)
     fiador_conta               = models.CharField("FiadorConta",max_length=15, blank=True, null=True)

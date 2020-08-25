@@ -6,11 +6,10 @@ from .models import Avalista
 from .forms import AvalistaForm
 
 @login_required
-def avalista_list(request):
-    form = AvalistaForm()
+def avalista_list(request):    
     objects = Avalista.objects.all()   
     template_name='avalista_list.html'
-    context={'object_list': objects, 'form': form}
+    context={'object_list': objects}
     return render(request, template_name, context)
 
 
