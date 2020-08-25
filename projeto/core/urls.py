@@ -6,4 +6,5 @@ app_name = 'core'
 urlpatterns = [
     path('', v.index, name='index'),
     path('cliente_select/', v.cliente_select, name='cliente_select'),
+    path('fiador_decision/', v.fiador_decision, name='fiador_decision'),
 ]

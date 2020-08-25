@@ -2,8 +2,8 @@ from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import CreateView, UpdateView, DeleteView
-from .models import Avalista, Teste
-from .forms import AvalistaForm, TesteForm
+from .models import Avalista
+from .forms import AvalistaForm
 
 @login_required
 def avalista_list(request):
@@ -21,22 +21,17 @@ def avalista_list(request):
 
 @login_required
 def avalista_cadastra(request):
-    avalistas = Avalista.objects.all()
-    testes    = Teste.objects.all()
-    form1 = AvalistaForm()
-    form2 = TesteForm()
-    data = {'avalistas': avalistas, 'testes': testes,'form1': form1, 'form2': form2} 
+    avalistas = Avalista.objects.all()    
+    form = AvalistaForm()    
+    data = {'avalistas': avalistas,'form': form} 
     return render(request, 'avalista_form.html', data)
 
 @login_required
-def avalista_novo(request):
-    form1 = AvalistaForm(request.POST or None)
-    form2 = TesteForm(request.POST or None)
-
-    if form1.is_valid() and form2.is_valid():
-        form1.save()
-        form2.save()
-    return redirect('avalista:avalista_list')
+def avalista_add(request):
+    form = AvalistaForm(request.POST or None)   
+    if form.is_valid():
+        form.save()        
+    return redirect('cliente_cnpj:cliente_cnpj_cadastra')
 
 
 # def avalista_add(request):

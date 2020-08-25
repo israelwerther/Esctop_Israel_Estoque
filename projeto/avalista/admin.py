@@ -1,6 +1,5 @@
 from django.contrib import admin
-from .models import Avalista, Teste
-
+from .models import Avalista
 @admin.register(Avalista)
 class AvalistaAdmin(admin.ModelAdmin):
     list_display=(        
@@ -10,10 +9,3 @@ class AvalistaAdmin(admin.ModelAdmin):
     search_fields=('fiador_nome',)
     list_filter=('fiador_cpf',)
     
-
-@admin.register(Teste)
-class AvalistaAdmin(admin.ModelAdmin):
-    list_display=(        
-        'teste',
-        'cpf_teste',             
-    )    

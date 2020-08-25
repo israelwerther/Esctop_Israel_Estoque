@@ -11,3 +11,8 @@ def index(request):
 def cliente_select(request):
     return render(request, 'cliente_select.html')
 
+
+@login_required
+def fiador_decision(request):
+    return render(request, 'fiador_decision.html')
+

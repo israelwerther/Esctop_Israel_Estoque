@@ -5,11 +5,94 @@
 
 <h2>CADASTRO DE AVALISTA</h2>
 
-    <form action="{% url 'avalista:avalista_novo' %}" method="post">
+    <form action="{% url 'avalista:avalista_add' %}" method="post">
         {% csrf_token %}
-         <div class="col-sm-4">
-            
-        </div>   
+        <div class="row" > 
+            <div class="col-sm-6">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.fiador_nome.label}} </label>        
+                    {% render_field form.fiador_nome class="form-control" %}
+                </div>    
+            </div>  
+            <div class="col-sm-6">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.fiador_cpf.label}} </label>        
+                    {% render_field form.fiador_cpf class="form-control" %}
+                </div>    
+            </div>  
+            <div class="col-sm-6">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.fiador_rg.label}} </label>        
+                    {% render_field form.fiador_rg class="form-control" %}
+                </div>    
+            </div>  
+            <div class="col-sm-6">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.fiador_email.label}} </label>        
+                    {% render_field form.fiador_email class="form-control" %}
+                </div>    
+            </div>  
+            <div class="col-sm-6">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.fiador_contato1.label}} </label>        
+                    {% render_field form.fiador_contato1 class="form-control" %}
+                </div>    
+            </div>  
+            <div class="col-sm-6">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.fiador_celular1.label}} </label>        
+                    {% render_field form.fiador_celular1 class="form-control" %}
+                </div>    
+            </div>  
+            <div class="col-sm-6">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.fiador_celular2.label}} </label>        
+                    {% render_field form.fiador_celular2 class="form-control" %}
+                </div>    
+            </div>              
+            <div class="col-sm-6">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.fiador_numero_casa.label}} </label>        
+                    {% render_field form.fiador_numero_casa class="form-control" %}
+                </div>    
+            </div>  
+            <div class="col-sm-6">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.fiador_ponto_referencia.label}} </label>        
+                    {% render_field form.fiador_ponto_referencia class="form-control" %}
+                </div>    
+            </div>  
+            <div class="col-sm-6">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.fiador_agencia.label}} </label>        
+                    {% render_field form.fiador_agencia class="form-control" %}
+                </div>    
+            </div>  
+            <div class="col-sm-6">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.fiador_conta.label}} </label>        
+                    {% render_field form.fiador_conta class="form-control" %}
+                </div>    
+            </div>  
+            <div class="col-sm-6">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.fiador_banco.label}} </label>        
+                    {% render_field form.fiador_banco class="form-control" %}
+                </div>    
+            </div>  
+            <div class="col-sm-6">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.fiador_obs_bancaria.label}} </label>        
+                    {% render_field form.fiador_obs_bancaria class="form-control" %}
+                </div>    
+            </div>  
+            <div class="col-sm-6">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.fiador_copia.label}} </label>        
+                    {% render_field form.fiador_copia class="form-control" %}
+                </div>    
+            </div>  
+        </div>  
         
         <input type="submit" class="btn btn-info" value="Salvar">
     </form>

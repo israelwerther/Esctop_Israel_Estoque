@@ -26,16 +26,7 @@ class Avalista(models.Model):
         ordering = ('fiador_nome',) 
     
     def __str__(self):
-        return self.fiador_nome
+        return str(self.fiador_nome)
     
     def get_absolute_url(self):
         return reverse_lazy('avalista:avalista_cadastra', kwargs={'pk': self.pk})  
-
-
-class Teste(models.Model):
-    teste                   = models.CharField("Teste", max_length=50, blank=True, null=True)
-    cpf_teste               = models.CharField("CPF do Teste", max_length=20, unique=True)
-    rg_teste                = models.CharField("RG do Teste",max_length=20, blank=True, null=True)
-
-    def __str__(self):
-        return self.teste

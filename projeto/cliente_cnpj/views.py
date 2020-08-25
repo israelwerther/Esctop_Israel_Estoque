@@ -18,51 +18,18 @@ def cliente_cnpj_list(request):
 
 @login_required
 def cliente_cnpj_cadastra(request):
-    cnpjs = Cliente_cnpj.objects.all()
-    avalistas = Avalista.objects.all()
-    form1 = Cliente_cnpjForm()
-    form2 = AvalistaForm()
-    data = {'cnpjs': cnpjs, 'avalistas': avalistas,'form1': form1, 'form2': form2} 
+    cnpjs = Cliente_cnpj.objects.all()    
+    form1 = Cliente_cnpjForm()    
+    data = {'cnpjs': cnpjs,'form1': form1} 
     return render(request, 'cliente_cnpj_form.html', data)
 
 
 @login_required
 def cliente_cnpj_add(request): 
-    form1=Cliente_cnpjForm(request.POST or None)
-    form2=AvalistaForm(request.POST or None)
-    if form1.is_valid() and form2.is_valid():
-        form1.save()
-        form2.save()  
-    
+    form1=Cliente_cnpjForm(request.POST or None)    
+    if form1.is_valid():
+        form1.save()       
     return redirect('cliente_cnpj:cliente_cnpj_list')
-
-
-# class Add_Emp(CreateView):
-#     model = NewEmployee
-#     form_class = NewEmpForm
-
-#     def form_valid(self, form):
-#         employee = form.save()  # save form
-#         return redirect('newemp-rev', pk=employee.pk)
-    
-
-# @login_required
-# def cliente_cnpj_add(request):
-#     avalista = get_object_or_404(Avalista, pk=pk)
-#     form1=Cliente_cnpjForm(request.POST or None)
-#     form2=AvalistaForm(request.POST or None)
-#     if form1.is_valid() and form2.is_valid():
-#         form1.save()
-#         form2.save()
-#         AvalistaForm = form2.save(commit=False)
-#         AvalistaForm = avalista
-#         AvalistaForm.save()
-#     return redirect('cliente_cnpj:cliente_cnpj_list')
-
-#     def form_valid(self, form2):
-#         obj = form2.save(commit=False)
-#         obj.fiador = self.request
-#         return super(cliente_cnpj_add, self).form_valid(form2)
 
 
 @login_required

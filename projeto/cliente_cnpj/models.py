@@ -3,11 +3,6 @@ from django.urls import reverse_lazy
 from projeto.cliente.models import Cliente
 from projeto.avalista.models import Avalista
 
-class Cliente_cnpj_aval(models.Model):
-    aval_razao_social          = models.CharField("ava_Razão Social", max_length=50, blank=True, null=True)
-    aval_nome_fantasia         = models.CharField("ava_Nome Fantasia", max_length=50)
-    aval_cnpj                  = models.CharField("ava_CNPJ", max_length=36, unique=True, blank=True, null=True)
-
 
 class Cliente_cnpj(models.Model):
     razao_social          = models.CharField("Razão Social", max_length=50, blank=True, null=True)
@@ -52,8 +47,7 @@ class Cliente_cnpj(models.Model):
     rep_conta             = models.CharField("Conta",max_length=15, blank=True, null=True)
     rep_banco             = models.CharField("Re-Banco",max_length=25, blank=True, null=True)
     rep_obs_bancaria      = models.CharField("Observações",max_length=25, blank=True, null=True)
-
-    aval                  = models.ForeignKey(Cliente_cnpj_aval, on_delete=models.CASCADE, blank=True, null=True)
+    fiador                = models.ForeignKey(Avalista, on_delete=models.CASCADE, blank=True, null=True)
     
 
     class Meta:
