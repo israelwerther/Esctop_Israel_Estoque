@@ -7,16 +7,11 @@ from .forms import AvalistaForm
 
 @login_required
 def avalista_list(request):
+    form = AvalistaForm()
+    objects = Avalista.objects.all()   
     template_name='avalista_list.html'
-    objects=Avalista.objects.all()    
-    context={'object_list': objects}
+    context={'object_list': objects, 'form': form}
     return render(request, template_name, context)
-
-# class AvalistaCreate(CreateView):
-#     model=Avalista 
-#     template_name = 'avalista_form.html'
-#     form_class=AvalistaForm    
-#     success_url = reverse_lazy('avalista:avalista_list')
 
 
 @login_required
