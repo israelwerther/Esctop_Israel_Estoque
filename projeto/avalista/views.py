@@ -15,8 +15,8 @@ def avalista_list(request):
 
 @login_required
 def avalista_cadastra(request):
-    avalistas = Avalista.objects.all()    
     form = AvalistaForm()    
+    avalistas = Avalista.objects.all()    
     data = {'avalistas': avalistas,'form': form} 
     return render(request, 'avalista_form.html', data)
 

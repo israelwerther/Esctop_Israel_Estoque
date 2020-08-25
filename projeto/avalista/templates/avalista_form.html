@@ -132,13 +132,13 @@
 {% endblock content %}
 
 {% comment %} <form action="" method="post">
-        {% csrf_token %}
-        {{ form1 }}
-    <input type="submit" class="btn btn-info" value="Salvar Idioma">
-    </form>
-    <form action="" method="post">
-        {% csrf_token %}
-        {{ form2 }}
-        <input type="submit" class="btn btn-info" value="Salvar Lingua">
-        
-    </form> {% endcomment %}
+    {% csrf_token %}
+    {{ form1 }}
+<input type="submit" class="btn btn-info" value="Salvar Idioma">
+</form>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form2 }}
+    <input type="submit" class="btn btn-info" value="Salvar Lingua">
+    
+</form> {% endcomment %}
