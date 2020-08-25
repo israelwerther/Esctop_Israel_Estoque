@@ -19,8 +19,7 @@ class Avalista(models.Model):
     fiador_agencia             = models.CharField("FiadorAgência",max_length=15, blank=True, null=True)
     fiador_conta               = models.CharField("FiadorConta",max_length=15, blank=True, null=True)
     fiador_banco               = models.CharField("FiadorBanco",max_length=25, blank=True, null=True)
-    fiador_obs_bancaria        = models.CharField("FiadorObservações",max_length=25, blank=True, null=True) 
-    fiador_copia               = models.ForeignKey('self', on_delete=models.CASCADE, blank=True, null=True)
+    fiador_obs_bancaria        = models.CharField("FiadorObservações",max_length=25, blank=True, null=True)     
         
     class Meta:
         ordering = ('fiador_nome',) 
