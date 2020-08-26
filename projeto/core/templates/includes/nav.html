@@ -78,9 +78,9 @@ body {
     <a href="{% url 'core:index' %}" class="active" class="nav-link">CREDCOOP</a>
     <a href="{% url 'core:cliente_select' %}">Clientes</a>
     <a href="{% url 'avalista:avalista_list' %}">Fiador</a>
-    <a href="{% url 'emprestimo:emprestimo_list' %}">Empréstimos</a>
+    {% comment %} <a href="{% url 'emprestimo:emprestimo_list' %}">Empréstimos</a>
     <a href="{% url 'produto:produto_list' %}">Produto</a>
-    <a href="{% url 'estoque:estoque_entrada_list' %}">Estoque</a>
+    <a href="{% url 'estoque:estoque_entrada_list' %}">Estoque</a> {% endcomment %}
 
 	{% if user.is_authenticated %}
     	<a href="{% url 'logout' %}" style='float:right'>Encerrar Sessão</a>
