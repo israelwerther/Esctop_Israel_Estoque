@@ -4,6 +4,10 @@
 {% block content %}
 
 <style>
+
+    h3{
+        background-color: rgb(233, 220, 220);
+    }
     
     body {font-family: Arial;}
     
@@ -74,7 +78,7 @@
         {% endif %}
         {% csrf_token %}       
         <br>
-        <h2>CADASTRO EMPRESA</h2>
+        <h3>CADASTRO EMPRESA</h3>
         <div class="row" > 
             <div class="col-sm-6">                    
                 <div class="form-group" >                
@@ -118,20 +122,17 @@
                     <label for="" class="required" >{{form.inscricao_municipal.label}} </label>        
                     {% render_field form.inscricao_municipal class="form-control" %}
                 </div>
-            </div> 
-            <div class="col-sm-6">                    
-                <div class="form-group" >                
-                    <label for="" class="required" >{{form.email.label}} </label>        
-                    {% render_field form.email class="form-control" %}
-                </div>
-            </div> 
+            </div>             
             <div class="col-sm-6">                    
                 <div class="form-group" >                
                     <label for="" class="required" >{{form.fiador.label}} </label>        
                     {% render_field form.fiador class="form-control" %}
                 </div>
             </div>
-        </div>    
+        </div>  
+        <hr/>
+        <h3>ENDEREÇO</h3>  
+        <hr/>
         <div class="row">
             <div class="col-sm-2">                    
                 <div class="form-group" >                
@@ -176,6 +177,9 @@
                 </div>
             </div>   
         </div>  
+        <hr>
+        <h3>CONTATO</h3>  
+        <hr/>
         <div class="row"> 
             <div class="col-sm-2">                    
                 <div class="form-group" >                
@@ -200,8 +204,17 @@
                     <label for="" >{{form.celular2.label}} </label>        
                     {% render_field form.celular2 class="form-control cel-phone-mask" type="text"%}
                 </div>
-            </div>            
+            </div>   
+            <div class="col-sm-6">                    
+                <div class="form-group" >                
+                    <label for="" class="required" >{{form.email.label}} </label>        
+                    {% render_field form.email class="form-control" %}
+                </div>
+            </div>          
         </div> 
+        <hr>
+            <h3>DADOS BANCÁRIOS</h3>  
+        <hr/>
         <div class="row">
             <div class="col-sm-2">                    
                 <div class="form-group" >                
@@ -227,7 +240,7 @@
                     {% render_field form.obs_bancaria class="form-control" %}
                 </div>
             </div>
-        </div>        
+        </div>  
     </div> 
     {% comment %} REPRESENTANTE {% endcomment %}
      <div id="Page2" class="tabcontent">        
