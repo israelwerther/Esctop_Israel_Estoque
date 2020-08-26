@@ -4,7 +4,7 @@ from projeto.cliente.models import Cliente
 from projeto.avalista.models import Avalista
 
 
-class Cliente_cnpj(models.Model):
+class Cliente_cnpj(models.Model):    
     razao_social          = models.CharField("Razão Social", max_length=50, blank=True, null=True)
     nome_fantasia         = models.CharField("Nome Fantasia", max_length=50)
     cnpj                  = models.CharField("CNPJ", max_length=36, unique=True, blank=True, null=True)
@@ -27,7 +27,15 @@ class Cliente_cnpj(models.Model):
     agencia               = models.CharField("Agência",max_length=15, blank=True, null=True)
     conta                 = models.CharField("Conta",max_length=15, blank=True, null=True)
     banco                 = models.CharField("Banco",max_length=25, blank=True, null=True)
-    obs_bancaria          = models.CharField("Observações",max_length=25, blank=True, null=True)   
+    obs_bancaria          = models.CharField("Observações",max_length=25, blank=True, null=True) 
+
+    # REFERÊNCIAS
+    ref1_nome             = models.CharField("Nome", max_length=50, blank=True, null=True)
+    ref1_contato          = models.CharField("Contato",max_length=15, blank=True, null=True)
+    ref1_parentesco       = models.CharField("Parentesco", max_length=50, blank=True, null=True)
+    ref2_nome             = models.CharField("Nome", max_length=50, blank=True, null=True)
+    ref2_contato          = models.CharField("Contato",max_length=15, blank=True, null=True)
+    ref2_parentesco       = models.CharField("Parentesco", max_length=50, blank=True, null=True)
 
     rep_nome              = models.CharField("Nome", max_length=50, blank=True, null=True)
     rep_cpf               = models.CharField("CPF", max_length=20, unique=True, blank=True, null=True) 
@@ -48,6 +56,7 @@ class Cliente_cnpj(models.Model):
     rep_banco             = models.CharField("Re-Banco",max_length=25, blank=True, null=True)
     rep_obs_bancaria      = models.CharField("Observações",max_length=25, blank=True, null=True)
     fiador                = models.ForeignKey(Avalista, on_delete=models.CASCADE, blank=True, null=True)
+
     
 
     class Meta:
