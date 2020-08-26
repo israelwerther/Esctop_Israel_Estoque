@@ -19,16 +19,16 @@ def cliente_cnpj_list(request):
 @login_required
 def cliente_cnpj_cadastra(request):
     cnpjs = Cliente_cnpj.objects.all()    
-    form1 = Cliente_cnpjForm()    
-    data = {'cnpjs': cnpjs,'form1': form1} 
+    form = Cliente_cnpjForm()    
+    data = {'cnpjs': cnpjs,'form': form} 
     return render(request, 'cliente_cnpj_form.html', data)
 
 
 @login_required
 def cliente_cnpj_add(request): 
-    form1=Cliente_cnpjForm(request.POST or None)    
-    if form1.is_valid():
-        form1.save()       
+    form=Cliente_cnpjForm(request.POST or None)    
+    if form.is_valid():
+        form.save()       
     return redirect('cliente_cnpj:cliente_cnpj_list')
 
 
@@ -48,13 +48,13 @@ def cliente_cnpj_detail(request, pk):
 def cliente_cnpjupdate(request, pk):
     data = {}
     cliente_cnpj = Cliente_cnpj.objects.get(pk=pk)
-    form1 = Cliente_cnpjForm(request.POST or None, instance=cliente_cnpj)
+    form = Cliente_cnpjForm(request.POST or None, instance=cliente_cnpj)
     data['cliente_cnpj'] = cliente_cnpj
-    data['form1'] = form1
+    data['form'] = form
 
     if request.method == 'POST':
-        if form1.is_valid():
-            form1.save()
+        if form.is_valid():
+            form.save()
             return redirect('cliente_cnpj:cliente_cnpj_list')
         else:
             # messages.error(request, 'Dados inválidos')
