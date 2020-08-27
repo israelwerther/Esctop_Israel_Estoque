@@ -31,10 +31,10 @@ class Cliente_cnpj(models.Model):
 
     # REFERÊNCIAS
     ref1_nome             = models.CharField("Nome", max_length=50, blank=True, null=True)
-    ref1_contato          = models.CharField("Contato",max_length=15, blank=True, null=True)
+    ref1_contato          = models.CharField("Contato",max_length=17, blank=True, null=True)
     ref1_parentesco       = models.CharField("Parentesco", max_length=50, blank=True, null=True)
     ref2_nome             = models.CharField("Nome", max_length=50, blank=True, null=True)
-    ref2_contato          = models.CharField("Contato",max_length=15, blank=True, null=True)
+    ref2_contato          = models.CharField("Contato",max_length=17, blank=True, null=True)
     ref2_parentesco       = models.CharField("Parentesco", max_length=50, blank=True, null=True)
 
     rep_nome              = models.CharField("Nome", max_length=50, blank=True, null=True)

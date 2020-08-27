@@ -6,7 +6,9 @@
 <style>
 
     h3{
-        background-color: rgb(233, 233, 233);
+        background-color: #4CAF50;
+        color: rgb(255, 255, 255)  
+        
     }
     
     body {font-family: Arial;}
@@ -77,8 +79,9 @@
             <form action="{% url 'cliente_cnpj:cliente_cnpj_add' %}" method="POST">
         {% endif %}
         {% csrf_token %}       
-        <br>
-        <h3>CADASTRO EMPRESA</h3>
+        <br>        
+            <h3>DADOS DA EMPRESA</h3>
+        <hr/>
         <div class="row" > 
             <div class="col-sm-6">                    
                 <div class="form-group" >                
@@ -130,8 +133,8 @@
                 </div>
             </div>
         </div>  
-        <hr/>
-        <h3>ENDEREÇO</h3>  
+        <hr>
+            <h3>ENDEREÇO</h3>  
         <hr/>
         <div class="row">
             <div class="col-sm-2">                    
