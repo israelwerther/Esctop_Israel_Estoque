@@ -40,7 +40,7 @@ class Cliente_cnpj(models.Model):
     rep_nome              = models.CharField("Nome", max_length=50, blank=True, null=True)
     rep_cpf               = models.CharField("CPF", max_length=20, unique=True, blank=True, null=True) 
     rep_rg                = models.CharField("RG",max_length=20, blank=True, null=True)
-    email                 = models.EmailField("Email", max_length=50, blank=True, null=True)
+    rep_email                 = models.EmailField("Email", max_length=50, blank=True, null=True)
     rep_contato1          = models.CharField("Contato 1",max_length=15, blank=True, null=True)
     rep_celular1          = models.CharField("celular 1",max_length=17, blank=True, null=True)
     rep_celular2          = models.CharField("celular 2",max_length=17, blank=True, null=True)
