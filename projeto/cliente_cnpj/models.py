@@ -50,11 +50,7 @@ class Cliente_cnpj(models.Model):
     rep_cidade            = models.CharField("Cidade", max_length=40, blank=True, null=True)
     rep_uf                = models.CharField("Estado", max_length=2, blank=True, null=True)   
     rep_numero_casa       = models.CharField("Nº ", max_length=5, blank=True, null=True)
-    rep_ponto_referencia  = models.CharField("Ponto de Referencia", max_length=100, blank=True, null=True)
-    rep_agencia           = models.CharField("Agência",max_length=15, blank=True, null=True)
-    rep_conta             = models.CharField("Conta",max_length=15, blank=True, null=True)
-    rep_banco             = models.CharField("Re-Banco",max_length=25, blank=True, null=True)
-    rep_obs_bancaria      = models.CharField("Observações",max_length=25, blank=True, null=True)
+    rep_ponto_referencia  = models.CharField("Ponto de Referencia", max_length=100, blank=True, null=True)    
     fiador                = models.ForeignKey(Avalista, on_delete=models.CASCADE, blank=True, null=True)
 
     
