@@ -21,8 +21,8 @@ class Emprestimo(models.Model):
     class Meta:
         ordering = ('-data_emprestimo',)
         
-    def __str__(self):
-        return '{} - {} - {}'.format(self.pk, self.num_doc, self.created.strftime('%d-%m-%Y'))
+    # def __str__(self):
+    #     return '{} - {} - {}'.format(self.pk, self.num_doc, self.created.strftime('%d-%m-%Y'))
         
     def __str__(self):
         return str(self.num_doc)

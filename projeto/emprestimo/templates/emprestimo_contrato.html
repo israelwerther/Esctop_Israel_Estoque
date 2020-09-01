@@ -219,7 +219,7 @@ window.onload = function imprimir(){
     var contador_anos  = 0
     var meses = new Array("01", "02", "03", "04", "05", "06" ,"07", "08", "09", "10", "11", "12")
     var dataEmprestimo = "{{ object.data_emprestimo}}"
-    var dt = new Date(dataEmprestimo)    
+    var dt = new Date(dataEmprestimo)
    		
     var dia
     var mes
@@ -255,20 +255,21 @@ window.onload = function imprimir(){
     centavos = String(centavos).extenso()
     
     //VARIÁVEIS DO CLIENTE CPF
-    var cliente_nome = "{{object.cliente}}"
-    var cpf = "{{object.cliente.cpf}}"    
-    var rg = "{{object.cliente.rg}}"    
-    var naturalidade = "{{object.cliente.naturalidade}}"
+    var cliente         = "{{object.cliente.nome}}"
+    var cpf             = "{{object.cliente.cpf}}"    
+    var rg              = "{{object.cliente.rg}}"    
+    var naturalidade    = "{{object.cliente.naturalidade}}"
     var orgao_expedidor = "{{object.cliente.orgao_expedidor}}"
-    var estado_civil = "{{object.cliente.estado_civil}}"
-    var rua = "{{object.cliente.rua}}"
-    var bairro = "{{object.cliente.bairro}}"
-    var cidade = "{{object.cliente.cidade}}"
-    var uf = "{{object.cliente.uf}}"
-    var numero_casa = "{{object.cliente.numero_casa}}"
-    var cep = "{{object.cliente.cep}}"
+    var estado_civil    = "{{object.cliente.estado_civil}}"
+    var rua             = "{{object.cliente.rua}}"
+    var bairro          = "{{object.cliente.bairro}}"
+    var cidade          = "{{object.cliente.cidade}}"
+    var uf              = "{{object.cliente.uf}}"
+    var numero_casa     = "{{object.cliente.numero_casa}}"
+    var cep             = "{{object.cliente.cep}}"
 
     //VARIÁVEIS DO CLIENTE CNPJ
+    var cliente_cnpj         = "{{object.cliente_cnpj.razao_social}}"
     var fundacao             = "{{object.cliente_cnpj.fundacao}}"
     var razao_social         = "{{object.cliente_cnpj.razao_social}}"
     var cnpj                 = "{{object.cliente_cnpj.cnpj}}"
@@ -285,23 +286,22 @@ window.onload = function imprimir(){
     var representante               = "{{object.cliente_cnpj.rep_nome}}"
     var representante_cpf           = "{{object.cliente_cnpj.rep_cpf}}"
     var representante_rg            = "{{object.cliente_cnpj.rep_rg}}"
-    var representante_nacionalidade = "{{object.cliente_cnpj.representante.nacionalidade}}"
-    var representante_estado_civil  = "{{object.cliente_cnpj.representante.estado_civil}}"
-    var representante_rua           = "{{object.cliente_cnpj.representante.rua}}"
-    var representante_bairro        = "{{object.cliente_cnpj.representante.bairro}}"
-    var representante_cidade        = "{{object.cliente_cnpj.representante.cidade}}"
-    var representante_uf            = "{{object.cliente_cnpj.representante.uf}}"
-    var representante_numero_casa   = "{{object.cliente_cnpj.representante.numero_casa}}"
-    var representante_cep           = "{{object.cliente_cnpj.representante.cep}}"
-    var representante_contato1      = "{{object.cliente_cnpj.representante.contato1}}"
-    var representante_email         = "{{object.cliente_cnpj.representante.email}}"
+    var representante_email         = "{{object.cliente_cnpj.rep_email}}" //não precisa no contrato?
+    //var representante_estado_civil  = "{{object.cliente_cnpj.rep_estado_civil}}" //não precisa no contrato?
+    //var representante_nacionalidade = "{{object.cliente_cnpj.representante.nacionalidade}}"
+    var representante_cep           = "{{object.cliente_cnpj.rep_cep}}"
+    var representante_rua           = "{{object.cliente_cnpj.rep_rua}}"
+    var representante_bairro        = "{{object.cliente_cnpj.rep_bairro}}"
+    var representante_cidade        = "{{object.cliente_cnpj.rep_cidade}}"
+    var representante_uf            = "{{object.cliente_cnpj.rep_uf}}"
+    var representante_numero_casa   = "{{object.cliente_cnpj.rep_numero_casa}}"
+    var representante_contato1      = "{{object.cliente_cnpj.rep_contato1}}"
 
     //VARIÁVEIS DO AVALISTA
-    var fiador        = "{{object.cliente.fiador.nome}}"
+    var fiador        = "{{object.cliente_cnpj.fiador.fiador_nome}}"
     var cpf_fiador    = "{{object.cliente.fiador.cpf}}"
     
-    if(fiador){         
-        
+    if(cliente){    
         contrato.innerHTML +=
         `   
         <p class="paginacao1">
@@ -312,8 +312,9 @@ window.onload = function imprimir(){
         </p>      
 
             <h2> CONTRATO DE MÚTUO </h2>
-            <p class="fontmenor" >Pelo presente contrato particular de empréstimo de dinheiro,de um lado, Josimério de Abreu Silva, (Brasileiro, Solteiro, RG 1.791.746 SSP RN, CPF 029.388.274-66), 
-            de ora em diante denominado simplesmente por CREDOR, e, de outro lado, ${cliente_nome}
+            <p class="fontmenor" >Pelo presente contrato particular de empréstimo de dinheiro,de um lado, 
+            Josimério de Abreu Silva, (Brasileiro, Solteiro, RG 1.791.746 SSP RN, CPF 029.388.274-66), 
+            de ora em diante denominado simplesmente por CREDOR, e, de outro lado, ${cliente}
             (${naturalidade}, ${estado_civil}, Funcionário Privado, RG ${"{{object.cliente.rg}}"} ${orgao_expedidor}, CPF ${cpf}, 
             ${rua}, ${numero_casa}, ${bairro}, ${cidade} ${uf} de ora em diante denominado simplesmente DEVEDOR, 
             têm justo e contratado o seguinte:</p>
@@ -486,15 +487,13 @@ window.onload = function imprimir(){
             Nome: ${representante},
             CPF:  ${representante_cpf},
             RG:  ${representante_rg},
-            Nacionalidade: ${representante_nacionalidade},
-            Estado Civil:  ${representante_estado_civil},
             Endereço: ${representante_rua}, ${representante_bairro}, 
             ${representante_cidade}-${representante_uf}, CEP: ${representante_cep}
         </div>
-
+        
         <div class="quadro" > 
             <strong> III-DO GARANTIDOR - FIADOR </strong><br>
-            Nome:  
+            Nome: ${fiador},
             CPF:       RG/órgão Emissor:   
             Nacionalidade:  
             Estado Civil:  
@@ -763,8 +762,7 @@ window.onload = function imprimir(){
             CONTRATADA MUTUANTE
         </div>
         `
-    }
-    
+    }    
 }
 
 

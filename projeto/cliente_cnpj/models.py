@@ -4,7 +4,7 @@ from projeto.cliente.models import Cliente
 from projeto.avalista.models import Avalista
 
 
-class Cliente_cnpj(models.Model):    
+class Cliente_cnpj(models.Model):
     razao_social          = models.CharField("Razão Social", max_length=50, blank=True, null=True)
     nome_fantasia         = models.CharField("Nome Fantasia", max_length=50)
     cnpj                  = models.CharField("CNPJ", max_length=36, unique=True, blank=True, null=True)
@@ -37,6 +37,7 @@ class Cliente_cnpj(models.Model):
     ref2_contato          = models.CharField("Contato",max_length=17, blank=True, null=True)
     ref2_parentesco       = models.CharField("Parentesco", max_length=50, blank=True, null=True)
 
+    #REPRESENTANTE
     rep_nome              = models.CharField("Nome", max_length=50, blank=True, null=True)
     rep_cpf               = models.CharField("CPF", max_length=20, unique=True, blank=True, null=True) 
     rep_rg                = models.CharField("RG",max_length=20, blank=True, null=True)
@@ -52,7 +53,7 @@ class Cliente_cnpj(models.Model):
     rep_numero_casa       = models.CharField("Nº ", max_length=5, blank=True, null=True)
     rep_ponto_referencia  = models.CharField("Ponto de Referencia", max_length=100, blank=True, null=True)  
 
-    fiador                = models.ForeignKey(Avalista, on_delete=models.CASCADE, blank=True, null=True)
+    fiador                = models.ForeignKey(Avalista, on_delete=models.PROTECT, blank=True, null=True)
 
     
 
