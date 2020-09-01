@@ -299,7 +299,14 @@ window.onload = function imprimir(){
 
     //VARIÁVEIS DO AVALISTA
     var fiador        = "{{object.cliente_cnpj.fiador.fiador_nome}}"
-    var cpf_fiador    = "{{object.cliente.fiador.cpf}}"
+    var fiador_cpf    = "{{object.cliente_cnpj.fiador.fiador_cpf}}"
+    var fiador_rg     = "{{object.cliente_cnpj.fiador.fiador_rg}}"
+    var fiador_   = "{{object.cliente_cnpj.fiador.}}"
+    var fiador_   = "{{object.cliente_cnpj.fiador.}}"
+    var fiador_   = "{{object.cliente_cnpj.fiador.}}"
+    var fiador_   = "{{object.cliente_cnpj.fiador.}}"
+    var fiador_   = "{{object.cliente_cnpj.fiador.}}"
+    var fiador_   = "{{object.cliente_cnpj.fiador.}}"
     
     if(cliente){    
         contrato.innerHTML +=
@@ -477,7 +484,7 @@ window.onload = function imprimir(){
             <strong> II-CONTRATANTE MUTUÁRIA </strong><br>
             Nome/Razão Social: ${razao_social},
             CNPJ: ${cnpj},
-            Endereço: ${cnpj_rua}, ${cnpj_bairro}, ${cnpj_cidade}-${cnpj_uf} CEP: ${cnpj_cep},
+            Endereço: ${cnpj_rua}, ${cnpj_numero_casa}, ${cnpj_bairro}, ${cnpj_cidade}-${cnpj_uf} CEP: ${cnpj_cep},
             Telefone: ${cnpj_contato1},
             E-mail: ${cnpj_email} 
         </div>
@@ -487,14 +494,14 @@ window.onload = function imprimir(){
             Nome: ${representante},
             CPF:  ${representante_cpf},
             RG:  ${representante_rg},
-            Endereço: ${representante_rua}, ${representante_bairro}, 
+            Endereço: ${representante_rua}, ${representante_numero_casa}, ${representante_bairro}, 
             ${representante_cidade}-${representante_uf}, CEP: ${representante_cep}
         </div>
         
         <div class="quadro" > 
             <strong> III-DO GARANTIDOR - FIADOR </strong><br>
             Nome: ${fiador},
-            CPF:       RG/órgão Emissor:   
+            CPF: ${fiador_cpf}    RG/órgão Emissor: ${fiador_rg}  
             Nacionalidade:  
             Estado Civil:  
             Endereço:   Bairro:   Cidade: - CEP:   

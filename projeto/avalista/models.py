@@ -5,6 +5,7 @@ class Avalista(models.Model):
     fiador_nome                = models.CharField("Nome", max_length=50, blank=True, null=True)
     fiador_cpf                 = models.CharField("CPF", max_length=20, unique=True, blank=True, null=True) 
     fiador_rg                  = models.CharField("RG",max_length=20, blank=True, null=True)
+    fiador_org_emissor         = models.CharField("Orgão Emissor",max_length=20, blank=True, null=True)
     fiador_email               = models.EmailField("Email", max_length=50, blank=True, null=True)
     fiador_contato1            = models.CharField("Contato 1",max_length=15, blank=True, null=True)
     fiador_celular1            = models.CharField("celular 1",max_length=17, blank=True, null=True)

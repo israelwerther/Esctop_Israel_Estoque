@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<h2>CADASTRO DE AVALISTA</h2>
+<h2>CADASTRO DE FIADOR</h2>
 
     <form action="{% url 'avalista:avalista_add' %}" method="post">
         {% csrf_token %}
@@ -26,7 +26,13 @@
                     {% render_field form.fiador_rg class="form-control" %}
                 </div>    
             </div>  
-            <div class="col-sm-6">                    
+            <div class="col-sm-2">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.fiador_org_emissor.label}} </label>        
+                    {% render_field form.fiador_org_emissor  class="form-control" %}
+                </div>    
+            </div>  
+            <div class="col-sm-4">                    
                 <div class="form-group" >                
                     <label for="" >{{form.fiador_email.label}} </label>        
                     {% render_field form.fiador_email class="form-control" %}
