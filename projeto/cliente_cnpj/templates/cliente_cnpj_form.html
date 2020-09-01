@@ -310,6 +310,24 @@
             </div>
             <div class="col-sm-2">                    
                 <div class="form-group" >                
+                    <label for="" >{{form.rep_org_emissor.label}} </label>        
+                    {% render_field form.rep_org_emissor  class="form-control" %}
+                </div>    
+            </div>  
+            <div class="col-sm-2">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.rep_nacionalidade.label}} </label>        
+                    {% render_field form.rep_nacionalidade  class="form-control" %}
+                </div>    
+            </div>  
+            <div class="col-sm-2">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.rep_estado_civil.label}} </label>        
+                    {% render_field form.rep_estado_civil  class="form-control" %}
+                </div>    
+            </div>  
+            <div class="col-sm-2">                    
+                <div class="form-group" >                
                     <label for="" >{{form.rep_contato1.label}} </label>        
                     {% render_field form.rep_contato1 class="form-control phone-mask" type="text" %}
                 </div>
