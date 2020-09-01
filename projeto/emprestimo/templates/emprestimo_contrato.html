@@ -273,12 +273,12 @@ window.onload = function imprimir(){
     var fundacao             = "{{object.cliente_cnpj.fundacao}}"
     var razao_social         = "{{object.cliente_cnpj.razao_social}}"
     var cnpj                 = "{{object.cliente_cnpj.cnpj}}"
+    var cnpj_cep             = "{{object.cliente_cnpj.cep}}"
     var cnpj_rua             = "{{object.cliente_cnpj.rua}}"
     var cnpj_bairro          = "{{object.cliente_cnpj.bairro}}"
     var cnpj_cidade          = "{{object.cliente_cnpj.cidade}}"
     var cnpj_uf              = "{{object.cliente_cnpj.uf}}"
     var cnpj_numero_casa     = "{{object.cliente_cnpj.numero_casa}}"
-    var cnpj_cep             = "{{object.cliente_cnpj.cep}}"
     var cnpj_contato1        = "{{object.cliente_cnpj.contato1}}"
     var cnpj_email           = "{{object.cliente_cnpj.email}}"
 
@@ -298,15 +298,18 @@ window.onload = function imprimir(){
     var representante_contato1      = "{{object.cliente_cnpj.rep_contato1}}"
 
     //VARIÁVEIS DO AVALISTA
-    var fiador        = "{{object.cliente_cnpj.fiador.fiador_nome}}"
-    var fiador_cpf    = "{{object.cliente_cnpj.fiador.fiador_cpf}}"
-    var fiador_rg     = "{{object.cliente_cnpj.fiador.fiador_rg}}"
-    var fiador_   = "{{object.cliente_cnpj.fiador.}}"
-    var fiador_   = "{{object.cliente_cnpj.fiador.}}"
-    var fiador_   = "{{object.cliente_cnpj.fiador.}}"
-    var fiador_   = "{{object.cliente_cnpj.fiador.}}"
-    var fiador_   = "{{object.cliente_cnpj.fiador.}}"
-    var fiador_   = "{{object.cliente_cnpj.fiador.}}"
+    var fiador                 = "{{object.cliente_cnpj.fiador.fiador_nome}}"
+    var fiador_cpf             = "{{object.cliente_cnpj.fiador.fiador_cpf}}"
+    var fiador_rg              = "{{object.cliente_cnpj.fiador.fiador_rg}}"
+    var fiador_org_emissor     = "{{object.cliente_cnpj.fiador.fiador_org_emissor}}"
+    var fiador_nacionalidade   = "{{object.cliente_cnpj.fiador.fiador_nacionalidade}}"
+    var fiador_estado_civil    = "{{object.cliente_cnpj.fiador.fiador_estado_civil}}"
+    var fiador_cep             = "{{object.cliente_cnpj.fiador.fiador_cep}}"
+    var fiador_rua             = "{{object.cliente_cnpj.fiador.fiador_rua}}"
+    var fiador_bairro          = "{{object.cliente_cnpj.fiador.fiador_bairro}}"
+    var fiador_cidade          = "{{object.cliente_cnpj.fiador.fiador_cidade}}"
+    var fiador_uf              = "{{object.cliente_cnpj.fiador.fiador_uf}}"
+    var fiador_numero_casa     = "{{object.cliente_cnpj.fiador.fiador_numero_casa}}"
     
     if(cliente){    
         contrato.innerHTML +=
@@ -501,12 +504,12 @@ window.onload = function imprimir(){
         <div class="quadro" > 
             <strong> III-DO GARANTIDOR - FIADOR </strong><br>
             Nome: ${fiador},
-            CPF: ${fiador_cpf}    RG/órgão Emissor: ${fiador_rg}  
-            Nacionalidade:  
-            Estado Civil:  
-            Endereço:   Bairro:   Cidade: - CEP:   
+            CPF: ${fiador_cpf}    RG/órgão Emissor: ${fiador_rg} ${fiador_org_emissor}  
+            Nacionalidade: ${fiador_nacionalidade} 
+            Estado Civil: ${fiador_estado_civil} 
+            Endereço: ${fiador_rua} ${fiador_numero_casa}  Bairro: ${fiador_bairro}  Cidade: ${fiador_cidade}-${fiador_uf} - CEP: ${fiador_cep}   
         </div>
-        <br>  
+        <br>         
         `
         +
         `
