@@ -285,10 +285,10 @@ window.onload = function imprimir(){
     //VARIÁVEIS DO CLIENTE CNPJ(REPRESENTANTE)
     var representante               = "{{object.cliente_cnpj.rep_nome}}"
     var representante_cpf           = "{{object.cliente_cnpj.rep_cpf}}"
-    var representante_rg            = "{{object.cliente_cnpj.rep_rg}}"
-    var representante_email         = "{{object.cliente_cnpj.rep_email}}" //não precisa no contrato?
-    //var representante_estado_civil  = "{{object.cliente_cnpj.rep_estado_civil}}" //não precisa no contrato?
-    //var representante_nacionalidade = "{{object.cliente_cnpj.representante.nacionalidade}}"
+    var representante_rg            = "{{object.cliente_cnpj.rep_rg}}"    
+    var rep_org_emissor            = "{{object.cliente_cnpj.rep_org_emissor}}"    
+    var rep_estado_civil            = "{{object.cliente_cnpj.rep_estado_civil}}" 
+    var rep_nacionalidade           = "{{object.cliente_cnpj.rep_nacionalidade}}"
     var representante_cep           = "{{object.cliente_cnpj.rep_cep}}"
     var representante_rua           = "{{object.cliente_cnpj.rep_rua}}"
     var representante_bairro        = "{{object.cliente_cnpj.rep_bairro}}"
@@ -496,7 +496,7 @@ window.onload = function imprimir(){
             <strong> II.1-REPRESENTANTE MUTUÁRIA </strong><br>
             Nome: ${representante},
             CPF:  ${representante_cpf},
-            RG:  ${representante_rg},
+            RG/órgão Emissor: ${representante_rg}, ${rep_org_emissor}, Nacionalidade: ${rep_nacionalidade}, Estado Civil: ${rep_estado_civil}
             Endereço: ${representante_rua}, ${representante_numero_casa}, ${representante_bairro}, 
             ${representante_cidade}-${representante_uf}, CEP: ${representante_cep}
         </div>
