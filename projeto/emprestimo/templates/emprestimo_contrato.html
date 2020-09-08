@@ -444,7 +444,7 @@ window.onload = function imprimir(){
         `
     }
     //PARA CLIENTE CNPJ
-    else{
+    if(cliente_cnpj){
         contrato.innerHTML +=
         `
         <p class="paginacao1">
@@ -500,7 +500,24 @@ window.onload = function imprimir(){
             Endereço: ${representante_rua}, ${representante_numero_casa}, ${representante_bairro}, 
             ${representante_cidade}-${representante_uf}, CEP: ${representante_cep}
         </div>
-        
+        `
+    }
+    if(!fiador){
+        contrato.innerHTML +=       
+        `
+        <div class="quadro" > 
+            <strong> II-CONTRATANTE MUTUÁRIA </strong><br>
+            Nome/Razão Social: ${razao_social},
+            CNPJ: ${cnpj},
+            Endereço: ${cnpj_rua}, ${cnpj_numero_casa}, ${cnpj_bairro}, ${cnpj_cidade}-${cnpj_uf} CEP: ${cnpj_cep},
+            Telefone: ${cnpj_contato1},
+            E-mail: ${cnpj_email} 
+        </div>
+        `
+    }
+    if(fiador){
+        contrato.innerHTML +=       
+         `
         <div class="quadro" > 
             <strong> III-DO GARANTIDOR - FIADOR </strong><br>
             Nome: ${fiador},
@@ -511,7 +528,9 @@ window.onload = function imprimir(){
         </div>
         <br>         
         `
-        +
+    }
+    if(cliente_cnpj){
+        contrato.innerHTML +=       
         `
         <div class="titulo_quadro">QUADRO 02 - CRONOGRAMA DE REEMBOLSO</div><br> 
         <table cellspacing="0" cellpadding="0" border="1">       
