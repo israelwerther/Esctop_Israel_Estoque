@@ -3,8 +3,6 @@
 {% block js %}{% endblock js %}
 {% block content %}
 
-
-
 <style>
     
     body {font-family: Arial;}
@@ -188,6 +186,12 @@
                     {% render_field form.uf class="form-control" name="uf" type="text" id="uf" size="2"%}
                 </div>
             </div>            
+            <div class="col-sm-5">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.complemento.label}} </label>        
+                    {% render_field form.complemento class="form-control" %}
+                </div>
+            </div>
             <div class="col-sm-5">                    
                 <div class="form-group" >                
                     <label for="" >{{form.ponto_referencia.label}} </label>        
