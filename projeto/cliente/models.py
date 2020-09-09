@@ -21,6 +21,7 @@ class Cliente(models.Model):
     uf                    = models.CharField("Estado", max_length=2, blank=False, null=True)   
     numero_casa           = models.CharField("Nº ", max_length=5, blank=False, null=True)
     ponto_referencia      = models.CharField("Ponto de Referencia", max_length=100, blank=True, null=True)
+    complemento           = models.CharField("Complemento", max_length=100, blank=True, null=True)
     contato1              = models.CharField("Contato 1",max_length=15, blank=True, null=True)
     contato2              = models.CharField("Contato 2",max_length=15, blank=True, null=True)
     celular1              = models.CharField("celular 1",max_length=17, blank=True, null=True)
