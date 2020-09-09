@@ -13,4 +13,7 @@ class ClienteForm(forms.ModelForm):
     class Meta:
         model = Cliente
         fields = '__all__'
+        widgets = {
+            'complemento': forms.TextInput(attrs={'placeholder': 'Ex: Apt A, BL B'}), 
+        }
         

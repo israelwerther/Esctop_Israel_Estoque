@@ -18,7 +18,7 @@ class Cliente(models.Model):
     rua                   = models.CharField("Rua", max_length=60, blank=False, null=True)
     bairro                = models.CharField("Bairro", max_length=40, blank=False, null=True)
     cidade                = models.CharField("Cidade", max_length=40, blank=False, null=True)
-    uf                    = models.CharField("Estado", max_length=2, blank=False, null=True)   
+    uf                    = models.CharField("UF", max_length=2, blank=False, null=True)   
     numero_casa           = models.CharField("Nº ", max_length=5, blank=False, null=True)
     ponto_referencia      = models.CharField("Ponto de Referencia", max_length=100, blank=True, null=True)
     complemento           = models.CharField("Complemento", max_length=100, blank=True, null=True)

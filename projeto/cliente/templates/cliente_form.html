@@ -115,19 +115,19 @@
                 </div>
             {% endif %}
 
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 <div class="form-group">
                     <label for="" class="required">{{form.estado_civil.label}}</label>
                     {% render_field form.estado_civil class="form-control" %}
                 </div>  
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 <div class="form-group">
                     <label for="" class="required">{{form.naturalidade.label}}</label>
                     {% render_field form.naturalidade class="form-control"  %}
                 </div>  
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 <div class="form-group">
                     <label for="" class="required">{{form.nacionalidade.label}}</label>
                     {% render_field form.nacionalidade class="form-control" %}
@@ -180,19 +180,19 @@
                     {% render_field form.cidade class="form-control" name="cidade" type="text" id="cidade" size="40"%}
                 </div>
             </div>
-            <div class="col-sm-2">                    
+            <div class="col-sm-1">                    
                 <div class="form-group" >                
                     <label for="" class="required">{{form.uf.label}} </label>        
                     {% render_field form.uf class="form-control" name="uf" type="text" id="uf" size="2"%}
                 </div>
             </div>            
-            <div class="col-sm-5">                    
+            <div class="col-sm-4">                    
                 <div class="form-group" >                
                     <label for="" >{{form.complemento.label}} </label>        
                     {% render_field form.complemento class="form-control" %}
                 </div>
             </div>
-            <div class="col-sm-5">                    
+            <div class="col-sm-4">                    
                 <div class="form-group" >                
                     <label for="" >{{form.ponto_referencia.label}} </label>        
                     {% render_field form.ponto_referencia class="form-control" %}
