@@ -75,7 +75,7 @@
                     {% render_field form.fiador_cep class="form-control" name="cep" type="text" id="cep" value="" size="10" maxlength="9" onblur="pesquisacep(this.value);"%}                            
                 </div>
             </div>
-            <div class="col-sm-4">                    
+            <div class="col-sm-5">                    
                 <div class="form-group" >                
                     <label for="" class="required">{{form.fiador_rua.label}} </label>        
                     {% render_field form.fiador_rua class="form-control" name="rua" type="text" id="rua" size="60" %}
@@ -87,7 +87,7 @@
                     {% render_field form.fiador_numero_casa class="form-control" name="rua" type="text" id="rua" size="60" %}
                 </div>
             </div>
-            <div class="col-sm-5">                    
+            <div class="col-sm-4">                    
                 <div class="form-group" >                
                     <label for="" class="required">{{form.fiador_bairro.label}} </label>        
                     {% render_field form.fiador_bairro class="form-control" name="bairro" type="text" id="bairro" size="40" %}
@@ -105,32 +105,38 @@
                     {% render_field form.fiador_uf class="form-control" name="uf" type="text" id="uf" size="2"%}
                 </div>
             </div>            
-            <div class="col-sm-5">                    
+            <div class="col-sm-4">                    
                 <div class="form-group" >                
                     <label for="" >{{form.fiador_ponto_referencia.label}} </label>        
                     {% render_field form.fiador_ponto_referencia class="form-control" %}
                 </div>
+            </div>
+            <div class="col-sm-4">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.fiador_complemento.label}} </label>        
+                    {% render_field form.fiador_complemento class="form-control" %}
+                </div>
             </div>               
             {% comment %} ENDEREÇO FIM {% endcomment %}
-            <div class="col-sm-6">                    
+            <div class="col-sm-2">                    
                 <div class="form-group" >                
                     <label for="" >{{form.fiador_agencia.label}} </label>        
                     {% render_field form.fiador_agencia class="form-control" %}
                 </div>    
             </div>  
-            <div class="col-sm-6">                    
+            <div class="col-sm-2">                    
                 <div class="form-group" >                
                     <label for="" >{{form.fiador_conta.label}} </label>        
                     {% render_field form.fiador_conta class="form-control" %}
                 </div>    
-            </div>  
-            <div class="col-sm-6">                    
+            </div>            
+            <div class="col-sm-4">                    
                 <div class="form-group" >                
                     <label for="" >{{form.fiador_banco.label}} </label>        
                     {% render_field form.fiador_banco class="form-control" %}
                 </div>    
             </div>  
-            <div class="col-sm-6">                    
+            <div class="col-sm-5">                    
                 <div class="form-group" >                
                     <label for="" >{{form.fiador_obs_bancaria.label}} </label>        
                     {% render_field form.fiador_obs_bancaria class="form-control" %}
