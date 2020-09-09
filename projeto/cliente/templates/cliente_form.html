@@ -7,6 +7,11 @@
     
     body {font-family: Arial;}
     
+    h3{
+        background-color: #4CAF50;
+        color: rgb(255, 255, 255)          
+    }   
+    
     /* Style the tab */
     .tab {
       overflow: hidden;
@@ -69,7 +74,7 @@
         <form method="POST">
         {% csrf_token %}
         <br>
-        <h2>CADASTRO PESSOAL</h2>
+        <h3>CADASTRO PESSOAL</h3>
         <div class="row" >
             <div class="col-sm-6">                    
                 <div class="form-group" >                
@@ -95,7 +100,7 @@
             <div class="col-sm-2">                    
                 <div class="form-group" >                
                     <label for="" class="required">{{form.orgao_expedidor.label}} </label>        
-                    {% render_field form.orgao_expedidor class="form-control" %}
+                    {% render_field form.orgao_expedidor class="form-control upper_all" %}
                 </div>
             </div>
 
@@ -147,7 +152,7 @@
             </div>
         </div>                
     
-        <h2>ENDEREÇO</h2>
+        <h3>ENDEREÇO</h3>
         <div class="row">
             <div class="col-sm-2">                    
                 <div class="form-group" >                
@@ -231,8 +236,7 @@
         </div>  
     </div>
 
-    <div id="Page2" class="tabcontent">
-        <h2>DADOS DO LOCAL DE TRABALHO</h2>
+    <div id="Page2" class="tabcontent">        
         <div class="row">
             <div class="col-sm-5">                    
                 <div class="form-group" >                
@@ -304,8 +308,7 @@
         </div>   
     </div>    
 
-    <div id="Page3" class="tabcontent">
-        <h2>DADOS BANCÁRIOS</h2>
+    <div id="Page3" class="tabcontent">       
         <div class="row">
             <div class="col-sm-2">                    
                 <div class="form-group" >                

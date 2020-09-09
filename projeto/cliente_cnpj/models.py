@@ -43,7 +43,7 @@ class Cliente_cnpj(models.Model):
     rep_cpf               = models.CharField("CPF", max_length=20, unique=True, blank=True, null=True) 
     rep_rg                = models.CharField("RG",max_length=20, blank=True, null=True)
     rep_email             = models.EmailField("Email", max_length=50, blank=True, null=True)
-    rep_org_emissor       = models.CharField("Orgão Emissor",max_length=20, blank=True, null=True)
+    rep_orgao_emissor     = models.CharField("Orgão Emissor",max_length=20, blank=True, null=True)
     rep_nacionalidade     = models.CharField("Nacionalidade",max_length=20, blank=True, null=True)
     rep_estado_civil      = models.CharField("Estado Civil",max_length=20, blank=True, null=True)
     rep_contato1          = models.CharField("Contato 1",max_length=15, blank=True, null=True)
