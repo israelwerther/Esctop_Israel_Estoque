@@ -502,7 +502,7 @@ window.onload = function imprimir(){
         </div>
         `
     }
-    if(!fiador){
+    if(!fiador && cliente_cnpj ){
         contrato.innerHTML +=       
         `
         <div class="quadro" > 
@@ -519,7 +519,7 @@ window.onload = function imprimir(){
         contrato.innerHTML +=       
          `
         <div class="quadro" > 
-            <strong> III-DO GARANTIDOR - FIADOR </strong><br>
+            <strong> III-DO GARANTIDOR - FIADOR  </strong><br>
             Nome: ${fiador},
             CPF: ${fiador_cpf}    RG/órgão Emissor: ${fiador_rg} ${fiador_org_emissor}  
             Nacionalidade: ${fiador_nacionalidade} 
