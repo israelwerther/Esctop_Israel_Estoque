@@ -41,8 +41,7 @@ class Cliente(models.Model):
     referencia_trabalho   = models.CharField("Referência",max_length=50, blank=True, null=True)    
     agencia               = models.CharField("Agência",max_length=15, blank=True, null=True)
     conta                 = models.CharField("Conta",max_length=15, blank=True, null=True)
-    banco                 = models.CharField("Banco",max_length=25, blank=True, null=True)
-    obs_bancaria          = models.CharField("Observações",max_length=25, blank=True, null=True)         
+    banco                 = models.CharField("Banco",max_length=25, blank=True, null=True)          
     anotacoes             = models.TextField("Anotações",max_length=200, blank=True, null=True)
     fiador                = models.ForeignKey('self', on_delete=models.CASCADE, blank=True, null=True)
 

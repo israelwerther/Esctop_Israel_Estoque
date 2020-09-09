@@ -27,8 +27,7 @@ class Cliente_cnpj(models.Model):
     celular2              = models.CharField("Celular 2",max_length=17, blank=True, null=True)
     agencia               = models.CharField("Agência",max_length=15, blank=True, null=True)
     conta                 = models.CharField("Conta",max_length=15, blank=True, null=True)
-    banco                 = models.CharField("Banco",max_length=25, blank=True, null=True)
-    obs_bancaria          = models.CharField("Observações",max_length=25, blank=True, null=True) 
+    banco                 = models.CharField("Banco",max_length=25, blank=True, null=True)    
 
     # REFERÊNCIAS
     ref1_nome             = models.CharField("Nome", max_length=50, blank=True, null=True)
