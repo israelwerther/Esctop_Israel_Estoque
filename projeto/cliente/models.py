@@ -2,6 +2,8 @@
 #https://stackoverflow.com/questions/1134667/django-required-field-in-model-form/1429646
 from django.db import models
 from django.urls import reverse_lazy
+from projeto.core.models import Dados_bancarios
+
 
 class Cliente(models.Model):
     nome                  = models.CharField("Nome", max_length=50)
@@ -41,7 +43,7 @@ class Cliente(models.Model):
     referencia_trabalho   = models.CharField("Referência",max_length=50, blank=True, null=True)    
     agencia               = models.CharField("Agência",max_length=15, blank=True, null=True)
     conta                 = models.CharField("Conta",max_length=15, blank=True, null=True)
-    banco                 = models.CharField("Banco",max_length=25, blank=True, null=True)          
+    banco                 = models.ForeignKey(Dados_bancarios, on_delete=models.PROTECT,max_length=25, blank=True, null=True)  
     anotacoes             = models.TextField("Anotações",max_length=200, blank=True, null=True)
     fiador                = models.ForeignKey('self', on_delete=models.CASCADE, blank=True, null=True)
 

@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse_lazy
+from projeto.core.models import Dados_bancarios
 
 class Avalista(models.Model): 
     fiador_nome                = models.CharField("Nome", max_length=50, blank=True, null=True)
@@ -22,7 +23,8 @@ class Avalista(models.Model):
     fiador_complemento         = models.CharField("Complemento", max_length=100, blank=True, null=True)
     fiador_agencia             = models.CharField("Agência",max_length=15, blank=True, null=True)
     fiador_conta               = models.CharField("Conta",max_length=15, blank=True, null=True)
-    fiador_banco               = models.CharField("Banco",max_length=25, blank=True, null=True)   
+    banco                      = models.ForeignKey(Dados_bancarios, on_delete=models.PROTECT,max_length=25, blank=True, null=True)  
+    
         
     class Meta:
         ordering = ('fiador_nome',) 
