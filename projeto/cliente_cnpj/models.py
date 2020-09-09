@@ -52,7 +52,7 @@ class Cliente_cnpj(models.Model):
     rep_rua               = models.CharField("Rua", max_length=60, blank=True, null=True)
     rep_bairro            = models.CharField("Bairro", max_length=40, blank=True, null=True)
     rep_cidade            = models.CharField("Cidade", max_length=40, blank=True, null=True)
-    rep_uf                = models.CharField("Estado", max_length=2, blank=True, null=True)   
+    rep_uf                = models.CharField("UF", max_length=2, blank=True, null=True)   
     rep_numero_casa       = models.CharField("Nº ", max_length=5, blank=True, null=True)
     rep_ponto_referencia  = models.CharField("Ponto de Referencia", max_length=100, blank=True, null=True)  
 
