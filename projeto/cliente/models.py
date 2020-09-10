@@ -46,6 +46,7 @@ class Cliente(models.Model):
     banco                 = models.ForeignKey(Dados_bancarios, on_delete=models.PROTECT,max_length=25, blank=True, null=True)  
     anotacoes             = models.TextField("Anotações",max_length=200, blank=True, null=True)
     fiador                = models.ForeignKey('self', on_delete=models.CASCADE, blank=True, null=True)
+    whatsapp              = models.BooleanField(default=True)
 
 
     class Meta:

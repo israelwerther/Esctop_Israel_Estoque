@@ -198,6 +198,7 @@
                 <div class="form-group" >                
                     <label for="" >{{form.contato2.label}} </label>        
                     {% render_field form.contato2 class="form-control phone-mask" type="text"%}
+                    <label class="checkbox-inline"> {{form.whatsapp.label}} <input type="checkbox" value="whatsapp" id="whatsapp" name="whatsapp"></label>
                 </div>
             </div>
             <div class="col-sm-2">                    
@@ -223,6 +224,12 @@
             <h3>DADOS BANCÁRIOS</h3>  
         <hr/>
         <div class="row">
+            <div class="col-sm-4">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.banco.label}} </label>        
+                    {% render_field form.banco class="form-control" %}
+                </div>
+            </div>            
             <div class="col-sm-2">                    
                 <div class="form-group" >                
                     <label for="" >{{form.agencia.label}} </label>        
@@ -235,12 +242,6 @@
                     {% render_field form.conta class="form-control" %}
                 </div>
             </div>
-            <div class="col-sm-4">                    
-                <div class="form-group" >                
-                    <label for="" >{{form.banco.label}} </label>        
-                    {% render_field form.banco class="form-control" %}
-                </div>
-            </div>            
         </div>  
         <hr>
             <h3>REFERÊNCIAS</h3>  

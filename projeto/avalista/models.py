@@ -24,7 +24,7 @@ class Avalista(models.Model):
     fiador_agencia             = models.CharField("Agência",max_length=15, blank=True, null=True)
     fiador_conta               = models.CharField("Conta",max_length=15, blank=True, null=True)
     banco                      = models.ForeignKey(Dados_bancarios, on_delete=models.PROTECT,max_length=25, blank=True, null=True)  
-    
+    whatsapp                   = models.BooleanField(default=True)
         
     class Meta:
         ordering = ('fiador_nome',) 
