@@ -213,7 +213,6 @@
                 <div class="form-group" >                
                     <label for="" >{{form.contato2.label}} </label>        
                     {% render_field form.contato2 class="form-control phone-mask" type="text"%}
-                    <label class="checkbox-inline"> {{form.whatsapp.label}} <input type="checkbox" value="whatsapp" id="whatsapp" name="whatsapp"></label>
                 </div>
             </div>
             <div class="col-sm-2">                    
@@ -226,6 +225,7 @@
                 <div class="form-group" >                
                     <label for="" >{{form.celular2.label}} </label>        
                     {% render_field form.celular2 class="form-control cel-phone-mask" type="text"%}
+                    <label class="checkbox-inline"> {{form.whatsapp.label}} <input type="checkbox" value="whatsapp" id="whatsapp" name="whatsapp"></label>
                 </div>
             </div>
             <div class="col-sm-4">                    
@@ -316,6 +316,12 @@
                     <label for="" >{{form.banco.label}} </label>        
                     {% render_field form.banco class="form-control" %}
                 </div>
+            </div>  
+            <div class="col-sm-4">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.tipo_de_conta.label}} </label>        
+                    {% render_field form.tipo_de_conta class="form-control" %}
+                </div>    
             </div>            
             <div class="col-sm-2">                    
                 <div class="form-group" >                
