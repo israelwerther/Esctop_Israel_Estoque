@@ -26,11 +26,13 @@ class Cliente_cnpj(models.Model):
     contato2              = models.CharField("Contato 2",max_length=15, blank=True, null=True)
     celular1              = models.CharField("Celular 1",max_length=17, blank=True, null=True)
     celular2              = models.CharField("Celular 2",max_length=17, blank=True, null=True)
-    agencia               = models.CharField("Agência",max_length=15, blank=True, null=True)
-    conta                 = models.CharField("Conta",max_length=15, blank=True, null=True)
+    
     banco                 = models.ForeignKey(Banco, on_delete=models.PROTECT,max_length=25, blank=True, null=True)  
+    n_operacao            = models.CharField("Nº operação",max_length=15, blank=True, null=True)
+    agencia               = models.CharField("Nº agência",max_length=15, blank=True, null=True)
+    conta                 = models.CharField("Nº conta",max_length=15, blank=True, null=True)
     tipo_de_conta         = models.ForeignKey(Tipo_de_conta, on_delete=models.PROTECT,max_length=25, blank=True, null=True)  
-
+    
     # REFERÊNCIAS
     ref1_nome             = models.CharField("Nome", max_length=50, blank=True, null=True)
     ref1_contato          = models.CharField("Contato",max_length=17, blank=True, null=True)
