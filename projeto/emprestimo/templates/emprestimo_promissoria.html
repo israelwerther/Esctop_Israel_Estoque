@@ -45,7 +45,8 @@
         left: 20px;
         top: 165px;
         position: absolute;
-        font-size: 17px;        
+        font-size: 17px; 
+        text-transform: capitalize;       
     }
     div.emitente1 {
         word-break: normal;
@@ -125,6 +126,9 @@
         font-size: 17px;
         padding: 10px; 
         margin: 8px; 
+    }
+    .maiusculo {
+        text-transform: capitalize;
     }
    
 </style>
@@ -282,7 +286,7 @@ window.onload = function imprimir_promissoria(){
                 </p>   
 
                 <div class="fontmenor emitente" style="text-align:center"> 
-                    <u> <strong> ${"{{object.cliente}}"} </strong> </u> <br>
+                    <u > <strong> ${"{{object.cliente}}"} </strong> </u> <br>
                 </div>
                 <div class="fontmenor emitente1" style="text-align:center"> 
                     EMITENTE 
