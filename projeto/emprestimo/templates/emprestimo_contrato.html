@@ -297,7 +297,7 @@ window.onload = function imprimir(){
     var representante_numero_casa   = "{{object.cliente_cnpj.rep_numero_casa}}"
     var representante_contato1      = "{{object.cliente_cnpj.rep_contato1}}"
 
-    //VARIÁVEIS DO AVALISTA
+    //VARIÁVEIS DO FIADOR CNPJ
     var fiador                 = "{{object.cliente_cnpj.fiador.fiador_nome}}"
     var fiador_cpf             = "{{object.cliente_cnpj.fiador.fiador_cpf}}"
     var fiador_rg              = "{{object.cliente_cnpj.fiador.fiador_rg}}"
@@ -310,8 +310,127 @@ window.onload = function imprimir(){
     var fiador_cidade          = "{{object.cliente_cnpj.fiador.fiador_cidade}}"
     var fiador_uf              = "{{object.cliente_cnpj.fiador.fiador_uf}}"
     var fiador_numero_casa     = "{{object.cliente_cnpj.fiador.fiador_numero_casa}}"
+
+    //VARIÁVEIS DO FIADOR CPF
+    var fiador_                = "{{object.cliente.fiador.nome}}"
+
+
+    if(!fiador_){ 
+        contrato.innerHTML +=
+        `
+        <p class="paginacao1">
+            1/2 
+        </p>
+        <p class="paginacao2">
+            2/2 
+        </p>  
+
+            <h2> CONTRATO DE MÚTUO </h2>
+            <p class="fontmenor" >Pelo presente contrato particular de empréstimo de dinheiro,de um lado, 
+            Josimério de Abreu Silva, (Brasileiro, Solteiro, RG 1.791.746 SSP RN, CPF 029.388.274-66), 
+            de ora em diante denominado simplesmente por CREDOR, e, de outro lado, ${cliente}
+            (${naturalidade}, ${estado_civil}, Funcionário Privado, RG ${"{{object.cliente.rg}}"} ${orgao_expedidor}, CPF ${cpf}, 
+            ${rua}, ${numero_casa}, ${bairro}, ${cidade} ${uf} de ora em diante denominado simplesmente DEVEDOR, 
+            têm justo e contratado o seguinte:</p>
+            <p class="fontmenor">
+            <b>CLÁUSULA 1ª</b>  - O <b>DEVEDOR</b> se compromete a pagar ao <b>CREDOR</b> 
+            a título de empréstimo, a quantia acertada de R$ ${"{{object.valor_emprestado}}"} (${real} reais e ${centavos} centavos), 
+            dividida em ${"{{object.qtd_parcelas}}"}(${qtd_parcelas_extenso}) parcelas de iguais valores, já acrescidos de juros remuneratórios, 
+            nos moldes da legislação em vigor (Dec. 22.626/33 c/c art. 591 CC/02), pagas conforme boleto bancário, ou outro meio disponibilizado e 
+            pactuado, mediante as condições seguintes.
+            </p>
+            <p class="fontmenor" >
+            <b>CLÁUSULA 2ª</b> - Que a quantia acima emprestada, parcelada, deverá ser adimplida ao <b>CREDOR</b> no dia de acordo conforme tabela abaixo:
+            </p>
+        `
+        +
+        `
+        <table cellspacing="0" cellpadding="0" border="1" >       
+            <tr>
+                <td width="33%">
+                    <b>PARCELAS</b>
+                </td>
+                <td width="33%">
+                    <b>VENCIMENTO</b>
+                </td>
+                <td width="39%">
+                    <b>VALOR</b>
+                </td>						
+            </tr>
+        </table >
+        `
+        for(var i=0; i<{{object.qtd_parcelas}}; i++){
+            contador_parcela++
+            mes++
+
+            //AJUSTA A DATA QUANDO O MES É FEVEREIRO 
+            if(dia == 30 && mes == 2){
+                dia = 1 
+                mes = 3
+            }
+            
+            //AJUSTA MESES E ANOS 
+            if(mes == 13){
+                contador_meses = 0
+                aux_mes = 1
+                mes = 1	
+                aux_ano++
+                ano++				
+            }
+            
+        contrato.innerHTML +=
+        `
+            <table cellspacing="0" cellpadding="0" border="1" >       
+                <tr >
+                    <td width="33%">
+                        ${contador_parcela}/${aux_qtd_parccela}
+                    </td>
+                    <td width="33%">
+                        ${dia}/${meses[mes-1]}/${ano}
+                    </td>
+                    <td width="39%">
+                        R$ ${"{{object.valor_prestacao}}"}
+                </tr>
+            </table>
+        `
+        }
+        contrato.innerHTML +=
+        `
+        <p class="fontmenor" >
+            <b>CLÁUSULA 3ª</b> - Na falta do pagamento do empréstimo na data aprazada, o <b>DEVEDOR</b> pagará uma multa no percentual de 
+            2% mais juros moratório sobre o débito no percentual de 0.66%, por dia, acrescido de correção monetária sobre o montante 
+            apurado, ficando o <b>CREDOR</b> com direito de tomar as medidas judiciais cabíveis, inclusive a penhora judicial e conseguinte 
+            notificação e negativação nos órgãos de proteção creditícios SPC, SERASA, SCPC e afins, conforme art. 43 do estatuto 
+            consumerista.
+        </p>        
+        <p class="fontmenor" >
+            <b>CLÁUSULA 4ª</b> - Todos os encargos que venham a recair durante o período de inadimplência do <b>DEVEDOR</b>, como gastos judiciais e honorários, serão de inteira responsabilidade do <b>DEVEDOR</b>, devendo ser acrescidos na dívida originalmente pactuada.
+        </p>
+       
+        <p style="page-break-after:always"></p>
+        <p class="fontmenor">
+            <b>CLÁUSULA 5ª </b>- Fica eleito o foro desta cidade de Natal/RN, para dirimir qualquer dúvida referente a este contrato.
+        </p>
+        <p class="fontmenor">
+            E assim, por estarem plenamente contratados na forma acima e em consonância com a legislação em vigor, assinam o presente contrato em duas vias de igual teor, na presença de testemunhas que a tudo assistiram e conhecimento tiveram.
+        </p>
+
+        <p style="text-align:center">
+            ____________________________________________________________<br>
+            CREDOR
+        </p>
+        <p class="fontmenor"></p>
+
+        <p style="text-align:center">
+            ____________________________________________________________<br>
+            DEVEDOR
+        </p>
+
+        `
+    }
     
-    if(cliente){    
+    
+    if(fiador_){    
         contrato.innerHTML +=
         `   
         <p class="paginacao1">
