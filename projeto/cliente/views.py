@@ -42,10 +42,10 @@ class ClienteCreate(CreateView):
 
 class FiadorCreate(CreateView):
     model=Cliente    
-    # success_url = reverse_lazy('list_exemplo')
     # success_message = "Exemplo deletado com sucesso!!"       
     template_name='fiador_form.html'
     form_class=ClienteForm
+    success_url = reverse_lazy('cliente:cliente_add')
     
     
 class ClienteUpdate(UpdateView):
