@@ -124,21 +124,13 @@
                     <label for="" class="required" >{{form.inscricao_municipal.label}} </label>        
                     {% render_field form.inscricao_municipal class="form-control" %}
                 </div>
-            </div> 
-
-
-            {% if !cliente %}
+            </div>            
             <div class="col-sm-6">                    
                 <div class="form-group" >                
                     <label for="" class="required" >{{form.fiador.label}} </label>        
                     {% render_field form.fiador class="form-control" %}
                 </div>
-            </div>  
-            {% else %}
-            olá
-            {% endif %}     
-
-
+            </div> 
 
         </div>  
         <hr>

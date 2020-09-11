@@ -27,7 +27,6 @@ class Avalista(models.Model):
     fiador_agencia             = models.CharField("Nº agência",max_length=15, blank=True, null=True)
     fiador_conta               = models.CharField("Nº conta",max_length=15, blank=True, null=True)
     tipo_de_conta              = models.ForeignKey(Tipo_de_conta, on_delete=models.PROTECT,max_length=25, blank=True, null=True)  
-    
     whatsapp                   = models.BooleanField(default=True)
         
     class Meta:

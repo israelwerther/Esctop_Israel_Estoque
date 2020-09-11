@@ -41,6 +41,8 @@ class Cliente(models.Model):
     cidade_trabalho       = models.CharField("Cidade", max_length=40, blank=True, null=True)
     uf_trabalho           = models.CharField("Estado", max_length=2, blank=True, null=True)
     referencia_trabalho   = models.CharField("Referência",max_length=50, blank=True, null=True)  
+    obs_trabalho          = models.TextField("Observações",max_length=200, blank=True, null=True)
+    whatsapp_trabalho     = models.BooleanField("Whatsapp", default=True)
 
     banco                 = models.ForeignKey(Banco, on_delete=models.PROTECT,max_length=25, blank=True, null=True)  
     n_operacao            = models.CharField("Nº operação",max_length=15, blank=True, null=True)
@@ -49,7 +51,8 @@ class Cliente(models.Model):
     tipo_de_conta         = models.ForeignKey(Tipo_de_conta, on_delete=models.PROTECT,max_length=25, blank=True, null=True)  
     
     fiador                = models.ForeignKey('self', on_delete=models.CASCADE, blank=True, null=True)
-    whatsapp              = models.BooleanField(default=True)
+
+    whatsapp              = models.BooleanField("Whatsapp", default=True)
 
 
     class Meta:

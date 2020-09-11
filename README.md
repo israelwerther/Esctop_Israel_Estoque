@@ -56,3 +56,11 @@ python manage.py migrate
 * inserir digito model em dados bancários e criar máscaras
 
 
+
+
+<!-- PENDENCIAS -->
+* campo 'obs' em dados do local de trabalho
+* mascara do RG
+
+
+

@@ -267,7 +267,8 @@
                 <div class="form-group" >                
                     <label for="" >{{form.celular2_trabalho.label}} </label>        
                     {% render_field form.celular2_trabalho class="form-control" %}
-                </div>
+                    <label class="checkbox-inline"> {{form.whatsapp_trabalho.label}} <input type="checkbox" value="whatsapp" id="whatsapp" name="whatsapp"></label>
+            </div>
             </div>
             <div class="col-sm-2">                    
                 <div class="form-group" >                
@@ -304,6 +305,12 @@
                 <div class="form-group" >                
                     <label for="" >{{form.referencia_trabalho.label}} </label>        
                     {% render_field form.referencia_trabalho class="form-control" %}
+                </div>
+            </div>
+            <div class="col-sm-4">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.obs_trabalho.label}} </label>        
+                    {% render_field form.obs_trabalho class="form-control" %}
                 </div>
             </div>
         </div>   
@@ -351,14 +358,7 @@
                     <label for="" class="required" >{{form.fiador.label}} </label>        
                     {% render_field form.fiador class="form-control"  %}
                 </div>
-            </div>
-            <br>
-            <div class="col-sm-12">
-                <div class="form-group">
-                    <label for="">{{form.anotacoes.label}}</label>
-                    {% render_field form.anotacoes class="form-control" %}
-                </div>
-            </div>   
+            </div>            
         </div>
         <div style='float: right;'>
             <button class="btn btn-success" float="right">Cadastrar</button>
