@@ -96,21 +96,21 @@
     
     <form method="post" action="{% url 'login' %}">
         {% csrf_token %}       
-        <div class="col-sm-4 center">   
+        <div class="col-sm-4 center jumbotron jumbotron-fluid shadow rounded">   
             <a class="fontemaior">CREDCOOP</a><br>                 
-                <div class="form-group">                
-                    <a>{{ form.username.label_tag }}</a>
-                    <a>{{ form.username }}</a>                
-                    <a>{{ form.password.label_tag }}</a>
-                    <a>{{ form.password }}</a>
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="login" class="btn btn-success">
-                    <input type="hidden" name="next" value="{{ next }}">
-                    {# Assumes you setup the password_reset view in your URLconf #}
-                    <p><a href="{% url 'password_reset' %}">Esqueceu sua senha?</a></p>
-                </div>
-            </div>            
+            <div class="form-group">                
+                <a>{{ form.username.label_tag }}</a>
+                <a>{{ form.username }}</a>                
+                <a>{{ form.password.label_tag }}</a>
+                <a>{{ form.password }}</a>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="login" class="btn btn-success">
+                <input type="hidden" name="next" value="{{ next }}">
+                {# Assumes you setup the password_reset view in your URLconf #}
+                <p><a href="{% url 'password_reset' %}">Esqueceu sua senha?</a></p>
+            </div>
+         </div>            
     </form>
     
 

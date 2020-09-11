@@ -12,7 +12,9 @@ class Avalista(models.Model):
     fiador_email               = models.EmailField("Email", max_length=50, blank=True, null=True)
     fiador_contato1            = models.CharField("Contato 1",max_length=15, blank=True, null=True)
     fiador_celular1            = models.CharField("celular 1",max_length=17, blank=True, null=True)
+    whatsapp1                  = models.BooleanField("Whatsapp", default=True)
     fiador_celular2            = models.CharField("celular 2",max_length=17, blank=True, null=True)
+    whatsapp2                  = models.BooleanField("Whatsapp", default=True)
     fiador_cep                 = models.CharField("CEP", max_length=10, blank=True, null=True)
     fiador_rua                 = models.CharField("Rua", max_length=60, blank=True, null=True)
     fiador_bairro              = models.CharField("Bairro", max_length=40, blank=True, null=True)
@@ -27,8 +29,8 @@ class Avalista(models.Model):
     fiador_agencia             = models.CharField("Nº agência",max_length=15, blank=True, null=True)
     fiador_conta               = models.CharField("Nº conta",max_length=15, blank=True, null=True)
     tipo_de_conta              = models.ForeignKey(Tipo_de_conta, on_delete=models.PROTECT,max_length=25, blank=True, null=True)  
-    whatsapp                   = models.BooleanField(default=True)
-        
+
+
     class Meta:
         ordering = ('fiador_nome',) 
     

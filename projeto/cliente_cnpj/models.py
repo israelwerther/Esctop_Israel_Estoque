@@ -25,7 +25,9 @@ class Cliente_cnpj(models.Model):
     contato1              = models.CharField("Contato 1",max_length=15, blank=True, null=True)
     contato2              = models.CharField("Contato 2",max_length=15, blank=True, null=True)
     celular1              = models.CharField("Celular 1",max_length=17, blank=True, null=True)
+    whatsapp1             = models.BooleanField("Whatsapp", default=True)
     celular2              = models.CharField("Celular 2",max_length=17, blank=True, null=True)
+    whatsapp2             = models.BooleanField("Whatsapp", default=True)
     
     banco                 = models.ForeignKey(Banco, on_delete=models.PROTECT,max_length=25, blank=True, null=True)  
     n_operacao            = models.CharField("Nº operação",max_length=15, blank=True, null=True)
@@ -51,7 +53,9 @@ class Cliente_cnpj(models.Model):
     rep_estado_civil      = models.CharField("Estado Civil",max_length=20, blank=True, null=True)
     rep_contato1          = models.CharField("Contato 1",max_length=15, blank=True, null=True)
     rep_celular1          = models.CharField("celular 1",max_length=17, blank=True, null=True)
+    rep_whatsapp1         = models.BooleanField("Whatsapp", default=True)
     rep_celular2          = models.CharField("celular 2",max_length=17, blank=True, null=True)
+    rep_whatsapp2         = models.BooleanField("Whatsapp", default=True)
     rep_cep               = models.CharField("CEP", max_length=10, blank=True, null=True)
     rep_rua               = models.CharField("Rua", max_length=60, blank=True, null=True)
     rep_bairro            = models.CharField("Bairro", max_length=40, blank=True, null=True)
@@ -62,7 +66,7 @@ class Cliente_cnpj(models.Model):
 
     fiador                = models.ForeignKey(Avalista, on_delete=models.PROTECT, blank=True, null=True)
 
-    whatsapp              = models.BooleanField(default=True)
+    
     
 
     class Meta:

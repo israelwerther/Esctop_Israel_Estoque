@@ -28,6 +28,8 @@ class Cliente(models.Model):
     contato2              = models.CharField("Contato 2",max_length=15, blank=True, null=True)
     celular1              = models.CharField("celular 1",max_length=17, blank=True, null=True)
     celular2              = models.CharField("celular 2",max_length=17, blank=True, null=True)
+    whatsapp1             = models.BooleanField("Whatsapp", default=True)
+    whatsapp2             = models.BooleanField("Whatsapp", default=True)
     sacado                = models.CharField("Sacado",max_length=50, blank=True, null=True)
     email                 = models.EmailField("Email", max_length=50, blank=True, null=True)    
     nome_fantasia         = models.CharField("Nome Fantasia",max_length=50, blank=True, null=True)
@@ -35,14 +37,16 @@ class Cliente(models.Model):
     contato2_trabalho     = models.CharField("Contato 2",max_length=15, blank=True, null=True)
     celular1_trabalho     = models.CharField("celular 1",max_length=17, blank=True, null=True)
     celular2_trabalho     = models.CharField("celular 2",max_length=17, blank=True, null=True)
+    whatsapp1_trabalho    = models.BooleanField("Whatsapp", default=True)
+    whatsapp2_trabalho    = models.BooleanField("Whatsapp", default=True)
     cep_trabalho          = models.CharField("CEP", max_length=10, blank=True, null=True)
     rua_trabalho          = models.CharField("Rua", max_length=60, blank=True, null=True)
     bairro_trabalho       = models.CharField("Bairro", max_length=40, blank=True, null=True)
     cidade_trabalho       = models.CharField("Cidade", max_length=40, blank=True, null=True)
     uf_trabalho           = models.CharField("Estado", max_length=2, blank=True, null=True)
-    referencia_trabalho   = models.CharField("Referência",max_length=50, blank=True, null=True)  
+    referencia_trabalho   = models.CharField("Ponto de Referencia",max_length=50, blank=True, null=True)  
     obs_trabalho          = models.TextField("Observações",max_length=200, blank=True, null=True)
-    whatsapp_trabalho     = models.BooleanField("Whatsapp", default=True)
+    
 
     banco                 = models.ForeignKey(Banco, on_delete=models.PROTECT,max_length=25, blank=True, null=True)  
     n_operacao            = models.CharField("Nº operação",max_length=15, blank=True, null=True)
@@ -52,7 +56,6 @@ class Cliente(models.Model):
     
     fiador                = models.ForeignKey('self', on_delete=models.CASCADE, blank=True, null=True)
 
-    whatsapp              = models.BooleanField("Whatsapp", default=True)
 
 
     class Meta:

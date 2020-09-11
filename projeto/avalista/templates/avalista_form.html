@@ -60,20 +60,16 @@
                 <div class="form-group" >                
                     <label for="" >{{form.fiador_celular1.label}} </label>        
                     {% render_field form.fiador_celular1 class="form-control cel-phone-mask" %}
+                    <label class="checkbox-inline"> {{form.whatsapp1.label}} <input type="checkbox" value="whatsapp1" id="whatsapp1" name="whatsapp1"></label>                    
                 </div>    
             </div>  
             <div class="col-sm-2">                    
                 <div class="form-group" >                
                     <label for="" > {{form.fiador_celular2.label}} </label>   
                     {% render_field form.fiador_celular2 class="form-control cel-phone-mask" %}
-                    <label class="checkbox-inline"> {{form.whatsapp.label}} <input type="checkbox" value="whatsapp" id="whatsapp" name="whatsapp"></label>                      
-                </div>                               
-               
-            </div> 
-           
-                    {% comment %} <label class="checkbox-inline"> {{form.whatsapp.label}} </label>
-                    <input type="checkbox" value="whatsapp" id="whatsapp" name="whatsapp">    {% endcomment %}
-            
+                    <label class="checkbox-inline"> {{form.whatsapp2.label}} <input type="checkbox" value="whatsapp2" id="whatsapp2" name="whatsapp2"></label>                      
+                </div>     
+            </div>             
 
             {% comment %} ENDEREÇO INICIO {% endcomment %}
             <div class="col-sm-2">                    

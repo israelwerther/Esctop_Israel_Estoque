@@ -206,13 +206,14 @@
                 <div class="form-group" >                
                     <label for="" class="required">{{form.celular1.label}} </label>        
                     {% render_field form.celular1 class="form-control cel-phone-mask" type="text"%}
+                    <label class="checkbox-inline"> {{form.whatsapp1.label}} <input type="checkbox" value="whatsapp1" id="whatsapp1" name="whatsapp1"></label>
                 </div>
             </div>
             <div class="col-sm-2">                    
                 <div class="form-group" >                
                     <label for="" >{{form.celular2.label}} </label>        
                     {% render_field form.celular2 class="form-control cel-phone-mask" type="text"%}
-                    <label class="checkbox-inline"> {{form.whatsapp.label}} <input type="checkbox" value="whatsapp" id="whatsapp" name="whatsapp"></label>
+                    <label class="checkbox-inline"> {{form.whatsapp2.label}} <input type="checkbox" value="whatsapp2" id="whatsapp2" name="whatsapp2"></label>
                 </div>
             </div>   
             <div class="col-sm-6">                    
@@ -349,12 +350,14 @@
                 <div class="form-group" >                
                     <label for="" >{{form.rep_celular1.label}} </label>        
                     {% render_field form.rep_celular1 class="form-control cel-phone-mask" type="text" %}
+                    <label class="checkbox-inline"> {{form.rep_whatsapp1.label}} <input type="checkbox" value="rep_whatsapp1" id="rep_whatsapp1" name="rep_whatsapp1"></label> 
                 </div>
             </div>
             <div class="col-sm-2">                    
                 <div class="form-group" >                
                     <label for="" >{{form.rep_celular2.label}} </label>        
                     {% render_field form.rep_celular2 class="form-control cel-phone-mask" type="text" %}
+                    <label class="checkbox-inline"> {{form.rep_whatsapp2.label}} <input type="checkbox" value="rep_whatsapp2" id="rep_whatsapp2" name="rep_whatsapp2"></label>
                 </div>
             </div>
             <div class="col-sm-6">                    
