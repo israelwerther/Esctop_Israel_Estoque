@@ -259,7 +259,7 @@ window.onload = function imprimir(){
     var cpf             = "{{object.cliente.cpf}}"    
     var rg              = "{{object.cliente.rg}}"    
     var naturalidade    = "{{object.cliente.naturalidade}}"
-    var nacionalidade    = "{{object.cliente.nacionalidade}}"
+    var nacionalidade   = "{{object.cliente.nacionalidade}}"
     var orgao_expedidor = "{{object.cliente.orgao_expedidor}}"
     var estado_civil    = "{{object.cliente.estado_civil}}"
     var rua             = "{{object.cliente.rua}}"
@@ -268,6 +268,7 @@ window.onload = function imprimir(){
     var uf              = "{{object.cliente.uf}}"
     var numero_casa     = "{{object.cliente.numero_casa}}"
     var cep             = "{{object.cliente.cep}}"
+    var nome_fantasia   = "{{object.cliente.nome_fantasia}}"
 
     //VARIÁVEIS DO CLIENTE CNPJ
     var cliente_cnpj         = "{{object.cliente_cnpj.razao_social}}"
@@ -330,7 +331,7 @@ window.onload = function imprimir(){
             <p class="fontmenor" >Pelo presente contrato particular de empréstimo de dinheiro,de um lado, 
             Josimério de Abreu Silva, (Brasileiro, Solteiro, RG 1.791.746 SSP RN, CPF 029.388.274-66), 
             de ora em diante denominado simplesmente por CREDOR, e, de outro lado, ${cliente}
-            (${nacionalidade}, ${estado_civil}, Funcionário Privado, RG ${"{{object.cliente.rg}}"} ${orgao_expedidor}, CPF ${cpf}, 
+            (${nacionalidade}, ${estado_civil}, ${nome_fantasia}, RG ${"{{object.cliente.rg}}"} ${orgao_expedidor}, CPF ${cpf}, 
             ${rua}, ${numero_casa}, ${bairro}, ${cidade} ${uf}) de ora em diante denominado simplesmente DEVEDOR, 
             têm justo e contratado o seguinte:</p>
             <p class="fontmenor">
@@ -447,7 +448,7 @@ window.onload = function imprimir(){
             <p class="fontmenor" >Pelo presente contrato particular de empréstimo de dinheiro,de um lado, 
             Josimério de Abreu Silva, (Brasileiro, Solteiro, RG 1.791.746 SSP RN, CPF 029.388.274-66), 
             de ora em diante denominado simplesmente por CREDOR, e, de outro lado, ${cliente}
-            (${nacionalidade}, ${estado_civil}, Funcionário Privado, RG ${"{{object.cliente.rg}}"} ${orgao_expedidor}, CPF ${cpf}, 
+            (${nacionalidade}, ${estado_civil}, ${nome_fantasia}, RG ${"{{object.cliente.rg}}"} ${orgao_expedidor}, CPF ${cpf}, 
             ${rua}, ${numero_casa}, ${bairro}, ${cidade} ${uf} de ora em diante denominado simplesmente DEVEDOR, 
             têm justo e contratado o seguinte:</p>
             <p class="fontmenor">
@@ -547,7 +548,7 @@ window.onload = function imprimir(){
             </p>
             <p class="fontmenor maiusculo">
                 <strong>FIADOR 1:</strong> - ${"{{object.cliente.fiador.nome}}"}
-                (${"{{object.cliente.fiador.estado_civil}}"}, Funcionário Privado, RG ${"{{object.cliente.fiador.rg}}"}
+                (${"{{object.cliente.fiador.estado_civil}}"}, ${"{{object.cliente.fiador.nome_fantasia}}"}, RG ${"{{object.cliente.fiador.rg}}"}
                 ${"{{object.cliente.fiador.orgao_expedidor}}"}, CPF ${"{{object.cliente.fiador.cpf}}"} 
                 
                 ${"{{object.cliente.fiador.rua}}"}, ${"{{object.cliente.fiador.numero_casa}}"}, ${"{{object.cliente.fiador.bairro}}"}, 
