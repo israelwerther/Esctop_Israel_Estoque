@@ -316,20 +316,16 @@ window.onload = function imprimir(){
     //VARIÁVEIS DO FIADOR CPF
     var fiador_                = "{{object.cliente.fiador.nome}}"
 
-
     //CORREÇÃO DO VALOR TOTAL
     var valorTotal = parseFloat("{{object.valor_prestacao|floatformat:2}}".replace(',', '.'))
     var parceTotal = parseInt("{{object.qtd_parcelas|floatformat:2}}".replace(',', '.'))
-
     var resultado = 0 
     resultado = parseFloat(valorTotal*parceTotal).toFixed(2)
     resultado_ext = resultado
     resultado_int = parseInt(resultado_ext)
     resultado = resultado.replace('.', ',')
-
     var real = parseInt(resultado_ext)	
-    real = String(real).extenso()
-    
+    real = String(real).extenso()    
     var centavos = parseFloat((resultado_ext-resultado_int)).toFixed(2)	
     centavos = String(centavos).extenso()    
     
@@ -471,7 +467,7 @@ window.onload = function imprimir(){
             têm justo e contratado o seguinte:</p>
             <p class="fontmenor">
             <b>CLÁUSULA 1ª</b>  - O <b>DEVEDOR</b> e seu(s) fiador(es) se comprometem a pagar ao <b>CREDOR</b> 
-            a título de empréstimo, a quantia acertada de R$ ${"{{object.valor_emprestado}}"} (${real} reais e ${centavos} centavos), 
+            a título de empréstimo, a quantia acertada de R$ ${resultado} (${real} reais e ${centavos} centavos), , 
             dividida em ${"{{object.qtd_parcelas}}"}(${qtd_parcelas_extenso}) parcelas de iguais valores, já acrescidos de juros remuneratórios, 
             nos moldes da legislação em vigor (Dec. 22.626/33 c/c art. 591 CC/02), pagas conforme boleto bancário, ou outro meio disponibilizado e 
             pactuado, mediante as condições seguintes.
