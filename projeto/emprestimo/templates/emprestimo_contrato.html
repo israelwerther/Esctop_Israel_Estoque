@@ -259,6 +259,7 @@ window.onload = function imprimir(){
     var cpf             = "{{object.cliente.cpf}}"    
     var rg              = "{{object.cliente.rg}}"    
     var naturalidade    = "{{object.cliente.naturalidade}}"
+    var nacionalidade    = "{{object.cliente.nacionalidade}}"
     var orgao_expedidor = "{{object.cliente.orgao_expedidor}}"
     var estado_civil    = "{{object.cliente.estado_civil}}"
     var rua             = "{{object.cliente.rua}}"
@@ -329,7 +330,7 @@ window.onload = function imprimir(){
             <p class="fontmenor" >Pelo presente contrato particular de empréstimo de dinheiro,de um lado, 
             Josimério de Abreu Silva, (Brasileiro, Solteiro, RG 1.791.746 SSP RN, CPF 029.388.274-66), 
             de ora em diante denominado simplesmente por CREDOR, e, de outro lado, ${cliente}
-            (${naturalidade}, ${estado_civil}, Funcionário Privado, RG ${"{{object.cliente.rg}}"} ${orgao_expedidor}, CPF ${cpf}, 
+            (${nacionalidade}, ${estado_civil}, Funcionário Privado, RG ${"{{object.cliente.rg}}"} ${orgao_expedidor}, CPF ${cpf}, 
             ${rua}, ${numero_casa}, ${bairro}, ${cidade} ${uf} de ora em diante denominado simplesmente DEVEDOR, 
             têm justo e contratado o seguinte:</p>
             <p class="fontmenor">
@@ -446,7 +447,7 @@ window.onload = function imprimir(){
             <p class="fontmenor" >Pelo presente contrato particular de empréstimo de dinheiro,de um lado, 
             Josimério de Abreu Silva, (Brasileiro, Solteiro, RG 1.791.746 SSP RN, CPF 029.388.274-66), 
             de ora em diante denominado simplesmente por CREDOR, e, de outro lado, ${cliente}
-            (${naturalidade}, ${estado_civil}, Funcionário Privado, RG ${"{{object.cliente.rg}}"} ${orgao_expedidor}, CPF ${cpf}, 
+            (${nacionalidade}, ${estado_civil}, Funcionário Privado, RG ${"{{object.cliente.rg}}"} ${orgao_expedidor}, CPF ${cpf}, 
             ${rua}, ${numero_casa}, ${bairro}, ${cidade} ${uf} de ora em diante denominado simplesmente DEVEDOR, 
             têm justo e contratado o seguinte:</p>
             <p class="fontmenor">
