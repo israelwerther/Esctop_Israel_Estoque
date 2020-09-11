@@ -4,9 +4,16 @@
 
 
 <div class="class page-header">
-    <div class="float-right">
+    {% comment %} <div class="float-right">
         <a href="{% url 'cliente:cliente_add' %}" type="button" class="btn btn-success">Cadastrar Cliente</a>
-    </div>
+    </div> {% endcomment %}
+     <span class="float-right">    
+        <a href="{% url 'core:fiador_decision_1' %}" >
+            <button type="button" class="btn btn-success">
+                <span class="fa fa-plus"></span>Adicionar
+            </button>
+        </a>
+    </span>
         
     <div>
         <h2>Lista de Clientes(CPF)</h2>

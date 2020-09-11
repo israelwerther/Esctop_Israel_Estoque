@@ -16,3 +16,8 @@ def cliente_select(request):
 def fiador_decision(request):
     return render(request, 'fiador_decision.html')
 
+
+@login_required
+def fiador_decision_1(request):
+    return render(request, 'fiador_decision_1.html')
+

@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 {% load widget_tweaks %}
 {% block js %}{% endblock js %}
-{% block content %}
 
+
+{% block content %}
 <style>
 
     h3{
@@ -123,13 +124,22 @@
                     <label for="" class="required" >{{form.inscricao_municipal.label}} </label>        
                     {% render_field form.inscricao_municipal class="form-control" %}
                 </div>
-            </div>             
+            </div> 
+
+
+            {% if !cliente %}
             <div class="col-sm-6">                    
                 <div class="form-group" >                
                     <label for="" class="required" >{{form.fiador.label}} </label>        
                     {% render_field form.fiador class="form-control" %}
                 </div>
-            </div>
+            </div>  
+            {% else %}
+            olá
+            {% endif %}     
+
+
+
         </div>  
         <hr>
             <h3>ENDEREÇO</h3>  
