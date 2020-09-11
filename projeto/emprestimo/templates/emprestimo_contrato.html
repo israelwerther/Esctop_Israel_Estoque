@@ -319,18 +319,21 @@ window.onload = function imprimir(){
     //CORREÇÃO DO VALOR TOTAL
     var valorTotal = parseFloat("{{object.valor_prestacao|floatformat:2}}".replace(',', '.'))
     var parceTotal = parseInt("{{object.qtd_parcelas|floatformat:2}}".replace(',', '.'))
+
     var resultado = 0 
     resultado = parseFloat(valorTotal*parceTotal).toFixed(2)
     resultado_ext = resultado
     resultado_int = parseInt(resultado_ext)
     resultado = resultado.replace('.', ',')
+
     var real = parseInt(resultado_ext)	
-    real = String(real).extenso()    
+    real = String(real).extenso()
+    
     var centavos = parseFloat((resultado_ext-resultado_int)).toFixed(2)	
     centavos = String(centavos).extenso()    
     
 
-    if(!fiador_){ 
+    if(!fiador_ && cliente.nome){ 
         contrato.innerHTML +=
         `
         <p class="paginacao1">
@@ -345,7 +348,7 @@ window.onload = function imprimir(){
             Josimério de Abreu Silva, (Brasileiro, Solteiro, RG 1.791.746 SSP RN, CPF 029.388.274-66), 
             de ora em diante denominado simplesmente por CREDOR, e, de outro lado, ${cliente}
             (${nacionalidade}, ${estado_civil}, ${nome_fantasia}, RG ${"{{object.cliente.rg}}"} ${orgao_expedidor}, CPF ${cpf}, 
-            Residente em ${rua}, ${numero_casa}, ${bairro}, ${cidade} ${uf}) de ora em diante denominado simplesmente DEVEDOR, 
+            ${rua}, ${numero_casa}, ${bairro}, ${cidade} ${uf}) de ora em diante denominado simplesmente DEVEDOR, 
             têm justo e contratado o seguinte:</p>
             <p class="fontmenor">
             <b>CLÁUSULA 1ª</b>  - O <b>DEVEDOR</b> se compromete a pagar ao <b>CREDOR</b> 
@@ -448,7 +451,7 @@ window.onload = function imprimir(){
         `
     }    
     
-    if(fiador_){    
+    if(fiador_ && cliente.nome){    
         contrato.innerHTML +=
         `   
         <p class="paginacao1">
@@ -462,12 +465,12 @@ window.onload = function imprimir(){
             <p class="fontmenor" >Pelo presente contrato particular de empréstimo de dinheiro,de um lado, 
             Josimério de Abreu Silva, (Brasileiro, Solteiro, RG 1.791.746 SSP RN, CPF 029.388.274-66), 
             de ora em diante denominado simplesmente por CREDOR, e, de outro lado, ${cliente}
-            (${nacionalidade}, ${estado_civil}, ${nome_fantasia}, RG ${"{{object.cliente.rg}}"} ${orgao_expedidor}, CPF ${cpf}, Residente em 
+            (${nacionalidade}, ${estado_civil}, ${nome_fantasia}, RG ${"{{object.cliente.rg}}"} ${orgao_expedidor}, CPF ${cpf}, 
             ${rua}, ${numero_casa}, ${bairro}, ${cidade} ${uf} de ora em diante denominado simplesmente DEVEDOR, 
             têm justo e contratado o seguinte:</p>
             <p class="fontmenor">
             <b>CLÁUSULA 1ª</b>  - O <b>DEVEDOR</b> e seu(s) fiador(es) se comprometem a pagar ao <b>CREDOR</b> 
-            a título de empréstimo, a quantia acertada de R$ ${resultado} (${real} reais e ${centavos} centavos), , 
+            a título de empréstimo, a quantia acertada de R$ ${"{{object.valor_emprestado}}"} (${real} reais e ${centavos} centavos), 
             dividida em ${"{{object.qtd_parcelas}}"}(${qtd_parcelas_extenso}) parcelas de iguais valores, já acrescidos de juros remuneratórios, 
             nos moldes da legislação em vigor (Dec. 22.626/33 c/c art. 591 CC/02), pagas conforme boleto bancário, ou outro meio disponibilizado e 
             pactuado, mediante as condições seguintes.
