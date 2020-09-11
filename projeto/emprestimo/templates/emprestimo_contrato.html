@@ -333,7 +333,7 @@ window.onload = function imprimir(){
     centavos = String(centavos).extenso()    
     
 
-    if(!fiador_ && cliente.nome){ 
+    if(!fiador_){ 
         contrato.innerHTML +=
         `
         <p class="paginacao1">
@@ -451,7 +451,7 @@ window.onload = function imprimir(){
         `
     }    
     
-    if(fiador_ && cliente.nome){    
+    if(fiador_){    
         contrato.innerHTML +=
         `   
         <p class="paginacao1">
