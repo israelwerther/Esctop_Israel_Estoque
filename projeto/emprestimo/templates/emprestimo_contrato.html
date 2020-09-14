@@ -332,8 +332,8 @@ window.onload = function imprimir(){
     var centavos = parseFloat((resultado_ext-resultado_int)).toFixed(2)	
     centavos = String(centavos).extenso()    
     
-
-    if(!fiador_){ 
+    //ENTRA NO CONTRATO QUANDO É CLIENTE CPF SEM FIADOR
+    if(!fiador_ && !representante){ 
         contrato.innerHTML +=
         `
         <p class="paginacao1">
@@ -450,7 +450,7 @@ window.onload = function imprimir(){
 
         `
     }    
-    
+    //ENTRA NO CONTRATO QUANDO É CLIENTE CPF COM FIADOR
     if(fiador_){    
         contrato.innerHTML +=
         `   
@@ -583,7 +583,7 @@ window.onload = function imprimir(){
             
         `
     }
-    //PARA CLIENTE CNPJ
+    //ENTRA NO CONTRATO QUANDO É CLIENTE CNPJ COM REPRESENTANTE
     if(cliente_cnpj){
         contrato.innerHTML +=
         `
