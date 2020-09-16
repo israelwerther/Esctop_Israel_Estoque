@@ -3,7 +3,7 @@ from django.urls import reverse_lazy
 from projeto.core.models import Banco, Tipo_de_conta
 
 
-class Avalista(models.Model): 
+class Fiador(models.Model): 
     fiador_nome                = models.CharField("Nome", max_length=50, blank=True, null=True)
     fiador_cpf                 = models.CharField("CPF", max_length=20, unique=True, blank=True, null=True) 
     fiador_rg                  = models.CharField("RG",max_length=20, blank=True, null=True)
@@ -39,4 +39,4 @@ class Avalista(models.Model):
         return str(self.fiador_nome)
     
     def get_absolute_url(self):
-        return reverse_lazy('avalista:avalista_cadastra', kwargs={'pk': self.pk})  
+        return reverse_lazy('fiador:fiador_cadastra', kwargs={'pk': self.pk})  
