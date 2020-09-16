@@ -2,7 +2,6 @@ from django.db import models
 from django.urls import reverse_lazy
 from projeto.core.models import Banco, Tipo_de_conta
 
-
 class Avalista(models.Model): 
     fiador_nome                = models.CharField("Nome", max_length=50, blank=True, null=True)
     fiador_cpf                 = models.CharField("CPF", max_length=20, unique=True, blank=True, null=True) 

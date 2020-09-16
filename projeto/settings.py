@@ -52,7 +52,6 @@ INSTALLED_APPS = [
     'projeto.cliente',
     'projeto.cliente_cnpj',
     'projeto.avalista',
-    'projeto.fiador',
 ]
 
 MIDDLEWARE = [
