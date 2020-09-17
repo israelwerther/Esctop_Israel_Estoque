@@ -282,7 +282,7 @@
 					
 				</div>	
 				<div class="box2">			
-					Empréstimo realizado em <strong>${"{{object.qtd_parcelas}}"} parcelas</strong> no dia ${dataEmprestimo}<br>&nbsp</br>	
+					Empréstimo em <strong>${"{{object.qtd_parcelas}}"} parcelas</strong> no dia ${dataEmprestimo}<br>&nbsp</br>	
 				</div>						
 				<div class="box3">			
 					<strong>Fique de olho na data de vencimento da sua parcela</strong>
@@ -564,13 +564,11 @@
 						<p class="content center"></p>
 					</td>
 					<td width="50%" colspan="4">
-						<p class="content left"><b>Data de Emissão:</b></p>							
-						<p class="content left">&nbsp ${data_emissao}</p>						
+						<p class="content center"><b>Data de Emissão: </b>${data_emissao}</p>		
 					</td>		
 					<td>
-						<span class="title"></span>
-						<br/>
-						<p class="content center"></p>
+						<p class="content center"></p>						
+						
 					</td>
 					<td width="30%">
 						<p class="content left">&nbsp<b>PARCELA: ${i+1}/${aux_qtd_parccela}<b></p>
@@ -641,9 +639,9 @@
 					</td>
 					<td width="1px"></td>
 					<td width="39%" colspan="5">
-						<span class="title maiusculo">&nbspSacado: ${cliente_nome} - CPF: ${cpf} </span><br>						
-						<p class="text">&nbspEndereço: ${rua} - ${numero_casa} - ${bairro} - ${uf} - ${cep}</p>
-						<p class="text maiusculo">&nbspFiador: ${fiador} - &nbspCPF: ${cpf_fiador}</p>
+						<p class="content">&nbspSacado: ${cliente_nome} - CPF: ${cpf} </p>						
+						<p class="content">&nbspEndereço: ${rua} - ${numero_casa} - ${bairro} - ${uf} - ${cep}</p>
+						<p class="content maiusculo">&nbspFiador: ${fiador} - &nbspCPF: ${cpf_fiador}</p>
 					</td>
 					<td width="15%">
 						<span class="title">&nbspOutros Acres.</span>
