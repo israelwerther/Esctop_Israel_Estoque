@@ -212,6 +212,8 @@ window.onload = function imprimir(){
         valor_parcela = (cap_iof*(1+(qtd_parcelas*9.5)/100))/qtd_parcelas
         valor_parcela = String(toFixed(valor_parcela, 2))      
         valor_devido = valor_parcela
+        var valor_total_devido = 0
+        valor_total_devido = valor_parcela*qtd_parcelas
     
 
     //VARIÁVEIS DA DATA DO EMPRESTIMO
@@ -748,10 +750,10 @@ window.onload = function imprimir(){
         </div>
 
         <div class="paragrafo" >
-            <strong> CLÁUSULA1ª. </strong> A integralidade do crédito é composta da seguinte forma: Valor 
+            <strong> CLÁUSULA 1ª. </strong> A integralidade do crédito é composta da seguinte forma: Valor 
             mutuado R$ ${cap_iof = Number(toFixed(cap_iof, 2))}, Taxa de Juros a.m (9.50)%, taxa de juros moratório 0,66% ao dia, multa por 
             atraso: 2%, valor do IOF total: R$ ${iof_real = Number(toFixed(iof_real, 2))}, Valor total 
-            devido: R$ ${valor_devido}.
+            devido: R$ ${valor_total_devido}.
         </div>
         <div class="paragrafo" >
             <strong> DO CRÉDITO </strong>            
