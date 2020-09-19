@@ -149,11 +149,15 @@ function toFixed(num, fixed) {
     return num.toString().match(re)[0];
 }
 
-window.onload = function imprimir(){  
-    
-        var valor_emprestado   = Number({{object.valor_emprestado}})                
+window.onload = function imprimir(){     
+        var valor_emprestado   = Number({{object.valor_emprestado}})
         var qtd_parcelas       = Number({{object.qtd_parcelas}})
         var prestacao          = Number({{object.valor_prestacao}})
+
+
+
+
+                        
         
         var principal          = valor_emprestado/qtd_parcelas         
     
@@ -181,8 +185,6 @@ window.onload = function imprimir(){
             mes_do_emprestimo = 1
         }
 
-
-
         var aux = 0 
         iof_inicial += ((principal*(qtd_dias*0.0041))/100)
         aux2 += Number(toFixed((qtd_dias*iof_diario), 2))
@@ -196,8 +198,7 @@ window.onload = function imprimir(){
     }    
     
     //CALCULA O IOF_REAL (2º PASSO)   
-        var iof_real = 0
-    
+        var iof_real = 0    
         iof_real = (valor_emprestado*iof_inicial)/(valor_emprestado-iof_inicial)
         iof_real = Number(toFixed(iof_real, 3))    
     
@@ -206,11 +207,13 @@ window.onload = function imprimir(){
         var qtd_parcelas       = Number({{object.qtd_parcelas}})
         var prestacao          = Number({{object.valor_prestacao}})
         var cap_iof = iof_real+valor_emprestado
+
         var valor_parcela = 0
         var valor_devido = 0 
                
         valor_parcela = (cap_iof*(1+(qtd_parcelas*9.5)/100))/qtd_parcelas
-        valor_parcela = String(toFixed(valor_parcela, 2))      
+        valor_parcela = String(toFixed(valor_parcela, 2))  
+
         valor_devido = valor_parcela
         var valor_total_devido = 0
         valor_total_devido = valor_parcela*qtd_parcelas
@@ -409,7 +412,7 @@ window.onload = function imprimir(){
                         ${dia}/${meses[mes-1]}/${ano}
                     </td>
                     <td width="39%">
-                        R$ ${valor_devido}
+                        R$ ${valor_parcela} 
                     </td>
                 </tr>
             </table>
@@ -719,7 +722,7 @@ window.onload = function imprimir(){
                         ${dia}/${meses[mes-1]}/${ano}
                     </td>
                     <td width="39%">
-                        R$ ${valor_devido}
+                        R$ ${valor_parcela} tk
                 </tr>
             </table>
         `
@@ -964,9 +967,13 @@ String.prototype.extenso = function(c){
 function toFixed(num, fixed) {
     var re = new RegExp('^-?\\d+(?:\.\\d{0,' + (fixed || -1) + '})?');
     return num.toString().match(re)[0];
-}
-    
-function somar(){
+}  
+
+</script>
+</body>
+</html>
+
+{% comment %} function somar(){
     var tvalor_emprestado = document.getElementById('valor_emprestado')
     var tqtd_parcelas     = document.getElementById('qtd_parcelas')
     var tprestacao        = document.getElementById('prestacao')     
@@ -1016,8 +1023,4 @@ for (var i = 0 ; i < qtd_parcelas; i++){
 
 document.getElementById('prestacao').value = valor_parcela
 
-}
-
-</script>
-</body>
-</html>
+}  {% endcomment %}

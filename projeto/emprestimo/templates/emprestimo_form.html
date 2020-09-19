@@ -57,14 +57,14 @@
                 <div class="col-sm-3"> 
                     <div class="form-group">
                         <label for="">{{form.data_emprestimo.label}}</label>
-                        {% render_field form.data_emprestimo class="form-control" id="dataselecionada" onblur="somar()"%}                       
+                        {% render_field form.data_emprestimo class="form-control" id="dataselecionada" %}                       
                     </div>
-                </div>       
+                </div>
             {% else %}            
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label for="">{{form.data_emprestimo.label}}</label>   
-                        {% render_field form.data_emprestimo class="form-control" id="dataselecionada" type="date" onblur="somar()"%}                    
+                        {% render_field form.data_emprestimo class="form-control" id="dataselecionada" type="date" onblur="somar()" %}                    
                     </div>                  
                 </div>            
             {% endif %}            
@@ -99,7 +99,7 @@
         var tqtd_parcelas      = document.getElementById('qtd_parcelas')
         var tprestacao         = document.getElementById('prestacao')
         var mes                = document.getElementById("dataselecionada").value.split("-")[1];
-        
+
         var valor_emprestado   = Number(tvalor_emprestado.value)                
         var qtd_parcelas       = Number(tqtd_parcelas.value)
         var prestacao          = Number(tprestacao.value)
@@ -123,18 +123,14 @@
         if(mes_num == 13){
             mes_num = 1
         }        
-        iof_inicial += ((principal*(qtd_dias*0.0041))/100)
-        //iof_inicial = Number(toFixed(iof_inicial, 4)) 
+        iof_inicial += ((principal*(qtd_dias*0.0041))/100)         
         iof_inicial += principal*iof_adicional
-        iof_inicial = Number(toFixed(iof_inicial, 2))
-        
+        iof_inicial = Number(toFixed(iof_inicial, 2))        
     }    
 
     //CALCULA O IOF_REAL (2º PASSO)   
         var iof_real = 0
-
-        iof_real = (valor_emprestado*iof_inicial)/(valor_emprestado-iof_inicial)
-        //iof_real = Number(toFixed(iof_real, 2))    
+        iof_real = (valor_emprestado*iof_inicial)/(valor_emprestado-iof_inicial)           
 
     //CALCULA O VALOR DA PARCELA(3º PASSO)
         var valor_emprestado   = Number(tvalor_emprestado.value)                
