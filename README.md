@@ -48,15 +48,6 @@ python manage.py migrate
 [configurações do django admin](https://books.agiliq.com/projects/django-admin-cookbook/en/latest/introduction.html)
 
 ## OBSERVAÇÕES
-* Cliente CNPJ terá boleto ao invés de carnê
-* Preencher o campo nome fantasia automaticamente
-* forma constituição opcional
-* inscrição estadual tem mascara
-* representante não ser obrigatório
-* inserir digito model em dados bancários e criar máscaras
-
-
-
 
 <!-- PENDENCIAS -->
 * (OK) campo 'obs' em dados do local de trabalho
@@ -75,7 +66,11 @@ python manage.py migrate
 * (  ) ABRIR AS IMPRESSÕES EM NOVA GUIA
 * (  ) SE NÃO HOUVER REPRESENTANTE REPETIR OS DADOS DO CNPJ NA ABA REPRESENTANTE ???????
 * (  ) PAREI QUANDO COMEÇAM AS IMAGENS
-* (  )
+* (  ) Cliente CNPJ terá boleto ao invés de carnê
+* (  ) Preencher o campo nome fantasia automaticamente
+* (  ) forma constituição opcional
+* (  ) inscrição estadual tem mascara
+* (  ) representante não ser obrigatório
 
 
 
