@@ -59,9 +59,21 @@ python manage.py migrate
 
 
 <!-- PENDENCIAS -->
-* campo 'obs' em dados do local de trabalho
-* mascara do RG
-* tamanho do carne e espaços em branco sem espaços para descontos
+* (OK) campo 'obs' em dados do local de trabalho
+* (  ) mascara do RG
+* (  ) tamanho do carne e espaços em branco sem espaços para descontos
+* (OK) CORRIGIR VALOR TOTAL DEVIDO NO CONTRATO
+* (  )
+* (  )
+* (  )
+* (  )
+* (  )
+* (  )
+* (  )
+* (  )
+* (  )
+* (  )
+* (  )
 
 
 
