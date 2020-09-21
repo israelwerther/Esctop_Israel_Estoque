@@ -53,16 +53,16 @@
         width: 360px;
         border: none;
         left: 20px;
-        top: 185px;
+        top: 210px;
         position: absolute;
-        font-size: 12px;
+        font-size: 14px;
     }
     div.emitente2 {
         word-break: normal;
         width: 360px;
         border: none;
         left: 20px;
-        top: 205px;
+        top: 225px;
         position: absolute;
         font-size: 17px;              
     }
@@ -292,8 +292,7 @@ window.onload = function imprimir_promissoria(){
                     EMITENTE 
                 </div>
                 <div class="fontmenor emitente2" style="text-align:center">
-                    CPF <br>
-                    ${"{{object.cliente.cpf}}"}  
+                    CPF: ${"{{object.cliente.cpf}}"}  
                 </div>
                 <div class="fontmenor emissao" style="text-align:center">                   
                     <strong><u> ${"{{object.data_emprestimo}}"}</u></strong>
@@ -339,6 +338,10 @@ window.onload = function imprimir_promissoria(){
                 <div class="fontmenor emitente" style="text-align:center">                     
                     <u> <strong> ${razao_social} </strong> </u> <br>
                 </div>
+                <div class="fontmenor emitente" style="text-align:center">                     
+                    <u> <strong> ${razao_social} </strong> </u> <br>
+                </div>
+                
                 <div class="fontmenor emitente1" style="text-align:center"> 
                     EMITENTE 
                 </div>   
@@ -355,7 +358,7 @@ window.onload = function imprimir_promissoria(){
 
                 <div class="fontmenor emissao2" style="text-align:center"> 
                     ___________________________<br>
-                    ASSINATURA DO EMITENTE
+                    ASSINATURA DO EMITENTEoi
                 </div>   
             </a> 
         </div>    

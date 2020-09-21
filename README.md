@@ -50,6 +50,7 @@ python manage.py migrate
 ## OBSERVAÇÕES
 
 <!-- PENDENCIAS -->
+* (OK) CORRIGIR O ESPAÇO DA PROMISSÓRIA NO EMITENTE
 * (OK) campo 'obs' em dados do local de trabalho
 * (  ) mascara do RG
 * (  ) tamanho do carne e espaços em branco sem espaços para descontos
@@ -59,13 +60,13 @@ python manage.py migrate
 * (  ) NACIONALIDADE BRASILEIRA POR PADRÃO E EDITÁVEL SE PRECISAR MUDAR
 * (  ) CONTATOS É OBRIGATÓRIO APENAS UM CELULAR
 * (  ) CAMPO DE NÚMERO CASA EM DADOS DE LOCAL DE TRABALHO
-* (  ) MANTAR TABS FIXAS EM TELAS DE CADASTRO
+* (  ) MANTER TABS FIXAS EM TELAS DE CADASTRO
 * (  ) CORRIGIR ESPAÇO GRANDE NO CONTRATO APÓS O QUADRO DE PARCELAS
 * (  ) SUBIR O NOME DA CONTRACAPA  (??????????) NÃO ENTENDI ONDE DEVE FICAR O NOME
 * (  ) SE CASADO ABRIR CAMPO DE CONJUGE(NOME, CPF, TELEFONE)
 * (  ) ABRIR AS IMPRESSÕES EM NOVA GUIA
 * (  ) SE NÃO HOUVER REPRESENTANTE REPETIR OS DADOS DO CNPJ NA ABA REPRESENTANTE ???????
-* (  ) PAREI QUANDO COMEÇAM AS IMAGENS
+* (  ) 
 * (  ) Cliente CNPJ terá boleto ao invés de carnê
 * (  ) Preencher o campo nome fantasia automaticamente
 * (  ) forma constituição opcional
