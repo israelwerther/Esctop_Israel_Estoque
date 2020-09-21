@@ -54,6 +54,7 @@ python manage.py migrate
 * (OK) campo 'obs' em dados do local de trabalho
 * (OK) CORREÇÃO DO CALCULO NA TELA DE EDIÇÃO DE EMPRÉSTIMO(RETIREI O ONBLUR PQ NÃO PEGAVA O MÊS)
 * (OK) CORRIGIR VALOR TOTAL DEVIDO NO CONTRATO
+* (  ) TORNAR TUDO MAIUSCULO NO BANCO AO CRIAR O CLIENTE
 * (  ) tamanho do carne e espaços em branco sem espaços para descontos
 * (  ) NACIONALIDADE BRASILEIRA POR PADRÃO E EDITÁVEL SE PRECISAR MUDAR
 * (  ) mascara do RG
@@ -72,6 +73,7 @@ python manage.py migrate
 * (  ) forma constituição opcional
 * (  ) inscrição estadual tem mascara
 * (  ) representante não ser obrigatório
+* (  )
 
 
 
