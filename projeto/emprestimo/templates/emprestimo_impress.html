@@ -189,11 +189,21 @@
 		}
 		.box6 {			
 			width: 813px;
-			height: 300px;				
+			height: 356px;				
 			border: 1px solid black;			
 			position:absolute;
 			text-align: center;
 			border: 1px solid black;
+		}
+		.space1 {			
+			content: " ";
+            display: block;            
+            line-height: 123px;
+		}
+		.space2 {			
+			content: " ";
+            display: block;            
+            line-height: 70px;
 		}
 		.maiusculo {
 			text-transform: capitalize;
@@ -342,6 +352,7 @@
 				<div class="box5">			
 					Segunda a Sexta-feira das 14h às 18h
 				</div>	
+				
 				`		
 			}	
 			if(j>3 && j<7){
@@ -396,32 +407,20 @@
 		if({{object.qtd_parcelas}}==1){
 			carne.innerHTML +=		
 			`	
-			<p>&nbsp</p>
-			<p>&nbsp</p>
-			<p>&nbsp</p>
-			<p>&nbsp</p>			
-			<p>&nbsp</p>			
-			
+			<p class="space1">&nbsp</p>
 			`	
 		}
 		if({{object.qtd_parcelas}}==2){
 			carne.innerHTML +=		
 			`	
-			<p>&nbsp</p>
-			<p>&nbsp</p>
-			<p>&nbsp</p>			
-			<p>&nbsp</p>			
-			<p>&nbsp</p>			
+			<p class="space1">&nbsp</p>		
 			
 			`	
 		}
 		if({{object.qtd_parcelas}}==3){
 			carne.innerHTML +=		
 			`	
-			<p>&nbsp</p>
-			<p>&nbsp</p>			
-			<p>&nbsp</p>			
-			
+			<p class="space2">&nbsp</p>	
 			`	
 		}
 		if({{object.qtd_parcelas}}==4){
@@ -445,8 +444,7 @@
 		if({{object.qtd_parcelas}}==6){
 			carne.innerHTML +=		
 			`	
-			<p>&nbsp</p>			
-			<p>&nbsp</p>			
+			<p>&nbsp</p>	
 			
 			`	
 		}
@@ -464,6 +462,11 @@
 			<p>&nbsp</p>
 			`	
 		}	
+		carne.innerHTML +=		
+			`	
+			<p>&nbsp</p>			
+			<p>&nbsp</p>
+			`	
 
 		//VARIÁVEIS DA DATA DO EMPRESTIMO
 		var contador_meses = 0
