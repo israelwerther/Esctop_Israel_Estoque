@@ -356,12 +356,68 @@
 
     <div id="Page4" class="tabcontent">         
         <div class="row">
-           <div class="col-sm-5">                    
+            
+            <div class="col-sm-4">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.ref1_nome.label}} </label>        
+                    {% render_field form.ref1_nome class="form-control" %}
+                </div>
+            </div>
+            <div class="col-sm-4">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.ref1_contato.label}} </label>        
+                    {% render_field form.ref1_contato class="form-control cel-phone-mask" %}
+                </div>
+            </div>
+            <div class="col-sm-4">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.ref1_parentesco.label}} </label>        
+                    {% render_field form.ref1_parentesco class="form-control" %}
+                </div>
+            </div>
+            <div class="col-sm-4">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.ref2_nome.label}} </label>        
+                    {% render_field form.ref2_nome class="form-control" %}
+                </div>
+            </div>
+            <div class="col-sm-4">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.ref2_contato.label}} </label>        
+                    {% render_field form.ref2_contato class="form-control cel-phone-mask" %}
+                </div>
+            </div>
+            <div class="col-sm-4">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.ref2_parentesco.label}} </label>        
+                    {% render_field form.ref2_parentesco class="form-control" %}
+                </div>
+            </div>          
+            <div class="col-sm-4">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.ref3_nome.label}} </label>        
+                    {% render_field form.ref3_nome class="form-control" %}
+                </div>
+            </div>
+            <div class="col-sm-4">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.ref3_contato.label}} </label>        
+                    {% render_field form.ref3_contato class="form-control cel-phone-mask" %}
+                </div>
+            </div>
+            <div class="col-sm-4">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.ref3_parentesco.label}} </label>        
+                    {% render_field form.ref3_parentesco class="form-control" %}
+                </div>
+            </div>     
+            <div class="col-sm-5">                    
                 <div class="form-group" >                
                     <label for="" class="required" >{{form.fiador.label}} </label>        
                     {% render_field form.fiador class="form-control"  %}
                 </div>
-            </div>            
+            </div>  
+                 
         </div>
         <div style='float: right;'>
             <button class="btn btn-success" float="right">Cadastrar</button>

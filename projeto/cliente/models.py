@@ -56,6 +56,17 @@ class Cliente(models.Model):
     
     fiador                = models.ForeignKey('self', on_delete=models.CASCADE, blank=True, null=True)
 
+    # REFERÊNCIAS
+    ref1_nome             = models.CharField("Nome", max_length=50, blank=True, null=True)
+    ref1_contato          = models.CharField("Contato",max_length=17, blank=True, null=True)
+    ref1_parentesco       = models.CharField("Parentesco", max_length=50, blank=True, null=True)
+    ref2_nome             = models.CharField("Nome", max_length=50, blank=True, null=True)
+    ref2_contato          = models.CharField("Contato",max_length=17, blank=True, null=True)
+    ref2_parentesco       = models.CharField("Parentesco", max_length=50, blank=True, null=True)
+    ref3_nome             = models.CharField("Nome", max_length=50, blank=True, null=True)
+    ref3_contato          = models.CharField("Contato",max_length=17, blank=True, null=True)
+    ref3_parentesco       = models.CharField("Parentesco", max_length=50, blank=True, null=True)
+
 
 
     class Meta:
