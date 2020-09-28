@@ -34,10 +34,17 @@
                 <th class="text-right">Nº Documento</th>
                 <td>{{ object.num_doc }}</td>
             </tr>
+            {% if object.cliente %}
             <tr>
                 <th class="text-right">Cliente</th>
                 <td>{{ object.cliente }}</td>
             </tr>
+            {% else %}
+            <tr>
+                <th class="text-right">Cliente</th>
+                <td>{{ object.cliente_cnpj }}</td>
+            </tr>
+            {% endif %}
             <tr>
                 <th class="text-right">Valor</th>
                 <td>{{ object.valor_emprestado }}</td>
