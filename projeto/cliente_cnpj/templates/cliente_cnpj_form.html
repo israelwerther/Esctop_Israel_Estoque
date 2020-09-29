@@ -2,32 +2,36 @@
 {% load widget_tweaks %}
 {% block js %}{% endblock js %}
 
-
 {% block content %}
 <style>
     h3{
         background-color: #4CAF50;
         color: rgb(255, 255, 255)          
-    }        
+    }      
     body {font-family: Arial;}
     
     /* Style the tab */
     .tab {
-      overflow: hidden;
-      border: 1px solid #ccc;
-      background-color: #f1f1f1;
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+        border-top: 0px;
+        position:fixed;
+        z-index: 2;
+        width:inherit;
+        top: 53px;
     }
     
     /* Style the buttons inside the tab */
     .tab button {
-      background-color: inherit;
-      float: left;
-      border: none;
-      outline: none;
-      cursor: pointer;
-      padding: 14px 16px;
-      transition: 0.3s;
-      font-size: 17px;
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        font-size: 17px;
     }
     
     /* Change background color of buttons on hover */
@@ -76,9 +80,11 @@
         {% else %}
             <form action="{% url 'cliente_cnpj:cliente_cnpj_add' %}" method="POST">
         {% endif %}
-        {% csrf_token %}       
-        <br>        
-            <h3>DADOS DA EMPRESA</h3>
+        {% csrf_token %} 
+        <br>
+        <br>
+
+        <h3>DADOS DA EMPRESA</h3>
         <hr/>
         <div class="row" > 
             <div class="col-sm-6">                    
@@ -256,7 +262,7 @@
                     {% render_field form.conta class="form-control" %}
                 </div>    
             </div>   
-        </div>  
+        </div> 
         <hr>
             <h3>REFERÊNCIAS</h3>  
         <hr/>
@@ -301,7 +307,9 @@
         </div>
     </div> 
     {% comment %} REPRESENTANTE {% endcomment %}
-    <div id="Page2" class="tabcontent">   
+    <div id="Page2" class="tabcontent">      
+    <br>
+    <br>    
     
     <h3>DADOS DO REPRESENTANTE</h3>               
     <hr/>     
@@ -365,7 +373,7 @@
                 {% render_field form.rep_numero_casa class="form-control" %}
             </div>
         </div>
-        <div class="col-sm-5">                    
+        <div class="col-sm-4">                    
             <div class="form-group" >                
                 <label for="" >{{form.rep_bairro.label}} </label>        
                 {% render_field form.rep_bairro class="form-control" %}
