@@ -11,7 +11,7 @@ class Cliente(models.Model):
     rg                    = models.CharField("RG",max_length=20, blank=False, null=True)
     orgao_emissor         = models.CharField("Orgão Emissor", max_length=15, blank=False, null=True)
     data_nasc             = models.DateField("Data de Nascimento",max_length=8, blank=False, null=True)   
-    naturalidade          = models.CharField("Naturalidade", max_length=15, blank=False, null=True)    
+    naturalidade          = models.CharField("Naturalidade", max_length=20, blank=False, null=True)    
     nacionalidade         = models.CharField("Nacionalidade", max_length=15, blank=True, null=True)    
     estado_civil          = models.CharField("Estado Civil", max_length=15, blank=False, null=True)    
     nome_da_mae           = models.CharField("Nome da Mãe", max_length=50, blank=False, null=True)

@@ -54,6 +54,8 @@ python manage.py migrate
 * (OK) campo 'obs' em dados do local de trabalho
 * (OK) CORREÇÃO DO CALCULO NA TELA DE EDIÇÃO DE EMPRÉSTIMO(RETIREI O ONBLUR PQ NÃO PEGAVA O MÊS)
 * (OK) CORRIGIR VALOR TOTAL DEVIDO NO CONTRATO
+* (  ) NATURALIDADE NO CADASTRO DE FIADOR CNPJ
+* (  ) SUBSTIRUIR O ENTER POR TAB
 * (  ) TORNAR TUDO MAIUSCULO NO BANCO AO CRIAR O CLIENTE
 * (OK) IDENTIFICAR O CLIENTE EM DESTAQUE NOS DETALHES DE EMPRÉSTIMO
 * (  ) INSERIR OPÇÃO DE IMPRESSÃO DE CADASTRO DE CLIENTES (CPF E CNPJ)
@@ -79,5 +81,11 @@ python manage.py migrate
 * (  ) representante não ser obrigatório
 * (  )
 
+<!-- SUGESTÕES -->
+* (  ) INSERIR HORA NO CABEÇALHO
+* (  )
+* (  )
+* (  )
+* (  )
 
 
