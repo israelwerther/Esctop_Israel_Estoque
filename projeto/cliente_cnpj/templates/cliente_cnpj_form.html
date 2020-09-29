@@ -20,6 +20,7 @@
         z-index: 2;
         width:inherit;
         top: 53px;
+        width: 1109px;
     }
     
     /* Style the buttons inside the tab */
@@ -66,10 +67,14 @@
 
    <!-- https://www.schoolofnet.com/forum/topico/como-enviar-a-mensagem-de-sucesso-ou-erro-para-o-formulario-8495 -->    
 
-    <div class="tab">
-        <button class="tablinks active" onclick="openCity(event, 'Page1')">Empresa</button>        
-        <button class="tablinks" onclick="openCity(event, 'Page2')">Representante</button>
-        {% comment %} <button class="tablinks" onclick="openCity(event, 'Page3')">Fiador</button> {% endcomment %}
+    <div class="row" > 
+        <div class="col-sm-12">
+            <div class="tab">
+                <button class="tablinks active" onclick="openCity(event, 'Page1')">Empresa</button>        
+                <button class="tablinks" onclick="openCity(event, 'Page2')">Representante</button>
+                {% comment %} <button class="tablinks" onclick="openCity(event, 'Page3')">Fiador</button> {% endcomment %}
+            </div>
+        </div>
     </div>
     
     <div id="Page1" class="tabcontent" style="display:block">
@@ -310,7 +315,7 @@
     <div id="Page2" class="tabcontent">      
     <br>
     <br>    
-    
+
     <h3>DADOS DO REPRESENTANTE</h3>               
     <hr/>     
     <div class="row">
