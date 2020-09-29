@@ -157,8 +157,7 @@
             <div class="col-sm-2">                    
                 <div class="form-group" >                
                     <label for="" class="required">{{form.cep.label}} </label>        
-                    {% render_field form.cep class="form-control" name="cep" type="text" id="cep" value="" size="10" maxlength="9" onblur="pesquisacep(this.value);"%}
-                            
+                    {% render_field form.cep class="form-control" name="cep" type="text" id="cep" value="" size="10" maxlength="9" onblur="pesquisacep(this.value);"%}                            
                 </div>
             </div>
             <div class="col-sm-4">                    
@@ -170,7 +169,7 @@
             <div class="col-sm-1">                    
                 <div class="form-group" >                
                     <label for="" class="required">{{form.numero_casa.label}} </label>        
-                    {% render_field form.numero_casa class="form-control" name="rua" type="text" id="rua" size="60" %}
+                    {% render_field form.numero_casa class="form-control" type="text" size="60" %}
                 </div>
             </div>
             <div class="col-sm-5">                    
@@ -237,7 +236,6 @@
             </div>
         </div>  
     </div>
-
     <div id="Page2" class="tabcontent">        
         <div class="row">
             <div class="col-sm-6">                    
@@ -284,6 +282,12 @@
                 <div class="form-group" >                
                     <label for="" >{{form.rua_trabalho.label}} </label>        
                     {% render_field form.rua_trabalho class="form-control"  %}
+                </div>
+            </div>
+            <div class="col-sm-1">                    
+                <div class="form-group" >                
+                    <label for="" >{{form.numero_casa_trabalho.label}} </label>        
+                    {% render_field form.numero_casa_trabalho class="form-control"  %}
                 </div>
             </div>               
             <div class="col-sm-4">                    

@@ -44,6 +44,7 @@ class Cliente(models.Model):
     bairro_trabalho       = models.CharField("Bairro", max_length=40, blank=True, null=True)
     cidade_trabalho       = models.CharField("Cidade", max_length=40, blank=True, null=True)
     uf_trabalho           = models.CharField("Estado", max_length=2, blank=True, null=True)
+    numero_casa_trabalho  = models.CharField("Nº ", max_length=5, blank=False, null=True)
     referencia_trabalho   = models.CharField("Ponto de Referencia",max_length=50, blank=True, null=True)  
     obs_trabalho          = models.TextField("Observações",max_length=200, blank=True, null=True)
     

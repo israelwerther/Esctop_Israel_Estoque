@@ -301,44 +301,99 @@
         </div>
     </div> 
     {% comment %} REPRESENTANTE {% endcomment %}
-     <div id="Page2" class="tabcontent">        
+    <div id="Page2" class="tabcontent">   
+    
+    <h3>DADOS DO REPRESENTANTE</h3>               
+    <hr/>     
+    <div class="row">
+        <div class="col-sm-6">                    
+            <div class="form-group" >                
+                <label for="" >{{form.rep_nome.label}} </label>        
+                {% render_field form.rep_nome class="form-control" %}
+            </div>                    
+        </div>
+        <div class="col-sm-3">                    
+            <div class="form-group" >                
+                <label for="" >{{form.rep_cpf.label}} </label>        
+                {% render_field form.rep_cpf class="form-control cpf-mask" type="text" %}
+            </div>
+        </div>
+        <div class="col-sm-3">                    
+            <div class="form-group" >                
+                <label for="" >{{form.rep_rg.label}} </label>        
+                {% render_field form.rep_rg class="form-control" %}
+            </div>
+        </div>
+        <div class="col-sm-2">                    
+            <div class="form-group" >                
+                <label for="" >{{form.rep_orgao_emissor.label}} </label>        
+                {% render_field form.rep_orgao_emissor  class="form-control upper_all" %}
+            </div>    
+        </div>  
+        <div class="col-sm-2">                    
+            <div class="form-group" >                
+                <label for="" >{{form.rep_nacionalidade.label}} </label>        
+                {% render_field form.rep_nacionalidade  class="form-control" %}
+            </div>    
+        </div>  
+        <div class="col-sm-2">                    
+            <div class="form-group" >                
+                <label for="" >{{form.rep_estado_civil.label}} </label>        
+                {% render_field form.rep_estado_civil  class="form-control" %}
+            </div>    
+        </div> 
+    </div> 
+    <hr>
+        <h3>ENDEREÇO</h3>               
+    <hr/>
+    <div class="row">            
+        <div class="col-sm-2">                    
+            <div class="form-group" >                
+                <label for="" >{{form.rep_cep.label}} </label>        
+                {% render_field form.rep_cep class="form-control" %}
+            </div>
+        </div>
+        <div class="col-sm-5">                    
+            <div class="form-group" >                
+                <label for="" >{{form.rep_rua.label}} </label>        
+                {% render_field form.rep_rua class="form-control" %}
+            </div>
+        </div>
+        <div class="col-sm-1">                    
+            <div class="form-group" >                
+                <label for="" >{{form.rep_numero_casa.label}} </label>        
+                {% render_field form.rep_numero_casa class="form-control" %}
+            </div>
+        </div>
+        <div class="col-sm-5">                    
+            <div class="form-group" >                
+                <label for="" >{{form.rep_bairro.label}} </label>        
+                {% render_field form.rep_bairro class="form-control" %}
+            </div>
+        </div>
+        <div class="col-sm-3">                    
+            <div class="form-group" >                
+                <label for="" >{{form.rep_cidade.label}} </label>        
+                {% render_field form.rep_cidade class="form-control" %}
+            </div>
+        </div>
+        <div class="col-sm-1">                    
+            <div class="form-group" >                
+                <label for="" >{{form.rep_uf.label}} </label>        
+                {% render_field form.rep_uf class="form-control" %}
+            </div>
+        </div>
+        <div class="col-sm-5">                    
+            <div class="form-group" >                
+                <label for="" >{{form.rep_ponto_referencia.label}} </label>        
+                {% render_field form.rep_ponto_referencia class="form-control" %}
+            </div>
+        </div>            
+    </div>  
+        <hr> 
+            <h3>CONTATO</h3>               
+        <hr/>
         <div class="row">
-            <div class="col-sm-6">                    
-                <div class="form-group" >                
-                    <label for="" >{{form.rep_nome.label}} </label>        
-                    {% render_field form.rep_nome class="form-control" %}
-                </div>                    
-            </div>
-            <div class="col-sm-3">                    
-                <div class="form-group" >                
-                    <label for="" >{{form.rep_cpf.label}} </label>        
-                    {% render_field form.rep_cpf class="form-control cpf-mask" type="text" %}
-                </div>
-            </div>
-            <div class="col-sm-3">                    
-                <div class="form-group" >                
-                    <label for="" >{{form.rep_rg.label}} </label>        
-                    {% render_field form.rep_rg class="form-control" %}
-                </div>
-            </div>
-            <div class="col-sm-2">                    
-                <div class="form-group" >                
-                    <label for="" >{{form.rep_orgao_emissor.label}} </label>        
-                    {% render_field form.rep_orgao_emissor  class="form-control upper_all" %}
-                </div>    
-            </div>  
-            <div class="col-sm-2">                    
-                <div class="form-group" >                
-                    <label for="" >{{form.rep_nacionalidade.label}} </label>        
-                    {% render_field form.rep_nacionalidade  class="form-control" %}
-                </div>    
-            </div>  
-            <div class="col-sm-2">                    
-                <div class="form-group" >                
-                    <label for="" >{{form.rep_estado_civil.label}} </label>        
-                    {% render_field form.rep_estado_civil  class="form-control" %}
-                </div>    
-            </div>  
             <div class="col-sm-2">                    
                 <div class="form-group" >                
                     <label for="" >{{form.rep_contato1.label}} </label>        
@@ -365,52 +420,10 @@
                     {% render_field form.rep_email class="form-control lower_all" %}
                 </div>
             </div>
-            <div class="col-sm-2">                    
-                <div class="form-group" >                
-                    <label for="" >{{form.rep_cep.label}} </label>        
-                    {% render_field form.rep_cep class="form-control" %}
-                </div>
-            </div>
-            <div class="col-sm-5">                    
-                <div class="form-group" >                
-                    <label for="" >{{form.rep_rua.label}} </label>        
-                    {% render_field form.rep_rua class="form-control" %}
-                </div>
-            </div>
-            <div class="col-sm-5">                    
-                <div class="form-group" >                
-                    <label for="" >{{form.rep_bairro.label}} </label>        
-                    {% render_field form.rep_bairro class="form-control" %}
-                </div>
-            </div>
-            <div class="col-sm-3">                    
-                <div class="form-group" >                
-                    <label for="" >{{form.rep_cidade.label}} </label>        
-                    {% render_field form.rep_cidade class="form-control" %}
-                </div>
-            </div>
-            <div class="col-sm-1">                    
-                <div class="form-group" >                
-                    <label for="" >{{form.rep_uf.label}} </label>        
-                    {% render_field form.rep_uf class="form-control" %}
-                </div>
-            </div>
-            <div class="col-sm-1">                    
-                <div class="form-group" >                
-                    <label for="" >{{form.rep_numero_casa.label}} </label>        
-                    {% render_field form.rep_numero_casa class="form-control" %}
-                </div>
-            </div>
-            <div class="col-sm-5">                    
-                <div class="form-group" >                
-                    <label for="" >{{form.rep_ponto_referencia.label}} </label>        
-                    {% render_field form.rep_ponto_referencia class="form-control" %}
-                </div>
-            </div>            
-        </div>  
-            <div style='float: right;'>
-                <button class="btn btn-success" float="right">Cadastrar</button>
-            </div>
+        </div>
+        <div style='float: right;'>
+            <button class="btn btn-success" float="right">Cadastrar</button>
+        </div>
         </form>        
         </div>    
     </div> 
