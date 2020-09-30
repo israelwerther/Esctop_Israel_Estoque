@@ -60,8 +60,15 @@ def cliente_cnpjupdate(request, pk):
             # messages.error(request, 'Dados inválidos')
             return render(request, 'cliente_cnpj_form.html', data)  
     else:
-        return render(request, 'cliente_cnpj_form.html', data)  
+        return render(request, 'cliente_cnpj_form.html', data) 
 
+
+class Cliente_cnpjDelete(DeleteView):
+    model=Cliente_cnpj
+    template_name ='cliente_cnpj_delete.html'    
+    success_url = reverse_lazy('cliente_cnpj:cliente_cnpj_list')
+
+    
 
 # class Cliente_cnpjUpdate(UpdateView):
 #     model=Cliente_cnpj   
@@ -69,8 +76,3 @@ def cliente_cnpjupdate(request, pk):
 #     template_name='cliente_cnpj_form.html'
 #     form_class = Cliente_cnpjForm
 
-
-class Cliente_cnpjDelete(DeleteView):
-    model=Cliente_cnpj
-    template_name ='cliente_cnpj_delete.html'    
-    success_url = reverse_lazy('cliente_cnpj:cliente_cnpj_list')
