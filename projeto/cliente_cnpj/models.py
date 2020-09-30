@@ -66,9 +66,6 @@ class Cliente_cnpj(models.Model):
 
     fiador                = models.ForeignKey(Avalista, on_delete=models.PROTECT, blank=True, null=True)
 
-    
-    
-
     class Meta:
         ordering = ('razao_social',)
         

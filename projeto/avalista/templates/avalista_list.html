@@ -25,6 +25,7 @@
                 <tr>
                     <th>Fiador</th>                    
                     <th>CPF</th>                                                   
+                    <th></th>                                                   
                 </tr>
             </thead>
             <tbody>
@@ -32,6 +33,9 @@
                 <tr>                              
                     <td>{{ object.fiador_nome }}</td>
                     <td>{{ object.fiador_cpf }}</td>   
+                    <td style="text-align:center"> 
+                        <a href="{{ object.get_absolute_url}}" ><button class="btn btn-info">Gerenciar</button></a> 
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>

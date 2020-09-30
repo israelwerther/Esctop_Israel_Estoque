@@ -14,11 +14,20 @@ def avalista_list(request):
 
 
 @login_required
+def avalista_detail(request, pk):
+    template_name='avalista_detail.html'
+    obj=Avalista.objects.get(pk=pk)
+    context={'object': obj}
+    return render(request, template_name, context)
+
+
+@login_required
 def avalista_cadastra(request):
     form = AvalistaForm()    
     avalistas = Avalista.objects.all()    
     data = {'avalistas': avalistas,'form': form} 
     return render(request, 'avalista_form.html', data)
+
 
 @login_required
 def avalista_add(request):
@@ -26,6 +35,16 @@ def avalista_add(request):
     if form.is_valid():
         form.save()        
     return redirect('cliente_cnpj:cliente_cnpj_cadastra')
+
+
+class AvalistaUpdate(UpdateView):
+    model=Avalista
+    template_name='avalista_form.html'
+    form_class = AvalistaForm
+    success_url = reverse_lazy('avalista:avalista_list')
+
+
+
 
 
 # def avalista_add(request):

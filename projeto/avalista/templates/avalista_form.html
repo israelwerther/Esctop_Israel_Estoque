@@ -4,8 +4,13 @@
 {% block content %}
 
 
-<form action="{% url 'avalista:avalista_add' %}" method="post">
-    {% csrf_token %}    
+{% if avalista %}
+    <h1>Editar {{cliente_cnpj.razao_social}}</h1>
+    <form action="{% url 'avalista:avalista_edit' avalista.pk %}" method="POST" novalidate>
+{% else %}
+    <form action="{% url 'avalista:avalista_add' %}" method="POST">
+{% endif %}
+{% csrf_token %}    
     <h3>DADOS DO FIADOR</h3>     
     <hr/>
     <div class="row" > 
