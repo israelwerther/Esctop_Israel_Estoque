@@ -3,77 +3,24 @@
 {% block js %}{% endblock js %}
 {% block content %}
 
-<style>
-    
-    body {font-family: Arial;}
-    
-    h3{
-        background-color: #4CAF50;
-        color: rgb(255, 255, 255)          
-    }   
-    
-    /* Style the tab */
-    .tab {
-      overflow: hidden;
-      border: 1px solid #ccc;
-      background-color: #f1f1f1;
-    }
-    
-    /* Style the buttons inside the tab */
-    .tab button {
-      background-color: inherit;
-      float: left;
-      border: none;
-      outline: none;
-      cursor: pointer;
-      padding: 14px 16px;
-      transition: 0.3s;
-      font-size: 17px;
-    }
-    
-    /* Change background color of buttons on hover */
-    .tab button:hover {
-      background-color: #ddd;
-    }
-    
-    /* Create an active/current tablink class */
-    .tab button.active {
-      background-color: #ccc;
-    }
-    
-    /* Style the tab content */
-    .tabcontent {
-      display: none;
-      padding: 6px 12px;
-      border: 1px solid #ccc;
-      border-top: none;
-      -webkit-animation: fadeEffect 1s;
-    }
-    /* Fade in tabs */
-    @-webkit-keyframes fadeEffect {
-        from {opacity: 0;}
-        to {opacity: 1;}
-    }
-    
-    @keyframes fadeEffect {
-        from {opacity: 0;}
-        to {opacity: 1;}
-    }    
-</style>
 
    <!-- https://www.schoolofnet.com/forum/topico/como-enviar-a-mensagem-de-sucesso-ou-erro-para-o-formulario-8495 -->    
-
-    <div class="tab">
-        <button class="tablinks active" onclick="openCity(event, 'Page1')">Dados Pessoais</button>
-        <button class="tablinks" onclick="openCity(event, 'Page2')">Dados do Local de Trabalho</button>
-        <button class="tablinks" onclick="openCity(event, 'Page3')">Dados Bancários</button>        
+<div class="row" >
+    <div class="col-sm-12">
+        <div class="tab">
+            <button class="tablinks active" onclick="openCity(event, 'Page1')">Dados Pessoais</button>
+            <button class="tablinks" onclick="openCity(event, 'Page2')">Dados do Local de Trabalho</button>
+            <button class="tablinks" onclick="openCity(event, 'Page3')">Dados Bancários</button>        
+        </div>
     </div>
+</div>
     
-    <div id="Page1" class="tabcontent" style="display:block">
-        <form method="POST">
+<div id="Page1" class="tabcontent" style="display:block">
+    <form method="POST">
         {% csrf_token %}
         <br>
         <h3>CADASTRO DE FIADOR</h3>
+        <hr/>
         <div class="row" >
             <div class="col-sm-6">                    
                 <div class="form-group" >                
@@ -150,8 +97,9 @@
                 </div>
             </div>
         </div>                
-    
-        <h3>ENDEREÇO</h3>
+        <hr>
+            <h3>ENDEREÇO</h3>
+        <hr/>
         <div class="row">
             <div class="col-sm-2">                    
                 <div class="form-group" >                
@@ -202,6 +150,11 @@
                     {% render_field form.ponto_referencia class="form-control" %}
                 </div>
             </div>
+        </div>
+        <hr>
+            <h3>CONTATO</h3>
+        <hr/>
+        <div class="row">
             <div class="col-sm-2">                    
                 <div class="form-group" >                
                     <label for="" >{{form.contato1.label}} </label>        
@@ -355,7 +308,7 @@
         <button class="btn btn-success" float="right">Cadastrar</button>
     </div>
     </form> 
-    </div>
+</div>
 
             
         

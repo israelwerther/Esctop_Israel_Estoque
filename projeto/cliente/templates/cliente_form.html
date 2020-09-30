@@ -20,6 +20,7 @@
     <form method="POST">
     {% csrf_token %}    
     <h3>CADASTRO PESSOAL</h3>
+    <hr/> 
     <div class="row" >
         <div class="col-sm-6">                    
             <div class="form-group" >                
@@ -95,9 +96,10 @@
                 {% render_field form.nome_do_pai class="form-control" %}
             </div>
         </div>
-    </div>                
-
-    <h3>ENDEREÇO</h3>
+    </div>  
+    <hr>
+        <h3>ENDEREÇO</h3>               
+    <hr/>
     <div class="row">
         <div class="col-sm-2">                    
             <div class="form-group" >                
@@ -147,6 +149,11 @@
                 {% render_field form.ponto_referencia class="form-control" %}
             </div>
         </div>
+    </div>
+        <hr>
+            <h3>CONTATO</h3>               
+        <hr/>
+    <div class="row" >
         <div class="col-sm-2">                    
             <div class="form-group" >                
                 <label for="" >{{form.contato1.label}} </label>        

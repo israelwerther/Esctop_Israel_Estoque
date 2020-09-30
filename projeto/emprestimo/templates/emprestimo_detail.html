@@ -5,7 +5,6 @@
 {% block content %}
 
 <span class="pull-right">
-
     <a href="{% url 'emprestimo:emprestimo_list' %}" type="button" class="btn btn-secondary">Voltar</a>
     <a href="{% url 'emprestimo:emprestimo_edit' object.pk %}" type="button" class="btn btn-info">Editar</a>
     <a href="{% url 'emprestimo:emprestimo_delete' object.pk %}" type="button" class="btn btn-danger">Deletar</a>
@@ -17,8 +16,7 @@
         <a href="{% url 'emprestimo:emprestimo_promissoria' object.pk %}" target="_blank" type="button" class="btn btn-warning">Promissória</a>
         <a href="{% url 'emprestimo:emprestimo_contrato' object.pk %}" target="_blank" type="button" class="btn btn-warning">Contrato</a>
     </div>
-
-    
+        
 </span>
 
 <h1>Emprestimo Nº {{ object.num_doc }}</h1>

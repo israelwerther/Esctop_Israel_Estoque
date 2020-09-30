@@ -50,9 +50,6 @@ python manage.py migrate
 ## OBSERVAÇÕES
 
 <!-- PENDENCIAS -->
-* (  ) CADASTRO DE FIADOR EDITÁVEL
-* (  ) SUBSTIRUIR O ENTER POR TAB
-* (  ) TORNAR TUDO MAIUSCULO NO BANCO AO CRIAR O CLIENTE
 * (  ) INSERIR OPÇÃO DE IMPRESSÃO DE CADASTRO DE CLIENTES (CPF E CNPJ)
 * (  ) PADRONIZAR CAMPOS DE ENDEREÇO (CPF E CNPJ)
 * (  ) C.E.T. AO MÊS 
@@ -72,6 +69,9 @@ python manage.py migrate
 * (  ) forma constituição opcional
 * (  ) inscrição estadual tem mascara
 * (  ) representante não ser obrigatório
+* (OK) CADASTRO DE FIADOR EDITÁVEL
+* (..) TORNAR TUDO MAIUSCULO NO BANCO AO CRIAR O CLIENTE(SOLUÇÃO TEMPORARIA)
+* (..) SUBSTIRUIR O ENTER POR TAB(SOLUÇÃO TEMPORARIA)
 * (OK) CORRIGIR O ESPAÇO DA PROMISSÓRIA NO EMITENTE
 * (OK) campo 'obs' em dados do local de trabalho
 * (OK) CORREÇÃO DO CALCULO NA TELA DE EDIÇÃO DE EMPRÉSTIMO(RETIREI O ONBLUR PQ NÃO PEGAVA O MÊS)
