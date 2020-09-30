@@ -10,7 +10,7 @@
 <span class="pull-right">
     <a href="{% url 'avalista:avalista_list' %}" type="button" class="btn btn-secondary">Voltar</a>
     <a href="{% url 'avalista:avalista_edit' object.pk %}" type="button" class="btn btn-info">Editar</a>
-    {% comment %} <a href="{% url 'avalista:avalista_delete' object.pk %}" type="button" class="btn btn-danger">Deletar</a> {% endcomment %}
+    <a href="{% url 'avalista:avalista_delete' object.pk %}" type="button" class="btn btn-danger">Deletar</a>
 </span>
 <h2>DETALHES DO FIADOR <br> {{ object.avalista }}</h2>
 

@@ -44,7 +44,10 @@ class AvalistaUpdate(UpdateView):
     success_url = reverse_lazy('avalista:avalista_list')
 
 
-
+class AvalistaDelete(DeleteView):
+    model=Avalista
+    template_name ='avalista_delete.html'    
+    success_url = reverse_lazy('avalista:avalista_list')
 
 
 # def avalista_add(request):
