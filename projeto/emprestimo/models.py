@@ -11,8 +11,7 @@ import math
 class Emprestimo(models.Model):
     funcionario      = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     cliente          = models.ForeignKey(Cliente, on_delete=models.CASCADE, null=True, blank=True)
-    cliente_cnpj     = models.ForeignKey(Cliente_cnpj, on_delete=models.CASCADE, null=True, blank=True)
-    num_doc          = models.PositiveIntegerField('Nº Documento', null=True, blank=True)
+    cliente_cnpj     = models.ForeignKey(Cliente_cnpj, on_delete=models.CASCADE, null=True, blank=True)    
     valor_emprestado = models.DecimalField("Valor Emprestado", max_digits=10, decimal_places=2, null=True, blank=True)
     qtd_parcelas     = models.PositiveIntegerField('Qtd Parcelas', null=True, blank=True)
     valor_prestacao  = models.DecimalField("Valor da prestação", max_digits=10, decimal_places=2, null=True, blank=True)
@@ -26,7 +25,7 @@ class Emprestimo(models.Model):
     #     return '{} - {} - {}'.format(self.pk, self.num_doc, self.created.strftime('%d-%m-%Y'))
         
     def __str__(self):
-        return str(self.num_doc)
+        return str(self.n_contrato)
     
     def get_absolute_url(self):
         return reverse_lazy('emprestimo:emprestimo_detail', kwargs={'pk': self.pk})

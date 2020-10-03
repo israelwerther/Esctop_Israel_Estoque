@@ -19,7 +19,7 @@
         
 </span>
 
-<h1>Emprestimo Nº {{ object.num_doc }}</h1>
+<h1>Emprestimo Nº {{ object.n_contrato }}</h1>
 
 <div class="col-sm-6">
     <table class="table table-user-information">
@@ -30,7 +30,7 @@
             </tr>
             <tr>
                 <th class="text-right">Nº Documento</th>
-                <td>{{ object.num_doc }}</td>
+                <td>{{ object.n_contrato }}</td>
             </tr>
             {% if object.cliente %}
             <tr>

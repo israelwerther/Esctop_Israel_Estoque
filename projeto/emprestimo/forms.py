@@ -8,8 +8,7 @@ class EmprestimoForm(forms.ModelForm):
     class Meta:
         model = Emprestimo        
         fields = [
-            'funcionario',
-            'num_doc',
+            'funcionario',            
             'cliente',
             'cliente_cnpj',
             'valor_emprestado', 

@@ -20,13 +20,7 @@
     {% endif %}
     {% csrf_token %}
 
-    <div class="row">       
-        <div class="col-sm-3"> 
-            <div class="form-group">
-                <label for="">{{form.num_doc.label}}</label>
-                {% render_field form.num_doc class="form-control" %}                       
-            </div>
-        </div>        
+    <div class="row"> 
         <div class="col-sm-3">
             <div class="form-group">
                 <label for="">{{form.cliente.label}}</label>
