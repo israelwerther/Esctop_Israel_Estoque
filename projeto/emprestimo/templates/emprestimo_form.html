@@ -64,7 +64,7 @@
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label for="">{{form.data_emprestimo.label}}</label>   
-                        {% render_field form.data_emprestimo class="form-control" id="dataselecionada" type="date" onblur="somar()" %}                    
+                        {% render_field form.data_emprestimo class="form-control" id="dataselecionada" type="date" onblur="somar(),sequencial()" %}                    
                     </div>                  
                 </div>            
             {% endif %}            
@@ -74,6 +74,11 @@
                     {% render_field form.valor_prestacao class="form-control" id="prestacao" %}
                 </div>  
             </div>  
+            <div class="col-sm-3" > 
+                <div class="form-group">            
+                    {% render_field form.n_contrato class="form-control" id="teste" type="hidden" %}                       
+                </div>
+            </div>
         </div>           
         
         {% if emprestimo %}   
@@ -82,13 +87,16 @@
         
         {% else %}
         <a href="{% url 'emprestimo:emprestimo_list' %}" type="button" class="btn btn-danger">Cancelar</a>        
-        <button type="submit" class="btn btn-success">Cadastrar</button>
+        <button type="submit" class="btn btn-success" >Cadastrar</button>
     </form>
     <button  onclick="somar()" class="btn btn-info">Calcular Parcela</button>
     {% endif %}
+    <br>
+    
+    
 
 <script>    
-    //VERIFICAR A FUNCIONALIDADE DESSE SCRIPT
+    //VERIFICAR A FUNCIONALIDADE DESSE SCRIPT!!!!!!!!!!!!!!
     function toFixed(num, fixed) {
         var re = new RegExp('^-?\\d+(?:\.\\d{0,' + (fixed || -1) + '})?');
         return num.toString().match(re)[0];
@@ -98,7 +106,7 @@
         var tvalor_emprestado  = document.getElementById('valor_emprestado')
         var tqtd_parcelas      = document.getElementById('qtd_parcelas')
         var tprestacao         = document.getElementById('prestacao')
-        var mes                = document.getElementById("dataselecionada").value.split("-")[1];
+        var mes                = document.getElementById("dataselecionada").value.split("-")[1];        
 
         var valor_emprestado   = Number(tvalor_emprestado.value)                
         var qtd_parcelas       = Number(tqtd_parcelas.value)
@@ -145,25 +153,27 @@
     }
 
     //GERA UM NUMERO SEQUENCIAL BASEADO NA DATA E HORA ATUAL
+    function sequencial(){
+        var dt=new Date()  
+        
+        var ano       = document.getElementById("dataselecionada").value.split("-")[0];
+        var mes       = document.getElementById("dataselecionada").value.split("-")[1];
+        var dia       = document.getElementById("dataselecionada").value.split("-")[2];   
+        var hora      = String(dt.getHours())
+        var minutos   = String(dt.getMinutes())
 
-    var dt=new Date()  
+        var sequencia = ano
+        var sequencia = sequencia+mes
+        if(dia<10){
+            sequencia += '0'
+        }
+        var sequencia = sequencia+dia        
+        var sequencia = sequencia+hora        
+        var sequencia = sequencia+minutos        
+        // document.write(sequencia)
 
-    var ano=String(dt.getFullYear())
-    var mes=String(dt.getMonth()+1)
-    var dia=String(dt.getDate())
-    var hora=String(dt.getHours())
-    var minutos=String(dt.getMinutes())
-
-    var sequencia = ano
-    var sequencia = sequencia+mes
-    if(dia<10){
-        sequencia += '0'
+        document.getElementById('teste').value = sequencia
     }
-    var sequencia = sequencia+dia        
-    var sequencia = sequencia+hora        
-    var sequencia = sequencia+minutos        
-    document.write(sequencia)
-    
        
 </script>
   

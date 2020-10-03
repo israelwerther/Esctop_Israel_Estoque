@@ -15,7 +15,8 @@ class EmprestimoForm(forms.ModelForm):
             'valor_emprestado', 
             'qtd_parcelas',
             'valor_prestacao',
-            'data_emprestimo'
+            'data_emprestimo',
+            'n_contrato'
         ]
         readonly_fields = ["valor_prestacao", ]
 
