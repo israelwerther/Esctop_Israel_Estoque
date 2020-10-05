@@ -62,12 +62,26 @@
                     </div>                  
                 </div>            
             {% endif %}  
+
             <div class="col-sm-3">
                 <div class="form-group">
                     <label for="">{{form.data_teste.label}}</label>   
-                    {% render_field form.data_teste class="form-control" id="dataselecionada" type="date" onblur="somar(),sequencial()" %}                    
+                    {% render_field form.data_teste class="form-control" id="dataselecionada" type="date" %}                    
                 </div>                  
-                </div>     
+            </div> 
+            {% comment %} <div class="col-sm-3">
+                <div class="form-group">
+                    <label for="">{{form.data_teste2.label}}</label>   
+                    {% render_field form.data_teste2 class="form-control" id="dataselecionada" type="date" %}                    
+                </div>                  
+            </div>  {% endcomment %}
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label for="data_teste2" >data_teste2</label >
+                    <input value="" id="data_teste2" name="data_teste2" placeholder="dd/mm/yyyy" class="form-control">    
+                </div>  
+            </div>             
+
             <div class="col-sm-3" > 
                 <div class="form-group" id="res">
                     <label for="">{{form.valor_prestacao.label}}</label>
