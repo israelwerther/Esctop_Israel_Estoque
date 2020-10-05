@@ -4,7 +4,7 @@ from .models import Emprestimo, EmprestimoPagamento
 @admin.register(Emprestimo)
 class EmprestimoAdmin(admin.ModelAdmin):
     list_display=(        
-        'n_contrato', 'cliente', 'data_emprestimo', 'funcionario', 'valor_emprestado',        
+        'n_contrato', 'cliente', 'cliente_cnpj', 'data_emprestimo', 'funcionario', 'valor_emprestado',        
     )
     search_fields=('n_contrato',)
     # readonly_fields = ["valor_prestacao", ]
