@@ -47,7 +47,6 @@
                     {% render_field form.qtd_parcelas class="form-control" id="qtd_parcelas" %}
                 </div>
             </div>
-            {% comment %} Começar as alterações {% endcomment %}
             {% if object.pk %}         
                 <div class="col-sm-3"> 
                     <div class="form-group">
@@ -62,7 +61,13 @@
                         {% render_field form.data_emprestimo class="form-control" id="dataselecionada" type="date" onblur="somar(),sequencial()" %}                    
                     </div>                  
                 </div>            
-            {% endif %}            
+            {% endif %}  
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label for="">{{form.data_teste.label}}</label>   
+                    {% render_field form.data_teste class="form-control" id="dataselecionada" type="date" onblur="somar(),sequencial()" %}                    
+                </div>                  
+                </div>     
             <div class="col-sm-3" > 
                 <div class="form-group" id="res">
                     <label for="">{{form.valor_prestacao.label}}</label>
