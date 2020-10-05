@@ -47,27 +47,22 @@
                     {% render_field form.qtd_parcelas class="form-control" id="qtd_parcelas" %}
                 </div>
             </div>
-            {% comment %} {% if object.pk %}         
+            {% comment %} Começar as alterações {% endcomment %}
+            {% if object.pk %}         
                 <div class="col-sm-3"> 
                     <div class="form-group">
                         <label for="">{{form.data_emprestimo.label}}</label>
                         {% render_field form.data_emprestimo class="form-control" id="dataselecionada" %}                       
                     </div>
                 </div>
-            {% else %}{% endcomment %}
+            {% else %}            
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label for="">{{form.data_emprestimo.label}}</label>   
                         {% render_field form.data_emprestimo class="form-control" id="dataselecionada" type="date" onblur="somar(),sequencial()" %}                    
                     </div>                  
-                </div>  
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <label for="">{{form.data_emprestimo_antiga.label}}</label>   
-                        {% render_field form.data_emprestimo_antiga class="form-control" id="dataselecionada" type="date" onblur="somar(),sequencial()" %}                    
-                    </div>                  
                 </div>            
-            {% comment %}{% endif %}{% endcomment %}
+            {% endif %}            
             <div class="col-sm-3" > 
                 <div class="form-group" id="res">
                     <label for="">{{form.valor_prestacao.label}}</label>
@@ -149,7 +144,7 @@
         valor_parcela = (cap_iof*(1+(qtd_parcelas*9.5)/100))/qtd_parcelas
         valor_parcela = String(toFixed(valor_parcela, 2))  
 
-        document.getElementById('prestacao').value = mes
+        document.getElementById('prestacao').value = valor_parcela
     }
 
     //GERA UM NUMERO SEQUENCIAL BASEADO NA DATA E HORA ATUAL
