@@ -64,12 +64,12 @@
                 </div>            
             {% endif %}  
 
-            <div class="col-sm-3">
-                <div class="form-group">
-                    <label for="">{{form.dt_teste.label}}</label>   
-                    {% render_field form.dt_teste class="form-control" id="dataselecionada" type="date" onblur="somar(),sequencial()" %}                    
-                </div>                  
-            </div> 
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label for="">{{form.dt_teste.label}}</label>   
+                        {% render_field form.dt_teste class="form-control" id="dataselecionada" type="date" onblur="somar(),sequencial()" %}                    
+                    </div>                  
+                </div> 
 
             <div class="col-sm-3" > 
                 <div class="form-group" id="res">
@@ -92,7 +92,7 @@
         <a href="{% url 'emprestimo:emprestimo_list' %}" type="button" class="btn btn-danger">Cancelar</a>        
         <button type="submit" class="btn btn-success" >Cadastrar</button>
     </form>
-    <button  onclick="somar()" class="btn btn-info">Calcular Parcela</button>
+    {% comment %} <button  onclick="somar()" class="btn btn-info">Calcular Parcela</button> {% endcomment %}
     {% endif %}
     <br>
     
