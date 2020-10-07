@@ -18,6 +18,8 @@ class Emprestimo(models.Model):
     data_emprestimo  = models.DateField("Data do Empréstimo antigo", auto_now_add=False, auto_now=False, null=True,blank=True)      
     dt_teste         = models.DateField("Data do Empréstimo", auto_now_add=False, auto_now=False, null=True,blank=True)   
     n_contrato       = models.CharField("Nº Contrato", max_length=13, unique=True, blank=True, null=True)
+    n_de_teste       = models.CharField("Nº de Teste", max_length=13, unique=True, blank=True, null=True)
+
 
     class Meta:
         ordering = ('-data_emprestimo',)

@@ -64,12 +64,18 @@
                 </div>            
             {% endif %}  
 
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <label for="">{{form.dt_teste.label}}</label>   
-                        {% render_field form.dt_teste class="form-control" id="dataselecionada" type="date" onblur="somar(),sequencial()" %}                    
-                    </div>                  
-                </div> 
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label for="">{{form.dt_teste.label}}</label>   
+                    {% render_field form.dt_teste class="form-control" id="dataselecionada" type="date" onblur="somar(),sequencial()" %}                    
+                </div>                  
+            </div> 
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label for="">{{form.n_de_teste.label}}</label>   
+                    {% render_field form.n_de_teste class="form-control" id="dataselecionada" type="date" onblur="somar(),sequencial()" %}                    
+                </div>                  
+            </div> 
 
             <div class="col-sm-3" > 
                 <div class="form-group" id="res">
