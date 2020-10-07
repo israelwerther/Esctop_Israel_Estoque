@@ -120,12 +120,9 @@ LANGUAGE_CODE = 'pt-br'
 
 TIME_ZONE = 'America/Sao_Paulo'
 
-USE_I18N = False
+USE_I18N = True
 
-# USE_L10N = True
-DATE_FORMAT = "d/m/Y"
-DATE_INPUT_FORMATS = ['%d/%m/%Y']
-USE_L10N = False
+USE_L10N = True
 
 USE_TZ = False
 
@@ -140,8 +137,6 @@ USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-
-
 
 STATIC_URL = '/static/'
 

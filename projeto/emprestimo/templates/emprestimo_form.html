@@ -50,37 +50,26 @@
             {% if object.pk %}         
                 <div class="col-sm-3"> 
                     <div class="form-group">
-                        <label for="">{{form.data_emprestimo.label}}</label>
-                        {% render_field form.data_emprestimo class="form-control" id="dataselecionada" %}                       
+                        <label for="">{{form.data_emprestimo.label}}</label><br>
+                        {% render_field form.data_emprestimo class="form-control" id="dataselecionada" onblur="somar(),sequencial()" %}   <br>                    
+                        {{object.data_emprestimo}}                 
                     </div>
                 </div>
             {% else %}            
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label for="">{{form.data_emprestimo.label}}</label>   
-                        {% render_field form.data_emprestimo class="form-control" id="dataselecionada" type="date" onblur="somar(),sequencial()" %}                    
+                        {% render_field form.data_emprestimo class="form-control" id="dataselecionada" type="date" onblur="somar(),sequencial()" %}
                     </div>                  
                 </div>            
             {% endif %}  
 
             <div class="col-sm-3">
                 <div class="form-group">
-                    <label for="">{{form.data_teste.label}}</label>   
-                    {% render_field form.data_teste class="form-control" id="dataselecionada" type="date" %}                    
+                    <label for="">{{form.dt_teste.label}}</label>   
+                    {% render_field form.dt_teste class="form-control" id="dataselecionada" type="date" onblur="somar(),sequencial()" %}                    
                 </div>                  
             </div> 
-            {% comment %} <div class="col-sm-3">
-                <div class="form-group">
-                    <label for="">{{form.data_teste2.label}}</label>   
-                    {% render_field form.data_teste2 class="form-control" id="dataselecionada" type="date" %}                    
-                </div>                  
-            </div>  {% endcomment %}
-            <div class="col-sm-3">
-                <div class="form-group">
-                    <label for="data_teste2" >data_teste2</label >
-                    <input value="" id="data_teste2" name="data_teste2" placeholder="dd/mm/yyyy" class="form-control">    
-                </div>  
-            </div>             
 
             <div class="col-sm-3" > 
                 <div class="form-group" id="res">
