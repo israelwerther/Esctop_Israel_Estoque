@@ -47,7 +47,7 @@
                     {% render_field form.qtd_parcelas class="form-control" id="qtd_parcelas" %}
                 </div>
             </div>
-            {% if object.pk %}         
+            {% comment %} {% if object.pk %}         
                 <div class="col-sm-3"> 
                     <div class="form-group">
                         <label for="">{{form.data_emprestimo.label}}</label><br>
@@ -62,7 +62,7 @@
                         {% render_field form.data_emprestimo class="form-control" id="dataselecionada" type="date"%}
                     </div>                  
                 </div>            
-            {% endif %}  
+            {% endif %}   {% endcomment %}
 
             {% if object.pk %} 
             <div class="col-sm-3">
