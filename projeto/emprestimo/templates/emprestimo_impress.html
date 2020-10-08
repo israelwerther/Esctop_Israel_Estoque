@@ -250,17 +250,17 @@
 		//VARIÁVEIS DA DATA DO EMPRESTIMO
 		var contador_meses = 0
 		var contador_anos  = 0
-		var dataEmprestimo = "{{ object.data_emprestimo}}"		
+		var dataEmprestimo = "{{ object.dt_teste}}"		
 		var dia
 		var mes
 		var ano
-		var aux_dia = {{object.data_emprestimo.day}}
-		var aux_mes = {{object.data_emprestimo.month}}
-		var aux_ano = {{object.data_emprestimo.year}}
+		var aux_dia = {{object.dt_teste.day}}
+		var aux_mes = {{object.dt_teste.month}}
+		var aux_ano = {{object.dt_teste.year}}
 
 		//VARIÁVEIS DO EMPRESTIMO
 		var aux_qtd_parccela = {{object.qtd_parcelas}}
-		var data_emissao = "{{object.data_emprestimo|date:"d/m/Y"}}"
+		var data_emissao = "{{object.dt_teste|date:"d/m/Y"}}"
 		var valor_da_parcela = parseFloat("{{object.valor_prestacao|floatformat:2}}".replace(',', '.'))	
 		var valor_multa = parseFloat((valor_da_parcela*0.020)).toFixedDown(2)
 		var valor_juros_dia = (valor_da_parcela*0.0066).toFixedDown(2)
@@ -471,13 +471,13 @@
 		//VARIÁVEIS DA DATA DO EMPRESTIMO
 		var contador_meses = 0
 		var contador_anos  = 0
-		var dataEmprestimo = "{{ object.data_emprestimo}}"		
+		var dataEmprestimo = "{{ object.dt_teste}}"		
 		var dia
 		var mes
 		var ano
-		var aux_dia = {{object.data_emprestimo.day}}
-		var aux_mes = {{object.data_emprestimo.month}}
-		var aux_ano = {{object.data_emprestimo.year}}
+		var aux_dia = {{object.dt_teste.day}}
+		var aux_mes = {{object.dt_teste.month}}
+		var aux_ano = {{object.dt_teste.year}}
 		
 		for (var i = 0 ; i < {{object.qtd_parcelas}}; i++){
 			contador_meses++

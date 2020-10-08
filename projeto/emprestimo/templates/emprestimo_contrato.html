@@ -602,12 +602,21 @@ window.onload = function imprimir(){
             4/4 
         </p>   
         <h2>CONTRATO DE MÚTUO FINANCEIRO</h2><br><br>
-
+    `
+    }
+    if(cliente_cnpj){
+        contrato.innerHTML +=
+        `
         <div class="num_contrato" > 
             <strong> Nº DO CONTRATO </strong> <br>
             ${n_contrato}
         </div>
         <br>
+        `
+    }
+    if(cliente_cnpj){
+        contrato.innerHTML +=
+        `
         <div class="credito" >
             <strong> VALOR DO CRÉDITO </strong><br>
             ${valor_emprestado}
