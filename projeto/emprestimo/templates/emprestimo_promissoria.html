@@ -151,13 +151,13 @@ window.onload = function imprimir_promissoria(){
     //VARIÁVEIS DA DATA DO EMPRESTIMO
     var contador_meses = 0
     var contador_anos  = 0
-    var dataEmprestimo = "{{ object.dt_teste}}"		
+    var dataEmprestimo = "{{ object.dt_emprestimo}}"		
     var dia
     var mes
     var ano
-    var aux_dia = {{object.dt_teste.day}}
-    var aux_mes = {{object.dt_teste.month}}
-    var aux_ano = {{object.dt_teste.year}}
+    var aux_dia = {{object.dt_emprestimo.day}}
+    var aux_mes = {{object.dt_emprestimo.month}}
+    var aux_ano = {{object.dt_emprestimo.year}}
     
 
     //VARIÁVEIS DO EMPRESTIMO
@@ -165,7 +165,7 @@ window.onload = function imprimir_promissoria(){
     dinheiro = "{{object.valor_prestacao}}"
 
     var aux_qtd_parccela = {{object.qtd_parcelas}}
-    var data_emissao = "{{object.dt_teste|date:"d/m/Y"}}"
+    var data_emissao = "{{object.dt_emprestimo|date:"d/m/Y"}}"
     var valor_da_parcela = parseFloat("{{object.valor_prestacao|floatformat:2}}".replace(',', '.'))
     var valor_da_parcela_int = parseInt("{{object.valor_prestacao|floatformat:2}}".replace(',', '.'))
     
@@ -295,7 +295,7 @@ window.onload = function imprimir_promissoria(){
                     CPF: ${"{{object.cliente.cpf}}"}  
                 </div>
                 <div class="fontmenor emissao" style="text-align:center">                   
-                    <strong><u> ${"{{object.dt_teste}}"}</u></strong>
+                    <strong><u> ${"{{object.dt_emprestimo}}"}</u></strong>
                 </div>               
                 <div class="fontmenor emissao1" style="text-align:center">                   
                     DATA DE EMISSÃO                     
@@ -350,7 +350,7 @@ window.onload = function imprimir_promissoria(){
                 </div> 
 
                 <div class="fontmenor emissao" style="text-align:center">      
-                    <u> <strong> &nbsp&nbsp${"{{object.dt_teste}}"}&nbsp&nbsp </strong> </u>
+                    <u> <strong> &nbsp&nbsp${"{{object.dt_emprestimo}}"}&nbsp&nbsp </strong> </u>
                 </div>               
                 <div class="fontmenor emissao1" style="text-align:center">
                     DATA DE EMISSÃO <br>
@@ -399,7 +399,7 @@ window.onload = function imprimir_promissoria(){
                         CPF ${"{{object.cliente.cpf}}"}  
                     </div>
                     <div class="fontmenor emissao" style="text-align:center">                   
-                        <strong><u> ${"{{object.dt_teste}}"}</u></strong>
+                        <strong><u> ${"{{object.dt_emprestimo}}"}</u></strong>
                     </div>               
                     <div class="fontmenor emissao1" style="text-align:center">                   
                         DATA DE EMISSÃO                     
