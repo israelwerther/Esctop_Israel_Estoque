@@ -52,7 +52,7 @@
                     <div class="form-group">
                         <label for="">{{form.data_emprestimo.label}}</label><br>
                         {% render_field form.data_emprestimo class="form-control" id="dataselecionada"%}   <br>                    
-                        {{object.data_emprestimo}}                 
+                                       
                     </div>
                 </div>
             {% else %}            
@@ -79,13 +79,6 @@
                 </div>                  
             </div> 
             {% endif %}  
-
-            <div class="col-sm-3">
-                <div class="form-group">
-                    <label for="">{{form.n_de_teste.label}}</label>   
-                    {% render_field form.n_de_teste class="form-control" id="dataselecionada" type="date" %}                    
-                </div>                  
-            </div> 
 
             <div class="col-sm-3" > 
                 <div class="form-group" id="res">
