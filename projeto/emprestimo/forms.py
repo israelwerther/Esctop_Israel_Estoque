@@ -17,14 +17,14 @@ class EmprestimoForm(forms.ModelForm):
             'qtd_parcelas',
             'valor_prestacao',
             # 'data_emprestimo',
-            'dt_teste',            
+            # 'dt_teste',            
             'n_contrato'
         ]
         readonly_fields = ["valor_prestacao", ]
-        widgets = {           
-            # 'data_emprestimo': forms.DateInput(),
-            'dt_teste': forms.DateInput(),            
-        }
+        # widgets = {           
+        #     # 'data_emprestimo': forms.DateInput(),
+        #     'dt_teste': forms.DateInput(),            
+        # }
 
 class EmprestimoPagamentoForm(forms.ModelForm):
     class Meta:

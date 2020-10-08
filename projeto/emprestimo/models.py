@@ -16,12 +16,12 @@ class Emprestimo(models.Model):
     qtd_parcelas     = models.PositiveIntegerField('Qtd Parcelas', null=True, blank=True)
     valor_prestacao  = models.DecimalField("Valor da prestação", max_digits=10, decimal_places=2, null=True, blank=True)
     # data_emprestimo  = models.DateField("Data do Empréstimo antigo", auto_now_add=False, auto_now=False, null=True,blank=True)      
-    dt_teste         = models.DateField("Data do Empréstimo", auto_now_add=False, auto_now=False, null=True,blank=True)   
+    dt_emprestimo    = models.DateField("Data do Empréstimo", auto_now_add=False, auto_now=False, null=True,blank=True)   
     n_contrato       = models.CharField("Nº Contrato", max_length=13, unique=True, blank=True, null=True)   
 
 
     class Meta:
-        ordering = ('-dt_teste',)
+        ordering = ('-dt_emprestimo',)
         
     # def __str__(self):
     #     return '{} - {} - {}'.format(self.pk, self.num_doc, self.created.strftime('%d-%m-%Y'))
