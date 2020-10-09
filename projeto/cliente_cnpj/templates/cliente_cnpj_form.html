@@ -48,12 +48,21 @@
                 {% render_field form.cnpj class="form-control cnpj-mask" %}
             </div>
         </div>  
+        {% if cliente_cnpj %}
+        <div class="col-sm-3">                    
+            <div class="form-group" >                
+                <label for="" class="required" >{{form.fundacao.label}} </label>        
+                {% render_field form.fundacao class="form-control" %}
+            </div>
+        </div>  
+        {% else %}
         <div class="col-sm-3">                    
             <div class="form-group" >                
                 <label for="" class="required" >{{form.fundacao.label}} </label>        
                 {% render_field form.fundacao class="form-control" type="date"%}
             </div>
         </div>  
+        {% endif %}
         <div class="col-sm-5">                    
             <div class="form-group" >                
                 <label for="" class="required" >{{form.forma_constituicao.label}} </label>        
