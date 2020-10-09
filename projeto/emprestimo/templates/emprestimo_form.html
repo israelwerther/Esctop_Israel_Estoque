@@ -47,22 +47,6 @@
                     {% render_field form.qtd_parcelas class="form-control" id="qtd_parcelas" %}
                 </div>
             </div>
-            {% comment %} {% if object.pk %}         
-                <div class="col-sm-3"> 
-                    <div class="form-group">
-                        <label for="">{{form.data_emprestimo.label}}</label><br>
-                        {% render_field form.data_emprestimo class="form-control" id="dataselecionada"%}   <br>                    
-                                       
-                    </div>
-                </div>
-            {% else %}            
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <label for="">{{form.data_emprestimo.label}}</label>   
-                        {% render_field form.data_emprestimo class="form-control" id="dataselecionada" type="date"%}
-                    </div>                  
-                </div>            
-            {% endif %}   {% endcomment %}
 
             {% if object.pk %} 
             <div class="col-sm-3">
@@ -75,7 +59,7 @@
             <div class="col-sm-3">
                 <div class="form-group">
                     <label for="">{{form.dt_emprestimo.label}}</label>   
-                    {% render_field form.dt_emprestimo class="form-control" id="dataselecionada" type="date" %}                    
+                    {% render_field form.dt_emprestimo class="form-control" id="dataselecionada" type="date" type="date" onblur="somar(),sequencial()"%}                    
                 </div>                  
             </div> 
             {% endif %}  
