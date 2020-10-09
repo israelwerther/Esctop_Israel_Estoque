@@ -67,15 +67,15 @@
             {% if object.pk %} 
             <div class="col-sm-3">
                 <div class="form-group">
-                    <label for="">{{form.dt_teste.label}}</label>   
-                    {% render_field form.dt_teste class="form-control" id="dataselecionada"%}                    
+                    <label for="">{{form.dt_emprestimo.label}}</label>   
+                    {% render_field form.dt_emprestimo class="form-control" id="dataselecionada"%}                    
                 </div>                  
             </div> 
             {% else %}    
             <div class="col-sm-3">
                 <div class="form-group">
-                    <label for="">{{form.dt_teste.label}}</label>   
-                    {% render_field form.dt_teste class="form-control" id="dataselecionada" type="date" %}                    
+                    <label for="">{{form.dt_emprestimo.label}}</label>   
+                    {% render_field form.dt_emprestimo class="form-control" id="dataselecionada" type="date" %}                    
                 </div>                  
             </div> 
             {% endif %}  
