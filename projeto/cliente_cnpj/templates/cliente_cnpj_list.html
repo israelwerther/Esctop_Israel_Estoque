@@ -2,12 +2,6 @@
 
 {% block content %}
 
-<style>
-    td{
-        text-transform: uppercase; 
-    }
-</style>
-
 <div class="class page-header">
     <span class="float-right">    
         <a href="{% url 'core:fiador_decision' %}" >
@@ -36,10 +30,10 @@
         <tbody>
             {% for object in object_list  %}   
             <tr>
-                <td>{{object.razao_social}}</td>                                        
-                <td>{{ object.fundacao }}</td>
-                <td>{{ object.forma_constituicao }}</td>                                     
-                <td>{{ object.inscricao_estadual }}</td>
+                <td class="maiusculo">{{object.razao_social}}</td>                                        
+                <td class="maiusculo">{{ object.fundacao }}</td>
+                <td class="maiusculo">{{ object.forma_constituicao }}</td>                                     
+                <td class="maiusculo">{{ object.inscricao_estadual }}</td>
                 <td style="text-align:center"> 
                     <a href="{{ object.get_absolute_url}}" ><button class="btn btn-info">Gerenciar</button></a> 
                 </td>                    

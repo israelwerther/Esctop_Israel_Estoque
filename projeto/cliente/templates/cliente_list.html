@@ -3,12 +3,6 @@
 {% block js %}{% endblock js %}
 {% block content %}
 
-<style>
-    td{
-        text-transform: uppercase; 
-    }
-</style>
-
 
 <div class="class page-header">
     {% comment %} <div class="float-right">
@@ -41,10 +35,10 @@
         <tbody>
             {% for object in object_list  %}   
             <tr>
-                <td>{{object.nome}}</td>                                        
-                <td>{{ object.rg }}</td>
-                <td>{{ object.data_nasc }}</td>                                     
-                <td>{{ object.cpf }}</td> 
+                <td class="maiusculo">{{object.nome}}</td>                                        
+                <td class="maiusculo">{{ object.rg }}</td>
+                <td class="maiusculo">{{ object.data_nasc }}</td>                                     
+                <td class="maiusculo">{{ object.cpf }}</td> 
                 <td style="text-align:center"> 
                     <a href="{{ object.get_absolute_url}}" ><button class="btn btn-info">Gerenciar</button></a> 
                 </td>                    
