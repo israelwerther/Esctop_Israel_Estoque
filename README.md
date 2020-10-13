@@ -67,7 +67,7 @@ python manage.py migrate
 
 
 
-
+* (OK) TECLA DE IMPRESSÃO DE DETALHES DE CLIENTE_CNPJ INSERIDO
 * (OK) MANTER TABS FIXAS EM TELAS DE CADASTRO
 * (OK) forma constituição opcional
 * (OK) inscrição estadual tem mascara 
