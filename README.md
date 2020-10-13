@@ -61,15 +61,21 @@ python manage.py migrate
 * (  ) MANTER TABS FIXAS EM TELAS DE CADASTRO
 * (  ) CORRIGIR ESPAÇO GRANDE NO CONTRATO APÓS O QUADRO DE PARCELAS
 * (  ) SE CASADO ABRIR CAMPO DE CONJUGE(NOME, CPF, TELEFONE)
-* (  ) ABRIR AS IMPRESSÕES EM NOVA GUIA
 * (  ) SE NÃO HOUVER REPRESENTANTE REPETIR OS DADOS DO CNPJ NA ABA REPRESENTANTE ???????*(  ) 
 * (  ) Cliente CNPJ terá boleto ao invés de carnê
 * (  ) Preencher o campo nome fantasia automaticamente
 * (  ) forma constituição opcional
-* (  ) inscrição estadual tem mascara
+
+
+
+* (OK) inscrição estadual tem mascara
+
+
+
 * (  ) representante não ser obrigatório
 * (..) TORNAR TUDO MAIUSCULO NO BANCO AO CRIAR O CLIENTE(SOLUÇÃO TEMPORARIA)
 * (..) SUBSTIRUIR O ENTER POR TAB(SOLUÇÃO TEMPORARIA)
+* (OK) ABRIR AS IMPRESSÕES EM NOVA GUIA
 * (OK) CAMPO DE NÚMERO CASA EM DADOS DE LOCAL DE TRABALHO
 * (OK) CADASTRO DE FIADOR EDITÁVEL
 * (OK) SUBIR O NOME DA CONTRACAPA  (??????????) NÃO ENTENDI ONDE DEVE FICAR O NOME
