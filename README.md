@@ -58,17 +58,22 @@ python manage.py migrate
 * (  ) mascara do RG
 * (  ) GERADOR DE RECIBO DE PAGAMENTO DE EMPRÉSTIMO (A PRINCIPIO PARA CREDCOOP)
 * (  ) CONTATOS É OBRIGATÓRIO APENAS UM CELULAR
-* (  ) MANTER TABS FIXAS EM TELAS DE CADASTRO
 * (  ) CORRIGIR ESPAÇO GRANDE NO CONTRATO APÓS O QUADRO DE PARCELAS
 * (  ) SE CASADO ABRIR CAMPO DE CONJUGE(NOME, CPF, TELEFONE)
 * (  ) SE NÃO HOUVER REPRESENTANTE REPETIR OS DADOS DO CNPJ NA ABA REPRESENTANTE ???????*(  ) 
 * (  ) Cliente CNPJ terá boleto ao invés de carnê
 * (  ) Preencher o campo nome fantasia automaticamente
-* (  ) forma constituição opcional
 
 
 
-* (OK) inscrição estadual tem mascara
+
+
+* (OK) MANTER TABS FIXAS EM TELAS DE CADASTRO
+* (OK) forma constituição opcional
+* (OK) inscrição estadual tem mascara 
+**(PQ NÃO ESTÃO CADASTRANDO - Forma Constituição, Inscrição Estadual, Inscrição Municipal)**
+
+
 
 
 
