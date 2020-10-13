@@ -5,13 +5,21 @@
 .options{
     color: aqua;
 }
+@media print
+{    
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
+}
 </style>
 
-
 <span class="pull-right">
-    <a href="{% url 'cliente_cnpj:cliente_cnpj_list' %}" type="button" class="btn btn-secondary">Voltar</a>
-    <a href="{% url 'cliente_cnpj:cliente_cnpjupdate' object.pk %}" type="button" class="btn btn-info">Editar</a>
-    <a href="{% url 'cliente_cnpj:cliente_cnpj_delete' object.pk %}" type="button" class="btn btn-danger">Deletar</a>
+    <a href="{% url 'cliente_cnpj:cliente_cnpj_list' %}" type="button" class="btn btn-secondary no-print">Voltar</a>
+    <a href="{% url 'cliente_cnpj:cliente_cnpjupdate' object.pk %}" type="button" class="btn btn-info no-print">Editar</a>
+    <a href="{% url 'cliente_cnpj:cliente_cnpj_delete' object.pk %}" type="button" class="btn btn-danger no-print">Deletar</a>
+    <a href="" type="button" onclick="window.print()" class="btn btn-warning no-print">Imprimir</a>
+    <!-- <button onclick="window.print()">Print this page</button> -->
 </span>
 <h2>DETALHES(CNPJ) <br> {{ object.razao_social }}</h2>
 
@@ -28,19 +36,19 @@
             <input  value="{{ object.nome_fantasia }}" readonly class="form-control">
         </div>
     </div>
-    <div class="col-sm-4"> 
+    <div class="col-sm-6"> 
         <div class="form-group">
             <label>CNPJ</label>
             <input type="text" value="{{ object.cnpj }}" readonly class="form-control">
         </div>
     </div>
-    <div class="col-sm-3"> 
+    <div class="col-sm-6"> 
         <div class="form-group">
             <label>Fundação</label>
             <input type="text" value="{{ object.fundacao }}" readonly class="form-control">
         </div>
     </div>
-    <div class="col-sm-5"> 
+    <div class="col-sm-6"> 
         <div class="form-group">
             <label>Forma Constituição</label>
             <input type="text" value="{{ object.forma_constituicao }}" readonly class="form-control">
