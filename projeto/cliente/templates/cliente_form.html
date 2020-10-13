@@ -67,6 +67,11 @@
                 </div>  
             </div>
         {% endif %}
+        <div class="col-sm-3" > 
+            <div class="form-group">            
+                {% render_field form.estado_civil class="form-control" id="estado_civil" type="hidden" %}                       
+            </div>
+        </div>
         
         <!-- <div class="col-sm-3">
             <div class="form-group">
@@ -415,7 +420,13 @@
 
 
 <script type="text/javascript">
- 
+/*MODAL DE ESTADO CIVIL*/
+$('select').on('change', function () {
+    if ($(this).val() == "CASADO") {
+        $('#cria-recinto').modal('show');
+    }
+});
+/*MODAL DE ESTADO CIVIL*/
 </script>
 
 {% endblock content %}
