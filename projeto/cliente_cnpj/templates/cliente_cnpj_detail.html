@@ -1,10 +1,9 @@
 {% extends "base.html" %}
+{% load widget_tweaks %}
 {% block content %}
 
 <style>
-.options{
-    color: aqua;
-}
+
 @media print
 {    
     .no-print, .no-print *
@@ -23,7 +22,6 @@
     <!-- <button onclick="window.print()">Print this page</button> -->
 </span>
 <h2>DETALHES(CNPJ) <br> {{ object.razao_social }}</h2>
-
 <div class="row">       
     <div class="col-sm-6"> 
         <div class="form-group">
@@ -69,14 +67,14 @@
     </div>
     <div class="col-sm-6"> 
         <div class="form-group">
-            <label>Email</label>
-            <input type="text" value="{{ object.email }}" readonly class="form-control">
+            <label>Representante</label>
+            <input type="text" value="{{ object.cep }}" readonly class="form-control">
         </div>
     </div>
     <div class="col-sm-6"> 
         <div class="form-group">
             <label>Representante</label>
-            <input type="text" value="{{ object.representante }}" readonly class="form-control">
+            <input type="text" value="{{ object.rep_nome }}" readonly class="form-control">
         </div>
     </div>
 </div>
@@ -124,21 +122,31 @@
             <input type="text" value="{{ object.ponto_referencia }}" readonly class="form-control">
         </div>
     </div>
+    <div class="col-sm-6"> 
+        <div class="form-group">
+            <label>Complemento</label>
+            <input type="text" value="{{ object.complemento }}" readonly class="form-control">
+        </div>
+    </div>
+</div>
+<h2> CONTATO </h2>
+<div class="row">
+    <div class="col-sm-6"> 
+        <div class="form-group">
+            <label>Email</label>
+            <input type="text" value="{{ object.email }}" readonly class="form-control">
+        </div>
+    </div>
+    <div class="col-sm-6"> 
+        <div class="form-group">
+            <label>Email</label>
+            <input type="text" value="{{ object.email }}" readonly class="form-control">
+        </div>
+    </div>
+
 </div>
 <h2> DADOS BANCÁRIOS </h2>
 <div class="row"> 
-    <div class="col-sm-6"> 
-        <div class="form-group">
-            <label>Agência</label>
-            <input type="text" value="{{ object.agencia }}" readonly class="form-control">
-        </div>
-    </div>
-    <div class="col-sm-6"> 
-        <div class="form-group">
-            <label>conta</label>
-            <input type="text" value="{{ object.conta }}" readonly class="form-control">
-        </div>
-    </div>
     <div class="col-sm-6"> 
         <div class="form-group">
             <label>banco</label>
@@ -147,8 +155,26 @@
     </div>
     <div class="col-sm-6"> 
         <div class="form-group">
+            <label>Agência</label>
+            <input type="text" value="{{ object.n_operacao }}" readonly class="form-control">
+        </div>
+    </div>
+    <div class="col-sm-6"> 
+        <div class="form-group">
+            <label>conta</label>
+            <input type="text" value="{{ object.tipo_de_conta }}" readonly class="form-control">
+        </div>
+    </div>
+    <div class="col-sm-6"> 
+        <div class="form-group">
             <label>obs_bancaria</label>
-            <input type="text" value="{{ object.obs_bancaria }}" readonly class="form-control">
+            <input type="text" value="{{ object.agencia }}" readonly class="form-control">
+        </div>
+    </div> 
+    <div class="col-sm-6"> 
+        <div class="form-group">
+            <label>obs_bancaria</label>
+            <input type="text" value="{{ object.conta }}" readonly class="form-control">
         </div>
     </div>    
     <div class="col-sm-6"> 

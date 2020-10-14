@@ -13,7 +13,7 @@ class Cliente_cnpj(models.Model):
     forma_constituicao    = models.CharField("Forma Constituição", blank=True, null=True, max_length=50)
     inscricao_estadual    = models.CharField("Inscrição Estadual",blank=True, null=True, max_length=50)
     inscricao_municipal   = models.CharField("Inscrição Municipal", blank=True, null=True,max_length=50)
-    email                 = models.EmailField("Email", max_length=50, blank=True, null=True)
+    #ENDEREÇO
     cep                   = models.CharField("CEP", max_length=10, blank=False, null=True)
     rua                   = models.CharField("Rua", max_length=60, blank=False, null=True)
     bairro                = models.CharField("Bairro", max_length=40, blank=False, null=True)
@@ -22,18 +22,20 @@ class Cliente_cnpj(models.Model):
     numero_casa           = models.CharField("Nº ", max_length=5, blank=True, null=True)
     ponto_referencia      = models.CharField("Ponto de Referencia", max_length=100, blank=True, null=True)
     complemento           = models.CharField("Complemento", max_length=100, blank=True, null=True)
+    #CONTATO
     contato1              = models.CharField("Contato 1",max_length=15, blank=True, null=True)
     contato2              = models.CharField("Contato 2",max_length=15, blank=True, null=True)
     celular1              = models.CharField("Celular 1",max_length=17, blank=True, null=True)
     whatsapp1             = models.BooleanField("Whatsapp", default=True)
     celular2              = models.CharField("Celular 2",max_length=17, blank=True, null=True)
     whatsapp2             = models.BooleanField("Whatsapp", default=True)
-    
+    email                 = models.EmailField("Email", max_length=50, blank=True, null=True)
+    # DADOS BANCÁRIOS
     banco                 = models.ForeignKey(Banco, on_delete=models.PROTECT,max_length=25, blank=True, null=True)  
     n_operacao            = models.CharField("Nº operação",max_length=15, blank=True, null=True)
+    tipo_de_conta         = models.ForeignKey(Tipo_de_conta, on_delete=models.PROTECT,max_length=25, blank=True, null=True)  
     agencia               = models.CharField("Nº agência",max_length=15, blank=True, null=True)
     conta                 = models.CharField("Nº conta",max_length=15, blank=True, null=True)
-    tipo_de_conta         = models.ForeignKey(Tipo_de_conta, on_delete=models.PROTECT,max_length=25, blank=True, null=True)  
     
     # REFERÊNCIAS
     ref1_nome             = models.CharField("Nome", max_length=50, blank=True, null=True)
