@@ -68,19 +68,6 @@
                 </div>  
             </div>
         {% endif %}
-        <div class="col-sm-3" > 
-            <div class="form-group">            
-                <label for="" class="required">{{form.estado_civil.label}}</label>
-                {% render_field form.estado_civil class="form-control " %}                    
-            </div>
-        </div>
-        
-        <!-- <div class="col-sm-3">
-            <div class="form-group">
-                <label for="" class="required">{{form.estado_civil.label}}</label>
-                {% render_field form.estado_civil class="form-control" %}
-            </div>  
-        </div> -->
         <div class="col-sm-3">
             <div class="form-group">
                 <label for="" class="required">{{form.naturalidade.label}}</label>
@@ -93,6 +80,30 @@
                 {% render_field form.nacionalidade class="form-control" value="BRASILEIRA" %}
             </div>  
         </div>    
+        <div class="col-sm-3" > 
+            <div class="form-group">            
+                <label for="" class="required">{{form.estado_civil.label}}</label>
+                {% render_field form.estado_civil class="form-control" %}                    
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="form-group">            
+                <label for="">{{form.conjuge_nome.label}}</label>
+                {% render_field form.conjuge_nome class="form-control" %}                    
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="form-group">            
+                <label for="">{{form.conjuge_cpf.label}}</label>
+                {% render_field form.conjuge_cpf class="form-control cpf-mask"%}                    
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="form-group">            
+                <label for="">{{form.conjuge_telefone.label}}</label>
+                {% render_field form.conjuge_telefone class="form-control cel-phone-mask" %}                    
+            </div>
+        </div>         
         <div class="col-sm-5">                    
             <div class="form-group" >                
                 <label for="" class="required">{{form.nome_da_mae.label}}</label>        

@@ -1,15 +1,13 @@
 from django import forms
 from .models import Cliente
 
-class ClienteForm(forms.ModelForm):
-    
+class ClienteForm(forms.ModelForm):    
     # def existe_cpf(self):
     #     cpf = self.cleaned_data['cpf']
     #     if Cliente.objects.filter(cpf=cpf).exists():
     #         print("CPF já existe")
     #         raise forms.ValidationError('CPF ja cadastrado!')
-    #     return cpf    
-
+    #     return cpf   
     class Meta:
         model = Cliente
         fields = '__all__'
@@ -19,5 +17,8 @@ class ClienteForm(forms.ModelForm):
             'ref2_nome': forms.TextInput(attrs={'placeholder': 'Refencia 2'}),            
             'ref3_nome': forms.TextInput(attrs={'placeholder': 'Refencia 3'}),            
             'complemento': forms.TextInput(attrs={'placeholder': 'Ex: Apt A, BL B'}), 
+            'conjuge_nome': forms.TextInput(attrs={'placeholder': 'Opcional'}), 
+            'conjuge_cpf': forms.TextInput(attrs={'placeholder': 'Opcional'}), 
+            'conjuge_telefone': forms.TextInput(attrs={'placeholder': 'Opcional'}), 
         }
         
