@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load widget_tweaks %}
+{% load  static %}
 {% block js %}{% endblock js %}
 {% block content %}
 
@@ -69,7 +70,8 @@
         {% endif %}
         <div class="col-sm-3" > 
             <div class="form-group">            
-                {% render_field form.estado_civil class="form-control" id="estado_civil" type="hidden" %}                       
+                <label for="" class="required">{{form.estado_civil.label}}</label>
+                {% render_field form.estado_civil class="form-control " %}                    
             </div>
         </div>
         
@@ -90,38 +92,7 @@
                 <label for="" class="required">{{form.nacionalidade.label}}</label>
                 {% render_field form.nacionalidade class="form-control" value="BRASILEIRA" %}
             </div>  
-        </div>        
-        <div class="col-sm-3">
-            <div class="form-group">
-                <label for="" class="required">{{form.estado_civil.label}}</label>
-                <select class="form-control" data-toggle="modal">
-                    <option value="SOLTEIRO">SOLTEIRO</option>
-                    <option value ="CASADO">CASADO</option>
-                    <option value="VIÚVO">VIÚVO</option>
-                    <option value="DIVORCIADO">DIVORCIADO</option>
-                    <option value="OUTRO">OUTRO</option>
-                </select>
-            </div>  
-        </div>
-    
-        <!-- Modal -->
-        <div class="modal fade" id="cria-recinto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-            </div>
-        </div>
-        </div>
+        </div>    
         <div class="col-sm-5">                    
             <div class="form-group" >                
                 <label for="" class="required">{{form.nome_da_mae.label}}</label>        
@@ -418,16 +389,28 @@
     </form> 
 </div>
 
+<!-- MODAL -->
+<div class="modal" id="estadocivilmodal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-tittle">Estado civil</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>x</span>
+                </button>
+            </div>
 
-<script type="text/javascript">
-/*MODAL DE ESTADO CIVIL*/
-$('select').on('change', function () {
-    if ($(this).val() == "CASADO") {
-        $('#cria-recinto').modal('show');
-    }
-});
-/*MODAL DE ESTADO CIVIL*/
-</script>
+            <div class="modal-body">
+                
+            </div>
+
+            <div class="modal-footer">
+                
+            </div>
+            
+        </div>
+    </div>
+</div>
 
 {% endblock content %}
 
