@@ -7,7 +7,7 @@ class ClienteAdmin(admin.ModelAdmin):
         'nome',
         'rua',
         'rg',
-        'data_nasc',        
+        'estado_civil',        
         'email',        
         'contato1',        
     )
