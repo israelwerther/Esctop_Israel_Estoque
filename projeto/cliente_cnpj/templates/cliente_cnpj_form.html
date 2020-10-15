@@ -304,6 +304,12 @@
     {% endif %}
     <div class="col-sm-2">                    
         <div class="form-group" >                
+            <label for="" >{{form.rep_naturalidade.label}} </label>        
+            {% render_field form.rep_naturalidade  class="form-control" %}
+        </div>    
+    </div>  
+    <div class="col-sm-2">                    
+        <div class="form-group" >                
             <label for="" >{{form.rep_nacionalidade.label}} </label>        
             {% render_field form.rep_nacionalidade  class="form-control" value="BRASILEIRA" %}
         </div>    
@@ -314,6 +320,24 @@
             {% render_field form.rep_estado_civil  class="form-control" %}
         </div>    
     </div> 
+    <div class="col-sm-3">
+            <div class="form-group">            
+                <label for="">{{form.rep_conjuge_nome.label}}</label>
+                {% render_field form.rep_conjuge_nome class="form-control" %}                    
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="form-group">            
+                <label for="">{{form.rep_conjuge_cpf.label}}</label>
+                {% render_field form.rep_conjuge_cpf class="form-control cpf-mask"%}                    
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="form-group">            
+                <label for="">{{form.rep_conjuge_telefone.label}}</label>
+                {% render_field form.rep_conjuge_telefone class="form-control cel-phone-mask" %}                    
+            </div>
+        </div>        
 </div> 
 <hr>
     <h3>ENDEREÇO</h3>               
