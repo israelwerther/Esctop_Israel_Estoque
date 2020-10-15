@@ -9,7 +9,10 @@ class Cliente_cnpjForm(forms.ModelForm):
         widgets = {
             'ref1_nome': forms.TextInput(attrs={'placeholder': 'Refencia 1'}),
             'ref2_nome': forms.TextInput(attrs={'placeholder': 'Refencia 2'}),            
-            'complemento': forms.TextInput(attrs={'placeholder': 'Ex: Apt A, BL B'}),            
+            'complemento': forms.TextInput(attrs={'placeholder': 'Ex: Apt A, BL B'}),   
+            'rep_conjuge_nome': forms.TextInput(attrs={'placeholder': 'Opcional'}), 
+            'rep_conjuge_cpf': forms.TextInput(attrs={'placeholder': 'Opcional'}), 
+            'rep_conjuge_telefone': forms.TextInput(attrs={'placeholder': 'Opcional'}),          
         }
 
 
