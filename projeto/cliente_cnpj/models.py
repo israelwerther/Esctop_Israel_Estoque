@@ -56,7 +56,7 @@ class Cliente_cnpj(models.Model):
     rep_conjuge_nome      = models.CharField("Nome Cônjuge", max_length=50, blank=True, null=True)
     rep_conjuge_cpf       = models.CharField("CPF Cônjuge", max_length=20, unique=True,blank=True, null=True)
     rep_conjuge_telefone  = models.CharField("Contato Cônjuge",max_length=17, blank=True, null=True)
-    rep_contato1          = models.CharField("Contato 1",max_length=15, blank=True, null=True)
+    rep_contato1          = models.CharField("Tel Fixo",max_length=15, blank=True, null=True)
     rep_celular1          = models.CharField("celular 1",max_length=17, blank=True, null=True)
     rep_whatsapp1         = models.BooleanField("Whatsapp", default=True)
     rep_celular2          = models.CharField("celular 2",max_length=17, blank=True, null=True)
