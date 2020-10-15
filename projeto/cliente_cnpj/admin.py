@@ -8,7 +8,6 @@ class Cliente_cnpjAdmin(admin.ModelAdmin):
         'nome_fantasia',
         'cnpj',
         'fundacao',
-        'forma_constituicao',
         'inscricao_estadual', 
         'inscricao_municipal',  
     )

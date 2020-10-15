@@ -10,7 +10,7 @@ class Cliente_cnpj(models.Model):
     nome_fantasia         = models.CharField("Nome Fantasia", max_length=50)
     cnpj                  = models.CharField("CNPJ", max_length=36, unique=True, blank=True, null=True)
     fundacao              = models.DateField("Fundação",max_length=8, blank=True, null=True)  
-    forma_constituicao    = models.CharField("Forma Constituição", blank=True, null=True, max_length=50)
+    
     inscricao_estadual    = models.CharField("Inscrição Estadual",blank=True, null=True, max_length=50)
     inscricao_municipal   = models.CharField("Inscrição Municipal", blank=True, null=True,max_length=50)
     #ENDEREÇO

@@ -64,6 +64,11 @@ python manage.py migrate
 * (  ) Preencher o campo nome fantasia automaticamente
 
 
+* (  ) INSERIR CAMPO SEXO
+* (  ) ESCANEAR DOCUMENTO
+* (  ) ABRIR CAMERA
+* (OK) RETIRAR FORMA CONSTITUIÇÃO
+* (  ) CONTATO>TELEFONE FIXO
 
 
 * (OK) SE CASADO ABRIR CAMPO DE CONJUGE(NOME, CPF, TELEFONE)
