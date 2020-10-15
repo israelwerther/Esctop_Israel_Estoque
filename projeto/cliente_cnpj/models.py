@@ -9,8 +9,7 @@ class Cliente_cnpj(models.Model):
     razao_social          = models.CharField("Razão Social", max_length=50, blank=True, null=True)
     nome_fantasia         = models.CharField("Nome Fantasia", max_length=50)
     cnpj                  = models.CharField("CNPJ", max_length=36, unique=True, blank=True, null=True)
-    fundacao              = models.DateField("Fundação",max_length=8, blank=True, null=True)  
-    
+    fundacao              = models.DateField("Fundação",max_length=8, blank=True, null=True)      
     inscricao_estadual    = models.CharField("Inscrição Estadual",blank=True, null=True, max_length=50)
     inscricao_municipal   = models.CharField("Inscrição Municipal", blank=True, null=True,max_length=50)
     #ENDEREÇO
@@ -49,8 +48,8 @@ class Cliente_cnpj(models.Model):
     rep_nome              = models.CharField("Nome", max_length=50, blank=True, null=True)
     rep_cpf               = models.CharField("CPF", max_length=20, unique=True, blank=True, null=True) 
     rep_rg                = models.CharField("RG",max_length=20, blank=True, null=True)
-    rep_email             = models.EmailField("Email", max_length=50, blank=True, null=True)
     rep_orgao_emissor     = models.CharField("Orgão Emissor",max_length=20, blank=True, null=True)
+    rep_data_nasc         = models.DateField("Data de Nascimento",max_length=8, blank=False, null=True)  
     rep_nacionalidade     = models.CharField("Nacionalidade",max_length=20, blank=True, null=True)
     rep_estado_civil      = models.CharField("Estado Civil",max_length=20, blank=True, null=True)
     rep_contato1          = models.CharField("Contato 1",max_length=15, blank=True, null=True)
@@ -58,6 +57,7 @@ class Cliente_cnpj(models.Model):
     rep_whatsapp1         = models.BooleanField("Whatsapp", default=True)
     rep_celular2          = models.CharField("celular 2",max_length=17, blank=True, null=True)
     rep_whatsapp2         = models.BooleanField("Whatsapp", default=True)
+    rep_email             = models.EmailField("Email", max_length=50, blank=True, null=True)
     rep_cep               = models.CharField("CEP", max_length=10, blank=True, null=True)
     rep_rua               = models.CharField("Rua", max_length=60, blank=True, null=True)
     rep_bairro            = models.CharField("Bairro", max_length=40, blank=True, null=True)

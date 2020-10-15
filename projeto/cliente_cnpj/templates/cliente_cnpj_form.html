@@ -287,6 +287,21 @@
             {% render_field form.rep_orgao_emissor  class="form-control upper_all" %}
         </div>    
     </div>  
+    {% if cliente_cnpj %}
+    <div class="col-sm-3">                    
+        <div class="form-group" >                
+            <label for="" class="required" >{{form.rep_data_nasc.label}} </label>        
+            {% render_field form.rep_data_nasc class="form-control" %}
+        </div>
+    </div>  
+    {% else %}
+    <div class="col-sm-3">                    
+        <div class="form-group" >                
+            <label for="" class="required" >{{form.rep_data_nasc.label}} </label>        
+            {% render_field form.rep_data_nasc class="form-control" type="date"%}
+        </div>
+    </div>  
+    {% endif %}
     <div class="col-sm-2">                    
         <div class="form-group" >                
             <label for="" >{{form.rep_nacionalidade.label}} </label>        

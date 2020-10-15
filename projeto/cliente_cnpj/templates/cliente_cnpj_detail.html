@@ -61,14 +61,8 @@
     </div>
     <div class="col-sm-6"> 
         <div class="form-group">
-            <label>Representante</label>
-            <input type="text" value="{{ object.cep }}" readonly class="form-control">
-        </div>
-    </div>
-    <div class="col-sm-6"> 
-        <div class="form-group">
-            <label>Representante</label>
-            <input type="text" value="{{ object.rep_nome }}" readonly class="form-control">
+            <label>Fiador</label>
+            <input type="text" value="{{ object.fiador }}" readonly class="form-control">
         </div>
     </div>
 </div>
@@ -195,6 +189,22 @@
             <input type="text" value="{{ object.celular2 }}" readonly class="form-control">
         </div>
     </div>
+</div>
+<h2> REPRESENTANTE </h2>
+<div class="row">
+    <div class="col-sm-6"> 
+        <div class="form-group">
+            <label>Nome</label>
+            <input type="text" value="{{ object.rep_nome }}" readonly class="form-control">
+        </div>
+    </div>
+    <div class="col-sm-6"> 
+        <div class="form-group">
+            <label>CPF</label>
+            <input type="text" value="{{ object.rep_cpf }}" readonly class="form-control">
+        </div>
+    </div>
+
 </div>
 
 
