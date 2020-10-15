@@ -7,16 +7,16 @@ from projeto.core.models import Banco, Tipo_de_conta
 
 
 class Cliente(models.Model):
-    CASADO = 'CS'
-    SOLTEIRO = 'SO'
-    DIVORCIADO = 'DV'
-    VIÚVO = 'VI'
-    ESTADO_CIVIL_CHOICES = [
-        (CASADO, 'CASADO'),
-        (SOLTEIRO, 'SOLTEIRO'),
-        (DIVORCIADO, 'DIVORCIADO'),
-        (VIÚVO, 'VIÚVO'),       
-    ]
+    # CASADO = 'CS'
+    # SOLTEIRO = 'SO'
+    # DIVORCIADO = 'DV'
+    # VIÚVO = 'VI'
+    # ESTADO_CIVIL_CHOICES = [
+    #     (CASADO, 'CASADO'),
+    #     (SOLTEIRO, 'SOLTEIRO'),
+    #     (DIVORCIADO, 'DIVORCIADO'),
+    #     (VIÚVO, 'VIÚVO'),       
+    # ]
     nome                  = models.CharField("Nome", max_length=50)
     cpf                   = models.CharField("CPF", max_length=20, unique=True)   
     rg                    = models.CharField("RG",max_length=20, blank=False, null=True)
@@ -24,7 +24,8 @@ class Cliente(models.Model):
     data_nasc             = models.DateField("Data de Nascimento",max_length=8, blank=False, null=True)   
     naturalidade          = models.CharField("Naturalidade", max_length=20, blank=False, null=True)    
     nacionalidade         = models.CharField("Nacionalidade", max_length=15, blank=True, null=True)    
-    estado_civil          = models.CharField("Estado Civil", max_length=15, blank=True, null=True, choices=ESTADO_CIVIL_CHOICES)  
+    # estado_civil          = models.CharField("Estado Civil", max_length=15, blank=True, null=True, choices=ESTADO_CIVIL_CHOICES)  
+    estado_civil          = models.CharField("Estado Civil", max_length=15, blank=True, null=True)  
     conjuge_nome          = models.CharField("Nome Cônjuge", max_length=50, blank=True, null=True)
     conjuge_cpf           = models.CharField("CPF Cônjuge", max_length=20, unique=True,blank=True, null=True)
     conjuge_telefone      = models.CharField("Contato Cônjuge",max_length=17, blank=True, null=True)
