@@ -14,15 +14,25 @@
         margin: 0.5cm;
     }    
     label {
-        font-size: 10pt;   
+        font-size: 9pt; 
+        padding: 0px;
     }
+    h2{
+        font-weight: bold;
+        padding: 0px;
+        font-size: 13pt; 
+    }    
+    div{
+        columns:90px 1; 
+        margin: 0px,0px,0px,0px;        
+    }
+    
+    
     input.form-control{
-        font-size: 10pt;  
-        width: 450px;
-        height: 30px;
+        font-size: 9pt;  
         border: none;
-        position: relative;
-        left: -10px;
+        /* left: -10px; */
+        padding: 0px;
     }    
     @media all {
         .page-break { display: none; }
@@ -31,6 +41,7 @@
         .page-break { display: block; page-break-before: always; }
     }
 }  
+
 </style>
 
 <span class="pull-right">
@@ -41,7 +52,7 @@
     <!-- <button onclick="window.print()">Print this page</button> -->
 </span>
 
-<h2>DETALHES(CNPJ) <br> {{ object.razao_social }}</h2>
+<h2>DETALHES(CNPJ)  {{ object.razao_social }}</h2>
 <div class="row">       
     <div class="col-sm-6"> 
         <div class="form-group">
@@ -86,7 +97,6 @@
         </div>
     </div>
 </div>
-<br>
 <h2> ENDEREÇO </h2>
 <div class="row"> 
     <div class="col-sm-6"> 
@@ -138,7 +148,7 @@
         </div>
     </div>
 </div>
-<br>
+
 <h2> CONTATO </h2>
 <div class="row">
     <div class="col-sm-6"> 
@@ -178,7 +188,7 @@
         </div>
     </div>
 </div>
-<br>
+
 <h2> DADOS BANCÁRIOS </h2>
 <div class="row"> 
     <div class="col-sm-6"> 
@@ -213,7 +223,7 @@
     </div>   
 </div>
 
-<div class="row page-break">
+<div class="row">
     <div class="col-sm-6">
         <h2> REPRESENTANTE </h2><br>
     </div>
