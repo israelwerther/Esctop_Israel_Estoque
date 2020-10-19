@@ -14,27 +14,23 @@
         margin: 0.5cm;
     }    
     label {
-        font-size: 10pt;        
+        font-size: 10pt;   
     }
     input.form-control{
         font-size: 10pt;  
         width: 450px;
         height: 30px;
         border: none;
-    }
-    /* div{
-        page-break-before: always;
-    }     */
+        position: relative;
+        left: -10px;
+    }    
     @media all {
         .page-break { display: none; }
     }
-
     @media print {
         .page-break { display: block; page-break-before: always; }
     }
 }  
-
-
 </style>
 
 <span class="pull-right">
@@ -44,6 +40,7 @@
     <a href="" type="button" onclick="window.print()" class="btn btn-warning no-print">Imprimir</a>
     <!-- <button onclick="window.print()">Print this page</button> -->
 </span>
+
 <h2>DETALHES(CNPJ) <br> {{ object.razao_social }}</h2>
 <div class="row">       
     <div class="col-sm-6"> 
@@ -89,6 +86,7 @@
         </div>
     </div>
 </div>
+<br>
 <h2> ENDEREÇO </h2>
 <div class="row"> 
     <div class="col-sm-6"> 
@@ -140,6 +138,7 @@
         </div>
     </div>
 </div>
+<br>
 <h2> CONTATO </h2>
 <div class="row">
     <div class="col-sm-6"> 
@@ -179,6 +178,7 @@
         </div>
     </div>
 </div>
+<br>
 <h2> DADOS BANCÁRIOS </h2>
 <div class="row"> 
     <div class="col-sm-6"> 
@@ -212,6 +212,7 @@
         </div>
     </div>   
 </div>
+
 <div class="row page-break">
     <div class="col-sm-6">
         <h2> REPRESENTANTE </h2><br>
