@@ -22,7 +22,16 @@
         height: 30px;
         border: none;
     }
-    
+    /* div{
+        page-break-before: always;
+    }     */
+    @media all {
+        .page-break { display: none; }
+    }
+
+    @media print {
+        .page-break { display: block; page-break-before: always; }
+    }
 }  
 
 
@@ -145,7 +154,30 @@
             <input type="text" value="{{ object.email }}" readonly class="form-control">
         </div>
     </div>
-
+    <div class="col-sm-6"> 
+        <div class="form-group">
+            <label>Contato 1</label>
+            <input type="text" value="{{ object.contato1 }}" readonly class="form-control">
+        </div>
+    </div>
+    <div class="col-sm-6"> 
+        <div class="form-group">
+            <label>Contato 2</label>
+            <input type="text" value="{{ object.contato2 }}" readonly class="form-control">
+        </div>
+    </div>
+    <div class="col-sm-6"> 
+        <div class="form-group">
+            <label>Celular 1</label>
+            <input type="text" value="{{ object.celular1 }}" readonly class="form-control">
+        </div>
+    </div>
+    <div class="col-sm-6"> 
+        <div class="form-group">
+            <label>Celular 2</label>
+            <input type="text" value="{{ object.celular2 }}" readonly class="form-control">
+        </div>
+    </div>
 </div>
 <h2> DADOS BANCÁRIOS </h2>
 <div class="row"> 
@@ -178,33 +210,9 @@
             <label>obs_bancaria</label>
             <input type="text" value="{{ object.conta }}" readonly class="form-control">
         </div>
-    </div>    
-    <div class="col-sm-6"> 
-        <div class="form-group">
-            <label>Contato 1</label>
-            <input type="text" value="{{ object.contato1 }}" readonly class="form-control">
-        </div>
-    </div>
-    <div class="col-sm-6"> 
-        <div class="form-group">
-            <label>Contato 2</label>
-            <input type="text" value="{{ object.contato2 }}" readonly class="form-control">
-        </div>
-    </div>
-    <div class="col-sm-6"> 
-        <div class="form-group">
-            <label>Celular 1</label>
-            <input type="text" value="{{ object.celular1 }}" readonly class="form-control">
-        </div>
-    </div>
-    <div class="col-sm-6"> 
-        <div class="form-group">
-            <label>Celular 2</label>
-            <input type="text" value="{{ object.celular2 }}" readonly class="form-control">
-        </div>
-    </div>
+    </div>   
 </div>
-<div class="row">
+<div class="row page-break">
     <div class="col-sm-6">
         <h2> REPRESENTANTE </h2><br>
     </div>
@@ -281,8 +289,68 @@
     
     <div class="col-sm-6"> 
         <div class="form-group">
-            <label>Estado Civil</label>
-            <input type="text" value="{{ object.rep_estado_civil }}" readonly class="form-control">
+            <label>Tel Fixo</label>
+            <input type="text" value="{{ object.rep_contato1 }}" readonly class="form-control">
+        </div>
+    </div>
+    <div class="col-sm-6"> 
+        <div class="form-group">
+            <label>Celular 1</label>
+            <input type="text" value="{{ object.rep_celular1 }}" readonly class="form-control">
+        </div>
+    </div>
+    <div class="col-sm-6"> 
+        <div class="form-group">
+            <label>Celular 2</label>
+            <input type="text" value="{{ object.rep_celular2 }}" readonly class="form-control">
+        </div>
+    </div>
+    <div class="col-sm-6"> 
+        <div class="form-group">
+            <label>Email</label>
+            <input type="text" value="{{ object.rep_email }}" readonly class="form-control">
+        </div>
+    </div>
+    <div class="col-sm-6"> 
+        <div class="form-group">
+            <label>CEP</label>
+            <input type="text" value="{{ object.rep_cep }}" readonly class="form-control">
+        </div>
+    </div>
+    <div class="col-sm-6"> 
+        <div class="form-group">
+            <label>Rua</label>
+            <input type="text" value="{{ object.rep_rua }}" readonly class="form-control">
+        </div>
+    </div>
+    <div class="col-sm-6"> 
+        <div class="form-group">
+            <label>Bairro</label>
+            <input type="text" value="{{ object.rep_bairro }}" readonly class="form-control">
+        </div>
+    </div>
+    <div class="col-sm-6"> 
+        <div class="form-group">
+            <label>Cidade</label>
+            <input type="text" value="{{ object.rep_cidade }}" readonly class="form-control">
+        </div>
+    </div>
+    <div class="col-sm-6"> 
+        <div class="form-group">
+            <label>Estado</label>
+            <input type="text" value="{{ object.rep_uf }}" readonly class="form-control">
+        </div>
+    </div>
+    <div class="col-sm-6"> 
+        <div class="form-group">
+            <label>Nº Casa</label>
+            <input type="text" value="{{ object.rep_numero_casa }}" readonly class="form-control">
+        </div>
+    </div>
+    <div class="col-sm-6"> 
+        <div class="form-group">
+            <label>Ponto de Referencia</label>
+            <input type="text" value="{{ object.rep_ponto_referencia }}" readonly class="form-control">
         </div>
     </div>
 

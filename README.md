@@ -77,6 +77,7 @@ python manage.py migrate
 * (OK) forma constituição opcional
 * (OK) inscrição estadual tem mascara 
 **(PQ NÃO ESTÃO CADASTRANDO - Forma Constituição, Inscrição Estadual, Inscrição Municipal)**
+**(ONDE DEVO INSERIR O SACADO ALÉM DO CARNÊ)**
 
 
 
