@@ -4,6 +4,7 @@
 
 <style>
 
+
 @media print
 {    
     .no-print, .no-print *
@@ -26,8 +27,6 @@
         columns:90px 1; 
         margin: 0px,0px,0px,0px;        
     }
-    
-    
     input.form-control{
         font-size: 9pt;  
         border: none;
@@ -52,12 +51,13 @@
     <!-- <button onclick="window.print()">Print this page</button> -->
 </span>
 
+
 <h2>DETALHES(CNPJ)  {{ object.razao_social }}</h2>
 <div class="row">       
     <div class="col-sm-6"> 
         <div class="form-group">
-            <label>Razão Social</label>
-            <input  value="{{ object.razao_social }}" readonly class="form-control input">
+            <p>Razão Social</p>
+            <a>{{ object.razao_social }}"</a>
         </div>
     </div>
     <div class="col-sm-6"> 
@@ -297,7 +297,6 @@
             </div>
         </div>    
     {% endif %}
-    
     <div class="col-sm-6"> 
         <div class="form-group">
             <label>Tel Fixo</label>
@@ -310,12 +309,14 @@
             <input type="text" value="{{ object.rep_celular1 }}" readonly class="form-control">
         </div>
     </div>
+    {% if "{{ object.rep_celular2 }}" != null %}    
     <div class="col-sm-6"> 
         <div class="form-group">
             <label>Celular 2</label>
             <input type="text" value="{{ object.rep_celular2 }}" readonly class="form-control">
         </div>
     </div>
+    {% endif %}
     <div class="col-sm-6"> 
         <div class="form-group">
             <label>Email</label>

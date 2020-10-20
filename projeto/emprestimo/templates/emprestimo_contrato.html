@@ -213,7 +213,7 @@ window.onload = function imprimir(){
 
         valor_devido = valor_parcela
         var valor_total_devido = 0
-        valor_total_devido = valor_parcela*qtd_parcelas
+        valor_total_devido = String(toFixed(valor_parcela*qtd_parcelas, 2))
     
 
     //VARIÁVEIS DA DATA DO EMPRESTIMO
