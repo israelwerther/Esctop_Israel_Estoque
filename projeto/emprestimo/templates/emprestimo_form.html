@@ -150,21 +150,22 @@
 
     //GERA UM NUMERO SEQUENCIAL BASEADO NA DATA E HORA ATUAL
     function sequencial(){
-        var dt=new Date()  
-        
+        var dt=new Date()          
         var ano       = document.getElementById("dataselecionada").value.split("-")[0];
         var mes       = document.getElementById("dataselecionada").value.split("-")[1];
         var dia       = document.getElementById("dataselecionada").value.split("-")[2];   
         var hora      = String(dt.getHours())
         var minutos   = String(dt.getMinutes())
-
         var sequencia = ano
         var sequencia = sequencia+mes
         if(dia<10){
             sequencia += '0'
         }
         var sequencia = sequencia+dia        
-        var sequencia = sequencia+hora        
+        var sequencia = sequencia+hora  
+        if(minutos<10 && minutos>0){
+            sequencia += '0'
+        }
         var sequencia = sequencia+minutos        
         // document.write(sequencia)
 
