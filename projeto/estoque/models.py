@@ -9,8 +9,6 @@ MOVIMENTO = (
     ('s', 'saida'),  
 )
 
-
-
 class Estoque(TimeStampedModel):
     funcionario = models.ForeignKey(User, on_delete=models.CASCADE)
     nf          = models.PositiveIntegerField('nota fiscal', null=True, blank=True)

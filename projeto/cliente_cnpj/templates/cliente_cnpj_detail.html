@@ -51,13 +51,12 @@
     <!-- <button onclick="window.print()">Print this page</button> -->
 </span>
 
-
 <h2>DETALHES(CNPJ)  {{ object.razao_social }}</h2>
 <div class="row">       
     <div class="col-sm-6"> 
         <div class="form-group">
-            <p>Razão Social</p>
-            <a>{{ object.razao_social }}"</a>
+            <label>Razão Social</label>
+            <input value="{{ object.razao_social }}" readonly class="form-control">
         </div>
     </div>
     <div class="col-sm-6"> 
@@ -365,10 +364,29 @@
             <input type="text" value="{{ object.rep_ponto_referencia }}" readonly class="form-control">
         </div>
     </div>
-
 </div>
 
+<script>
+    var dt = new Date()
+    var ndt = new Date()
+
+    var dia_semana = ndt.getDay()
+    var dia = ndt.getDate()
+    var mes = ndt.getMonth()
+    var ano = ndt.getFullYear()
+
+    var horas = ndt.getHours()
+    var minutos = ndt.getMinutes()
+    var segundos = ndt.getSeconds()
 
 
+    var meses = new Array("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho" ,"Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro")
+    var semanas = new Array("Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado")
+
+
+    document.write(semanas[dia_semana] + ", " + dia + " de " + meses[mes] + " de " + ano + "<br/>")
+    document.write(horas + ":" + minutos + ":" + segundos)
+    
+</script>
 
 {% endblock content %}
