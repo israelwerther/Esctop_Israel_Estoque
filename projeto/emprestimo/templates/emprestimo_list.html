@@ -26,15 +26,15 @@
                 {% for object in object_list  %}   
                 <tr>
                 {% if object.cliente %}
-                    <td style="text-align:left">{{ object.cliente }}(CPF)</td>
+                    <td class="maiusculo" style="text-align:left">{{ object.cliente }}(CPF)</td>
                 {% else %}
-                    <td style="text-align:left">{{ object.cliente_cnpj }}(CNPJ)</td>
+                    <td class="maiusculo" style="text-align:left">{{ object.cliente_cnpj }}(CNPJ)</td>
                 {% endif %}
-                    <td style="text-align:center">{{ object.n_contrato }}</td>
-                    <td style="text-align:center">{{ object.valor_emprestado }}</td>
-                    <td style="text-align:center">{{ object.qtd_parcelas }}x</td>  
-                    <td style="text-align:center">{{ object.data_emprestimo|date:"d/m/Y" }}</td>  
-                    <td style="text-align:center"> 
+                    <td class="maiusculo" style="text-align:center">{{ object.n_contrato }}</td>
+                    <td class="maiusculo" style="text-align:center">{{ object.valor_emprestado }}</td>
+                    <td class="maiusculo" style="text-align:center">{{ object.qtd_parcelas }}x</td>  
+                    <td class="maiusculo" style="text-align:center">{{ object.data_emprestimo|date:"d/m/Y" }}</td>  
+                    <td class="maiusculo" style="text-align:center"> 
                         <a href="{{ object.get_absolute_url}}" ><button class="btn btn-info">Gerenciar</button></a> 
                     </td>                     
                 </tr>
