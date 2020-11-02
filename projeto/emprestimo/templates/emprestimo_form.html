@@ -2,20 +2,17 @@
 {% load static %}
 {% load widget_tweaks %}
 {% block js %}{% endblock js %}
-
-
 <!--  -->
 <!-- ESTUDO COMPLETO DE FORMSET -->
 <!-- https://docs.djangoproject.com/en/3.0/topics/forms/formsets/ -->
 <!--  -->
-
 {% block content %}
 
     {% if emprestimo %}
-        <h1>Editar {{emprestimo.cliente}}</h1>
+        <h3>Editar {{emprestimo.cliente}}</h3>
         <form action="{% url 'emprestimo:emprestimo_edit' emprestimo.pk %}" method="POST" novalidate>
     {% else %}  
-        <h1>Cadastrar um Novo Empréstimo</h1>
+        <h3>CADASTRAR UM EMPRÉSTIMO</h3>
         <form action="{% url 'emprestimo:emprestimo_add' %}" method="POST" novalidate>
     {% endif %}
     {% csrf_token %}
@@ -71,7 +68,7 @@
                 </div>  
             </div> 
             <div class="col-sm-3" > 
-                <div class="form-group" id="res">
+                <div class="form-group">
                     <label for="">{{form.valor_multa.label}}</label>
                     {% render_field form.valor_multa class="form-control" id="multa" %}
                 </div>  
@@ -95,6 +92,25 @@
     
     {% endif %}
     <br>
+    <br>
+    <br>
+    
+    <h3>INFORMAÇÕES DO EMPRÉSTIMO</h3>
+    <div class="row">
+        <div class="col-sm-3" > 
+            <div class="form-group">
+                <label for="">{{form.valor_multa.label}}</label>
+                <!-- {% render_field form.valor_multa class="form-control" id="multa" %} -->
+                <input  value="{{ object.valor_multa }}" readonly class="form-control" id="multa_info">
+            </div>  
+        </div>
+        <div class="col-sm-3" > 
+            <div class="form-group">
+                <label for="">{{form.valor_multa.label}}</label>
+                {% render_field form.valor_multa class="form-control" id="multa" %}               
+            </div>  
+        </div> 
+    </div>
 
 <script>    
     Number.prototype.toFixedDown = function(digits){
@@ -160,6 +176,7 @@
 
         document.getElementById('prestacao').value = valor_parcela
         document.getElementById('multa').value = valor_multa
+        document.getElementById('multa_info').value = valor_multa
     }
 
     //GERA UM NUMERO SEQUENCIAL BASEADO NA DATA E HORA ATUAL
