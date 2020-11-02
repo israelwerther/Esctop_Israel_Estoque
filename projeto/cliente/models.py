@@ -96,4 +96,8 @@ class Cliente(models.Model):
     
     def get_absolute_url(self):
         return reverse_lazy('cliente:cliente_detail', kwargs={'pk': self.pk})
+    
+    def save(self, force_insert=False, force_update=False):
+        self.nome = self.nome.upper()
+        super(Cliente, self).save(force_insert, force_update)
 
