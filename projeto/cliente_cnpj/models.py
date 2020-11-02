@@ -69,8 +69,7 @@ class Cliente_cnpj(models.Model):
     rep_uf                = models.CharField("UF", max_length=2, blank=True, null=True)   
     rep_numero_casa       = models.CharField("Nº ", max_length=5, blank=True, null=True)
     rep_ponto_referencia  = models.CharField("Ponto de Referencia", max_length=100, blank=True, null=True)  
-
-    fiador                = models.ForeignKey(Avalista, on_delete=models.PROTECT, blank=True, null=True)
+    fiador                = models.ForeignKey(Avalista, on_delete=models.PROTECT, blank=True, null=True)    
 
     class Meta:
         ordering = ('razao_social',)
@@ -80,6 +79,10 @@ class Cliente_cnpj(models.Model):
     
     def get_absolute_url(self):
         return reverse_lazy('cliente_cnpj:cliente_cnpj_detail', kwargs={'pk': self.pk})
+
+    def save(self, force_insert=False, force_update=False):
+        self.razao_social = self.razao_social.upper()
+        super(Cliente_cnpj, self).save(force_insert, force_update)
 
 
 # CRIAR UM TEMPLATE PRA RECEBER ESTES DOIS JÁ SALVOS
