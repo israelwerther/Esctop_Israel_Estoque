@@ -59,7 +59,7 @@
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label for="">{{form.dt_emprestimo.label}}</label>   
-                        {% render_field form.dt_emprestimo class="form-control" id="dataselecionada" type="date" type="date" onblur="somar(),sequencial()"%}                    
+                        {% render_field form.dt_emprestimo class="form-control" id="dataselecionada" type="date" type="date" onblur="somar(), sequencial()"%}                    
                     </div>                  
                 </div> 
             {% endif %}  
@@ -69,10 +69,17 @@
                     <label for="">{{form.valor_prestacao.label}}</label>
                     {% render_field form.valor_prestacao class="form-control" id="prestacao" %}
                 </div>  
-            </div>  
+            </div> 
+            <div class="col-sm-3" > 
+                <div class="form-group" id="res">
+                    <label for="">{{form.valor_multa.label}}</label>
+                    {% render_field form.valor_multa class="form-control" id="multa" %}
+                </div>  
+            </div> 
+            <!-- ELEMENTOS OCULTOS -->
             <div class="col-sm-3" > 
                 <div class="form-group">            
-                    {% render_field form.n_contrato class="form-control" id="teste" type="hidden" %}                       
+                    {% render_field form.n_contrato class="form-control" id="n_contrato" type="hidden" %}                       
                 </div>
             </div>
         </div>           
@@ -83,34 +90,35 @@
         
         {% else %}
         <a href="{% url 'emprestimo:emprestimo_list' %}" type="button" class="btn btn-danger">Cancelar</a>        
-        <button type="submit" class="btn btn-success" >Cadastrar</button>
+        <button type="submit" class="btn btn-success">Cadastrar</button>
     </form>
-    {% comment %} <button  onclick="somar()" class="btn btn-info">Calcular Parcela</button> {% endcomment %}
+    <button class="btn btn-info" onblur="multa()">Calcular Parcela</button>
     {% endif %}
     <br>
-    
-    
 
 <script>    
+    Number.prototype.toFixedDown = function(digits){
+		var re = new RegExp("(\\d+\\.\\d{" + digits + "})(\\d)"),
+		m = this.toString().match(re);
+		return m ? parseFloat(m[1]) : this.valueOf();
+	};
     //VERIFICAR A FUNCIONALIDADE DESSE SCRIPT!!!!!!!!!!!!!!
     function toFixed(num, fixed) {
         var re = new RegExp('^-?\\d+(?:\.\\d{0,' + (fixed || -1) + '})?');
         return num.toString().match(re)[0];
-    }            
+    }
+    
     //CALCULA AS PARCELAS E TAXAS DO EMPRÉSTIMO
     function somar(){
         var tvalor_emprestado  = document.getElementById('valor_emprestado')
         var tqtd_parcelas      = document.getElementById('qtd_parcelas')
         var tprestacao         = document.getElementById('prestacao')
-        var mes                = document.getElementById("dataselecionada").value.split("-")[1];        
-
+        var mes                = document.getElementById("dataselecionada").value.split("-")[1];  
         var valor_emprestado   = Number(tvalor_emprestado.value)                
         var qtd_parcelas       = Number(tqtd_parcelas.value)
         var prestacao          = Number(tprestacao.value)
-        var mes_num            = Number(mes)
-        
-        var principal          = valor_emprestado/qtd_parcelas    
-
+        var mes_num            = Number(mes)        
+        var principal          = valor_emprestado/qtd_parcelas  
         var iof_inicial        = 0
         var iof_diario         = 0.0041        
         var qtd_dias           = 0
@@ -134,7 +142,7 @@
 
         //CALCULA O IOF_REAL (2º PASSO)   
         var iof_real = 0
-        iof_real = (valor_emprestado*iof_inicial)/(valor_emprestado-iof_inicial)           
+        iof_real = (valor_emprestado*iof_inicial)/(valor_emprestado-iof_inicial)
 
         //CALCULA O VALOR DA PARCELA(3º PASSO)
         var valor_emprestado   = Number(tvalor_emprestado.value)                
@@ -145,7 +153,13 @@
         valor_parcela = (cap_iof*(1+(qtd_parcelas*9.5)/100))/qtd_parcelas
         valor_parcela = String(toFixed(valor_parcela, 2))  
 
+        // CALCULA MULTA POR ATRASO 
+        var valor_multa = parseFloat((valor_parcela*0.020)).toFixedDown(2)
+
+        // CALCULA JUROS AO DIA
+
         document.getElementById('prestacao').value = valor_parcela
+        document.getElementById('multa').value = valor_multa
     }
 
     //GERA UM NUMERO SEQUENCIAL BASEADO NA DATA E HORA ATUAL
@@ -179,7 +193,8 @@
         var sequencia = sequencia+minutos        
         // document.write(sequencia)
 
-        document.getElementById('teste').value = sequencia
+        document.getElementById('n_contrato').value = sequencia
+       
     }
        
 </script>

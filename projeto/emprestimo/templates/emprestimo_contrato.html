@@ -129,7 +129,6 @@
     .maiusculo {
         text-transform: capitalize;
     }
-
     
     /* <button class="print">Print</button> */
     
@@ -153,11 +152,8 @@ window.onload = function imprimir(){
         var valor_emprestado   = Number({{object.valor_emprestado}})
         var qtd_parcelas       = Number({{object.qtd_parcelas}})
         var prestacao          = Number({{object.valor_prestacao}})
-
-        var n_contrato         = Number({{object.n_contrato}})
-        
-        var principal          = valor_emprestado/qtd_parcelas         
-    
+        var n_contrato         = Number({{object.n_contrato}})        
+        var principal          = valor_emprestado/qtd_parcelas  
         var mes_do_emprestimo  = Number({{object.dt_emprestimo.month}})
     
         var iof_inicial       = 0
