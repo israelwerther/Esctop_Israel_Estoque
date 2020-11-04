@@ -6,8 +6,6 @@ from datetime import date
 
 class EmprestimoForm(forms.ModelForm):    
     class Meta:
-        created_date = forms.DateField(input_formats=['%d/%m/%Y',],
-        widget=forms.DateInput(attrs={'class':'datepicker form-control', 'placeholder':'Select a date'}), required=False)
         model = Emprestimo   
         fields = [
             'funcionario',            
@@ -18,13 +16,10 @@ class EmprestimoForm(forms.ModelForm):
             'valor_prestacao',            
             'dt_emprestimo',            
             'n_contrato',
-            'valor_multa'
+            'valor_multa',
+            'juros_ao_dia'
         ]
-        readonly_fields = ["valor_prestacao", ]
-        # widgets = {           
-        #     # 'data_emprestimo': forms.DateInput(),
-        #     'dt_teste': forms.DateInput(),            
-        # }
+        
 
 class EmprestimoPagamentoForm(forms.ModelForm):
     class Meta:

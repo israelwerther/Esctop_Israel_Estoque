@@ -19,6 +19,7 @@ class Emprestimo(models.Model):
     dt_emprestimo    = models.DateField("Data do Empréstimo", auto_now_add=False, auto_now=False, null=True,blank=True)   
     n_contrato       = models.CharField("Nº Contrato", max_length=13, unique=True, blank=True, null=True)
     valor_multa      = models.DecimalField("Multa por atraso", max_digits=10, decimal_places=2, null=True, blank=True)
+    juros_ao_dia     = models.DecimalField("Juros ao dia", max_digits=10, decimal_places=2, null=True, blank=True)
 
     class Meta:
         ordering = ('-dt_emprestimo',)        

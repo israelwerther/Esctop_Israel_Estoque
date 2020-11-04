@@ -64,13 +64,19 @@
             <div class="col-sm-3" > 
                 <div class="form-group" id="res">
                     <label for="">{{form.valor_prestacao.label}}</label>
-                    {% render_field form.valor_prestacao class="form-control" id="prestacao" %}
+                    {% render_field form.valor_prestacao|append_attr:"readonly:readonly" class="form-control" id="prestacao" %}
                 </div>  
             </div> 
-            <div class="col-sm-3" > 
+            <div class="col-sm-3" style="display: none;"> 
                 <div class="form-group">
                     <label for="">{{form.valor_multa.label}}</label>
                     {% render_field form.valor_multa class="form-control" id="multa" %}
+                </div>  
+            </div> 
+            <div class="col-sm-3" style="display: none;"> 
+                <div class="form-group">
+                    <label for="">{{form.juros_ao_dia.label}}</label>
+                    {% render_field form.juros_ao_dia class="form-control" id="juros_ao_dia" %}
                 </div>  
             </div> 
             <!-- ELEMENTOS OCULTOS -->
@@ -106,8 +112,9 @@
         </div>
         <div class="col-sm-3" > 
             <div class="form-group">
-                <label for="">{{form.valor_multa.label}}</label>
-                {% render_field form.valor_multa class="form-control" id="multa" %}               
+                <label for="">{{form.juros_ao_dia.label}}</label>
+                <!-- {% render_field form.juros_ao_dia class="form-control" id="juros_ao_dia_info" %}     -->
+                <input  value="{{ object.juros_ao_dia }}" readonly class="form-control" id="juros_ao_dia_info">
             </div>  
         </div> 
     </div>
@@ -173,10 +180,14 @@
         var valor_multa = parseFloat((valor_parcela*0.020)).toFixedDown(2)
 
         // CALCULA JUROS AO DIA
+        var juros_ao_dia = (valor_parcela*0.0066).toFixedDown(2)
 
         document.getElementById('prestacao').value = valor_parcela
         document.getElementById('multa').value = valor_multa
         document.getElementById('multa_info').value = valor_multa
+        document.getElementById('juros_ao_dia').value = juros_ao_dia
+        document.getElementById('juros_ao_dia_info').value = juros_ao_dia
+        
     }
 
     //GERA UM NUMERO SEQUENCIAL BASEADO NA DATA E HORA ATUAL
