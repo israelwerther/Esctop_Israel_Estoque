@@ -56,7 +56,7 @@
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label for="">{{form.dt_emprestimo.label}}</label>   
-                        {% render_field form.dt_emprestimo class="form-control" id="dataselecionada" type="date" type="date" onblur="somar(), sequencial()"%}                    
+                        {% render_field form.dt_emprestimo class="form-control" id="dataselecionada" type="date" type="date" onchange="somar(), sequencial()"%}                    
                     </div>                  
                 </div> 
             {% endif %}  
