@@ -91,6 +91,19 @@
 			margin-top: 2px;
 			margin-bottom: 4px;
         }
+		p.reducao {
+            padding: 0px;
+            color:red;
+			width: 50%;
+			font-size: 3px;
+        }
+		p.reducao1 {
+            padding: 0px;
+            color:red;
+			width: 50%;
+			margin-top: -20px;
+			font-size: 1px;
+        }
 
         .sideBorders {
             border-left: 1px solid black;
@@ -458,13 +471,41 @@
 			carne.innerHTML +=		
 			`	
 			<p>&nbsp</p>			
-			<p>&nbsp</p>	
+				
 			`	
 		}
 		if({{object.qtd_parcelas}}==8){
 			carne.innerHTML +=		
 			`	
 			<p>&nbsp</p>		
+			
+			`	
+		}
+		if({{object.qtd_parcelas}}==9){
+			carne.innerHTML +=		
+			`	
+			<p class="reducao1">&nbsp</p>	
+			
+			`	
+		}
+		if({{object.qtd_parcelas}}==10){
+			carne.innerHTML +=		
+			`	
+			<p class="reducao1">&nbsp</p>	
+			
+			`	
+		}
+		if({{object.qtd_parcelas}}==11){
+			carne.innerHTML +=		
+			`	
+			<p class="reducao1">&nbsp</p>	
+			
+			`	
+		}
+		if({{object.qtd_parcelas}}==12){
+			carne.innerHTML +=		
+			`	
+			<p class="reducao1">&nbsp</p>	
 			
 			`	
 		}
@@ -489,7 +530,7 @@
 			contador_meses++
 			contador_parcela++
 
-			dia  = aux_dia
+			dia  = aux_dia			
 			mes  = aux_mes+contador_meses
 			ano  = aux_ano
 
@@ -664,31 +705,32 @@
 			</table>				
 			`
 			if(i == 1)
-			{		
+			{
 				carne.innerHTML +=
 				`			
-					<p style="page-break-after:always">&nbsp</p>				
+					<p class="reducao" style="page-break-before:always">&nbsp</p>				
+									
 				`
-			}
+			}			
 			else if(i == 4)
 			{
 				carne.innerHTML +=
 				`			
-					<p style="page-break-after:always">&nbsp</p>				
+					<p class="reducao"  style="page-break-before:always">&nbsp</p>				
 				`
-			}			
+			}				
 			else if(i == 7)
 			{
 				carne.innerHTML +=
 				`			
-					<p style="page-break-after:always">&nbsp</p>				
+					<p class="reducao" style="page-break-before:always">&nbsp</p>				
 				`
 			}			
 			else if(i == 10)
 			{
 				carne.innerHTML +=
 				`			
-					<p style="page-break-after:always">&nbsp</p>				
+					<p class="reducao" style="page-break-after:always">&nbsp</p>				
 				`
 			}			
 		}

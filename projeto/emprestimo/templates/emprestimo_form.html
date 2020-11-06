@@ -56,7 +56,7 @@
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label for="">{{form.dt_emprestimo.label}}</label>   
-                        {% render_field form.dt_emprestimo class="form-control" id="dataselecionada" type="date" type="date" onchange="somar(), sequencial()"%}                    
+                        {% render_field form.dt_emprestimo class="form-control" id="dataselecionada" type="date" type="date" onchange="somar(), sequencial()" onblur="somar(), sequencial()" onclick="somar(), sequencial()"%}                    
                     </div>                  
                 </div> 
             {% endif %}  
@@ -82,7 +82,7 @@
             <!-- ELEMENTOS OCULTOS -->
             <div class="col-sm-3" > 
                 <div class="form-group">            
-                    {% render_field form.n_contrato class="form-control" id="n_contrato" type="hidden" %}                       
+                    {% render_field form.n_contrato class="form-control" id="n_contrato"  %}                       
                 </div>
             </div>
         </div>           
