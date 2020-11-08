@@ -17,7 +17,8 @@ class EmprestimoForm(forms.ModelForm):
             'dt_emprestimo',            
             'n_contrato',
             'valor_multa',
-            'juros_ao_dia'
+            'juros_ao_dia',
+            'valor_mutuado'
         ]
         
 

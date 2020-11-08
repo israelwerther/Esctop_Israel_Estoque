@@ -79,6 +79,12 @@
                     {% render_field form.juros_ao_dia class="form-control" id="juros_ao_dia" %}
                 </div>  
             </div> 
+            <div class="col-sm-3" style="display: none;"> 
+                <div class="form-group">
+                    <label for="">{{form.valor_mutuado.label}}</label>
+                    {% render_field form.valor_mutuado class="form-control" id="valor_mutuado" %}
+                </div>  
+            </div> 
             <!-- ELEMENTOS OCULTOS -->
             <div class="col-sm-3" > 
                 <div class="form-group">            
@@ -117,6 +123,13 @@
                 <input  value="{{ object.juros_ao_dia }}" readonly class="form-control" id="juros_ao_dia_info">
             </div>  
         </div> 
+        <div class="col-sm-3" > 
+            <div class="form-group">
+                <label for="">{{form.valor_mutuado.label}}</label>
+                <!-- {% render_field form.juros_ao_dia class="form-control" id="juros_ao_dia_info" %}     -->
+                <input  value="{{ object.valor_mutuado }}" readonly class="form-control" id="valor_mutuado_info">
+            </div>  
+        </div> 
     </div>
 
 <script>    
@@ -131,7 +144,7 @@
         return num.toString().match(re)[0];
     }
     
-    //CALCULA AS PARCELAS E TAXAS DO EMPRÉSTIMO
+    //A FUNÇÃO ABAIXO CALCULA AS PARCELAS E TAXAS DO EMPRÉSTIMO
     function somar(){
         var tvalor_emprestado  = document.getElementById('valor_emprestado')
         var tqtd_parcelas      = document.getElementById('qtd_parcelas')
@@ -170,23 +183,29 @@
         //CALCULA O VALOR DA PARCELA(3º PASSO)
         var valor_emprestado   = Number(tvalor_emprestado.value)                
         var qtd_parcelas       = Number(tqtd_parcelas.value)
-        var prestacao          = Number(tprestacao.value)
-        var cap_iof = iof_real+valor_emprestado
+        var prestacao          = Number(tprestacao.value)    
+        var valor_mutuado = iof_real+valor_emprestado   
         var valor_parcela = 0
-        valor_parcela = (cap_iof*(1+(qtd_parcelas*9.5)/100))/qtd_parcelas
-        valor_parcela = String(toFixed(valor_parcela, 2))  
+        valor_parcela = (valor_mutuado*(1+(qtd_parcelas*9.5)/100))/qtd_parcelas
+        valor_parcela = valor_parcela.toFixedDown(2)
+        valor_parcela = valor_parcela.toFixed(2)
+        document.getElementById('prestacao').value = valor_parcela
 
         // CALCULA MULTA POR ATRASO 
         var valor_multa = parseFloat((valor_parcela*0.020)).toFixedDown(2)
+        document.getElementById('multa').value = valor_multa
+        document.getElementById('multa_info').value = valor_multa
 
         // CALCULA JUROS AO DIA
         var juros_ao_dia = (valor_parcela*0.0066).toFixedDown(2)
-
-        document.getElementById('prestacao').value = valor_parcela
-        document.getElementById('multa').value = valor_multa
-        document.getElementById('multa_info').value = valor_multa
         document.getElementById('juros_ao_dia').value = juros_ao_dia
         document.getElementById('juros_ao_dia_info').value = juros_ao_dia
+
+        // ENVIA O VALOR MUTUADO
+        valor_mutuado = valor_mutuado.toFixedDown(2)
+        document.getElementById('valor_mutuado').value = valor_mutuado
+        document.getElementById('valor_mutuado_info').value = valor_mutuado
+
         
     }
 
@@ -203,11 +222,7 @@
         var hora      = String(dt.getHours())
         var minutos   = String(dt.getMinutes())        
         var sequencia = ano
-        var sequencia = sequencia+mes
-
-        // if(dia<10){
-        //     sequencia += '0'
-        // }
+        var sequencia = sequencia+mes       
         var sequencia = sequencia+dia    
 
         if(hora<10){
@@ -218,8 +233,7 @@
         if(minutos<10 && minutos>0){
             sequencia += '0'
         }
-        var sequencia = sequencia+minutos        
-        // document.write(sequencia)
+        var sequencia = sequencia+minutos  
 
         document.getElementById('n_contrato').value = sequencia
        
