@@ -7,6 +7,9 @@
 <!-- https://docs.djangoproject.com/en/3.0/topics/forms/formsets/ -->
 <!--  -->
 {% block content %}
+    <style>        
+    
+    </style>
 
     {% if emprestimo %}
         <h3>Editar {{emprestimo.cliente}}</h3>
@@ -100,36 +103,77 @@
         {% else %}
         <a href="{% url 'emprestimo:emprestimo_list' %}" type="button" class="btn btn-danger">Cancelar</a>        
         <button type="submit" class="btn btn-success">Cadastrar</button>
-    </form>
-    
+    </form>    
     {% endif %}
-    <br>
-    <br>
-    <br>
-    
-    <h3>INFORMAÇÕES DO EMPRÉSTIMO</h3>
+    <br>  
     <div class="row">
-        <div class="col-sm-3" > 
-            <div class="form-group">
-                <label for="">{{form.valor_multa.label}}</label>
-                <!-- {% render_field form.valor_multa class="form-control" id="multa" %} -->
-                <input  value="{{ object.valor_multa }}" readonly class="form-control" id="multa_info">
-            </div>  
+        <div class="col-sm-12">
+            <h3>INFORMAÇÕES DO EMPRÉSTIMO</h3>
         </div>
-        <div class="col-sm-3" > 
-            <div class="form-group">
-                <label for="">{{form.juros_ao_dia.label}}</label>
-                <!-- {% render_field form.juros_ao_dia class="form-control" id="juros_ao_dia_info" %}     -->
-                <input  value="{{ object.juros_ao_dia }}" readonly class="form-control" id="juros_ao_dia_info">
-            </div>  
-        </div> 
-        <div class="col-sm-3" > 
-            <div class="form-group">
-                <label for="">{{form.valor_mutuado.label}}</label>
-                <!-- {% render_field form.juros_ao_dia class="form-control" id="juros_ao_dia_info" %}     -->
-                <input  value="{{ object.valor_mutuado }}" readonly class="form-control" id="valor_mutuado_info">
-            </div>  
-        </div> 
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <table class="table table-striped ">                
+                <tbody>
+                    <tr >
+                        <th class="text-left">{{form.valor_multa.label}}</th>
+                        <td id="multa_info">R$</td>
+                    </tr>
+                    <tr>
+                        <th class="text-left">{{form.juros_ao_dia.label}}</th>
+                        <td id="juros_ao_dia_info">R$</td>
+                    </tr>
+                    <tr>
+                        <th class="text-left">{{form.valor_mutuado.label}}</th>
+                        <td id="valor_mutuado_info">R$</td>
+                    </tr>
+                    <tr>
+                        <th class="text-left">Preço</th>
+                        <td>R$</td>
+                    </tr>
+                    <tr>
+                        <th class="text-left">Preço</th>
+                        <td>R$</td>
+                    </tr>
+                    <tr>
+                        <th class="text-left">Preço</th>
+                        <td>R$</td>
+                    </tr>
+                    
+                    
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-6">
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <th class="text-left">Preço</th>
+                        <td>R$</td>
+                    </tr>
+                    <tr>
+                        <th class="text-left">Preço</th>
+                        <td>R$</td>
+                    </tr>
+                    <tr>
+                        <th class="text-left">Preço</th>
+                        <td>R$</td>
+                    </tr>
+                    <tr>
+                        <th class="text-left">Preço</th>
+                        <td>R$</td>
+                    </tr>
+                    <tr>
+                        <th class="text-left">Preço</th>
+                        <td>R$</td>
+                    </tr>
+                    <tr>
+                        <th class="text-left">Preço</th>
+                        <td>R$</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
 <script>    
@@ -193,18 +237,19 @@
 
         // CALCULA MULTA POR ATRASO 
         var valor_multa = parseFloat((valor_parcela*0.020)).toFixedDown(2)
-        document.getElementById('multa').value = valor_multa
-        document.getElementById('multa_info').value = valor_multa
+        document.getElementById('multa').value = valor_multa       
+        document.getElementById('multa_info').innerHTML = 'R$ '+valor_multa
+        
 
         // CALCULA JUROS AO DIA
         var juros_ao_dia = (valor_parcela*0.0066).toFixedDown(2)
         document.getElementById('juros_ao_dia').value = juros_ao_dia
-        document.getElementById('juros_ao_dia_info').value = juros_ao_dia
+        document.getElementById('juros_ao_dia_info').innerHTML = 'R$ '+juros_ao_dia
 
         // ENVIA O VALOR MUTUADO
         valor_mutuado = valor_mutuado.toFixedDown(2)
         document.getElementById('valor_mutuado').value = valor_mutuado
-        document.getElementById('valor_mutuado_info').value = valor_mutuado
+        document.getElementById('valor_mutuado_info').innerHTML = 'R$ '+valor_mutuado
 
         
     }
