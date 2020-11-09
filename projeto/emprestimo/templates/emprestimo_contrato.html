@@ -288,7 +288,7 @@ window.onload = function imprimir(){
     var representante               = "{{object.cliente_cnpj.rep_nome}}"
     var representante_cpf           = "{{object.cliente_cnpj.rep_cpf}}"
     var representante_rg            = "{{object.cliente_cnpj.rep_rg}}"    
-    var rep_org_emissor            = "{{object.cliente_cnpj.rep_org_emissor}}"    
+    var rep_orgao_emissor            = "{{object.cliente_cnpj.rep_orgao_emissor}}"    
     var rep_estado_civil            = "{{object.cliente_cnpj.rep_estado_civil}}" 
     var rep_nacionalidade           = "{{object.cliente_cnpj.rep_nacionalidade}}"
     var representante_cep           = "{{object.cliente_cnpj.rep_cep}}"
@@ -691,7 +691,7 @@ window.onload = function imprimir(){
             <strong> II.1-REPRESENTANTE MUTUÁRIA </strong><br>
             Nome: ${representante},
             CPF:  ${representante_cpf},
-            RG/órgão Emissor: ${representante_rg}, ${rep_org_emissor}, Nacionalidade: ${rep_nacionalidade}, Estado Civil: ${rep_estado_civil}
+            RG/órgão Emissor: ${representante_rg}, ${rep_orgao_emissor}, Nacionalidade: ${rep_nacionalidade}, Estado Civil: ${rep_estado_civil}
             Endereço: ${representante_rua}, ${representante_numero_casa}, ${representante_bairro}, 
             ${representante_cidade}-${representante_uf}, CEP: ${representante_cep}
         </div>
@@ -704,7 +704,7 @@ window.onload = function imprimir(){
             <strong> III-DO GARANTIDOR - FIADOR </strong><br>
             Nome: ${representante},
             CPF:  ${representante_cpf},
-            RG/órgão Emissor: ${representante_rg}, ${rep_org_emissor}, Nacionalidade: ${rep_nacionalidade}, Estado Civil: ${rep_estado_civil}
+            RG/órgão Emissor: ${representante_rg}, ${rep_orgao_emissor}, Nacionalidade: ${rep_nacionalidade}, Estado Civil: ${rep_estado_civil}
             Endereço: ${representante_rua}, ${representante_numero_casa}, ${representante_bairro}, 
             ${representante_cidade}-${representante_uf}, CEP: ${representante_cep}
         </div>
