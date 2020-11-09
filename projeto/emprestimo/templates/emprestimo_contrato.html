@@ -79,8 +79,7 @@
         position: relative;
         font-size: 17px;
         text-align: justify;
-        padding: 10px; 
-        
+        padding: 10px;         
     }
     
     table {
@@ -88,9 +87,11 @@
         width: 80%;
         position: center;
         border-collapse: collapse;        
-        margin-left: 90px;
-        
+        margin-left: 90px;        
     } 
+    .maiusculo {
+        text-transform: capitalize;
+    }
     /*CSS para impressão*/
     
     @media print {
@@ -126,9 +127,7 @@
     .datacao{
         margin-right: 40px;
     }
-    .maiusculo {
-        text-transform: capitalize;
-    }
+   
     
     /* <button class="print">Print</button> */
     
@@ -680,7 +679,7 @@ window.onload = function imprimir(){
 
         <div class="quadro" > 
             <strong> II-CONTRATANTE MUTUÁRIA </strong><br>
-            Nome/Razão Social: ${razao_social},
+            Nome/Razão Social: <a class="maiusculo">${razao_social}</a>,
             CNPJ: ${cnpj},
             Endereço: ${cnpj_rua}, ${cnpj_numero_casa}, ${cnpj_bairro}, ${cnpj_cidade}-${cnpj_uf} CEP: ${cnpj_cep},
             Telefone: ${cnpj_celular1},
