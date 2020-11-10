@@ -8,11 +8,11 @@
 <!--  -->
 {% block content %}
     <style> 
-        .table, td, .table th { 
-            font-size: 12px;        
-            padding: -14.75rem;
-            margin: 0%;
-            font-weight: lighter;
+        .table td, .table th {             
+            padding-left: 10px;
+            padding-top: 0px;  
+            padding-bottom: 0px;  
+            border-top: 1px solid #000000;
         }    
     </style>
 
@@ -121,31 +121,25 @@
             <table class="table table-striped">                
                 <tbody>
                     <tr >
-                        <th class="text-left">{{form.valor_multa.label}}</th>
-                        <td id="multa_info"></td>
+                        <th class="text-left" style="width:60%">{{form.valor_multa.label}}</th>                        
+                        <th class="text-center" style="width:10%">R$</th>
+                        <th class="text-right" id="multa_info" style="width:30%"></th>
                     </tr>
                     <tr>
-                        <th class="text-left">{{form.juros_ao_dia.label}}</th>
-                        <td id="juros_ao_dia_info"></td>
+                        <th class="text-left" style="width:60%">{{form.juros_ao_dia.label}}</th>  
+                        <th class="text-center" style="width:10%">R$</th>
+                        <th class="text-right" id="juros_ao_dia_info" style="width:30%"></th>
                     </tr>
                     <tr>
-                        <th class="text-left">{{form.valor_mutuado.label}}</th>
-                        <td id="valor_mutuado_info"></td>
+                        <th class="text-left" style="width:60%">{{form.valor_mutuado.label}}</th> 
+                        <th class="text-center" style="width:10%">R$</th>
+                        <th class="text-right" id="valor_mutuado_info" style="width:30%"></th>
                     </tr>
                     <tr>
-                        <th class="text-left"></th>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th class="text-left"></th>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th class="text-left"></th>
-                        <td></td>
-                    </tr>
-                    
-                    
+                        <th class="text-left" style="width:60%">Taxa de Juros a.m</th>
+                        <th class="text-center" style="width:10%" style="width:30%">%</th>
+                        <th class="text-right" id="taxa_juros_a_m_info"></th>
+                    </tr>    
                 </tbody>
             </table>
         </div>
@@ -235,27 +229,31 @@
         var prestacao          = Number(tprestacao.value)    
         var valor_mutuado = iof_real+valor_emprestado   
         var valor_parcela = 0
-        valor_parcela = (valor_mutuado*(1+(qtd_parcelas*9.5)/100))/qtd_parcelas
+        var taxa_juros_a_m = 9.5
+        valor_parcela = (valor_mutuado*(1+(qtd_parcelas*taxa_juros_a_m)/100))/qtd_parcelas
         valor_parcela = valor_parcela.toFixedDown(2)
         valor_parcela = valor_parcela.toFixed(2)
         document.getElementById('prestacao').value = valor_parcela
 
         // CALCULA MULTA POR ATRASO 
-        var valor_multa = parseFloat((valor_parcela*0.020)).toFixedDown(2)
+        var valor_multa = parseFloat((valor_parcela*0.020)).toFixedDown(2).toFixed(2)
         document.getElementById('multa').value = valor_multa       
-        document.getElementById('multa_info').innerHTML = 'R$ '+valor_multa
+        document.getElementById('multa_info').innerHTML = valor_multa.toString().replace(".", ",")
         
 
         // CALCULA JUROS AO DIA
-        var juros_ao_dia = (valor_parcela*0.0066).toFixedDown(2)
+        var juros_ao_dia = (valor_parcela*0.0066).toFixedDown(2).toFixed(2)       	
         document.getElementById('juros_ao_dia').value = juros_ao_dia
-        document.getElementById('juros_ao_dia_info').innerHTML = 'R$ '+juros_ao_dia
+        document.getElementById('juros_ao_dia_info').innerHTML = juros_ao_dia.toString().replace(".", ",")
 
         // ENVIA O VALOR MUTUADO
-        valor_mutuado = valor_mutuado.toFixedDown(2)
+        valor_mutuado = valor_mutuado.toFixedDown(2).toFixed(2)
         document.getElementById('valor_mutuado').value = valor_mutuado
-        document.getElementById('valor_mutuado_info').innerHTML = 'R$ '+valor_mutuado
+        document.getElementById('valor_mutuado_info').innerHTML = valor_mutuado.toString().replace(".", ",")
 
+        // CALCULA TAXA DE JUROS AO MÊS
+        taxa_juros_a_m = taxa_juros_a_m.toFixedDown(2).toFixed(2)
+        document.getElementById('taxa_juros_a_m_info').innerHTML = taxa_juros_a_m.toString().replace(".", ",")
         
     }
 
