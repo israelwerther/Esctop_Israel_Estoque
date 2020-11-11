@@ -9,7 +9,8 @@ class EmprestimoAdmin(admin.ModelAdmin):
     search_fields=('n_contrato',)
     # readonly_fields = ["valor_prestacao", ]
     # list_filter=('rg',)   
-    ordering = ('-n_contrato',)
+    ordering = ('-dt_emprestimo',)
+
     
 @admin.register(EmprestimoPagamento)
 class EmprestimoPagamentoAdmin(admin.ModelAdmin):
@@ -17,4 +18,7 @@ class EmprestimoPagamentoAdmin(admin.ModelAdmin):
         'valor_pago', 'data_pagamento', 'emprestimo',       
     )
     ordering = ('-data_pagamento',)
+
+    
+
     

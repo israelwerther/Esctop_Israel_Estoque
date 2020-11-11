@@ -12,7 +12,10 @@
             padding-left: 10px;
             padding-top: 0px;  
             padding-bottom: 0px;  
-            border-top: 1px solid #000000;
+            border-top: 1px solid #000000;            
+            border-bottom: 1px solid #000000;            
+            border-left: 1px solid #000000;            
+            border-right: 1px solid #000000;            
         }    
     </style>
 
@@ -75,6 +78,7 @@
                     {% render_field form.valor_prestacao|append_attr:"readonly:readonly" class="form-control" id="prestacao" %}
                 </div>  
             </div> 
+            <!-- INPUTS OCULTAS  -->
             <div class="col-sm-3" style="display: none;"> 
                 <div class="form-group">
                     <label for="">{{form.valor_multa.label}}</label>
@@ -91,6 +95,12 @@
                 <div class="form-group">
                     <label for="">{{form.valor_mutuado.label}}</label>
                     {% render_field form.valor_mutuado class="form-control" id="valor_mutuado" %}
+                </div>  
+            </div>  
+            <div class="col-sm-3" style="display: none;"> 
+                <div class="form-group">
+                    <label for="">{{form.juros_ao_mes.label}}</label>
+                    {% render_field form.juros_ao_mes class="form-control" id="juros_ao_mes" %}
                 </div>  
             </div> 
             <!-- ELEMENTOS OCULTOS -->
@@ -138,8 +148,8 @@
                     <tr>
                         <th class="text-left" style="width:60%">Taxa de Juros a.m</th>
                         <th class="text-center" style="width:10%" style="width:30%">%</th>
-                        <th class="text-right" id="taxa_juros_a_m_info"></th>
-                    </tr>    
+                        <th class="text-right" id="juros_ao_mes_info"></th>
+                    </tr>   
                 </tbody>
             </table>
         </div>
@@ -175,7 +185,16 @@
         </div>
     </div>
 
-<script>    
+    
+    <script>   
+     
+    function numberToReal(numero) {
+        var numero = numero.toFixed(2).split('.');
+        numero[0] = " " + numero[0].split(/(?=(?:...)*$)/).join('.');
+        return numero.join(',');
+    }
+
+
     Number.prototype.toFixedDown = function(digits){
 		var re = new RegExp("(\\d+\\.\\d{" + digits + "})(\\d)"),
 		m = this.toString().match(re);
@@ -246,14 +265,15 @@
         document.getElementById('juros_ao_dia').value = juros_ao_dia
         document.getElementById('juros_ao_dia_info').innerHTML = juros_ao_dia.toString().replace(".", ",")
 
-        // ENVIA O VALOR MUTUADO
-        valor_mutuado = valor_mutuado.toFixedDown(2).toFixed(2)
+        // LANÇA O VALOR MUTUADO
+        valor_mutuado = valor_mutuado.toFixedDown(2)
         document.getElementById('valor_mutuado').value = valor_mutuado
-        document.getElementById('valor_mutuado_info').innerHTML = valor_mutuado.toString().replace(".", ",")
+        document.getElementById('valor_mutuado_info').innerHTML = numberToReal(valor_mutuado)
 
-        // CALCULA TAXA DE JUROS AO MÊS
-        taxa_juros_a_m = taxa_juros_a_m.toFixedDown(2).toFixed(2)
-        document.getElementById('taxa_juros_a_m_info').innerHTML = taxa_juros_a_m.toString().replace(".", ",")
+        // LANÇA TAXA DE JUROS AO MÊS
+        var juros_ao_mes = taxa_juros_a_m
+        document.getElementById('juros_ao_mes').value = juros_ao_mes
+        document.getElementById('juros_ao_mes_info').innerHTML = numberToReal(juros_ao_mes)
         
     }
 

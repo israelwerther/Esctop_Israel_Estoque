@@ -6,6 +6,9 @@ from django.utils.translation import gettext_lazy as _
 from projeto.cliente.models import Cliente
 from projeto.cliente_cnpj.models import Cliente_cnpj
 
+# VERIFICAR AS FUNÇÕES DESSA BIBLIOTECA
+# from decimal import Decimal
+
 import math
 
 class Emprestimo(models.Model):
@@ -21,6 +24,7 @@ class Emprestimo(models.Model):
     valor_multa      = models.DecimalField("Multa por atraso", max_digits=10, decimal_places=2, null=True, blank=True)
     juros_ao_dia     = models.DecimalField("Juros ao dia", max_digits=10, decimal_places=2, null=True, blank=True)
     valor_mutuado    = models.DecimalField("Valor mutuado", max_digits=10, decimal_places=2, null=True, blank=True)
+    juros_ao_mes     = models.DecimalField("Juros ao mês", max_digits=10, decimal_places=2, null=True, blank=True)
 
     class Meta:
         ordering = ('-dt_emprestimo',)        
@@ -42,5 +46,5 @@ class EmprestimoPagamento(models.Model):
     valor_pago           = models.DecimalField("Valor Pago", max_digits=10, decimal_places=2, null=True, blank=True)
     data_pagamento       = models.DateField("Data do Pagamento", auto_now_add=False, auto_now=False, null=True,blank=True,)
 
-    
-    
+   
+
