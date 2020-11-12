@@ -41,8 +41,7 @@
                 {% render_field form.nome_fantasia class="form-control" %}
             </div>
         </div>        
-        
-        <div class="col-sm-4">                    
+        <div class="col-sm-3">                    
             <div class="form-group" >                
                 <label for="" class="required" >{{form.cnpj.label}} </label>        
                 {% render_field form.cnpj class="form-control cnpj-mask" %}
@@ -63,19 +62,14 @@
             </div>
         </div>  
         {% endif %}
-        <div class="col-sm-5">                    
-            <div class="form-group" >                
-                <label for="" >{{form.forma_constituicao.label}} </label>        
-                {% render_field form.forma_constituicao class="form-control" %}
-            </div>
-        </div>    
-        <div class="col-sm-6">                    
+        
+        <div class="col-sm-3">                    
             <div class="form-group" >                
                 <label for="" class="required" >{{form.inscricao_estadual.label}} </label>        
                 {% render_field form.inscricao_estadual class="form-control insc-est-mask" %}
             </div>
         </div> 
-        <div class="col-sm-6">                    
+        <div class="col-sm-3">                    
             <div class="form-group" >                
                 <label for="" class="required" >{{form.inscricao_municipal.label}} </label>        
                 {% render_field form.inscricao_municipal class="form-control" %}
